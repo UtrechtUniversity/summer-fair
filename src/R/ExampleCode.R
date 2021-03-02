@@ -1,17 +1,20 @@
 ###################################################################
 #   Example code loading and analysing transmission data in R     #
 ###################################################################
+rm(list = ls())
 
 #libraries####
-library(lme4)
-library(readxl)
-library(dplyr)
+library(tidyverse) # tidier coding
+library(SPARQL) # SPARQL querying package
+library(lme4)   # generalized linear mixed-effects models
+library(readxl) # read excel files
+
 
 #load data file####
 data1 <- read_xlsx("C://Surfdrive//Projecten//SUMMERFAIR//ProjectShareSUMMERFAIR//Data//DatasetA//results_exp3_r123_rfile.xlsx")
 data2 <- read_xlsx("C://Surfdrive//Projecten//SUMMERFAIR//ProjectShareSUMMERFAIR//Data//DatasetB//analyse resultaten_exp4.xlsx")
 
-#manipulate data to get the write input####
+#manipulate data to get the right input####
 #function to determine if defined as positive or negative often more complicated than this but same input
 status.function <- function(data){
   res <- tibble();print(colnames(data));
@@ -25,16 +28,18 @@ status.function <- function(data){
   print(res);
   return(res)
 }
+
 #do data set 1
-data1<- data1[1:269,]
+data1<- data1%>%filter(!is.na(animalnr)) #remove rows without animalnumber
 sample.days1<-c(c(1:14),16,19,21)#this is something I know but should be part of the data set
-deltat.days1<- tail(sample.days1,-1)-head(sample.days1,-1);
-count.data1 <- cbind(data1[,c("round","isolator","treatment","S_I")], select(data1, contains("count_ESBL")&!contains("cae")))#counts except for the caecal sample
-status.data1 <- cbind(data1[,c("round","isolator","treatment","S_I")],data.frame(status.function(select(data1, contains("count_ESBL")&!contains("cae")))))
+deltat.days1<- tail(sample.days1,-1)-head(sample.days1,-1);#time intervals
+
+count.data1 <- cbind(data1[,c("round","isolator","treatment","S_I")], select(data1, contains("count_ESBL")&!contains("cae")));  #counts except for the caecal sample
+status.data1 <- cbind(data1[,c("round","isolator","treatment","S_I")],data.frame(status.function(select(data1, contains("count_ESBL")&!contains("cae"))))); #sample status except for the caecal sample
+
 #count number of infected at previous time step, number of new cases per group
 aggregate.data1 <- NULL
-for(i in c(1:(length(deltat.days1)-1)))
-    {
+for(i in c(1:(length(deltat.days1)-1))){
       #
   aggregate.data1 <-rbind(aggregate.data1,
                           data.frame(C = aggregate(status.data1[,i+4+1]-status.data1[,i+4],by = list(status.data1$isolator),function(input){sum(input>0,na.rm = T)})$x,#cases
@@ -48,21 +53,18 @@ for(i in c(1:(length(deltat.days1)-1)))
                      )) 
       
 }
+
 #"local algorithm"####
 model<- function(data.set)
 {
-  s = data.set$S; i = data.set$I; cases = data.set$C; n = data.set$N; dt = data.set$deltat;
   
-  #number of treatments
-  num.of.treat <- length(unique(data.set$Treatment))
-  t = data.set$Treatment #treatments coded as 0,1,2
   #create likelihood function
   logLikelihood <- function(b){
-     -sum(cases*(-(b[1] + c(0,b)[t+1]) * (i/n)*dt) + (s-cases)*log((1-exp(-(b[1] + c(0,b)[t+1])*(i/n)*dt))))
+     with(data.set,-sum(C*(-(b[1] + c(0,b)[Treatment+1]) * (I/N)*deltat) + (S-C)*log((1-exp(-(b[1] + c(0,b)[Treatment+1])*(I/N)*deltat)))))
     
   }
   
-  return(c(logLikelihood,num.of.treat))
+  return(c(logLikelihood,length(unique(data.set$Treatment))))
 }
 
 #apply local algorithm
