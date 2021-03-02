@@ -64,11 +64,11 @@ model<- function(data.set)
   
   return(c(logLikelihood,num.of.treat))
 }
+
 #apply local algorithm
-sel.data1 <- aggregate.data1%>%filter(I>0)
+sel.data1 <- aggregate.data1%>%filter(I>0)#select time intervals with I>0 
 model.data1 <- model(sel.data1)# returns likelihood function and number of classes
-#model.data1 can be used in estimation procedures
-fit <- nlm(model.data1[[1]],c(1,1,1))
+fit <- nlm(model.data1[[1]],c(1,1,1))#model.data1 can be used in estimation procedures
 
 # general algorithm to improve accuracy####
 combine.logLik <- function(lls){
