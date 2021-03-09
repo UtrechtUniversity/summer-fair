@@ -1,0 +1,263 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/trans_experiment/"
+     xml:base="http://www.semanticweb.org/trans_experiment/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/trans_experiment/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#hasPathogen -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#hasPathogen">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#Sample"/>
+        <rdfs:range rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#Pathogen"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#hasType -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#hasType">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#Measurement"/>
+        <rdfs:range rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#MeasurementType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#involves -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#involves">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#Measurement"/>
+        <rdfs:range rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#Individual"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#locatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#locatedIn">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#Individual"/>
+        <rdfs:range rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#experimentDay -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#experimentDay">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#Measurement"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#feedConsumption -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#feedConsumption"/>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#group -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#group"/>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#house -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#house">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#Location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#id -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#id">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#Individual"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#name -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#name">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#Pathogen"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#number -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#number">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#Location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#pen -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#pen">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#Location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#sample -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#sample">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#Measurement"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#sex -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#sex">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#Individual"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#treatment -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#treatment">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#Individual"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#type -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#type">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#Individual"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#weight -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#weight"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#Individual -->
+
+    <owl:Class rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#Individual"/>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#Location -->
+
+    <owl:Class rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#Location"/>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#Measurement -->
+
+    <owl:Class rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#Measurement"/>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#MeasurementType -->
+
+    <owl:Class rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#MeasurementType"/>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#Pathogen -->
+
+    <owl:Class rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#Pathogen"/>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#Sample -->
+
+    <owl:Class rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#Sample">
+        <rdfs:subClassOf rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#Measurement"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#Bootsock -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#Bootsock">
+        <rdf:type rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#MeasurementType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#Caeca -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#Caeca">
+        <rdf:type rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#MeasurementType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#Swab -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#Swab">
+        <rdf:type rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#MeasurementType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/trans_experiment.owl#Weight -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/NET/c4dm/trans_experiment.owl#Weight">
+        <rdf:type rdf:resource="http://purl.org/NET/c4dm/trans_experiment.owl#MeasurementType"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
