@@ -8,7 +8,7 @@ library(tidyverse) # tidier coding
 library(SPARQL) # SPARQL querying package
 library(lme4)   # generalized linear mixed-effects models
 library(readxl) # read excel files
-
+source("src/R/SPARQLExamples.R")
 
 #load data file####
 data1 <- read_xlsx("C://Surfdrive//Projecten//SUMMERFAIR//ProjectShareSUMMERFAIR//Data//DatasetA//results_exp3_r123_rfile.xlsx")
@@ -33,6 +33,7 @@ status.function <- function(data){
 data1<- data1%>%filter(!is.na(animalnr)) #remove rows without animalnumber
 sample.days1<-c(c(1:14),16,19,21)#this is something I know but should be part of the data set
 deltat.days1<- tail(sample.days1,-1)-head(sample.days1,-1);#time intervals
+
 
 count.data1 <- cbind(data1[,c("round","isolator","treatment","S_I")], select(data1, contains("count_ESBL")&!contains("cae")));  #counts except for the caecal sample
 status.data1 <- cbind(data1[,c("round","isolator","treatment","S_I")],data.frame(status.function(select(data1, contains("count_ESBL")&!contains("cae"))))); #sample status except for the caecal sample
@@ -82,6 +83,26 @@ combine.logLik <- function(lls){
 
 
 
+
+#get dates of swab using SPARQL function get.dates.swab()
+# and convert it to numeric vector
+# time intervals can be calculated as before 
+dates.swab <- sort(as.double(get.dates.swab()$date))
+
+#rewriting the status.function
+# create the data about the final staus od swab sample
+# positive only if the previous sample is positive as well
+
+for(index in c(1:(length(dates.swab)-1))){
+  current.date <- dates.swab[index]
+  next.date <- dates.swab[index+1]
+  cat(paste("Create the triples for date %s"),current.date)
+  create.sample.value(current.date,next.date)
+  
+}
+# run SPARQL query to aggregate the data
+# return the table similar to aggregate.data1
+aggregated.data<-aggregate.data()
 
 
 
