@@ -18,7 +18,7 @@ dates.swab <- sort(as.double(get.dates.swab()$date))
 for(index in c(1:(length(dates.swab)-1))){
   current.date <- dates.swab[index]
   next.date <- dates.swab[index+1]
-  print(paste("Create the triples for date %s"),current.date)
+  cat(paste("Create the triples for date %s"),current.date)
   create.sample.value(current.date,next.date)
 
 }
