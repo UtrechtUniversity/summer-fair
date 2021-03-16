@@ -21,8 +21,9 @@ get.dates.swab <- function(){
 }
 
 create.sample.value <- function(current.date, next.date){
-    #SPARQL query to create final sample.
-    #only two positive samples after each other are really positive
+    # SPARQL query to create final sample.
+    # takes as an argument 2 dates of the experiment and compares samples
+    # only two positive samples after each other are really positive
     sparql <- sprintf(" PREFIX tr: <http://purl.org/NET/c4dm/trans_experiment#>
               PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
               PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -56,9 +57,9 @@ create.sample.value <- function(current.date, next.date){
 }
 
 aggregate.data <- function(){
-    #SPARQL query to get the aggregate the data
-    #should only be run if we  created the triple
-    #with final sample create.sample.value
+    # SPARQL query to get the aggregate the data
+    # should only be run if we  created the triple
+    # with final sample create.sample.value
     sparql1 <- " PREFIX tr: <http://purl.org/NET/c4dm/trans_experiment#>
               PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
               PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -79,7 +80,7 @@ aggregate.data <- function(){
 }
 
 swab.data <- function(){
-    #SPARQL query to get the swab data
+    # SPARQL query to get the swab data
     sparql1 <- "  PREFIX tr: <http://purl.org/NET/c4dm/trans_experiment#>
               PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
               PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -101,7 +102,7 @@ swab.data <- function(){
 
 
 chicken.info <- function(){
-    #SPARQL query to get the information about the chicken
+    # SPARQL query to get the information about the chicken
     sparql <- " PREFIX tr: <http://purl.org/NET/c4dm/trans_experiment#>
               PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
               PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
