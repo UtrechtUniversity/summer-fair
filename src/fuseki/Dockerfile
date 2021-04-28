@@ -1,8 +1,11 @@
-FROM rocker/tidyverse:4.0.0
+FROM rocker/rstudio:3.6.3
 COPY . /usr/local/src/myscripts
 WORKDIR  /usr/local/src/myscripts
 # Install R packages
-RUN install2.r --error \
-    SPARQL 
+RUN apt-get update -qq && apt-get -y --no-install-recommends install \
+  libxml2-dev \
+  && install2.r --error \
+  --deps TRUE \
+    SPARQL
 CMD ["Rscript", "SparqlQueries.R"]
 
