@@ -1,0 +1,3370 @@
+@prefix : <http://www.semanticweb.org/trans_experiment/> .
+@prefix ns1: <http://purl.org/NET/c4dm/trans_experiment#> .
+@prefix om2: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ns1:11 ns1:experimentDay "11" ;
+    ns1:hasSample ns1:103d11_count_ESBL11,
+        ns1:107d11_count_ESBL11,
+        ns1:111d11_count_ESBL11,
+        ns1:114d11_count_ESBL11,
+        ns1:115d11_count_ESBL11,
+        ns1:121d11_count_ESBL11,
+        ns1:124d11_count_ESBL11,
+        ns1:130d11_count_ESBL11,
+        ns1:138d11_count_ESBL11,
+        ns1:140d11_count_ESBL11,
+        ns1:141d11_count_ESBL11,
+        ns1:142d11_count_ESBL11,
+        ns1:146d11_count_ESBL11,
+        ns1:153d11_count_ESBL11,
+        ns1:154d11_count_ESBL11,
+        ns1:163d11_count_ESBL11,
+        ns1:177d11_count_ESBL11,
+        ns1:178d11_count_ESBL11,
+        ns1:190d11_count_ESBL11 .
+
+ns1:12 ns1:experimentDay "12" ;
+    ns1:hasSample ns1:103d12_count_ESBL12,
+        ns1:107d12_count_ESBL12,
+        ns1:111d12_count_ESBL12,
+        ns1:114d12_count_ESBL12,
+        ns1:115d12_count_ESBL12,
+        ns1:121d12_count_ESBL12,
+        ns1:124d12_count_ESBL12,
+        ns1:130d12_count_ESBL12,
+        ns1:138d12_count_ESBL12,
+        ns1:140d12_count_ESBL12,
+        ns1:141d12_count_ESBL12,
+        ns1:142d12_count_ESBL12,
+        ns1:146d12_count_ESBL12,
+        ns1:153d12_count_ESBL12,
+        ns1:154d12_count_ESBL12,
+        ns1:163d12_count_ESBL12,
+        ns1:177d12_count_ESBL12,
+        ns1:178d12_count_ESBL12,
+        ns1:190d12_count_ESBL12 .
+
+ns1:13 ns1:experimentDay "13" ;
+    ns1:hasSample ns1:103d13_count_ESBL13,
+        ns1:107d13_count_ESBL13,
+        ns1:111d13_count_ESBL13,
+        ns1:114d13_count_ESBL13,
+        ns1:115d13_count_ESBL13,
+        ns1:121d13_count_ESBL13,
+        ns1:124d13_count_ESBL13,
+        ns1:130d13_count_ESBL13,
+        ns1:138d13_count_ESBL13,
+        ns1:140d13_count_ESBL13,
+        ns1:141d13_count_ESBL13,
+        ns1:142d13_count_ESBL13,
+        ns1:146d13_count_ESBL13,
+        ns1:153d13_count_ESBL13,
+        ns1:154d13_count_ESBL13,
+        ns1:163d13_count_ESBL13,
+        ns1:177d13_count_ESBL13,
+        ns1:178d13_count_ESBL13,
+        ns1:190d13_count_ESBL13 .
+
+ns1:14 ns1:experimentDay "14" ;
+    ns1:hasSample ns1:103d14_count_ESBL14,
+        ns1:107d14_count_ESBL14,
+        ns1:111d14_count_ESBL14,
+        ns1:114d14_count_ESBL14,
+        ns1:115d14_count_ESBL14,
+        ns1:121d14_count_ESBL14,
+        ns1:124d14_count_ESBL14,
+        ns1:130d14_count_ESBL14,
+        ns1:138d14_count_ESBL14,
+        ns1:140d14_count_ESBL14,
+        ns1:141d14_count_ESBL14,
+        ns1:142d14_count_ESBL14,
+        ns1:146d14_count_ESBL14,
+        ns1:153d14_count_ESBL14,
+        ns1:154d14_count_ESBL14,
+        ns1:163d14_count_ESBL14,
+        ns1:177d14_count_ESBL14,
+        ns1:178d14_count_ESBL14,
+        ns1:190d14_count_ESBL14 .
+
+ns1:16 ns1:experimentDay "16" ;
+    ns1:hasSample ns1:103d16_count_ESBL16,
+        ns1:107d16_count_ESBL16,
+        ns1:111d16_count_ESBL16,
+        ns1:114d16_count_ESBL16,
+        ns1:115d16_count_ESBL16,
+        ns1:121d16_count_ESBL16,
+        ns1:124d16_count_ESBL16,
+        ns1:130d16_count_ESBL16,
+        ns1:138d16_count_ESBL16,
+        ns1:140d16_count_ESBL16,
+        ns1:141d16_count_ESBL16,
+        ns1:142d16_count_ESBL16,
+        ns1:146d16_count_ESBL16,
+        ns1:153d16_count_ESBL16,
+        ns1:154d16_count_ESBL16,
+        ns1:163d16_count_ESBL16,
+        ns1:177d16_count_ESBL16,
+        ns1:178d16_count_ESBL16,
+        ns1:190d16_count_ESBL16 .
+
+ns1:19 ns1:experimentDay "19" ;
+    ns1:hasSample ns1:103d19_count_ESBL19,
+        ns1:107d19_count_ESBL19,
+        ns1:111d19_count_ESBL19,
+        ns1:114d19_count_ESBL19,
+        ns1:115d19_count_ESBL19,
+        ns1:121d19_count_ESBL19,
+        ns1:124d19_count_ESBL19,
+        ns1:130d19_count_ESBL19,
+        ns1:138d19_count_ESBL19,
+        ns1:140d19_count_ESBL19,
+        ns1:141d19_count_ESBL19,
+        ns1:142d19_count_ESBL19,
+        ns1:146d19_count_ESBL19,
+        ns1:153d19_count_ESBL19,
+        ns1:154d19_count_ESBL19,
+        ns1:163d19_count_ESBL19,
+        ns1:177d19_count_ESBL19,
+        ns1:178d19_count_ESBL19,
+        ns1:190d19_count_ESBL19 .
+
+ns1:2 ns1:experimentDay "2" ;
+    ns1:hasSample ns1:103d2_count_ESBL2,
+        ns1:107d2_count_ESBL2,
+        ns1:111d2_count_ESBL2,
+        ns1:114d2_count_ESBL2,
+        ns1:115d2_count_ESBL2,
+        ns1:121d2_count_ESBL2,
+        ns1:124d2_count_ESBL2,
+        ns1:130d2_count_ESBL2,
+        ns1:138d2_count_ESBL2,
+        ns1:140d2_count_ESBL2,
+        ns1:141d2_count_ESBL2,
+        ns1:142d2_count_ESBL2,
+        ns1:146d2_count_ESBL2,
+        ns1:153d2_count_ESBL2,
+        ns1:154d2_count_ESBL2,
+        ns1:163d2_count_ESBL2,
+        ns1:177d2_count_ESBL2,
+        ns1:178d2_count_ESBL2,
+        ns1:190d2_count_ESBL2 .
+
+ns1:21 ns1:experimentDay "21" ;
+    ns1:hasSample ns1:103d21_count_ESBL21,
+        ns1:103weightd2121,
+        ns1:107d21_count_ESBL21,
+        ns1:107weightd2121,
+        ns1:111d21_count_ESBL21,
+        ns1:111weightd2121,
+        ns1:114d21_count_ESBL21,
+        ns1:114weightd2121,
+        ns1:115d21_count_ESBL21,
+        ns1:115weightd2121,
+        ns1:121d21_count_ESBL21,
+        ns1:121weightd2121,
+        ns1:124d21_count_ESBL21,
+        ns1:124weightd2121,
+        ns1:130d21_count_ESBL21,
+        ns1:130weightd2121,
+        ns1:138d21_count_ESBL21,
+        ns1:138weightd2121,
+        ns1:140d21_count_ESBL21,
+        ns1:140weightd2121,
+        ns1:141d21_count_ESBL21,
+        ns1:141weightd2121,
+        ns1:142d21_count_ESBL21,
+        ns1:142weightd2121,
+        ns1:146d21_count_ESBL21,
+        ns1:146weightd2121,
+        ns1:153d21_count_ESBL21,
+        ns1:153weightd2121,
+        ns1:154d21_count_ESBL21,
+        ns1:154weightd2121,
+        ns1:163d21_count_ESBL21,
+        ns1:163weightd2121,
+        ns1:177d21_count_ESBL21,
+        ns1:177weightd2121,
+        ns1:178d21_count_ESBL21,
+        ns1:178weightd2121,
+        ns1:190d21_count_ESBL21,
+        ns1:190weightd2121 .
+
+ns1:3 ns1:experimentDay "3" ;
+    ns1:hasSample ns1:103d3_count_ESBL3,
+        ns1:107d3_count_ESBL3,
+        ns1:111d3_count_ESBL3,
+        ns1:114d3_count_ESBL3,
+        ns1:115d3_count_ESBL3,
+        ns1:121d3_count_ESBL3,
+        ns1:124d3_count_ESBL3,
+        ns1:130d3_count_ESBL3,
+        ns1:138d3_count_ESBL3,
+        ns1:140d3_count_ESBL3,
+        ns1:141d3_count_ESBL3,
+        ns1:142d3_count_ESBL3,
+        ns1:146d3_count_ESBL3,
+        ns1:153d3_count_ESBL3,
+        ns1:154d3_count_ESBL3,
+        ns1:163d3_count_ESBL3,
+        ns1:177d3_count_ESBL3,
+        ns1:178d3_count_ESBL3,
+        ns1:190d3_count_ESBL3 .
+
+ns1:4 ns1:experimentDay "4" ;
+    ns1:hasSample ns1:103d4_count_ESBL4,
+        ns1:107d4_count_ESBL4,
+        ns1:111d4_count_ESBL4,
+        ns1:114d4_count_ESBL4,
+        ns1:115d4_count_ESBL4,
+        ns1:121d4_count_ESBL4,
+        ns1:124d4_count_ESBL4,
+        ns1:130d4_count_ESBL4,
+        ns1:138d4_count_ESBL4,
+        ns1:140d4_count_ESBL4,
+        ns1:141d4_count_ESBL4,
+        ns1:142d4_count_ESBL4,
+        ns1:146d4_count_ESBL4,
+        ns1:153d4_count_ESBL4,
+        ns1:154d4_count_ESBL4,
+        ns1:163d4_count_ESBL4,
+        ns1:177d4_count_ESBL4,
+        ns1:178d4_count_ESBL4,
+        ns1:190d4_count_ESBL4 .
+
+ns1:5 ns1:experimentDay "5" ;
+    ns1:hasSample ns1:103d5_count_ESBL5,
+        ns1:107d5_count_ESBL5,
+        ns1:111d5_count_ESBL5,
+        ns1:114d5_count_ESBL5,
+        ns1:115d5_count_ESBL5,
+        ns1:121d5_count_ESBL5,
+        ns1:124d5_count_ESBL5,
+        ns1:130d5_count_ESBL5,
+        ns1:138d5_count_ESBL5,
+        ns1:140d5_count_ESBL5,
+        ns1:141d5_count_ESBL5,
+        ns1:142d5_count_ESBL5,
+        ns1:146d5_count_ESBL5,
+        ns1:153d5_count_ESBL5,
+        ns1:154d5_count_ESBL5,
+        ns1:163d5_count_ESBL5,
+        ns1:177d5_count_ESBL5,
+        ns1:178d5_count_ESBL5,
+        ns1:190d5_count_ESBL5 .
+
+ns1:6 ns1:experimentDay "6" ;
+    ns1:hasSample ns1:103d6_count_ESBL6,
+        ns1:107d6_count_ESBL6,
+        ns1:111d6_count_ESBL6,
+        ns1:114d6_count_ESBL6,
+        ns1:115d6_count_ESBL6,
+        ns1:121d6_count_ESBL6,
+        ns1:124d6_count_ESBL6,
+        ns1:130d6_count_ESBL6,
+        ns1:138d6_count_ESBL6,
+        ns1:140d6_count_ESBL6,
+        ns1:141d6_count_ESBL6,
+        ns1:142d6_count_ESBL6,
+        ns1:146d6_count_ESBL6,
+        ns1:153d6_count_ESBL6,
+        ns1:154d6_count_ESBL6,
+        ns1:163d6_count_ESBL6,
+        ns1:177d6_count_ESBL6,
+        ns1:178d6_count_ESBL6,
+        ns1:190d6_count_ESBL6 .
+
+ns1:7 ns1:experimentDay "7" ;
+    ns1:hasSample ns1:103d7_count_ESBL7,
+        ns1:107d7_count_ESBL7,
+        ns1:111d7_count_ESBL7,
+        ns1:114d7_count_ESBL7,
+        ns1:115d7_count_ESBL7,
+        ns1:121d7_count_ESBL7,
+        ns1:124d7_count_ESBL7,
+        ns1:130d7_count_ESBL7,
+        ns1:138d7_count_ESBL7,
+        ns1:140d7_count_ESBL7,
+        ns1:141d7_count_ESBL7,
+        ns1:142d7_count_ESBL7,
+        ns1:146d7_count_ESBL7,
+        ns1:153d7_count_ESBL7,
+        ns1:154d7_count_ESBL7,
+        ns1:163d7_count_ESBL7,
+        ns1:177d7_count_ESBL7,
+        ns1:178d7_count_ESBL7,
+        ns1:190d7_count_ESBL7 .
+
+ns1:8 ns1:experimentDay "8" ;
+    ns1:hasSample ns1:103d8_count_ESBL8,
+        ns1:107d8_count_ESBL8,
+        ns1:111d8_count_ESBL8,
+        ns1:114d8_count_ESBL8,
+        ns1:115d8_count_ESBL8,
+        ns1:121d8_count_ESBL8,
+        ns1:124d8_count_ESBL8,
+        ns1:130d8_count_ESBL8,
+        ns1:138d8_count_ESBL8,
+        ns1:140d8_count_ESBL8,
+        ns1:141d8_count_ESBL8,
+        ns1:142d8_count_ESBL8,
+        ns1:146d8_count_ESBL8,
+        ns1:153d8_count_ESBL8,
+        ns1:154d8_count_ESBL8,
+        ns1:163d8_count_ESBL8,
+        ns1:177d8_count_ESBL8,
+        ns1:178d8_count_ESBL8,
+        ns1:190d8_count_ESBL8 .
+
+ns1:9 ns1:experimentDay "9" ;
+    ns1:hasSample ns1:103d9_count_ESBL9,
+        ns1:107d9_count_ESBL9,
+        ns1:111d9_count_ESBL9,
+        ns1:114d9_count_ESBL9,
+        ns1:115d9_count_ESBL9,
+        ns1:121d9_count_ESBL9,
+        ns1:124d9_count_ESBL9,
+        ns1:130d9_count_ESBL9,
+        ns1:138d9_count_ESBL9,
+        ns1:140d9_count_ESBL9,
+        ns1:141d9_count_ESBL9,
+        ns1:142d9_count_ESBL9,
+        ns1:146d9_count_ESBL9,
+        ns1:153d9_count_ESBL9,
+        ns1:154d9_count_ESBL9,
+        ns1:163d9_count_ESBL9,
+        ns1:177d9_count_ESBL9,
+        ns1:178d9_count_ESBL9,
+        ns1:190d9_count_ESBL9 .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#Caeca> a <http://purl.org/NET/c4dm/trans_experiment.owl#SampleType>,
+        owl:NamedIndividual .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#Swab> a <http://purl.org/NET/c4dm/trans_experiment.owl#SampleType>,
+        owl:NamedIndividual .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#Weight> a <http://purl.org/NET/c4dm/trans_experiment.owl#SampleType>,
+        owl:NamedIndividual .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#experimentDay> a owl:DatatypeProperty ;
+    rdfs:domain <http://purl.org/NET/c4dm/trans_experiment.owl#Experiment> .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#feedConsumption> a owl:DatatypeProperty .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#group> a owl:DatatypeProperty .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#hasPathogen> a owl:ObjectProperty ;
+    rdfs:domain :Sample ;
+    rdfs:range <http://purl.org/NET/c4dm/trans_experiment.owl#Pathogen> .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#hasType> a owl:ObjectProperty ;
+    rdfs:domain <http://purl.org/NET/c4dm/trans_experiment.owl#Experiment> ;
+    rdfs:range <http://purl.org/NET/c4dm/trans_experiment.owl#SampleType> .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#house> a owl:DatatypeProperty ;
+    rdfs:domain <http://purl.org/NET/c4dm/trans_experiment.owl#Location> .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#id> a owl:DatatypeProperty ;
+    rdfs:domain <http://purl.org/NET/c4dm/trans_experiment.owl#Individual> .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#involves> a owl:ObjectProperty ;
+    rdfs:domain :Sample ;
+    rdfs:range <http://purl.org/NET/c4dm/trans_experiment.owl#Individual>,
+        :Group .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#locatedIn> a owl:ObjectProperty ;
+    rdfs:domain <http://purl.org/NET/c4dm/trans_experiment.owl#Individual>,
+        :Group ;
+    rdfs:range <http://purl.org/NET/c4dm/trans_experiment.owl#Location> .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#name> a owl:DatatypeProperty ;
+    rdfs:domain <http://purl.org/NET/c4dm/trans_experiment.owl#Pathogen> .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#number> a owl:DatatypeProperty ;
+    rdfs:domain <http://purl.org/NET/c4dm/trans_experiment.owl#Location> .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#pen> a owl:DatatypeProperty ;
+    rdfs:domain <http://purl.org/NET/c4dm/trans_experiment.owl#Location> .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#sample> a owl:DatatypeProperty ;
+    rdfs:domain <http://purl.org/NET/c4dm/trans_experiment.owl#Experiment> .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#sex> a owl:DatatypeProperty ;
+    rdfs:domain <http://purl.org/NET/c4dm/trans_experiment.owl#Individual> .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#treatment> a owl:DatatypeProperty ;
+    rdfs:domain <http://purl.org/NET/c4dm/trans_experiment.owl#Individual> .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#type> a owl:DatatypeProperty ;
+    rdfs:domain <http://purl.org/NET/c4dm/trans_experiment.owl#Individual> .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#weight> a owl:DatatypeProperty .
+
+: a owl:Ontology .
+
+:CaecaSample a owl:Class ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:unionOf ( om2:SpecificViableCount om2:VolumetricViableCount ) ],
+        :Sample .
+
+:EnvironmentalSample a <http://purl.org/NET/c4dm/trans_experiment.owl#SampleType>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:unionOf ( om2:SpecificViableCount om2:VolumetricViableCount ) ],
+        :Sample .
+
+:SwabSample a owl:Class ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:unionOf ( om2:SpecificViableCount om2:VolumetricViableCount ) ],
+        :Sample .
+
+:WeightSample a owl:Class ;
+    rdfs:subClassOf om2:BodyMass,
+        :Sample .
+
+ns1:1019 om2:hasNumericalValue "1019" ;
+    om2:hasUnit om2:gram .
+
+ns1:1038.7 om2:hasNumericalValue "1038.7" ;
+    om2:hasUnit om2:gram .
+
+ns1:103d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:103 ;
+    ns1:weight "4.84" .
+
+ns1:103d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:103 ;
+    ns1:weight "4.76" .
+
+ns1:103d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:103 ;
+    ns1:weight "4.81" .
+
+ns1:103d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:103 ;
+    ns1:weight "4.89" .
+
+ns1:103d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:103 ;
+    ns1:weight "4.84" .
+
+ns1:103d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:103 ;
+    ns1:weight "4.77" .
+
+ns1:103d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:103 ;
+    ns1:weight "4.81" .
+
+ns1:103d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:103 ;
+    ns1:weight "4.94" .
+
+ns1:103d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:103 ;
+    ns1:weight "4.89" .
+
+ns1:103d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:103 ;
+    ns1:weight "4.9" .
+
+ns1:103d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:103 ;
+    ns1:weight "4.94" .
+
+ns1:103d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:103 ;
+    ns1:weight "4.74" .
+
+ns1:103d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:103 ;
+    ns1:weight "4.7" .
+
+ns1:103d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:103 ;
+    ns1:weight "4.79" .
+
+ns1:103d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:103 ;
+    ns1:weight "4.73" .
+
+ns1:103d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:103 ;
+    ns1:weight "4.7" .
+
+ns1:103d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:103 ;
+    ns1:weight "4.69" .
+
+ns1:103weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:50 ;
+    ns1:involves ns1:103 .
+
+ns1:103weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:932.37 ;
+    ns1:involves ns1:103 .
+
+ns1:107d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:1 ;
+    ns1:involves ns1:107 ;
+    ns1:weight "4.78" .
+
+ns1:107d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:1 ;
+    ns1:involves ns1:107 ;
+    ns1:weight "4.83" .
+
+ns1:107d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:107 ;
+    ns1:weight "4.84" .
+
+ns1:107d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:107 ;
+    ns1:weight "4.82" .
+
+ns1:107d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:107 ;
+    ns1:weight "4.79" .
+
+ns1:107d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:107 ;
+    ns1:weight "4.85" .
+
+ns1:107d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:107 ;
+    ns1:weight "4.7" .
+
+ns1:107d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:107 ;
+    ns1:weight "4.87" .
+
+ns1:107d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:10 ;
+    ns1:involves ns1:107 ;
+    ns1:weight "4.83" .
+
+ns1:107d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:107 ;
+    ns1:weight "4.86" .
+
+ns1:107d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:107 ;
+    ns1:weight "4.92" .
+
+ns1:107d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:107 ;
+    ns1:weight "4.72" .
+
+ns1:107d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:107 ;
+    ns1:weight "4.72" .
+
+ns1:107d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:10 ;
+    ns1:involves ns1:107 ;
+    ns1:weight "4.69" .
+
+ns1:107d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:107 ;
+    ns1:weight "4.84" .
+
+ns1:107d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:107 ;
+    ns1:weight "4.81" .
+
+ns1:107d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:10 ;
+    ns1:involves ns1:107 ;
+    ns1:weight "4.7" .
+
+ns1:107weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:43 ;
+    ns1:involves ns1:107 .
+
+ns1:107weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:1038.7 ;
+    ns1:involves ns1:107 .
+
+ns1:111d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:111 ;
+    ns1:weight "4.7" .
+
+ns1:111d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:111 ;
+    ns1:weight "4.66" .
+
+ns1:111d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:111 ;
+    ns1:weight "4.69" .
+
+ns1:111d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:111 ;
+    ns1:weight "4.73" .
+
+ns1:111d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:111 ;
+    ns1:weight "4.74" .
+
+ns1:111d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:111 ;
+    ns1:weight "4.75" .
+
+ns1:111d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:111 ;
+    ns1:weight "4.73" .
+
+ns1:111d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:111 ;
+    ns1:weight "4.86" .
+
+ns1:111d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:111 ;
+    ns1:weight "4.81" .
+
+ns1:111d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:111 ;
+    ns1:weight "4.9" .
+
+ns1:111d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:111 ;
+    ns1:weight "4.87" .
+
+ns1:111d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:111 ;
+    ns1:weight "4.68" .
+
+ns1:111d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:111 ;
+    ns1:weight "4.75" .
+
+ns1:111d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:111 ;
+    ns1:weight "4.73" .
+
+ns1:111d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:111 ;
+    ns1:weight "4.75" .
+
+ns1:111d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:111 ;
+    ns1:weight "4.83" .
+
+ns1:111d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:111 ;
+    ns1:weight "4.67" .
+
+ns1:111weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:45 ;
+    ns1:involves ns1:111 .
+
+ns1:111weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:857.35 ;
+    ns1:involves ns1:111 .
+
+ns1:114d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:114 ;
+    ns1:weight "4.81" .
+
+ns1:114d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:114 ;
+    ns1:weight "4.69" .
+
+ns1:114d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:114 ;
+    ns1:weight "4.72" .
+
+ns1:114d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:114 ;
+    ns1:weight "4.75" .
+
+ns1:114d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:114 ;
+    ns1:weight "4.89" .
+
+ns1:114d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:114 ;
+    ns1:weight "4.84" .
+
+ns1:114d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:114 ;
+    ns1:weight "4.71" .
+
+ns1:114d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:114 ;
+    ns1:weight "4.85" .
+
+ns1:114d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:114 ;
+    ns1:weight "4.96" .
+
+ns1:114d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:114 ;
+    ns1:weight "4.92" .
+
+ns1:114d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:114 ;
+    ns1:weight "4.86" .
+
+ns1:114d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:114 ;
+    ns1:weight "4.86" .
+
+ns1:114d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:114 ;
+    ns1:weight "4.69" .
+
+ns1:114d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:114 ;
+    ns1:weight "4.86" .
+
+ns1:114d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:114 ;
+    ns1:weight "4.93" .
+
+ns1:114d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:114 ;
+    ns1:weight "4.82" .
+
+ns1:114d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:114 ;
+    ns1:weight "4.79" .
+
+ns1:114weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:55 ;
+    ns1:involves ns1:114 .
+
+ns1:114weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:1019 ;
+    ns1:involves ns1:114 .
+
+ns1:115d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:115 ;
+    ns1:weight "4.81" .
+
+ns1:115d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:115 ;
+    ns1:weight "4.71" .
+
+ns1:115d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:115 ;
+    ns1:weight "4.69" .
+
+ns1:115d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:115 ;
+    ns1:weight "4.73" .
+
+ns1:115d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:10 ;
+    ns1:involves ns1:115 ;
+    ns1:weight "4.88" .
+
+ns1:115d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:115 ;
+    ns1:weight "4.77" .
+
+ns1:115d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:115 ;
+    ns1:weight "4.71" .
+
+ns1:115d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:10 ;
+    ns1:involves ns1:115 ;
+    ns1:weight "4.87" .
+
+ns1:115d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:115 ;
+    ns1:weight "4.92" .
+
+ns1:115d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:115 ;
+    ns1:weight "4.9" .
+
+ns1:115d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:115 ;
+    ns1:weight "4.89" .
+
+ns1:115d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:115 ;
+    ns1:weight "4.85" .
+
+ns1:115d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:115 ;
+    ns1:weight "4.77" .
+
+ns1:115d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:115 ;
+    ns1:weight "4.68" .
+
+ns1:115d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:115 ;
+    ns1:weight "4.75" .
+
+ns1:115d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:115 ;
+    ns1:weight "4.7" .
+
+ns1:115d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:115 ;
+    ns1:weight "4.79" .
+
+ns1:115weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:48 ;
+    ns1:involves ns1:115 .
+
+ns1:115weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:904.94 ;
+    ns1:involves ns1:115 .
+
+ns1:121d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:121 ;
+    ns1:weight "4.76" .
+
+ns1:121d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:121 ;
+    ns1:weight "4.7" .
+
+ns1:121d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:121 ;
+    ns1:weight "4.7" .
+
+ns1:121d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:121 ;
+    ns1:weight "4.69" .
+
+ns1:121d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:121 ;
+    ns1:weight "4.83" .
+
+ns1:121d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:121 ;
+    ns1:weight "4.93" .
+
+ns1:121d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:121 ;
+    ns1:weight "4.82" .
+
+ns1:121d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:121 ;
+    ns1:weight "4.94" .
+
+ns1:121d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:121 ;
+    ns1:weight "4.86" .
+
+ns1:121d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:121 ;
+    ns1:weight "4.95" .
+
+ns1:121d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:121 ;
+    ns1:weight "4.96" .
+
+ns1:121d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:121 ;
+    ns1:weight "4.69" .
+
+ns1:121d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:121 ;
+    ns1:weight "4.73" .
+
+ns1:121d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:121 ;
+    ns1:weight "4.82" .
+
+ns1:121d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:121 ;
+    ns1:weight "4.81" .
+
+ns1:121d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:121 ;
+    ns1:weight "4.7" .
+
+ns1:121d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:121 ;
+    ns1:weight "4.73" .
+
+ns1:121weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:51 ;
+    ns1:involves ns1:121 .
+
+ns1:121weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:862.93 ;
+    ns1:involves ns1:121 .
+
+ns1:124d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:124 ;
+    ns1:weight "4.77" .
+
+ns1:124d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:124 ;
+    ns1:weight "4.83" .
+
+ns1:124d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:124 ;
+    ns1:weight "4.69" .
+
+ns1:124d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:10 ;
+    ns1:involves ns1:124 ;
+    ns1:weight "4.8" .
+
+ns1:124d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:124 ;
+    ns1:weight "4.78" .
+
+ns1:124d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:100000 ;
+    ns1:involves ns1:124 ;
+    ns1:weight "4.78" .
+
+ns1:124d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:124 ;
+    ns1:weight "4.81" .
+
+ns1:124d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:124 ;
+    ns1:weight "4.86" .
+
+ns1:124d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:124 ;
+    ns1:weight "4.87" .
+
+ns1:124d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:124 ;
+    ns1:weight "4.9" .
+
+ns1:124d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:124 ;
+    ns1:weight "4.8" .
+
+ns1:124d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:10 ;
+    ns1:involves ns1:124 ;
+    ns1:weight "4.67" .
+
+ns1:124d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:1 ;
+    ns1:involves ns1:124 ;
+    ns1:weight "4.7" .
+
+ns1:124d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:124 ;
+    ns1:weight "4.7" .
+
+ns1:124d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:10 ;
+    ns1:involves ns1:124 ;
+    ns1:weight "4.71" .
+
+ns1:124d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:124 ;
+    ns1:weight "4.71" .
+
+ns1:124d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:124 ;
+    ns1:weight "4.69" .
+
+ns1:124weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:45 ;
+    ns1:involves ns1:124 .
+
+ns1:124weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:879.65 ;
+    ns1:involves ns1:124 .
+
+ns1:130d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:130 ;
+    ns1:weight "4.77" .
+
+ns1:130d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:130 ;
+    ns1:weight "4.75" .
+
+ns1:130d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:130 ;
+    ns1:weight "4.72" .
+
+ns1:130d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:130 ;
+    ns1:weight "4.77" .
+
+ns1:130d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:130 ;
+    ns1:weight "4.86" .
+
+ns1:130d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:130 ;
+    ns1:weight "4.89" .
+
+ns1:130d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:130 ;
+    ns1:weight "4.67" .
+
+ns1:130d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:130 ;
+    ns1:weight "4.94" .
+
+ns1:130d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:130 ;
+    ns1:weight "4.79" .
+
+ns1:130d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:130 ;
+    ns1:weight "4.85" .
+
+ns1:130d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:130 ;
+    ns1:weight "4.88" .
+
+ns1:130d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:130 ;
+    ns1:weight "4.83" .
+
+ns1:130d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:130 ;
+    ns1:weight "4.79" .
+
+ns1:130d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:130 ;
+    ns1:weight "4.71" .
+
+ns1:130d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:130 ;
+    ns1:weight "4.74" .
+
+ns1:130d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:130 ;
+    ns1:weight "4.83" .
+
+ns1:130d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:130 ;
+    ns1:weight "4.69" .
+
+ns1:130weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:44 ;
+    ns1:involves ns1:130 .
+
+ns1:130weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:844.49 ;
+    ns1:involves ns1:130 .
+
+ns1:138d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:138 ;
+    ns1:weight "4.79" .
+
+ns1:138d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:138 ;
+    ns1:weight "4.72" .
+
+ns1:138d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:138 ;
+    ns1:weight "4.8" .
+
+ns1:138d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:138 ;
+    ns1:weight "4.81" .
+
+ns1:138d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:138 ;
+    ns1:weight "4.75" .
+
+ns1:138d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:138 ;
+    ns1:weight "4.78" .
+
+ns1:138d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:138 ;
+    ns1:weight "4.72" .
+
+ns1:138d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:138 ;
+    ns1:weight "4.85" .
+
+ns1:138d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:138 ;
+    ns1:weight "4.89" .
+
+ns1:138d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:138 ;
+    ns1:weight "4.88" .
+
+ns1:138d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:138 ;
+    ns1:weight "4.92" .
+
+ns1:138d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:138 ;
+    ns1:weight "4.83" .
+
+ns1:138d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:138 ;
+    ns1:weight "4.8" .
+
+ns1:138d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:138 ;
+    ns1:weight "4.79" .
+
+ns1:138d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:138 ;
+    ns1:weight "4.76" .
+
+ns1:138d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:138 ;
+    ns1:weight "4.76" .
+
+ns1:138d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:138 ;
+    ns1:weight "4.68" .
+
+ns1:138weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:46 ;
+    ns1:involves ns1:138 .
+
+ns1:138weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:883.93 ;
+    ns1:involves ns1:138 .
+
+ns1:140d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:140 ;
+    ns1:weight "4.86" .
+
+ns1:140d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:140 ;
+    ns1:weight "4.71" .
+
+ns1:140d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:140 ;
+    ns1:weight "4.72" .
+
+ns1:140d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:140 ;
+    ns1:weight "4.72" .
+
+ns1:140d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:140 ;
+    ns1:weight "4.8" .
+
+ns1:140d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:140 ;
+    ns1:weight "4.78" .
+
+ns1:140d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:140 ;
+    ns1:weight "4.72" .
+
+ns1:140d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:140 ;
+    ns1:weight "4.93" .
+
+ns1:140d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:140 ;
+    ns1:weight "4.82" .
+
+ns1:140d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:140 ;
+    ns1:weight "4.86" .
+
+ns1:140d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:140 ;
+    ns1:weight "4.97" .
+
+ns1:140d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:140 ;
+    ns1:weight "4.81" .
+
+ns1:140d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:140 ;
+    ns1:weight "4.68" .
+
+ns1:140d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:140 ;
+    ns1:weight "4.74" .
+
+ns1:140d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:140 ;
+    ns1:weight "4.67" .
+
+ns1:140d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:140 ;
+    ns1:weight "4.82" .
+
+ns1:140d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:140 ;
+    ns1:weight "4.84" .
+
+ns1:140weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:45 ;
+    ns1:involves ns1:140 .
+
+ns1:140weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:856.5 ;
+    ns1:involves ns1:140 .
+
+ns1:141d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:141 ;
+    ns1:weight "4.71" .
+
+ns1:141d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:141 ;
+    ns1:weight "4.74" .
+
+ns1:141d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:141 ;
+    ns1:weight "4.66" .
+
+ns1:141d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:141 ;
+    ns1:weight "4.76" .
+
+ns1:141d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:141 ;
+    ns1:weight "" .
+
+ns1:141d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:141 ;
+    ns1:weight "" .
+
+ns1:141d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:141 ;
+    ns1:weight "" .
+
+ns1:141d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:0.1 ;
+    ns1:involves ns1:141 ;
+    ns1:weight "4.89" .
+
+ns1:141d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:141 ;
+    ns1:weight "" .
+
+ns1:141d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:141 ;
+    ns1:weight "4.88" .
+
+ns1:141d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:141 ;
+    ns1:weight "4.92" .
+
+ns1:141d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:141 ;
+    ns1:weight "4.72" .
+
+ns1:141d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:100000 ;
+    ns1:involves ns1:141 ;
+    ns1:weight "4.73" .
+
+ns1:141d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:141 ;
+    ns1:weight "4.83" .
+
+ns1:141d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:141 ;
+    ns1:weight "4.87" .
+
+ns1:141d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:141 ;
+    ns1:weight "4.69" .
+
+ns1:141d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:141 ;
+    ns1:weight "4.79" .
+
+ns1:141weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:57 ;
+    ns1:involves ns1:141 .
+
+ns1:141weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1: ;
+    ns1:involves ns1:141 .
+
+ns1:142d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:0.1 ;
+    ns1:involves ns1:142 ;
+    ns1:weight "4.67" .
+
+ns1:142d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:142 ;
+    ns1:weight "4.69" .
+
+ns1:142d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:142 ;
+    ns1:weight "4.75" .
+
+ns1:142d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:10 ;
+    ns1:involves ns1:142 ;
+    ns1:weight "4.87" .
+
+ns1:142d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:142 ;
+    ns1:weight "4.92" .
+
+ns1:142d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:100000 ;
+    ns1:involves ns1:142 ;
+    ns1:weight "4.95" .
+
+ns1:142d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:142 ;
+    ns1:weight "4.76" .
+
+ns1:142d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:0.1 ;
+    ns1:involves ns1:142 ;
+    ns1:weight "4.94" .
+
+ns1:142d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:142 ;
+    ns1:weight "4.78" .
+
+ns1:142d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:142 ;
+    ns1:weight "4.9" .
+
+ns1:142d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:142 ;
+    ns1:weight "4.95" .
+
+ns1:142d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:142 ;
+    ns1:weight "4.83" .
+
+ns1:142d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:142 ;
+    ns1:weight "4.7" .
+
+ns1:142d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:100000 ;
+    ns1:involves ns1:142 ;
+    ns1:weight "4.89" .
+
+ns1:142d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:142 ;
+    ns1:weight "4.77" .
+
+ns1:142d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:10 ;
+    ns1:involves ns1:142 ;
+    ns1:weight "4.77" .
+
+ns1:142d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:10 ;
+    ns1:involves ns1:142 ;
+    ns1:weight "4.71" .
+
+ns1:142weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:47 ;
+    ns1:involves ns1:142 .
+
+ns1:142weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:964.95 ;
+    ns1:involves ns1:142 .
+
+ns1:146d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:10 ;
+    ns1:involves ns1:146 ;
+    ns1:weight "4.81" .
+
+ns1:146d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:146 ;
+    ns1:weight "4.85" .
+
+ns1:146d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:146 ;
+    ns1:weight "4.71" .
+
+ns1:146d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:10 ;
+    ns1:involves ns1:146 ;
+    ns1:weight "4.84" .
+
+ns1:146d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:10 ;
+    ns1:involves ns1:146 ;
+    ns1:weight "4.75" .
+
+ns1:146d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:146 ;
+    ns1:weight "4.89" .
+
+ns1:146d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:146 ;
+    ns1:weight "4.7" .
+
+ns1:146d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:146 ;
+    ns1:weight "4.86" .
+
+ns1:146d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:146 ;
+    ns1:weight "4.8" .
+
+ns1:146d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:146 ;
+    ns1:weight "4.93" .
+
+ns1:146d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:146 ;
+    ns1:weight "4.93" .
+
+ns1:146d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:146 ;
+    ns1:weight "4.67" .
+
+ns1:146d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:146 ;
+    ns1:weight "4.82" .
+
+ns1:146d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:146 ;
+    ns1:weight "4.73" .
+
+ns1:146d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:146 ;
+    ns1:weight "4.83" .
+
+ns1:146d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:146 ;
+    ns1:weight "4.74" .
+
+ns1:146d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:10 ;
+    ns1:involves ns1:146 ;
+    ns1:weight "4.74" .
+
+ns1:146weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:43 ;
+    ns1:involves ns1:146 .
+
+ns1:146weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:955.52 ;
+    ns1:involves ns1:146 .
+
+ns1:153d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:153 ;
+    ns1:weight "4.81" .
+
+ns1:153d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:153 ;
+    ns1:weight "4.71" .
+
+ns1:153d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:153 ;
+    ns1:weight "4.68" .
+
+ns1:153d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:153 ;
+    ns1:weight "4.91" .
+
+ns1:153d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:153 ;
+    ns1:weight "4.8" .
+
+ns1:153d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:153 ;
+    ns1:weight "4.79" .
+
+ns1:153d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:153 ;
+    ns1:weight "4.67" .
+
+ns1:153d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:153 ;
+    ns1:weight "4.84" .
+
+ns1:153d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:153 ;
+    ns1:weight "4.87" .
+
+ns1:153d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:153 ;
+    ns1:weight "4.9" .
+
+ns1:153d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:153 ;
+    ns1:weight "4.87" .
+
+ns1:153d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:153 ;
+    ns1:weight "4.85" .
+
+ns1:153d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:153 ;
+    ns1:weight "4.79" .
+
+ns1:153d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:153 ;
+    ns1:weight "4.75" .
+
+ns1:153d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:153 ;
+    ns1:weight "4.67" .
+
+ns1:153d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:153 ;
+    ns1:weight "4.68" .
+
+ns1:153d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:153 ;
+    ns1:weight "4.81" .
+
+ns1:153weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:45 ;
+    ns1:involves ns1:153 .
+
+ns1:153weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:769.05 ;
+    ns1:involves ns1:153 .
+
+ns1:154d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:154 ;
+    ns1:weight "4.69" .
+
+ns1:154d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:154 ;
+    ns1:weight "4.78" .
+
+ns1:154d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:154 ;
+    ns1:weight "4.71" .
+
+ns1:154d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:1 ;
+    ns1:involves ns1:154 ;
+    ns1:weight "4.73" .
+
+ns1:154d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:154 ;
+    ns1:weight "4.83" .
+
+ns1:154d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:100000 ;
+    ns1:involves ns1:154 ;
+    ns1:weight "4.83" .
+
+ns1:154d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:154 ;
+    ns1:weight "4.69" .
+
+ns1:154d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:10 ;
+    ns1:involves ns1:154 ;
+    ns1:weight "4.87" .
+
+ns1:154d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:100000 ;
+    ns1:involves ns1:154 ;
+    ns1:weight "4.76" .
+
+ns1:154d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:154 ;
+    ns1:weight "4.86" .
+
+ns1:154d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:100000 ;
+    ns1:involves ns1:154 ;
+    ns1:weight "4.9" .
+
+ns1:154d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:154 ;
+    ns1:weight "4.83" .
+
+ns1:154d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:154 ;
+    ns1:weight "4.74" .
+
+ns1:154d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:154 ;
+    ns1:weight "4.78" .
+
+ns1:154d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:100000 ;
+    ns1:involves ns1:154 ;
+    ns1:weight "4.78" .
+
+ns1:154d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:154 ;
+    ns1:weight "4.72" .
+
+ns1:154d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:154 ;
+    ns1:weight "4.78" .
+
+ns1:154weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:47 ;
+    ns1:involves ns1:154 .
+
+ns1:154weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:817.49 ;
+    ns1:involves ns1:154 .
+
+ns1:163d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:163 ;
+    ns1:weight "4.74" .
+
+ns1:163d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:163 ;
+    ns1:weight "4.69" .
+
+ns1:163d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:163 ;
+    ns1:weight "4.71" .
+
+ns1:163d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:163 ;
+    ns1:weight "4.75" .
+
+ns1:163d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:163 ;
+    ns1:weight "4.76" .
+
+ns1:163d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:163 ;
+    ns1:weight "4.76" .
+
+ns1:163d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:163 ;
+    ns1:weight "4.69" .
+
+ns1:163d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:1 ;
+    ns1:involves ns1:163 ;
+    ns1:weight "4.94" .
+
+ns1:163d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:163 ;
+    ns1:weight "4.83" .
+
+ns1:163d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:163 ;
+    ns1:weight "4.93" .
+
+ns1:163d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:163 ;
+    ns1:weight "4.87" .
+
+ns1:163d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:163 ;
+    ns1:weight "4.82" .
+
+ns1:163d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:163 ;
+    ns1:weight "4.72" .
+
+ns1:163d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:163 ;
+    ns1:weight "4.83" .
+
+ns1:163d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:163 ;
+    ns1:weight "4.75" .
+
+ns1:163d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:163 ;
+    ns1:weight "4.67" .
+
+ns1:163d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:163 ;
+    ns1:weight "4.75" .
+
+ns1:163weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:46 ;
+    ns1:involves ns1:163 .
+
+ns1:163weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:841.06 ;
+    ns1:involves ns1:163 .
+
+ns1:177d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:177 ;
+    ns1:weight "4.82" .
+
+ns1:177d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:177 ;
+    ns1:weight "4.68" .
+
+ns1:177d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:177 ;
+    ns1:weight "4.82" .
+
+ns1:177d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:177 ;
+    ns1:weight "4.79" .
+
+ns1:177d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:177 ;
+    ns1:weight "4.83" .
+
+ns1:177d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:177 ;
+    ns1:weight "4.77" .
+
+ns1:177d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:177 ;
+    ns1:weight "4.72" .
+
+ns1:177d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:177 ;
+    ns1:weight "4.89" .
+
+ns1:177d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:177 ;
+    ns1:weight "4.91" .
+
+ns1:177d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:177 ;
+    ns1:weight "4.87" .
+
+ns1:177d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:177 ;
+    ns1:weight "4.92" .
+
+ns1:177d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:177 ;
+    ns1:weight "4.76" .
+
+ns1:177d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:177 ;
+    ns1:weight "4.8" .
+
+ns1:177d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:177 ;
+    ns1:weight "4.74" .
+
+ns1:177d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:177 ;
+    ns1:weight "4.71" .
+
+ns1:177d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:177 ;
+    ns1:weight "4.7" .
+
+ns1:177d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:177 ;
+    ns1:weight "4.83" .
+
+ns1:177weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:46 ;
+    ns1:involves ns1:177 .
+
+ns1:177weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:862.07 ;
+    ns1:involves ns1:177 .
+
+ns1:178d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:178 ;
+    ns1:weight "4.72" .
+
+ns1:178d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:10 ;
+    ns1:involves ns1:178 ;
+    ns1:weight "4.69" .
+
+ns1:178d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:178 ;
+    ns1:weight "4.76" .
+
+ns1:178d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:178 ;
+    ns1:weight "4.82" .
+
+ns1:178d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:178 ;
+    ns1:weight "4.88" .
+
+ns1:178d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:178 ;
+    ns1:weight "4.83" .
+
+ns1:178d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:178 ;
+    ns1:weight "4.69" .
+
+ns1:178d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:178 ;
+    ns1:weight "4.83" .
+
+ns1:178d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:178 ;
+    ns1:weight "4.88" .
+
+ns1:178d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:178 ;
+    ns1:weight "4.76" .
+
+ns1:178d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:178 ;
+    ns1:weight "4.91" .
+
+ns1:178d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:178 ;
+    ns1:weight "4.69" .
+
+ns1:178d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:178 ;
+    ns1:weight "4.83" .
+
+ns1:178d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:10000 ;
+    ns1:involves ns1:178 ;
+    ns1:weight "4.84" .
+
+ns1:178d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:178 ;
+    ns1:weight "4.88" .
+
+ns1:178d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:1000 ;
+    ns1:involves ns1:178 ;
+    ns1:weight "4.78" .
+
+ns1:178d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:100 ;
+    ns1:involves ns1:178 ;
+    ns1:weight "4.61" .
+
+ns1:178weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:44 ;
+    ns1:involves ns1:178 .
+
+ns1:178weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:876.22 ;
+    ns1:involves ns1:178 .
+
+ns1:190d10_count_ESBL10 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "10" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:190 ;
+    ns1:weight "4.71" .
+
+ns1:190d11_count_ESBL11 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "11" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:190 ;
+    ns1:weight "4.73" .
+
+ns1:190d12_count_ESBL12 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "12" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:190 ;
+    ns1:weight "4.82" .
+
+ns1:190d13_count_ESBL13 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "13" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:190 ;
+    ns1:weight "4.82" .
+
+ns1:190d14_count_ESBL14 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "14" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:190 ;
+    ns1:weight "4.81" .
+
+ns1:190d16_count_ESBL16 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "16" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:190 ;
+    ns1:weight "" .
+
+ns1:190d19_count_ESBL19 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "19" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:190 ;
+    ns1:weight "" .
+
+ns1:190d1_count_ESBL1 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "1" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:190 ;
+    ns1:weight "4.83" .
+
+ns1:190d21_count_ESBL21 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:190 ;
+    ns1:weight "" .
+
+ns1:190d2_count_ESBL2 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "2" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:190 ;
+    ns1:weight "4.91" .
+
+ns1:190d3_count_ESBL3 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "3" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:190 ;
+    ns1:weight "4.9" .
+
+ns1:190d4_count_ESBL4 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "4" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:190 ;
+    ns1:weight "4.74" .
+
+ns1:190d5_count_ESBL5 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "5" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:190 ;
+    ns1:weight "4.72" .
+
+ns1:190d6_count_ESBL6 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "6" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:190 ;
+    ns1:weight "4.85" .
+
+ns1:190d7_count_ESBL7 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "7" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:190 ;
+    ns1:weight "4.74" .
+
+ns1:190d8_count_ESBL8 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "8" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:190 ;
+    ns1:weight "4.71" .
+
+ns1:190d9_count_ESBL9 a ns1:Measurement,
+        ns1:SwabSample ;
+    ns1:experimentDay "9" ;
+    ns1:hasValue ns1:0 ;
+    ns1:involves ns1:190 ;
+    ns1:weight "4.82" .
+
+ns1:190weightd00 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "0" ;
+    ns1:hasValue ns1:51 ;
+    ns1:involves ns1:190 .
+
+ns1:190weightd2121 a ns1:Measurement,
+        ns1:WeightSample ;
+    ns1:experimentDay "21" ;
+    ns1:hasValue ns1: ;
+    ns1:involves ns1:190 .
+
+ns1:48 om2:hasNumericalValue "48" ;
+    om2:hasUnit om2:gram .
+
+ns1:50 om2:hasNumericalValue "50" ;
+    om2:hasUnit om2:gram .
+
+ns1:55 om2:hasNumericalValue "55" ;
+    om2:hasUnit om2:gram .
+
+ns1:57 om2:hasNumericalValue "57" ;
+    om2:hasUnit om2:gram .
+
+ns1:769.05 om2:hasNumericalValue "769.05" ;
+    om2:hasUnit om2:gram .
+
+ns1:817.49 om2:hasNumericalValue "817.49" ;
+    om2:hasUnit om2:gram .
+
+ns1:841.06 om2:hasNumericalValue "841.06" ;
+    om2:hasUnit om2:gram .
+
+ns1:844.49 om2:hasNumericalValue "844.49" ;
+    om2:hasUnit om2:gram .
+
+ns1:856.5 om2:hasNumericalValue "856.5" ;
+    om2:hasUnit om2:gram .
+
+ns1:857.35 om2:hasNumericalValue "857.35" ;
+    om2:hasUnit om2:gram .
+
+ns1:862.07 om2:hasNumericalValue "862.07" ;
+    om2:hasUnit om2:gram .
+
+ns1:862.93 om2:hasNumericalValue "862.93" ;
+    om2:hasUnit om2:gram .
+
+ns1:876.22 om2:hasNumericalValue "876.22" ;
+    om2:hasUnit om2:gram .
+
+ns1:879.65 om2:hasNumericalValue "879.65" ;
+    om2:hasUnit om2:gram .
+
+ns1:883.93 om2:hasNumericalValue "883.93" ;
+    om2:hasUnit om2:gram .
+
+ns1:904.94 om2:hasNumericalValue "904.94" ;
+    om2:hasUnit om2:gram .
+
+ns1:932.37 om2:hasNumericalValue "932.37" ;
+    om2:hasUnit om2:gram .
+
+ns1:955.52 om2:hasNumericalValue "955.52" ;
+    om2:hasUnit om2:gram .
+
+ns1:964.95 om2:hasNumericalValue "964.95" ;
+    om2:hasUnit om2:gram .
+
+ns1:Location1031 a ns1:Group,
+        ns1:Location ;
+    ns1:house "1" ;
+    ns1:number "1" .
+
+ns1:Location1072 a ns1:Group,
+        ns1:Location ;
+    ns1:house "2" ;
+    ns1:number "2" .
+
+ns1:Location1111 a ns1:Group,
+        ns1:Location ;
+    ns1:house "1" ;
+    ns1:number "1" .
+
+ns1:Location1141 a ns1:Group,
+        ns1:Location ;
+    ns1:house "1" ;
+    ns1:number "1" .
+
+ns1:Location1152 a ns1:Group,
+        ns1:Location ;
+    ns1:house "2" ;
+    ns1:number "2" .
+
+ns1:Location1211 a ns1:Group,
+        ns1:Location ;
+    ns1:house "1" ;
+    ns1:number "1" .
+
+ns1:Location1242 a ns1:Group,
+        ns1:Location ;
+    ns1:house "2" ;
+    ns1:number "2" .
+
+ns1:Location1301 a ns1:Group,
+        ns1:Location ;
+    ns1:house "1" ;
+    ns1:number "1" .
+
+ns1:Location1381 a ns1:Group,
+        ns1:Location ;
+    ns1:house "1" ;
+    ns1:number "1" .
+
+ns1:Location1401 a ns1:Group,
+        ns1:Location ;
+    ns1:house "1" ;
+    ns1:number "1" .
+
+ns1:Location1412 a ns1:Group,
+        ns1:Location ;
+    ns1:house "2" ;
+    ns1:number "2" .
+
+ns1:Location1422 a ns1:Group,
+        ns1:Location ;
+    ns1:house "2" ;
+    ns1:number "2" .
+
+ns1:Location1462 a ns1:Group,
+        ns1:Location ;
+    ns1:house "2" ;
+    ns1:number "2" .
+
+ns1:Location1531 a ns1:Group,
+        ns1:Location ;
+    ns1:house "1" ;
+    ns1:number "1" .
+
+ns1:Location1542 a ns1:Group,
+        ns1:Location ;
+    ns1:house "2" ;
+    ns1:number "2" .
+
+ns1:Location1632 a ns1:Group,
+        ns1:Location ;
+    ns1:house "2" ;
+    ns1:number "2" .
+
+ns1:Location1771 a ns1:Group,
+        ns1:Location ;
+    ns1:house "1" ;
+    ns1:number "1" .
+
+ns1:Location1782 a ns1:Group,
+        ns1:Location ;
+    ns1:house "2" ;
+    ns1:number "2" .
+
+ns1:Location1901 a ns1:Group,
+        ns1:Location ;
+    ns1:house "1" ;
+    ns1:number "1" .
+
+om2:BodyMass a owl:Class .
+
+ns1: om2:hasNumericalValue "" ;
+    om2:hasUnit om2:gram .
+
+ns1:43 om2:hasNumericalValue "43" ;
+    om2:hasUnit om2:gram .
+
+ns1:44 om2:hasNumericalValue "44" ;
+    om2:hasUnit om2:gram .
+
+ns1:47 om2:hasNumericalValue "47" ;
+    om2:hasUnit om2:gram .
+
+ns1:51 om2:hasNumericalValue "51" ;
+    om2:hasUnit om2:gram .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#Pathogen> a owl:Class .
+
+:Group a owl:Class .
+
+ns1:0.1 om2:hasNumericalValue "0.1" ;
+    om2:hasUnit om2:colonyFormingUnitPerGram .
+
+ns1:46 om2:hasNumericalValue "46" ;
+    om2:hasUnit om2:gram .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#Experiment> a owl:Class .
+
+om2:SpecificViableCount a owl:Class .
+
+om2:VolumetricViableCount a owl:Class .
+
+ns1:45 om2:hasNumericalValue "45" ;
+    om2:hasUnit om2:gram .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#Location> a owl:Class .
+
+ns1:1 ns1:experimentDay "1" ;
+    ns1:hasSample ns1:103d1_count_ESBL1,
+        ns1:107d1_count_ESBL1,
+        ns1:111d1_count_ESBL1,
+        ns1:114d1_count_ESBL1,
+        ns1:115d1_count_ESBL1,
+        ns1:121d1_count_ESBL1,
+        ns1:124d1_count_ESBL1,
+        ns1:130d1_count_ESBL1,
+        ns1:138d1_count_ESBL1,
+        ns1:140d1_count_ESBL1,
+        ns1:141d1_count_ESBL1,
+        ns1:142d1_count_ESBL1,
+        ns1:146d1_count_ESBL1,
+        ns1:153d1_count_ESBL1,
+        ns1:154d1_count_ESBL1,
+        ns1:163d1_count_ESBL1,
+        ns1:177d1_count_ESBL1,
+        ns1:178d1_count_ESBL1,
+        ns1:190d1_count_ESBL1 ;
+    om2:hasNumericalValue "1" ;
+    om2:hasUnit om2:colonyFormingUnitPerGram .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#SampleType> a owl:Class .
+
+<http://purl.org/NET/c4dm/trans_experiment.owl#Individual> a owl:Class .
+
+:Sample a owl:Class .
+
+ns1:100000 om2:hasNumericalValue "100000" ;
+    om2:hasUnit om2:colonyFormingUnitPerGram .
+
+ns1:10 ns1:experimentDay "10" ;
+    ns1:hasSample ns1:103d10_count_ESBL10,
+        ns1:107d10_count_ESBL10,
+        ns1:111d10_count_ESBL10,
+        ns1:114d10_count_ESBL10,
+        ns1:115d10_count_ESBL10,
+        ns1:121d10_count_ESBL10,
+        ns1:124d10_count_ESBL10,
+        ns1:130d10_count_ESBL10,
+        ns1:138d10_count_ESBL10,
+        ns1:140d10_count_ESBL10,
+        ns1:141d10_count_ESBL10,
+        ns1:142d10_count_ESBL10,
+        ns1:146d10_count_ESBL10,
+        ns1:153d10_count_ESBL10,
+        ns1:154d10_count_ESBL10,
+        ns1:163d10_count_ESBL10,
+        ns1:177d10_count_ESBL10,
+        ns1:178d10_count_ESBL10,
+        ns1:190d10_count_ESBL10 ;
+    om2:hasNumericalValue "10" ;
+    om2:hasUnit om2:colonyFormingUnitPerGram .
+
+ns1:103 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1031 ;
+    ns1:group "1" ;
+    ns1:id "103" ;
+    ns1:locatedIn ns1:Location1031 ;
+    ns1:sex "2" ;
+    ns1:treatment "0" ;
+    ns1:type "1" .
+
+ns1:107 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1072 ;
+    ns1:group "2" ;
+    ns1:id "107" ;
+    ns1:locatedIn ns1:Location1072 ;
+    ns1:sex "1" ;
+    ns1:treatment "0" ;
+    ns1:type "1" .
+
+ns1:111 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1111 ;
+    ns1:group "1" ;
+    ns1:id "111" ;
+    ns1:locatedIn ns1:Location1111 ;
+    ns1:sex "2" ;
+    ns1:treatment "0" ;
+    ns1:type "1" .
+
+ns1:114 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1141 ;
+    ns1:group "1" ;
+    ns1:id "114" ;
+    ns1:locatedIn ns1:Location1141 ;
+    ns1:sex "2" ;
+    ns1:treatment "0" ;
+    ns1:type "2" .
+
+ns1:115 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1152 ;
+    ns1:group "2" ;
+    ns1:id "115" ;
+    ns1:locatedIn ns1:Location1152 ;
+    ns1:sex "2" ;
+    ns1:treatment "0" ;
+    ns1:type "2" .
+
+ns1:121 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1211 ;
+    ns1:group "1" ;
+    ns1:id "121" ;
+    ns1:locatedIn ns1:Location1211 ;
+    ns1:sex "2" ;
+    ns1:treatment "0" ;
+    ns1:type "1" .
+
+ns1:124 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1242 ;
+    ns1:group "2" ;
+    ns1:id "124" ;
+    ns1:locatedIn ns1:Location1242 ;
+    ns1:sex "2" ;
+    ns1:treatment "0" ;
+    ns1:type "1" .
+
+ns1:130 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1301 ;
+    ns1:group "1" ;
+    ns1:id "130" ;
+    ns1:locatedIn ns1:Location1301 ;
+    ns1:sex "2" ;
+    ns1:treatment "0" ;
+    ns1:type "1" .
+
+ns1:138 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1381 ;
+    ns1:group "1" ;
+    ns1:id "138" ;
+    ns1:locatedIn ns1:Location1381 ;
+    ns1:sex "2" ;
+    ns1:treatment "0" ;
+    ns1:type "1" .
+
+ns1:140 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1401 ;
+    ns1:group "1" ;
+    ns1:id "140" ;
+    ns1:locatedIn ns1:Location1401 ;
+    ns1:sex "1" ;
+    ns1:treatment "0" ;
+    ns1:type "2" .
+
+ns1:141 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1412 ;
+    ns1:group "2" ;
+    ns1:id "141" ;
+    ns1:locatedIn ns1:Location1412 ;
+    ns1:sex "" ;
+    ns1:treatment "0" ;
+    ns1:type "2" .
+
+ns1:142 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1422 ;
+    ns1:group "2" ;
+    ns1:id "142" ;
+    ns1:locatedIn ns1:Location1422 ;
+    ns1:sex "1" ;
+    ns1:treatment "0" ;
+    ns1:type "1" .
+
+ns1:146 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1462 ;
+    ns1:group "2" ;
+    ns1:id "146" ;
+    ns1:locatedIn ns1:Location1462 ;
+    ns1:sex "1" ;
+    ns1:treatment "0" ;
+    ns1:type "1" .
+
+ns1:153 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1531 ;
+    ns1:group "1" ;
+    ns1:id "153" ;
+    ns1:locatedIn ns1:Location1531 ;
+    ns1:sex "2" ;
+    ns1:treatment "0" ;
+    ns1:type "2" .
+
+ns1:154 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1542 ;
+    ns1:group "2" ;
+    ns1:id "154" ;
+    ns1:locatedIn ns1:Location1542 ;
+    ns1:sex "2" ;
+    ns1:treatment "0" ;
+    ns1:type "2" .
+
+ns1:163 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1632 ;
+    ns1:group "2" ;
+    ns1:id "163" ;
+    ns1:locatedIn ns1:Location1632 ;
+    ns1:sex "2" ;
+    ns1:treatment "0" ;
+    ns1:type "1" .
+
+ns1:177 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1771 ;
+    ns1:group "1" ;
+    ns1:id "177" ;
+    ns1:locatedIn ns1:Location1771 ;
+    ns1:sex "1" ;
+    ns1:treatment "0" ;
+    ns1:type "2" .
+
+ns1:178 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1782 ;
+    ns1:group "2" ;
+    ns1:id "178" ;
+    ns1:locatedIn ns1:Location1782 ;
+    ns1:sex "2" ;
+    ns1:treatment "0" ;
+    ns1:type "2" .
+
+ns1:190 a ns1:Individual ;
+    ns1:belongsTo ns1:Group1901 ;
+    ns1:group "1" ;
+    ns1:id "190" ;
+    ns1:locatedIn ns1:Location1901 ;
+    ns1:sex "" ;
+    ns1:treatment "0" ;
+    ns1:type "2" .
+
+ns1:1000 om2:hasNumericalValue "1000" ;
+    om2:hasUnit om2:colonyFormingUnitPerGram .
+
+ns1:100 om2:hasNumericalValue "100" ;
+    om2:hasUnit om2:colonyFormingUnitPerGram .
+
+ns1:10000 om2:hasNumericalValue "10000" ;
+    om2:hasUnit om2:colonyFormingUnitPerGram .
+
+ns1:0 ns1:experimentDay "0" ;
+    ns1:hasSample ns1:103weightd00,
+        ns1:107weightd00,
+        ns1:111weightd00,
+        ns1:114weightd00,
+        ns1:115weightd00,
+        ns1:121weightd00,
+        ns1:124weightd00,
+        ns1:130weightd00,
+        ns1:138weightd00,
+        ns1:140weightd00,
+        ns1:141weightd00,
+        ns1:142weightd00,
+        ns1:146weightd00,
+        ns1:153weightd00,
+        ns1:154weightd00,
+        ns1:163weightd00,
+        ns1:177weightd00,
+        ns1:178weightd00,
+        ns1:190weightd00 ;
+    om2:hasNumericalValue "0" ;
+    om2:hasUnit om2:colonyFormingUnitPerGram .
+
