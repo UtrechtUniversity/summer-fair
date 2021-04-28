@@ -1,6 +1,6 @@
 library(SPARQL)
 
-endpoint <- "http://localhost:3030/mydataset/query"
+endpoint <- "http://host.docker.internal:3030/dataset_c/query"
 
 get.dates.swab <- function(){
   #SPARQL query to get the experiment dates of SWAB sample
@@ -25,4 +25,5 @@ order by ?date"
 }
 
 swab.dates <- SPARQL(url = endpoint,query=get.dates.swab())$results
+print(swab.dates)
 write.csv(x=swab.dates,file='dates.csv')
