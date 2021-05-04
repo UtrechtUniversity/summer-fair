@@ -12,10 +12,10 @@ docker run -d --name fuseki-loadsh-use-fuseki-data \
   --volumes-from fuseki-data \
   --volume "$(pwd)/ontology:/staging" \
   stain/jena-fuseki:3.14.0 \
-  ./load.sh dataset_c  trans_experiment_C.ttl \
-  ./load.sh dataset_a  trans_experiment_A_OM.ttl
+  ./load.sh dataset_a  trans_experiment_A.ttl
 
 docker stop fuseki-loadsh-use-fuseki-data
+
 
 docker start fuseki-app
 
