@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.semanticweb.org/trans_experiment/"
-     xml:base="http://www.semanticweb.org/trans_experiment/"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+<rdf:RDF xmlns="http://www.semanticweb.org/trans_experiment#"
+     xml:base="http://www.semanticweb.org/trans_experiment"
+     xmlns:om2="http://www.ontology-of-units-of-measure.org/resource/om-2/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/trans_experiment/"/>
+    <owl:Ontology rdf:about="http://www.semanticweb.org/trans_experiment#"/>
     
 
 
@@ -21,38 +22,148 @@
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#hasPathogen -->
+    <!-- http://www.ontology-of-units-of-measure.org/page/om-2/hasResistance -->
 
-    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment#hasPathogen">
-        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment#Sample"/>
-        <rdfs:range rdf:resource="http://purl.org/NET/c4dm/trans_experiment#Pathogen"/>
+    <owl:ObjectProperty rdf:about="http://www.ontology-of-units-of-measure.org/page/om-2/hasResistance">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Pathogen"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/trans_experiment#PathogenResistence"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#hasType -->
+    <!-- http://www.ontology-of-units-of-measure.org/page/om-2/hasValue -->
 
-    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment#hasType">
-        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment#Measurement"/>
-        <rdfs:range rdf:resource="http://purl.org/NET/c4dm/trans_experiment#MeasurementType"/>
+    <owl:ObjectProperty rdf:about="http://www.ontology-of-units-of-measure.org/page/om-2/hasValue">
+        <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity"/>
+        <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#involves -->
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/hasPhenomenon -->
 
-    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment#involves">
-        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment#Measurement"/>
-        <rdfs:range rdf:resource="http://purl.org/NET/c4dm/trans_experiment#Individual"/>
+    <owl:ObjectProperty rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/hasPhenomenon">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/trans_experiment#hasWeight"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#locatedIn -->
+    <!-- http://www.semanticweb.org/trans_experiment#against -->
 
-    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment#locatedIn">
-        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment#Individual"/>
-        <rdfs:range rdf:resource="http://purl.org/NET/c4dm/trans_experiment#Location"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/trans_experiment#against">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#PathogenResistence"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/trans_experiment#Antibiotic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#belongsTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/trans_experiment#belongsTo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Individual"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/trans_experiment#Group"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#hasGene -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/trans_experiment#hasGene">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Pathogen"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/trans_experiment#Gene"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#hasObservation -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/trans_experiment#hasObservation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Experiment"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/trans_experiment#Observation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#hasPathogen -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/trans_experiment#hasPathogen">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Sample"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/trans_experiment#Pathogen"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#hasQuantity -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/trans_experiment#hasQuantity">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Sample"/>
+        <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/BodyMass"/>
+        <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SpecificViableCount"/>
+        <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/VolumetricViableCount"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#hasSample -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/trans_experiment#hasSample">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Experiment"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/trans_experiment#Sample"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#hasTreatment -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/trans_experiment#hasTreatment">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Experiment"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/trans_experiment#Treatment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#hasType -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/trans_experiment#hasType">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Observation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/trans_experiment#ObservationType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#hasWeight -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/trans_experiment#hasWeight"/>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#includes -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/trans_experiment#includes">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Treatment"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/trans_experiment#Antibiotic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#involves -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/trans_experiment#involves">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Observation"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Sample"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Treatment"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/trans_experiment#Group"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/trans_experiment#Individual"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#locatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/trans_experiment#locatedIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Group"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Individual"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/trans_experiment#Location"/>
     </owl:ObjectProperty>
     
 
@@ -68,101 +179,176 @@
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#experimentDay -->
+    <!-- http://www.ontology-of-units-of-measure.org/page/om-2/resultDate -->
 
-    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment#experimentDay">
-        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment#Measurement"/>
+    <owl:DatatypeProperty rdf:about="http://www.ontology-of-units-of-measure.org/page/om-2/resultDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Sample"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#feedConsumption -->
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue -->
 
-    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment#feedConsumption"/>
-    
-
-
-    <!-- http://purl.org/NET/c4dm/trans_experiment#group -->
-
-    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment#group"/>
-    
-
-
-    <!-- http://purl.org/NET/c4dm/trans_experiment#house -->
-
-    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment#house">
-        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment#Location"/>
+    <owl:DatatypeProperty rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue">
+        <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#id -->
+    <!-- http://www.semanticweb.org/trans_experiment#date -->
 
-    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment#id">
-        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment#Individual"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#date">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#name -->
+    <!-- http://www.semanticweb.org/trans_experiment#experimentDay -->
 
-    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment#name">
-        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment#Pathogen"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#experimentDay">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Experiment"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#number -->
+    <!-- http://www.semanticweb.org/trans_experiment#experimentHour -->
 
-    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment#number">
-        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment#Location"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#experimentHour">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Sample"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#pen -->
+    <!-- http://www.semanticweb.org/trans_experiment#experimentID -->
 
-    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment#pen">
-        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment#Location"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#experimentID">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Experiment"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#sample -->
+    <!-- http://www.semanticweb.org/trans_experiment#family -->
 
-    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment#sample">
-        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment#Measurement"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#family">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Pathogen"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#sex -->
+    <!-- http://www.semanticweb.org/trans_experiment#feedConsumption -->
 
-    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment#sex">
-        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment#Individual"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#feedConsumption"/>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#group -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#group"/>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#hasResult -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#hasResult">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#PathogenResistence"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Sample"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#treatment -->
+    <!-- http://www.semanticweb.org/trans_experiment#hospital -->
 
-    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment#treatment">
-        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment#Individual"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#hospital"/>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#house -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#house">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Location"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#type -->
+    <!-- http://www.semanticweb.org/trans_experiment#id -->
 
-    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment#type">
-        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/trans_experiment#Individual"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#id">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Individual"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#weight -->
+    <!-- http://www.semanticweb.org/trans_experiment#name -->
 
-    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/trans_experiment#weight"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#name">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Gene"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Pathogen"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#number -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#number">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Group"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#pen -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#pen">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#sample -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#sample">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Experiment"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#sex -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#sex">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Individual"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#strain -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#strain">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Pathogen"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#treatment -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#treatment">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Individual"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#type">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/trans_experiment#Individual"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#ward -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/trans_experiment#ward"/>
     
 
 
@@ -177,41 +363,117 @@
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#Individual -->
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/BodyMass -->
 
-    <owl:Class rdf:about="http://purl.org/NET/c4dm/trans_experiment#Individual"/>
-    
-
-
-    <!-- http://purl.org/NET/c4dm/trans_experiment#Location -->
-
-    <owl:Class rdf:about="http://purl.org/NET/c4dm/trans_experiment#Location"/>
-    
-
-
-    <!-- http://purl.org/NET/c4dm/trans_experiment#Measurement -->
-
-    <owl:Class rdf:about="http://purl.org/NET/c4dm/trans_experiment#Measurement"/>
-    
-
-
-    <!-- http://purl.org/NET/c4dm/trans_experiment#MeasurementType -->
-
-    <owl:Class rdf:about="http://purl.org/NET/c4dm/trans_experiment#MeasurementType"/>
-    
-
-
-    <!-- http://purl.org/NET/c4dm/trans_experiment#Pathogen -->
-
-    <owl:Class rdf:about="http://purl.org/NET/c4dm/trans_experiment#Pathogen"/>
-    
-
-
-    <!-- http://purl.org/NET/c4dm/trans_experiment#Sample -->
-
-    <owl:Class rdf:about="http://purl.org/NET/c4dm/trans_experiment#Sample">
-        <rdfs:subClassOf rdf:resource="http://purl.org/NET/c4dm/trans_experiment#Measurement"/>
+    <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/BodyMass">
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity"/>
     </owl:Class>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/Measure -->
+
+    <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity -->
+
+    <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity"/>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/SpecificViableCount -->
+
+    <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/SpecificViableCount">
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/VolumetricViableCount -->
+
+    <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/VolumetricViableCount">
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#Antibiotic -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/trans_experiment#Antibiotic"/>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#Experiment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/trans_experiment#Experiment"/>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#Gene -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/trans_experiment#Gene"/>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#Group -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/trans_experiment#Group"/>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#Individual -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/trans_experiment#Individual"/>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#Location -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/trans_experiment#Location"/>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#Observation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/trans_experiment#Observation"/>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#ObservationType -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/trans_experiment#ObservationType"/>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#Pathogen -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/trans_experiment#Pathogen"/>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#PathogenResistence -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/trans_experiment#PathogenResistence"/>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#Sample -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/trans_experiment#Sample"/>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#SampleType -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/trans_experiment#SampleType"/>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#Treatment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/trans_experiment#Treatment"/>
     
 
 
@@ -226,38 +488,46 @@
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#Bootsock -->
+    <!-- http://www.semanticweb.org/trans_experiment#Caeca -->
 
-    <owl:NamedIndividual rdf:about="http://purl.org/NET/c4dm/trans_experiment#Bootsock">
-        <rdf:type rdf:resource="http://purl.org/NET/c4dm/trans_experiment#MeasurementType"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/trans_experiment#Caeca">
+        <rdf:type rdf:resource="http://www.semanticweb.org/trans_experiment#SampleType"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#Caeca -->
+    <!-- http://www.semanticweb.org/trans_experiment#Death -->
 
-    <owl:NamedIndividual rdf:about="http://purl.org/NET/c4dm/trans_experiment#Caeca">
-        <rdf:type rdf:resource="http://purl.org/NET/c4dm/trans_experiment#MeasurementType"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/trans_experiment#Death">
+        <rdf:type rdf:resource="http://www.semanticweb.org/trans_experiment#ObservationType"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#Swab -->
+    <!-- http://www.semanticweb.org/trans_experiment#EnvironmentalSample -->
 
-    <owl:NamedIndividual rdf:about="http://purl.org/NET/c4dm/trans_experiment#Swab">
-        <rdf:type rdf:resource="http://purl.org/NET/c4dm/trans_experiment#MeasurementType"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/trans_experiment#EnvironmentalSample">
+        <rdf:type rdf:resource="http://www.semanticweb.org/trans_experiment#SampleType"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://purl.org/NET/c4dm/trans_experiment#Weight -->
+    <!-- http://www.semanticweb.org/trans_experiment#Swab -->
 
-    <owl:NamedIndividual rdf:about="http://purl.org/NET/c4dm/trans_experiment#Weight">
-        <rdf:type rdf:resource="http://purl.org/NET/c4dm/trans_experiment#MeasurementType"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/trans_experiment#Swab">
+        <rdf:type rdf:resource="http://www.semanticweb.org/trans_experiment#SampleType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/trans_experiment#Weight -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/trans_experiment#Weight">
+        <rdf:type rdf:resource="http://www.semanticweb.org/trans_experiment#SampleType"/>
     </owl:NamedIndividual>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 
