@@ -1,7 +1,8 @@
 # exclude compiled binaries and external models
 /bin
-
 # exclude data from source control by default
 /data/temp
 /data/processed
 /data/raw
+.Rproj.user
+summer-fair.Rproj

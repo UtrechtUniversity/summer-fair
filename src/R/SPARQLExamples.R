@@ -26,7 +26,7 @@ sparql <- " PREFIX tr: <http://purl.org/NET/c4dm/trans_experiment.owl#>
                        rdf:type tr:Sample;
                        tr:hasType tr:Swab.}"
 
-dates.swab <- rdf_query(rdf, sparql)
+system.time(dates.swab <- rdf_query(rdf, sparql))
 
 
 #SPARQL query to get all information about swab
