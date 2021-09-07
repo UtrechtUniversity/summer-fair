@@ -1,0 +1,61 @@
+required: animalnr_col
+Experiment:
+  experimentid: 'A'
+  experimentDay:
+    - BS.*_date
+    - weight_d(.*)
+    - swab.*_date
+Host:
+  sex: sexe
+  id: animalnr_col
+  treatment: treatment
+  type: I, S1, S2
+Environment:
+  groupNumber:
+  hospital:
+  house: house
+  pen: pen
+  ward:
+Measurement:
+    - experimentDay: weight_d(.*)
+      hasQuantity: BodyMass
+      experimentHour:
+      BodyMass:
+        hasPhenomenon: Host
+      Measure:
+        hasNumericalValue: weight_d.*
+    - experimentDay: BS.*_date
+      experimentHour:
+      Sample:
+        result: BS.*
+        resultDate:
+        hasType: 'Bootsock'
+      Pathogen:
+        family:
+        name: BS.*_value
+        strain:
+      Gene:
+        name:
+      PathogenResistance:
+        result:
+      Antibiotic:
+        name:
+    - experimentDay: swab.*_date
+      experimentHour:
+      Sample:
+        hasType: 'Swab'
+        hasResult: swab.*
+        resultDate:
+      Pathogen:
+        family:
+        name: swab.*_value
+        strain:
+      Gene:
+        name:
+      PathogenResistance:
+        result:
+      Antibiotic:
+        name:
+Treatment:
+CircumstantialEvent:
+

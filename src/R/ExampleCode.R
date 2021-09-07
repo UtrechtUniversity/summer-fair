@@ -9,7 +9,6 @@ library(SPARQL) # SPARQL querying package
 library(lme4)   # generalized linear mixed-effects models
 library(readxl) # read excel files
 
-
 #load data file####
 data1 <- read_xlsx("C://Surfdrive//Projecten//SUMMERFAIR//ProjectShareSUMMERFAIR//Data//DatasetA//results_exp3_r123_rfile.xlsx")
 data2 <- read_xlsx("C://Surfdrive//Projecten//SUMMERFAIR//ProjectShareSUMMERFAIR//Data//DatasetB//analyse resultaten_exp4.xlsx")
@@ -33,6 +32,7 @@ status.function <- function(data){
 data1<- data1%>%filter(!is.na(animalnr)) #remove rows without animalnumber
 sample.days1<-c(c(1:14),16,19,21)#this is something I know but should be part of the data set
 deltat.days1<- tail(sample.days1,-1)-head(sample.days1,-1);#time intervals
+
 
 count.data1 <- cbind(data1[,c("round","isolator","treatment","S_I")], select(data1, contains("count_ESBL")&!contains("cae")));  #counts except for the caecal sample
 status.data1 <- cbind(data1[,c("round","isolator","treatment","S_I")],data.frame(status.function(select(data1, contains("count_ESBL")&!contains("cae"))))); #sample status except for the caecal sample
@@ -79,8 +79,6 @@ combine.logLik <- function(lls){
   #
   return(comb.LogLik)
   }
-
-
 
 
 
