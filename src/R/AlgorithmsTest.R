@@ -14,7 +14,7 @@
 ## from CRAN and then loaded.
 
 ## First specify the packages of interest
-packages = c()
+packages = c("ggplot2")
 
 ## Now load or install&load all
 package.check <- lapply(
@@ -37,13 +37,20 @@ mockdata <- data.frame(
   location = rep(c("A","B"),each = 50),     # 2 locations
   type = rep(c(rep("I",25),rep("S",25)),2),# first 5 animals per group I  
   treatment = "none",                      # no treatment  
-  sample = c(rbinom(25,1,.7),rbinom(25,1,.3),
-               rbinom(25,1,.7),rbinom(25,1,0.3))               # random positive and negative samples
-
+  sample1 = c(rbinom(25,1,.7),rbinom(25,1,.3),
+               rbinom(25,1,.7),rbinom(25,1,0.3)),               # random positive and negative samples
+  sample2 = c(rbinom(25,1,.7),rbinom(25,1,.3),
+              rbinom(25,1,.7),rbinom(25,1,0.3))               # random positive and negative samples
+  
 )
 
-boxplot(mockdata$sample~ mockdata$type+mockdata$location, type = "l" )
+##visualize data ####
+ggplot(data = mockdata)+
+  geom_raster(aes(x = time,y = chickid, fill = factor(sample1)))
+ggplot(data = mockdata)+
+  geom_raster(aes(x = time,y = chickid, fill = factor(sample2)))
+ggplot(data = mockdata)+
+  geom_raster(aes(x = time,y = chickid, fill = factor(sample1+sample2)))
 
 
-cor(x =mockdata$sample[1:50], y = mockdata$sample[51:100])
-
+##

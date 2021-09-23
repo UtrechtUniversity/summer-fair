@@ -11,6 +11,7 @@
 ## install and load packages ####
 ## First specify the packages of interest
 packages = c("SPARQL",
+             "tidyverse"
              "rstan",
              "shinystan",
              "rstanarm")
@@ -26,5 +27,9 @@ package.check <- lapply(
   }
 )
 
-###
-
+### function apply a rule to the data to determine status of a sample ####
+# status of a sample is determined by the own value and all other values of that chicken 
+# status of a sample can be determined by one value or multiple inputs
+applyRule <- function(data,rule){
+  
+}
