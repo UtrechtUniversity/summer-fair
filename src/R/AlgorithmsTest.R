@@ -53,4 +53,5 @@ ggplot(data = mockdata)+
   geom_raster(aes(x = time,y = chickid, fill = factor(sample1+sample2)))
 
 
-##
+##test rules
+applyRule(mockdata)

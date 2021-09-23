@@ -31,5 +31,21 @@ package.check <- lapply(
 # status of a sample is determined by the own value and all other values of that chicken 
 # status of a sample can be determined by one value or multiple inputs
 applyRule <- function(data,rule){
+  #get time sorted information per chick
+  dataUntidy <- list(ID = unique(data$chickid),
+                     data = ());#select data for this chick
+  return(dataUntidy)
   
+}
+
+
+#generic rule function 
+rule <- function(...){
+  decision = TRUE
+  return(decision)}
+
+#extend generic rule function
+rule.1 <-function(data){
+  decision = TRUE
+  return(decision)
 }
