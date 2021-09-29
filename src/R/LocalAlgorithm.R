@@ -65,13 +65,12 @@ setMethod("show",signature= c(object ="TransmissionEstimate"),
 ### function apply a rule to the data to determine status of a sample ####
 # status of a sample is determined by the own value and all other values of that chicken 
 # status of a sample can be determined by one value or multiple inputs
-applyRule <- function(data,rule){
+applyRule <- function(data,rule, time.series.id){
   #per chicken define the positive and negative moments
   dataRuled <- data;
   dataRuled$sir<- 0;#0 indicates susceptible individual
   for(id in data$id){
-    dataRuled[order(dataRuled$time)&dataRuled$id == id,]$sir <-rule(dataRuled[order(dataRuled$time)&dataRuled$id == id,]$sample1,
-                                                                    dataRuled[order(dataRuled$time)&dataRuled$id == id,]$sample2)  
+    dataRuled[order(dataRuled$time)&dataRuled$id == id,]$sir <-rule(dataRuled[order(dataRuled$time)&dataRuled$id == id,],time.series.id)  
   }
   return(dataRuled)
   

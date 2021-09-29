@@ -27,7 +27,7 @@ package.check <- lapply(
   }
 )
 
-source("LocalAlgorithm.R")
+source("src/R/LocalAlgorithm.R")
 
 
 ##create some mock data####
@@ -53,41 +53,52 @@ ggplot(data = mockdata)+
   geom_raster(aes(x = time,y = chickid, fill = factor(sample1+sample2)))
 
 
-##test rules
-rule.sincefirst <- function(timeseries,...){
-  new.series <- sign(cumsum(timeseries))
-  return(new.series)
-}
-
-rule.sinceeither <- function(timeseries1,timeseries2){
-  new.series <- sign(cumsum(timeseries1+timeseries2))
-  return(new.series)
-}
-
-rule.either <- function(timeseries1,timeseries2){
-  new.series <- sign(timeseries1+timeseries2)
-  return(new.series)
-}
-
-rule.testinfectioustestrecovered <- function(timeseries1,timeseries2){
-  new.series <- sign(cumsum(timeseries1))+sign(cumsum(timeseries2))
-  return(new.series)
+##create some rules
+rule.generic <-function(timeseries,var.id,...){
+  print("generic rule returns first column");
+  return(timeseries[,var.id[1]])
 }
 
 
-test1 <- rbinom(10,1,.2)
-test1
-rule.sincefirst(test1)
-test2 <- rbinom(10,1,.2)
-test2
-test1 +test2
-rule.sinceeither(test1,test2)
-rule.either(test1,test2)
-rule.testinfectioustestrecovered(test1,test2)
+rule.sincefirst <- function(timeseries,var.id,...){
+  if(length(var.id)>1) warning("Only first var.id entry used in rule")
+  new.series <- sign(cumsum(timeseries[,var.id[1]]))
+  return(new.series)
+}
 
-dataAfterRule <- applyRule(mockdata,rule.sincefirst)
-dataAfterRule <- applyRule(mockdata,rule.sinceeither)
-dataAfterRule <- applyRule(mockdata,rule.either)
-dataAfterRule <- applyRule(mockdata,rule.testinfectioustestrecovered)
-ggplot(data = dataAfterRule)+
+rule.sinceeither <- function(timeseries,var.id,...){
+  new.series <- sign(cumsum(rowSums(timeseries[,var.id])));
+  return(new.series)
+}
+
+rule.either <- function(timeseries,var.id,...){
+  new.series <- sign(rowSums(timeseries[,var.id]));
+  return(new.series)
+}
+
+rule.testinfectioustestrecovered <- function(timeseries,var.id,){
+  new.series <- sadkl;hasd; fsign(cumsum(timeseries1))+sign(cumsum(timeseries2))
+  return(new.series)
+}
+
+
+ggplot(data = applyRule(mockdata,
+                        rule.sincefirst,
+                        tail(names(mockdata),2)))+
+  geom_raster(aes(x = time,y = id, fill = factor(sir)))
+ggplot(data = applyRule(mockdata,
+                        rule.either,
+                        tail(names(mockdata),2)))+
+  geom_raster(aes(x = time,y = id, fill = factor(sir)))
+ggplot(data = applyRule(mockdata,
+                        rule.sinceeither,
+                        tail(names(mockdata),2))
+                        )+
+  geom_raster(aes(x = time,y = id, fill = factor(sir)))
+ggplot(data = applyRule(mockdata,
+                        rule.testinfectioustestrecovered))+
+  geom_raster(aes(x = time,y = id, fill = factor(sir)))
+
+ggplot(data = applyRule(mockdata,
+                        rule.testinfectioustestrecovered))+
   geom_raster(aes(x = time,y = id, fill = factor(sir)))
