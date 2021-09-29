@@ -32,7 +32,7 @@ source("LocalAlgorithm.R")
 
 ##create some mock data####
 mockdata <- data.frame(
-  chickid = rep(c(1:20),each = 5),         # 20 animals
+  id = rep(c(1:20),each = 5),         # 20 animals
   time = rep(c(1:5), 20),                  # 5 times
   location = rep(c("A","B"),each = 50),     # 2 locations
   type = rep(c(rep("I",25),rep("S",25)),2),# first 5 animals per group I  
@@ -54,4 +54,40 @@ ggplot(data = mockdata)+
 
 
 ##test rules
-applyRule(mockdata)
+rule.sincefirst <- function(timeseries,...){
+  new.series <- sign(cumsum(timeseries))
+  return(new.series)
+}
+
+rule.sinceeither <- function(timeseries1,timeseries2){
+  new.series <- sign(cumsum(timeseries1+timeseries2))
+  return(new.series)
+}
+
+rule.either <- function(timeseries1,timeseries2){
+  new.series <- sign(timeseries1+timeseries2)
+  return(new.series)
+}
+
+rule.testinfectioustestrecovered <- function(timeseries1,timeseries2){
+  new.series <- sign(cumsum(timeseries1))+sign(cumsum(timeseries2))
+  return(new.series)
+}
+
+
+test1 <- rbinom(10,1,.2)
+test1
+rule.sincefirst(test1)
+test2 <- rbinom(10,1,.2)
+test2
+test1 +test2
+rule.sinceeither(test1,test2)
+rule.either(test1,test2)
+rule.testinfectioustestrecovered(test1,test2)
+
+dataAfterRule <- applyRule(mockdata,rule.sincefirst)
+dataAfterRule <- applyRule(mockdata,rule.sinceeither)
+dataAfterRule <- applyRule(mockdata,rule.either)
+dataAfterRule <- applyRule(mockdata,rule.testinfectioustestrecovered)
+ggplot(data = dataAfterRule)+
+  geom_raster(aes(x = time,y = id, fill = factor(sir)))
