@@ -1,0 +1,118 @@
+##############################################################
+#                                                        
+#                  DataManipulationRules                 
+#   
+#           Examples of rules to determine infections status
+#           of an individual based on one or more samples
+#           Coding is Susceptible = 0
+#                     Latent = 1
+#                     Infectious = 2
+#                     Recovered = 3                                 
+#                     
+#
+#                  Author:E.A.J. Fischer                 
+#                  Contact: e.a.j.fischer@uu.nl          
+#                  Creation date: 30-9-2021              
+##############################################################
+
+
+##generic of a rule ####
+rule.generic <-function(timeseries,var.id,...){
+  print("generic rule returns first column");
+  return(timeseries[,var.id[1]])
+}
+
+##rule using first sampletype in the data and determine status S or I####
+# First positive means individual is positive from that time onwards
+rule.sincefirst <- function(timeseries,var.id,...){
+  if(length(var.id)>1) warning("Only first var.id entry used in rule")
+  new.series <-2*(timeseries %>% 
+                    select(all_of(var.id[1]))%>%
+                    cumsum%>%
+                    sign);
+  
+  return(new.series)
+}
+
+test <- head(applyRule(mockdata,
+                       rule.sincefirst,
+                       tail(names(mockdata),1))%>%arrange(id), 2* sampletimes)
+
+
+##rule using any sample in the data and determine status S or I####
+# First positive means individual is positive from that time onwards
+rule.sinceany <- function(timeseries,var.id,...){
+  new.series <- 2*(timeseries %>% 
+                     select(all_of(var.id))%>%
+                     cumsum%>%
+                     rowSums%>%
+                     sign);
+  return(new.series)
+}
+
+##rule using any sample in the data and determine status S or I####
+# Animals can swithc between susceptible and infectious and back
+rule.any <- function(timeseries,var.id,...){
+  new.series <- 2*(timeseries%>%
+                     select(all_of(var.id))%>%
+                     rowSums%>%
+                     sign)
+  return(new.series)
+}
+
+##rule using all sample (all should be positive) in the data and determine status S or I####
+# Animals can switch between susceptible and infectious and back
+rule.all <- function(timeseries,var.id,...){
+  new.series <- 2*(timeseries%>%
+                     select(all_of(var.id))%>%
+                     rowMins() );
+  return(new.series)
+}
+
+##rule using some samples to determine status  I and other for R####
+# Animals can switch between susceptible, infectious, recovered and back
+rule.testinfectioustestrecovered <- function(timeseries,var.id,infrec){
+  i <- 2*(timeseries%>%
+            select(all_of(var.id[infrec$inf]))%>%
+            rowSums%>%
+            sign);
+  r <- 3*(timeseries%>%
+            select(all_of(var.id[infrec$rec]))%>%
+            rowSums%>%
+            sign);
+  new.series <- rowMaxs(data.frame(i,r))
+  return(new.series)
+}
+
+
+rule.sincefirstinfectioustestrecovered <- function(timeseries,var.id,infrec){
+  i <- 2*(timeseries%>%
+            select(all_of(var.id[infrec$inf]))%>%
+            cumsum%>%
+            rowSums%>%
+            sign);
+  r <- 3*(timeseries%>%
+            select(all_of(var.id[infrec$rec]))%>%
+            cumsum%>%
+            rowSums%>%
+            sign);
+  new.series <- rowMaxs(data.frame(i,r))
+  return(new.series)
+}
+
+
+##rule uses any sample which requires to be positive for at least n consecutive time moments
+#If only the last sample is positive it will  be considered positive
+rule.consecutive <- function(timeseries,var.id,n)
+{ new.series <- timeseries%>%
+                select(all_of(var.id))%>%
+                rowSums()%>%
+                sign();
+
+  return(sapply(X = c(1:length(new.series)),
+         FUN = function(x){min(new.series[x:(min(length(new.series),x+n))])}))
+
+}
+
+
+

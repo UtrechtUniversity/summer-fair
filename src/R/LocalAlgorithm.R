@@ -32,7 +32,7 @@ package.check <- lapply(
 setClass("TransmissionEstimate",
          slots = c(n = "numeric", #number of observations
                    likelihood ="function", #log-likelihood function with one or more parameters
-                   rule = "character", #rule used to determine if sample is positive or negative
+                   rule = "function", #rule used to determine if sample is positive or negative
                    pars ="list" #list of estimated parameters options are of each the list contains the name and distribution
                                 #R = reproduction number
                                 #beta = transmission coefficient within a group
@@ -42,11 +42,11 @@ setClass("TransmissionEstimate",
                                 #r0 = scale parameter distance dependent transmission
                          ))
 getClass("TransmissionEstimate")
-# obj =new("TransmissionEstimate", 
-#          n = 10, 
-#          likelihood = function(R){R*(1-R)},
-#          rule = "none",
-#          pars = list("R"))
+ obj =new("TransmissionEstimate", 
+          n = 10, 
+          likelihood = function(R){R*(1-R)},
+          rule = rule.sincefirst,
+          pars = list("R"))
 
 # methods 
 setMethod("show",signature= c(object ="TransmissionEstimate"),
@@ -65,19 +65,96 @@ setMethod("show",signature= c(object ="TransmissionEstimate"),
 ### function apply a rule to the data to determine status of a sample ####
 # status of a sample is determined by the own value and all other values of that chicken 
 # status of a sample can be determined by one value or multiple inputs
-applyRule <- function(data,rule, time.series.id){
-  #per chicken define the positive and negative moments
-  dataRuled <- data;
-  dataRuled$sir<- 0;#0 indicates susceptible individual
-  for(id in data$id){
-    dataRuled[order(dataRuled$time)&dataRuled$id == id,]$sir <-rule(dataRuled[order(dataRuled$time)&dataRuled$id == id,],time.series.id)  
+applyRule <- function(data,rule,var.id, ...){
+  #set new data set arranged by times
+  dataRuled <- data%>%arrange(times);
+  sir<- NULL;#0 indicates susceptible individual
+  for(cid in unique(dataRuled$id)){
+
+    dataRuled[dataRuled$id ==cid,"sir"] <-  dataRuled%>%           
+         filter(id == cid)%>%   #subset the particular individual
+         arrange(times)%>%       #arrange samples by time
+         rule(var.id,...)         #apply rule to determine infection status (0 = susceptible, 1= latent, 2 = infectious, 3 = recovered)
+     
   }
   return(dataRuled)
+}
+
+##arrange data for specific method####
+arrangeData <- function(data, 
+                        rule,
+                        id.vars,
+                        method = "glm",
+                        ...){
+  return(eval(parse(text = paste0("arrangeData.", method)))(applyRule(data,rule,...)))
+
+}
+
+arrangeData.glm<-function(rdata){
+  #for a standard glm approach requires
+  group.data <- NULL;
+  #1. time intervals (length)
+  group.data$times <- rdata%>%
+    group_by(location,times) %>% 
+    summarize(mean(times))
+  group.data$dt <-data.frame(group.data)%>%
+    group_by(times.location)%>%
+    summarize(dt = c(-1,tail(times.mean.times.,-1)-head(times.mean.times.,-1)))
+  #clean up
+  group.data <- data.frame(group.data)[,c("times.location","times.mean.times.","dt.dt")];
+  names(group.data)<- c("location","times","dt");
+  #2. cases per interval
+  indiv.cases <- rdata%>%
+    arrange(times)%>% 
+    group_by(id) %>%
+    summarize(
+      location = location,
+      times = times,
+      case = c(0,as.numeric(head(sir,-1)==0 & tail(sir,-1)>0)));
+  cases   <- indiv.cases%>%
+    group_by(location,times) %>% 
+    summarise(sum(case))
+  group.data$cases<- data.frame(cases)[,-1]
+  #3. number of infectious individual at start interval
+  i <- rdata%>%
+    group_by(location,times) %>% 
+    summarise(sum(sir == 2))
+  group.data$i <- data.frame(i)[,-1]
+  
+  #4. number of susceptible individuals at start interval
+  s <- rdata%>%
+    group_by(location,times) %>% 
+    summarise(sum(sir == 0))
+  group.data$s <- data.frame(s)[,-1]
+  #5. number of recovered individuals at start of interval
+  r <- rdata%>%
+    group_by(location,times) %>% 
+    summarise(sum(sir == 3))
+  group.data$r <- data.frame(r)[,-1]
+  #6. covariates of the group
+  
+  return(group.data)
+}
+
+glmdata <- arrangeData(mockdata,
+            rule.sincefirstinfectioustestrecovered, 
+            var.id = tail(names(mockdata),3),
+            infrec = list(inf=c(2),rec=c(3)) )  
+
+names(data.frame(glmdata))
+head(data.frame(glmdata))
+
+
+## perform analysis ####
+analyseTransmission<- function(data,
+                               rule,
+                               est.par,
+                               method ="glm",
+                               ...){
   
 }
 
 
-#generic rule function 
-rule <- function(...){
-  out <- c()
-  return(out)}
+
+
+
