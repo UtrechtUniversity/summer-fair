@@ -14,7 +14,7 @@
 #                  Contact: e.a.j.fischer@uu.nl          
 #                  Creation date: 30-9-2021              
 ##############################################################
-
+library(magrittr)
 
 ##generic of a rule ####
 rule.generic <-function(timeseries,var.id,...){
@@ -114,5 +114,34 @@ rule.consecutive <- function(timeseries,var.id,n)
 
 }
 
+##Samples have another way to mark positive or negative
+##If pos / neg is indicated by + or - (possibly including other values)
+rule.sinceany.recode<- function(timeseries, var.id,codesposneg,... )
+{
+  if(length(codesposneg)>2){ 
+     stop("too many recodings for this rule!")}
+  recodefunction <- function(input){
+    ifelse(str_detect(pattern =paste0("[",codesposneg[1],"]"),string = input),1,
+       ifelse(str_detect(pattern=paste0("[",codesposneg[2],"]"),string = input),0,NA))}
+  
+  timeseries[,var.id]<- timeseries%>%
+    select(var.id)%>%
+    sapply(recodefunction)
+  return(rule.sinceany(timeseries, var.id,...))
+}
 
+##If pos / neg is indicated by a cutoff
+rule.sinceany.cutoff<- function(timeseries, var.id,cutoff,... )
+{
+  recodefunction <- function(input){
+    if(!is.numeric(input)) return(NA);
+    as.numeric(input>= cutoff)
+    
+  }
+  
+  timeseries[,var.id]<- timeseries%>%
+    select(var.id)%>%
+    sapply(recodefunction)
+  return(rule.sinceany(timeseries, var.id,...))
+}
 

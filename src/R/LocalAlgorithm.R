@@ -69,10 +69,10 @@ applyRule <- function(data,rule,var.id, ...){
   #set new data set arranged by times
   dataRuled <- data%>%arrange(times);
   sir<- NULL;#0 indicates susceptible individual
-  for(cid in unique(dataRuled$id)){
+  for(cid in unique(dataRuled$host_id)){
 
-    dataRuled[dataRuled$id ==cid,"sir"] <-  dataRuled%>%           
-         filter(id == cid)%>%   #subset the particular individual
+    dataRuled[dataRuled$host_id ==cid,"sir"] <-  dataRuled%>%           
+         filter(host_id == cid)%>%   #subset the particular individual
          arrange(times)%>%       #arrange samples by time
          rule(var.id,...)         #apply rule to determine infection status (0 = susceptible, 1= latent, 2 = infectious, 3 = recovered)
      
@@ -80,7 +80,33 @@ applyRule <- function(data,rule,var.id, ...){
   return(dataRuled)
 }
 
-##arrange data for specific method####
+##create a numeric time ####
+setTimes<- function(input,       #data set
+                    resolution, #return time at this resolution allowed is second, minute, hour, day, week, month, year
+                    decimals = 1){
+  timevars <- c("ex_sec","ex_min","ex_hour","ex_day","ex_week","ex_year");
+  timevarsininput<-timevars[timevars%in%names(input)]
+  times <-  NA;
+  multiplicationfactor <- c(ex_sec = 1,
+    ex_min = 60,
+    ex_hour= 60*60,
+    ex_day = 60*60*24,
+    ex_week = 60*60*24*7,
+    ex_year = 60*60*24*365);
+  #ugly code but does the job of setting it to seconds
+  for(t in timevars[timevars%in%names(input)])  {
+    times <- as.vector(ifelse(is.na(times), 
+                    input[,t]*multiplicationfactor[t],
+                    times+input[,t]*multiplicationfactor[t]))
+  }; times<- unlist(times)
+  #round off to one decimal given the resolution
+  return((times/ multiplicationfactor[paste0("ex_",resolution)])%>%round(decimals))
+} 
+ setTimes(usedata,
+          resolution = "day",
+          decimals =1)
+ 
+##arrange input for specific method####
 arrangeData <- function(data, 
                         rule,
                         id.vars,
@@ -95,54 +121,48 @@ arrangeData.glm<-function(rdata){
   group.data <- NULL;
   #1. time intervals (length)
   group.data$times <- rdata%>%
-    group_by(location,times) %>% 
+    group_by(group,times) %>% 
     summarize(mean(times))
   group.data$dt <-data.frame(group.data)%>%
-    group_by(times.location)%>%
+    group_by(times.group)%>%
     summarize(dt = c(-1,tail(times.mean.times.,-1)-head(times.mean.times.,-1)))
   #clean up
-  group.data <- data.frame(group.data)[,c("times.location","times.mean.times.","dt.dt")];
-  names(group.data)<- c("location","times","dt");
+  group.data <- data.frame(group.data)[,c("times.group","times.mean.times.","dt.dt")];
+  names(group.data)<- c("group","times","dt");
   #2. cases per interval
   indiv.cases <- rdata%>%
     arrange(times)%>% 
-    group_by(id) %>%
+    group_by(host_id) %>%
     summarize(
-      location = location,
+      group = group,
       times = times,
       case = c(0,as.numeric(head(sir,-1)==0 & tail(sir,-1)>0)));
   cases   <- indiv.cases%>%
-    group_by(location,times) %>% 
-    summarise(sum(case))
-  group.data$cases<- data.frame(cases)[,-1]
+    group_by(group,times) %>% 
+    summarise(sum(case,na.rm = TRUE))
+  group.data$cases<- data.frame(cases)[,ncol(cases)]
   #3. number of infectious individual at start interval
   i <- rdata%>%
-    group_by(location,times) %>% 
-    summarise(sum(sir == 2))
-  group.data$i <- data.frame(i)[,-1]
+    group_by(group,times) %>% 
+    summarise(sum(sir == 2,na.rm = TRUE))
+  group.data$i <- data.frame(i)[,ncol(i)]
   
   #4. number of susceptible individuals at start interval
   s <- rdata%>%
-    group_by(location,times) %>% 
-    summarise(sum(sir == 0))
-  group.data$s <- data.frame(s)[,-1]
+    group_by(group,times) %>% 
+    summarise(sum(sir == 0,na.rm = TRUE))
+  group.data$s <- data.frame(s)[,ncol(s)]
   #5. number of recovered individuals at start of interval
   r <- rdata%>%
-    group_by(location,times) %>% 
-    summarise(sum(sir == 3))
-  group.data$r <- data.frame(r)[,-1]
+    group_by(group,times) %>% 
+    summarise(sum(sir == 3,na.rm = TRUE))
+  group.data$r <- data.frame(r)[,ncol(r)]
   #6. covariates of the group
   
+  stop("deos not give correct answer")
   return(group.data)
 }
 
-glmdata <- arrangeData(mockdata,
-            rule.sincefirstinfectioustestrecovered, 
-            var.id = tail(names(mockdata),3),
-            infrec = list(inf=c(2),rec=c(3)) )  
-
-names(data.frame(glmdata))
-head(data.frame(glmdata))
 
 
 ## perform analysis ####

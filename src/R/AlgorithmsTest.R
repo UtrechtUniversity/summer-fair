@@ -14,7 +14,7 @@
 ## from CRAN and then loaded.
 
 ## First specify the packages of interest
-packages = c("ggplot2","tidyverse","rje")
+packages = c("ggplot2","tidyverse","rje","readxl","magrittr")
 
 ## Now load or install&load all
 package.check <- lapply(
@@ -55,50 +55,39 @@ mockdata <- data.frame(
   
 
 
-##visualize data ####
-ggplot(data = mockdata)+
-  geom_raster(aes(x = times,y = id, fill = factor(sample1)))
-ggplot(data = mockdata)+
-  geom_raster(aes(x = times,y = id, fill = factor(sample2)))
-ggplot(data = mockdata)+
-  geom_raster(aes(x = times,y = id, fill = factor(sample3)))
 
-ggplot(data = mockdata)+
-  geom_raster(aes(x = times,y = id, fill = factor(sample1+sample2+sample3)))
+##use query to create data####
+# NOT YET DONE #
 
+##load pre-queried data ####
+prequerydata <- read_xlsx("src/R/preprocesseddata/Sample_results.xlsx")
 
-head(applyRule(mockdata,
-          rule.sincefirst,
-          tail(names(mockdata),1))%>%arrange(id), 2* sampletimes)
+## Set data ####
+usedata <- prequerydata
+## preprocess data ####
+#remove redundant space
+names(usedata)<- str_trim(names(usedata))
 
-ggplot(data = applyRule(mockdata,
-                        rule.sincefirst,
-                        tail(names(mockdata),3)))+
-  geom_raster(aes(x = times,y = id, fill = factor(sir)))
-ggplot(data = applyRule(mockdata,
-                        rule.either,
-                        tail(names(mockdata),2)))+
-  geom_raster(aes(x = times,y = id, fill = factor(sir)))
-ggplot(data = applyRule(mockdata,
-                        rule.sinceany,
-                        tail(names(mockdata),2))
-                        )+
-  geom_raster(aes(x = times,y = id, fill = factor(sir)))
+#set times to the correct resolution ###
+usedata$times <- setTimes(usedata,
+                          resolution = "day",
+                          decimals =1)
 
-ggplot(data = applyRule(mockdata,
-                        rule.testinfectioustestrecovered,
-                        var.id = tail(names(mockdata),3),
-                        infrec = list(inf=c(1,2),rec=c(3))))+
-  geom_raster(aes(x = times,y = id, fill = factor(sir)))
+## apply rule to this data set ####
+datawithrule <-applyRule(usedata,   #data
+          rule.sinceany.recode,     #rule to apply
+          c("sample_result"),       #variables with output of tests
+          codesposneg = c("+","-")) #specific parameters for this rule. Here we need to recode values containing + or - to 1, 0 or NA.
 
 
-ggplot(data = applyRule(mockdata,
-                        rule.sincefirstinfectioustestrecovered,
-                        var.id = tail(names(mockdata),3),
-                        infrec = list(inf=c(2),rec=c(3))))+
-  geom_raster(aes(x = times,y = id, fill = factor(sir)))
+## visualize data after applying rules ####
+ggplot(data = datawithrule)+
+  geom_raster(aes(x = times,y = host_id, fill = factor(sir)))
 
-rmockdata <- applyRule(mockdata,
-                       rule.sincefirstinfectioustestrecovered,
-                       var.id = tail(names(mockdata),3),
-                       infrec = list(inf=c(2),rec=c(3)))
+##arrange data for analysis ####
+data.arranged <- arrangeData(data = datawithrule,
+                             rule = rule.sinceany.recode,
+                             var.id = c("sample_result"),
+                             method = "glm",
+                             codesposneg = c("+","-"))
+head(data.arranged)
