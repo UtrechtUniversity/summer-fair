@@ -34,10 +34,6 @@ rule.sincefirst <- function(timeseries,var.id,...){
   return(new.series)
 }
 
-test <- head(applyRule(mockdata,
-                       rule.sincefirst,
-                       tail(names(mockdata),1))%>%arrange(id), 2* sampletimes)
-
 
 ##rule using any sample in the data and determine status S or I####
 # First positive means individual is positive from that time onwards
@@ -116,16 +112,17 @@ rule.consecutive <- function(timeseries,var.id,n)
 
 ##Samples have another way to mark positive or negative
 ##If pos / neg is indicated by + or - (possibly including other values)
-rule.sinceany.recode<- function(timeseries, var.id,codesposneg,... )
+rule.sinceany.recode<- function(timeseries, var.id,codesposnegmiss,newcodes=c(1,0,0),... )
 {
-  if(length(codesposneg)>2){ 
+  if(length(codesposnegmiss)>3){ 
      stop("too many recodings for this rule!")}
   recodefunction <- function(input){
-    ifelse(str_detect(pattern =paste0("[",codesposneg[1],"]"),string = input),1,
-       ifelse(str_detect(pattern=paste0("[",codesposneg[2],"]"),string = input),0,NA))}
+    ifelse(str_detect(pattern =paste0("[",codesposnegmiss[1],"]"),string = input),newcodes[1],
+       ifelse(str_detect(pattern=paste0("[",codesposnegmiss[2],"]"),string = input),newcodes[2],
+              ifelse(str_detect(pattern=paste0("[",codesposnegmiss[3],"]"),string = input),newcodes[3],NA)))}
   
   timeseries[,var.id]<- timeseries%>%
-    select(var.id)%>%
+    select(all_of(var.id))%>%
     sapply(recodefunction)
   return(rule.sinceany(timeseries, var.id,...))
 }
@@ -140,7 +137,7 @@ rule.sinceany.cutoff<- function(timeseries, var.id,cutoff,... )
   }
   
   timeseries[,var.id]<- timeseries%>%
-    select(var.id)%>%
+    select(all_of(var.id))%>%
     sapply(recodefunction)
   return(rule.sinceany(timeseries, var.id,...))
 }

@@ -60,7 +60,8 @@ mockdata <- data.frame(
 # NOT YET DONE #
 
 ##load pre-queried data ####
-prequerydata <- read_xlsx("src/R/preprocesseddata/Sample_results.xlsx")
+prequerydata <- read_xlsx("src/R/preprocesseddata/Sample_results.xlsx",
+                          sheet = "maldi Swab samples")
 
 ## Set data ####
 usedata <- prequerydata
@@ -77,17 +78,34 @@ usedata$times <- setTimes(usedata,
 datawithrule <-applyRule(usedata,   #data
           rule.sinceany.recode,     #rule to apply
           c("sample_result"),       #variables with output of tests
-          codesposneg = c("+","-")) #specific parameters for this rule. Here we need to recode values containing + or - to 1, 0 or NA.
+          codesposneg = c("+","-","mis")) #specific parameters for this rule. Here we need to recode values containing + or - to 1, 0 or NA.
 
 
 ## visualize data after applying rules ####
 ggplot(data = datawithrule)+
   geom_raster(aes(x = times,y = host_id, fill = factor(sir)))
+##continue only with data from pens with inoculated animals
+datawithruleinoc <- datawithrule%>%filter(str_detect(group,pattern= "I9"))
 
 ##arrange data for analysis ####
-data.arranged <- arrangeData(data = datawithrule,
+data.arranged <- arrangeData(data = datawithruleinoc,
                              rule = rule.sinceany.recode,
                              var.id = c("sample_result"),
                              method = "glm",
-                             codesposneg = c("+","-"))
-head(data.arranged)
+                             codesposneg = c("+","-","mis"))
+
+input = data.frame(data.arranged%>% filter(i > 0 & s>0))
+input
+fit.real <- glm(cbind(cases, s - cases) ~ 1 ,
+    family = binomial(link = "cloglog"), 
+    offset = log(i/n)*dt,
+    data = input)
+summary(fit.real)
+
+
+analyseTransmission(data = usedata%>%filter(str_detect(group,"I9")),
+                    rule = rule.sinceany.recode,
+                    var.id = c("sample_result"),
+                    method = "glm",
+                    codesposneg = c("+","-","mis"),
+                    preventError = TRUE)

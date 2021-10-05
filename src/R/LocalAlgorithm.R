@@ -102,21 +102,18 @@ setTimes<- function(input,       #data set
   #round off to one decimal given the resolution
   return((times/ multiplicationfactor[paste0("ex_",resolution)])%>%round(decimals))
 } 
- setTimes(usedata,
-          resolution = "day",
-          decimals =1)
  
-##arrange input for specific method####
+##arrange input for analysis####
 arrangeData <- function(data, 
                         rule,
                         id.vars,
                         method = "glm",
                         ...){
+  print(paste("Arrange data for", method, "analysis."));
   return(eval(parse(text = paste0("arrangeData.", method)))(applyRule(data,rule,...)))
-
 }
-
-arrangeData.glm<-function(rdata){
+##arrange data for specific analysis
+arrangeData.glm<-function(rdata, InoCase = TRUE){
   #for a standard glm approach requires
   group.data <- NULL;
   #1. time intervals (length)
@@ -131,12 +128,15 @@ arrangeData.glm<-function(rdata){
   names(group.data)<- c("group","times","dt");
   #2. cases per interval
   indiv.cases <- rdata%>%
+    filter(if(InoCase)!str_detect(inoculationStatus,"I")else TRUE)%>%
     arrange(times)%>% 
-    group_by(host_id) %>%
+    #group_by(host_id) %>%
     summarize(
+      host_id = host_id,
       group = group,
       times = times,
-      case = c(0,as.numeric(head(sir,-1)==0 & tail(sir,-1)>0)));
+      case = c(as.numeric(head(sir,-1)==0 & tail(sir,-1)>0),0));
+    
   cases   <- indiv.cases%>%
     group_by(group,times) %>% 
     summarise(sum(case,na.rm = TRUE))
@@ -146,9 +146,11 @@ arrangeData.glm<-function(rdata){
     group_by(group,times) %>% 
     summarise(sum(sir == 2,na.rm = TRUE))
   group.data$i <- data.frame(i)[,ncol(i)]
+  #here also take into account infectious individuals in other levels
   
   #4. number of susceptible individuals at start interval
   s <- rdata%>%
+    filter(if(InoCase)!str_detect(inoculationStatus,"I")else TRUE)%>%
     group_by(group,times) %>% 
     summarise(sum(sir == 0,na.rm = TRUE))
   group.data$s <- data.frame(s)[,ncol(s)]
@@ -157,21 +159,64 @@ arrangeData.glm<-function(rdata){
     group_by(group,times) %>% 
     summarise(sum(sir == 3,na.rm = TRUE))
   group.data$r <- data.frame(r)[,ncol(r)]
-  #6. covariates of the group
+  #6. total number of individuals
+  n <- rdata%>%
+    group_by(group,times) %>% 
+    summarise(sum(!is.na(sir)))
+  group.data$n <- data.frame(n)[,ncol(n)]
+  #7. check or determine group co-variates
   
-  stop("deos not give correct answer")
+  # S, I and R should be the numbers at the beginning of the interval dt
+  # cases the numbers after the interval, thus shift SIR values to one time later
+  # the first time moment should be removed
+  group.data <- group.data %>%
+    group_by(group)%>%summarize(
+      times = tail(times,-1),
+      dt = tail(dt,-1),
+      cases = tail(cases,-1),
+      s = as.numeric(head(s, -1)),
+      i = as.numeric(head(i, -1)),
+      r = as.numeric(head(r, -1)),
+      n = as.numeric(head(n,-1))
+      )
+  
+  
+  
   return(group.data)
 }
 
 
 
 ## perform analysis ####
-analyseTransmission<- function(data,
-                               rule,
-                               est.par,
-                               method ="glm",
+analyseTransmission<- function(inputdata,          #input data
+                               rule,          #rule to determine whether sample is positive or negative
+                               var.id,        #variables to determine apply rule to
+                               estpars,       #parameters to estimate
+                               method ="glm", #estimation method
+                               preventError = FALSE, #remove those entries with FOI = 0 but cases>1
                                ...){
+  #arrange data for analysis
+  data.arranged <- arrangeData(rdata = inputdata,
+                               rule = rule,
+                               var.id = var.id,
+                               method = method,
+                               ...)
+  #remove those entries without susceptibles (contain no information and cause errors)
+  data.arranged <- data.arranged%>%filter(s>0)
+  #deal with potential error
+  if(preventError){data.arranged <- data.arranged%>%filter(i>0)}
+  #do analysis
+  fit <- switch(method,
+    glm = glm(cbind(cases, s - cases) ~ 1 ,
+              family = binomial(link = "cloglog"), 
+              offset = log(i/n)*dt,
+              data = data.arranged),
+    stop("no other methods than glm")
+  )
+
   
+  #return outcome
+  return(fit)
 }
 
 
