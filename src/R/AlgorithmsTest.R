@@ -65,9 +65,12 @@ prequerydata <- read_xlsx("src/R/preprocesseddata/Sample_results.xlsx",
 
 ## Set data ####
 usedata <- prequerydata
+
 ## preprocess data ####
 #remove redundant space
 names(usedata)<- str_trim(names(usedata))
+#split group name into house and pen and names these level 1 and level 2
+usedata <-usedata%>%separate(group,c("level2","level1"),"_")
 
 #set times to the correct resolution ###
 usedata$times <- setTimes(usedata,
@@ -83,16 +86,16 @@ datawithrule <-applyRule(usedata,   #data
 
 ## visualize data after applying rules ####
 ggplot(data = datawithrule)+
-  geom_raster(aes(x = times,y = host_id, fill = factor(sir)))
-##continue only with data from pens with inoculated animals
-datawithruleinoc <- datawithrule%>%filter(str_detect(group,pattern= "I9"))
+  geom_raster(aes(x = times,y = host_id, fill = factor(sir)))+facet_grid(level1~level2)
 
 ##arrange data for analysis ####
-data.arranged <- arrangeData(data = datawithruleinoc,
+rm(data.arranged)
+data.arranged <- arrangeData(data = datawithrule,
                              rule = rule.sinceany.recode,
                              var.id = c("sample_result"),
                              method = "glm",
-                             codesposneg = c("+","-","mis"))
+                             codesposneg = c("+","-","mis"), 
+                             covariates = c("ex_day"))
 
 input = data.frame(data.arranged%>% filter(i > 0 & s>0))
 input
@@ -103,9 +106,12 @@ fit.real <- glm(cbind(cases, s - cases) ~ 1 ,
 summary(fit.real)
 
 
-analyseTransmission(data = usedata%>%filter(str_detect(group,"I9")),
+fit <- analyseTransmission(data = usedata%>%filter(str_detect(group,"I9")),
                     rule = rule.sinceany.recode,
                     var.id = c("sample_result"),
                     method = "glm",
                     codesposneg = c("+","-","mis"),
                     preventError = TRUE)
+logLik(fit)
+
+

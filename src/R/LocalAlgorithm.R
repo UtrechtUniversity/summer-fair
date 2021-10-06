@@ -13,9 +13,10 @@
 packages = c("SPARQL",
              "ggplot2",
              "tidyverse",
-             "rstan",
-             "shinystan",
-             "rstanarm")
+             "rstan",     #not yet used
+             "shinystan", #not yet used
+             "rstanarm",  #not yet used
+             "bbmle")
 
 ## Now load or install&load all
 package.check <- lapply(
@@ -108,79 +109,143 @@ arrangeData <- function(data,
                         rule,
                         id.vars,
                         method = "glm",
+                        covariates = NULL,
+                        InoCase = TRUE,
                         ...){
   print(paste("Arrange data for", method, "analysis."));
-  return(eval(parse(text = paste0("arrangeData.", method)))(applyRule(data,rule,...)))
+  return(eval(parse(text = paste0("arrangeData.", method)))
+         (applyRule(data,rule,...),covariates,InoCase))
 }
+
 ##arrange data for specific analysis
-arrangeData.glm<-function(rdata, InoCase = TRUE){
+arrangeData.glm<-function(rdata,           #data
+                          covariates = NULL, #covariate column names
+                          InoCase = TRUE  #remove inoculated animals as potential case
+                          ){ 
+  #get the group mixinglevels 
+  mixinglevels  = names(rdata)[names(rdata)%>%str_detect("level")]%>%sort(decreasing = TRUE)
   #for a standard glm approach requires
   group.data <- NULL;
   #1. time intervals (length)
-  group.data$times <- rdata%>%
-    group_by(group,times) %>% 
-    summarize(mean(times))
-  group.data$dt <-data.frame(group.data)%>%
-    group_by(times.group)%>%
-    summarize(dt = c(-1,tail(times.mean.times.,-1)-head(times.mean.times.,-1)))
-  #clean up
-  group.data <- data.frame(group.data)[,c("times.group","times.mean.times.","dt.dt")];
-  names(group.data)<- c("group","times","dt");
+  group.data <- rdata%>%
+    group_by(across(c(mixinglevels ,"times"))) %>% 
+    summarize(times = mean(times))
+  group.data <-group.data%>%
+         summarize(times = times,
+          dt = c(-1,tail(times,-1)-head(times,-1)))%>%
+        ungroup
+    
+  
   #2. cases per interval
   indiv.cases <- rdata%>%
     filter(if(InoCase)!str_detect(inoculationStatus,"I")else TRUE)%>%
     arrange(times)%>% 
-    #group_by(host_id) %>%
     summarize(
       host_id = host_id,
-      group = group,
+      across(mixinglevels ),
       times = times,
       case = c(as.numeric(head(sir,-1)==0 & tail(sir,-1)>0),0));
     
   cases   <- indiv.cases%>%
-    group_by(group,times) %>% 
+    group_by(across(c(mixinglevels ,"times"))) %>% 
     summarise(sum(case,na.rm = TRUE))
   group.data$cases<- data.frame(cases)[,ncol(cases)]
-  #3. number of infectious individual at start interval
+  #3. number of infectious individual at start interval at each of the levels
+  #level 1
   i <- rdata%>%
-    group_by(group,times) %>% 
+    group_by(across(c(mixinglevels ,"times"))) %>% 
     summarise(sum(sir == 2,na.rm = TRUE))
   group.data$i <- data.frame(i)[,ncol(i)]
+  group.data$i2 <- 0;#default values
+  group.data$i3 <- 0;#default values
   #here also take into account infectious individuals in other levels
+  if(length(mixinglevels) > 1){
+    #level 2
+    i2 <- rdata%>%
+      group_by(across(c(mixinglevels[-2] ,"times"))) %>% #negative indexing due to descending ordering
+      summarise(sum(sir == 2,na.rm = TRUE))
+    group.data$i2 <- data.frame(i2)[,ncol(i2)]-group.data$i
+    if(length(mixinglevels)>2)
+    {
+      #level 3
+      i3 <- rdata%>%
+        group_by(across(c(mixinglevels[-3] ,"times"))) %>% #negative indexing due to descending ordering
+        summarise(sum(sir == 2,na.rm = TRUE))
+      group.data$i3 <- data.frame(i3)[,ncol(i3)]-group.data$i2
+    }
   
+  }
   #4. number of susceptible individuals at start interval
   s <- rdata%>%
     filter(if(InoCase)!str_detect(inoculationStatus,"I")else TRUE)%>%
-    group_by(group,times) %>% 
+    group_by(across(c(mixinglevels ,"times"))) %>% 
     summarise(sum(sir == 0,na.rm = TRUE))
   group.data$s <- data.frame(s)[,ncol(s)]
   #5. number of recovered individuals at start of interval
   r <- rdata%>%
-    group_by(group,times) %>% 
+    group_by(across(c(mixinglevels ,"times"))) %>% 
     summarise(sum(sir == 3,na.rm = TRUE))
   group.data$r <- data.frame(r)[,ncol(r)]
   #6. total number of individuals
   n <- rdata%>%
-    group_by(group,times) %>% 
+    group_by(across(c(mixinglevels ,"times"))) %>% 
     summarise(sum(!is.na(sir)))
   group.data$n <- data.frame(n)[,ncol(n)]
+  group.data$n2 <- 0;#default values
+  group.data$n3 <- 0;#default values
+  #here also take into account infectious individuals in other levels
+  if(length(mixinglevels) > 1){
+    #level 2
+    n2 <- rdata%>%
+      group_by(across(c(mixinglevels[-2] ,"times"))) %>% #negative indexing due to descending ordering
+      summarise(sum(!is.na(sir)))
+    group.data$n2 <- data.frame(n2)[,ncol(n2)]-group.data$n
+    if(length(mixinglevels)>2)
+    {
+      #level 3
+      n3 <- rdata%>%
+        group_by(across(c(mixinglevels[-3] ,"times"))) %>% #negative indexing due to descending ordering
+        summarise(sum(!is.na(sir)))
+      group.data$n3 <- data.frame(n3)[,ncol(n3)]-group.data$n2
+    }
+    
+  }
   #7. check or determine group co-variates
-  
+  if(!is.null(covariates)){
+    covariate.data <- group.data;
+    for(j in covariates){
+    covariate <- rdata%>%
+        group_by(across(c(mixinglevels ,"times"))) %>% 
+        summarize(covar = mean(eval(parse(text = j)), na.rm = TRUE))%>%
+        ungroup
+    
+    covariate.data[j]<-covariate$covar;
+    }
+  }
   # S, I and R should be the numbers at the beginning of the interval dt
   # cases the numbers after the interval, thus shift SIR values to one time later
   # the first time moment should be removed
   group.data <- group.data %>%
-    group_by(group)%>%summarize(
+    group_by(across(c(mixinglevels ))) %>% 
+    summarize(
       times = tail(times,-1),
       dt = tail(dt,-1),
       cases = tail(cases,-1),
       s = as.numeric(head(s, -1)),
       i = as.numeric(head(i, -1)),
+      i2 = as.numeric(head(i2, -1)),
+      i3 = as.numeric(head(i3, -1)),
       r = as.numeric(head(r, -1)),
-      n = as.numeric(head(n,-1))
-      )
-  
-  
+      n = as.numeric(head(n,-1)),
+      n2 = as.numeric(head(n,-1)),
+      n3 = as.numeric(head(n,-1))
+      )%>%ungroup
+  if(!is.null(covariates)){
+    covariate.data <- covariate.data%>%
+      group_by(across(c(mixinglevels ))) %>% 
+      select(covariates)%>%filter(row_number()>1)%>%ungroup
+    group.data<- cbind(group.data, covariate.data[,covariates])
+    }
   
   return(group.data)
 }
