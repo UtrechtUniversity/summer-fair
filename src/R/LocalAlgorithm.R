@@ -171,7 +171,7 @@ arrangeData.glm<-function(rdata,           #data
       i3 <- rdata%>%
         group_by(across(c(mixinglevels[-3] ,"times"))) %>% #negative indexing due to descending ordering
         summarise(sum(sir == 2,na.rm = TRUE))
-      group.data$i3 <- data.frame(i3)[,ncol(i3)]-group.data$i2
+      group.data$i3 <- data.frame(i3)[,ncol(i3)]-group.data$i2-group.data$i1
     }
   
   }
@@ -206,7 +206,7 @@ arrangeData.glm<-function(rdata,           #data
       n3 <- rdata%>%
         group_by(across(c(mixinglevels[-3] ,"times"))) %>% #negative indexing due to descending ordering
         summarise(sum(!is.na(sir)))
-      group.data$n3 <- data.frame(n3)[,ncol(n3)]-group.data$n2
+      group.data$n3 <- data.frame(n3)[,ncol(n3)]-group.data$n2-group.data$n
     }
     
   }
@@ -237,13 +237,15 @@ arrangeData.glm<-function(rdata,           #data
       i3 = as.numeric(head(i3, -1)),
       r = as.numeric(head(r, -1)),
       n = as.numeric(head(n,-1)),
-      n2 = as.numeric(head(n,-1)),
-      n3 = as.numeric(head(n,-1))
+      n2 = as.numeric(head(n2,-1)),
+      n3 = as.numeric(head(n3,-1))
       )%>%ungroup
   if(!is.null(covariates)){
     covariate.data <- covariate.data%>%
       group_by(across(c(mixinglevels ))) %>% 
-      select(covariates)%>%filter(row_number()>1)%>%ungroup
+      select(all_of(covariates))%>%
+      filter(row_number()>1)%>%
+      ungroup
     group.data<- cbind(group.data, covariate.data[,covariates])
     }
   
