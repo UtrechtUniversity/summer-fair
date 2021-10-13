@@ -28,6 +28,7 @@ package.check <- lapply(
     }
   }
 )
+#source("src/R/EstimationMethods.R")
 ## The output of this algorithm should be an S4 object ####
 # define the S4 class for output ###
 setClass("TransmissionEstimate",
@@ -278,13 +279,15 @@ analyseTransmission<- function(inputdata,          #input data
               family = binomial(link = "cloglog"), 
               offset = log(i/n)*dt,
               data = data.arranged),
-    stop("no other methods than glm")
+    mll = mle2(),#deal with number of levels. 
+    stop("no other methods than glm or maximum likelihood")
   )
 
   
   #return outcome
   return(fit)
 }
+
 
 
 

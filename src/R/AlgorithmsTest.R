@@ -13,7 +13,7 @@
 ## are not, the missing package(s) will be installed 
 ## from CRAN and then loaded.
 
-## First specify the packages of interest
+## First specify the packages of interest -> needs to be in the docker for installation but here only library
 packages = c("ggplot2","tidyverse","rje","readxl","magrittr")
 
 ## Now load or install&load all
@@ -27,7 +27,7 @@ package.check <- lapply(
   }
 )
 
-source("src/R/LocalAlgorithm.R")
+source("src/R/LocalAlgorithm.R") #elena tests if sourcing is possible
 source("src/R/DataManipulationRules.R")
 
 ##create some mock data####
@@ -82,7 +82,8 @@ datawithrule <-applyRule(usedata,   #data
           rule.sinceany.recode,     #rule to apply
           c("sample_result"),       #variables with output of tests
           codesposneg = c("+","-","mis")) #specific parameters for this rule. Here we need to recode values containing + or - to 1, 0 or NA.
-
+                                          #this should be removed, because it is in the mappign file                                        
+  
 
 ## visualize data after applying rules ####
 ggplot(data = datawithrule)+
@@ -106,12 +107,12 @@ fit.real <- glm(cbind(cases, s - cases) ~ 1 ,
 summary(fit.real)
 
 
-fit <- analyseTransmission(data = usedata%>%filter(str_detect(group,"I9")),
+fit <- analyseTransmission(data = usedata,
                     rule = rule.sinceany.recode,
                     var.id = c("sample_result"),
                     method = "glm",
                     codesposneg = c("+","-","mis"),
                     preventError = TRUE)
 logLik(fit)
-
+fit
 

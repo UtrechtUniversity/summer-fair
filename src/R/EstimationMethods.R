@@ -41,35 +41,4 @@ min.ll<-function(b1, deltat,
   lprob <- dbinom(x=cases,size=s1,prob = p,log = TRUE) # 
   -sum(lprob)
 }
-sel.data <- data.arranged%>%filter(s>0&i>0)
-test.ll<- min.ll(b1 = 1,
-              sel.data$cases,
-              sel.data$s,
-              sel.data$i,
-              sel.data$n,
-              sel.data$dt)
-fit<- mle2(minuslogl=min.ll,start=list(b1 =0.5), 
-      data=list(level1=sel.data$level1, 
-                level2=sel.data$level2,
-                cases = sel.data$cases,
-                s1 = sel.data$s,
-                i1 = sel.data$i,
-                n1 = sel.data$n,
-                deltat=sel.data$dt),
-      method="Nelder-Mead",
-      control=list(maxit=50000,type=1,trace=1,reltol=10^(8)*.Machine$double.eps))
-
-fit<- mle2(minuslogl=min.ll,start=list(b1 =0.5,b2 = 0.5), 
-           data=list(level1=sel.data$level1, 
-                     level2=sel.data$level2,
-                     cases = sel.data$cases,
-                     deltat=sel.data$dt,
-                     s1 = sel.data$s,
-                     i1 = sel.data$i,
-                     n1 = sel.data$n,
-                     i2 = sel.data$i2,
-                     n2 = sel.data$n2
-                     ),
-           method="Nelder-Mead",
-           control=list(maxit=50000,type=1,trace=1,reltol=10^(8)*.Machine$double.eps))
 
