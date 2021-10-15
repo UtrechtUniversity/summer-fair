@@ -14,21 +14,12 @@
 ## from CRAN and then loaded.
 
 ## First specify the packages of interest -> needs to be in the docker for installation but here only library
-packages = c("ggplot2","tidyverse","rje","readxl","magrittr")
 
-## Now load or install&load all
-package.check <- lapply(
-  packages,
-  FUN = function(x) {
-    if (!require(x, character.only = TRUE)) {
-      install.packages(x, dependencies = TRUE)
-      library(x, character.only = TRUE)
-    }
-  }
-)
-
-source("src/R/LocalAlgorithm.R") #elena tests if sourcing is possible
-source("src/R/DataManipulationRules.R")
+library(rje)
+library(readxl)
+library(magrittr)
+source("LocalAlgorithm.R") #elena tests if sourcing is possible
+source("DataManipulationRules.R")
 
 ##create some mock data####
 animals.per.group = 4; #number of S and I per group
@@ -60,7 +51,7 @@ mockdata <- data.frame(
 # NOT YET DONE #
 
 ##load pre-queried data ####
-prequerydata <- read_xlsx("src/R/preprocesseddata/Sample_results.xlsx",
+prequerydata <- read_xlsx("preprocesseddata/Sample_results.xlsx",
                           sheet = "maldi Swab samples")
 
 ## Set data ####

@@ -9,25 +9,12 @@
 ##########################################################
 
 ## install and load packages ####
-## First specify the packages of interest
-packages = c("SPARQL",
-             "ggplot2",
-             "tidyverse",
-             "rstan",     #not yet used
-             "shinystan", #not yet used
-             "rstanarm",  #not yet used
-             "bbmle")
+library(SPARQL)
+library(ggplot2)
+library(tidyverse)
+library(bbmle)
 
-## Now load or install&load all
-package.check <- lapply(
-  packages,
-  FUN = function(x) {
-    if (!require(x, character.only = TRUE)) {
-      install.packages(x, dependencies = TRUE)
-      library(x, character.only = TRUE)
-    }
-  }
-)
+source("DataManipulationRules.R")
 #source("src/R/EstimationMethods.R")
 ## The output of this algorithm should be an S4 object ####
 # define the S4 class for output ###
