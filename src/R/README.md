@@ -4,11 +4,11 @@ Once the docker is installed and running, in command line go to ```src/R``` fold
 
 ```
 # First we build the image 
- docker build -t rproject .
- 
- # Then we create a container, where we run the AlgorithmsTest.R
- 
-  docker run --name algorithm rproject
+docker build -t rproject .
+
+# Then we create a container, where we run the AlgorithmsTest.R
+
+docker run --name algorithm rproject
 
 ```
 
