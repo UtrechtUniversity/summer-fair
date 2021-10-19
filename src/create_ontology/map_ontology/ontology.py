@@ -44,9 +44,6 @@ class Ontology:
         return {self.remove_namespace(ont_individual): ont_individual for ont_individual in
                 self.graph.subjects(RDF.type, OWL.NamedIndividual)}
 
-
-
-
     def get_object_properties(self):
         return {self.remove_namespace(ont_property): ont_property for ont_property in
                 self.graph.subjects(RDF.type, OWL.ObjectProperty)}
@@ -99,8 +96,13 @@ class Ontology:
 
         if not row.empty:
             for property, column_name in map_properties.items():
-                map_properties[property] = row[column_name]
+                if property == 'experimentDay':
+                    map_properties[property]=row[property]
+                else:
+                    map_properties[property] = row[column_name] if column_name in row else column_name
 
+        # check if all the map_properties are empty and do not create individual
+#        all_empty = all(value == '' for value in map_properties.values())
         uri = str(self.get_simple_uri(ont_class, map_properties)).replace(' ','_')
         map_properties['uri'] = URIRef(self.namespace + uri)
 
@@ -108,6 +110,7 @@ class Ontology:
         self.assign_class(map_properties['uri'], ont_class)
 
         return Individual(ont_class, map_properties)
+
 
     def assign_class(self, individual, ont_class):
         self.graph.add((individual, RDF.type, self.class_names[ont_class]))
@@ -130,12 +133,6 @@ class Ontology:
         else:
             return map_property
 
-    def update_reocur_properties(self, map_properties, row, reoccur_value):
-        for property, column_name in map_properties.items():
-            if property in self.data_properties:
-                value = self.get_property_value(column_name, row, reoccur_value)
-                map_properties[property] = value
-        return map_properties
 
     def split_properties(self, ont_class, map_properties):
         relations = {ont_property: map_properties[ont_property] for ont_property in map_properties.keys() if
@@ -161,25 +158,25 @@ class Ontology:
                             self.get_domain_property(self.data_properties[property])[0] == linked_class else False for
                     property, column in properties.items()])
 
-    def create_reoccur_individual(self, ont_class, map_properties, row, reoccur_value, dependant_classes=None):
+    def create_reoccur_individual(self, ont_class, map_properties, row, dependant_classes=None):
         # substitute reocurring value in a property
-        updated_map_properties = self.update_reocur_properties(map_properties.copy(), row, reoccur_value)
+        # updated_map_properties = self.update_reocur_properties(map_properties.copy(), row)
         # split the properties on a class for data properties and relations
         # Note that the relations can related to classes that are not yet created
 
-        relations, properties = self.split_properties(ont_class, updated_map_properties)
-        linked_class_properties = self.get_linked_class_properties(ont_class, updated_map_properties)
+        relations, properties = self.split_properties(ont_class, map_properties)
+        linked_individual = self.get_linked_class_properties(ont_class, map_properties)
 
-        individual = self.create_individual(ont_class, properties)
+        individual = self.create_individual(ont_class, properties,row)
 
-        for ont_class, properties in linked_class_properties.items():
-            linked_individual = self.create_individual(ont_class, properties)
-            self.create_relation(individual, linked_individual)
+        if linked_individual:
+
+            self.create_relation(individual, self.individuals_per_row[list(linked_individual.keys())[0]])
 
         all_dependant_classes = {}
         if dependant_classes:
             for dependant_class in dependant_classes:
-                dependant_individual = self.create_reoccur_individual(dependant_class, dependant_classes[dependant_class],row, reoccur_value)
+                dependant_individual = self.create_reoccur_individual(dependant_class, dependant_classes[dependant_class],row)
                 all_dependant_classes[dependant_class] = dependant_individual
                 self.individuals_per_row[dependant_class] = dependant_individual
                 self.create_relation(individual,dependant_individual)
@@ -241,20 +238,8 @@ class Ontology:
                 properties, dependant_classes = mappings.split_properties_or_classes(property_or_class)
 
                 if ont_class in self.class_names:
-                    if mappings.has_reoccuring_prop(properties):
-                        if ont_class == 'Experiment':
-                            continue  # will be create by another classes
-                        else:
-                            # if we still did not create a Experiment
-                            # that means that we will create it inside other reoccuring classes
-                            if 'Experiment' not in self.individuals_per_row and self.has_linked_class(properties,
-                                                                                                      'Experiment'):
-                                properties.update(
-                                    {k: v for k, v in mappings.ont_mappings['Experiment'].items() if
-                                     k not in properties})
-
-                            for reoccur_value in mappings.get_multiple_recoruring_values(properties,columns):
-                                self.create_reoccur_individual(ont_class, properties, row, reoccur_value,
+                    if dependant_classes:
+                        self.create_reoccur_individual(ont_class, properties, row,
                                                                dependant_classes)
                     else:
                         relations, properties = self.split_properties(ont_class, properties)
