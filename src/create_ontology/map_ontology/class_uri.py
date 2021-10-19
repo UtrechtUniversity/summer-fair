@@ -1,6 +1,6 @@
 Host = ['id']
 Experiment = ['Event', 'experimentid', 'experimentDay']
-Environment = ['house', 'pen', 'hospital', 'ward']
+Environment = ['level1', 'level2', 'level3']
 Pathogen = ['name']
 Sample = ['SampleType', 'index', 'experimentDay', 'experimentHour', 'result']
 Gene = ['name']

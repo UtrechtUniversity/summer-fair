@@ -20,10 +20,22 @@ om2:hasPhenomenon rdf:type owl:ObjectProperty ;
                              :Sample .
 
 
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue
+om2:hasValue rdf:type owl:ObjectProperty ;
+             rdfs:domain om2:Quantity ;
+             rdfs:range om2:Measure .
+
+
 ###  http://www.semanticweb.org/trans_experiment#against
 :against rdf:type owl:ObjectProperty ;
          rdfs:domain :PathogenResistence ;
          rdfs:range :Antibiotic .
+
+
+###  http://www.semanticweb.org/trans_experiment#hasDose
+:hasDose rdf:type owl:ObjectProperty ;
+         rdfs:domain :Treatment ;
+         rdfs:range om2:Quantity .
 
 
 ###  http://www.semanticweb.org/trans_experiment#hasEvent
@@ -41,7 +53,8 @@ om2:hasPhenomenon rdf:type owl:ObjectProperty ;
 ###  http://www.semanticweb.org/trans_experiment#hasHost
 :hasHost rdf:type owl:ObjectProperty ;
          rdfs:domain :Measurement ;
-         rdfs:range :Host .
+         rdfs:range :Environment ,
+                    :Host .
 
 
 ###  http://www.semanticweb.org/trans_experiment#hasMeasurement
@@ -90,16 +103,11 @@ om2:hasPhenomenon rdf:type owl:ObjectProperty ;
                     :SampleType .
 
 
-###  http://www.semanticweb.org/trans_experiment#hasValue
-:hasValue rdf:type owl:ObjectProperty ;
-          rdfs:domain om2:Quantity ;
-          rdfs:range om2:Measure .
-
-
 ###  http://www.semanticweb.org/trans_experiment#includes
 :includes rdf:type owl:ObjectProperty ;
           rdfs:domain :Treatment ;
-          rdfs:range :Antibiotic .
+          rdfs:range :Antibiotic ,
+                     :Pathogen .
 
 
 ###  http://www.semanticweb.org/trans_experiment#involves
@@ -125,6 +133,16 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
                       rdfs:range rdfs:Literal .
 
 
+###  http://www.semanticweb.org/trans_experiment#age
+:age rdf:type owl:DatatypeProperty ;
+     rdfs:domain :Host .
+
+
+###  http://www.semanticweb.org/trans_experiment#coordinates
+:coordinates rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Environment .
+
+
 ###  http://www.semanticweb.org/trans_experiment#date
 :date rdf:type owl:DatatypeProperty ;
       rdfs:range xsd:dateTime .
@@ -137,12 +155,17 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
 
 ###  http://www.semanticweb.org/trans_experiment#experimentHour
 :experimentHour rdf:type owl:DatatypeProperty ;
-                rdfs:domain :Sample .
+                rdfs:domain :Measurement .
 
 
 ###  http://www.semanticweb.org/trans_experiment#experimentID
 :experimentID rdf:type owl:DatatypeProperty ;
               rdfs:domain :Experiment .
+
+
+###  http://www.semanticweb.org/trans_experiment#experimentType
+:experimentType rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Experiment .
 
 
 ###  http://www.semanticweb.org/trans_experiment#family
@@ -165,19 +188,28 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
                        :Sample .
 
 
-###  http://www.semanticweb.org/trans_experiment#hospital
-:hospital rdf:type owl:DatatypeProperty ;
-          rdfs:domain :Environment .
-
-
-###  http://www.semanticweb.org/trans_experiment#house
-:house rdf:type owl:DatatypeProperty ;
-       rdfs:domain :Environment .
-
-
 ###  http://www.semanticweb.org/trans_experiment#id
 :id rdf:type owl:DatatypeProperty ;
     rdfs:domain :Host .
+
+
+###  http://www.semanticweb.org/trans_experiment#innoculationStatus
+:innoculationStatus rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/trans_experiment#level1
+:level1 rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Environment .
+
+
+###  http://www.semanticweb.org/trans_experiment#level2
+:level2 rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Environment .
+
+
+###  http://www.semanticweb.org/trans_experiment#level3
+:level3 rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Environment .
 
 
 ###  http://www.semanticweb.org/trans_experiment#material
@@ -189,16 +221,6 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
 :name rdf:type owl:DatatypeProperty ;
       rdfs:domain :Gene ,
                   :Pathogen .
-
-
-###  http://www.semanticweb.org/trans_experiment#number
-:number rdf:type owl:DatatypeProperty ;
-        rdfs:domain :Environment .
-
-
-###  http://www.semanticweb.org/trans_experiment#pen
-:pen rdf:type owl:DatatypeProperty ;
-     rdfs:domain :Environment .
 
 
 ###  http://www.semanticweb.org/trans_experiment#resultDate
@@ -222,6 +244,11 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
         rdfs:domain :Pathogen .
 
 
+###  http://www.semanticweb.org/trans_experiment#studyDesign
+:studyDesign rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Experiment .
+
+
 ###  http://www.semanticweb.org/trans_experiment#treatment
 :treatment rdf:type owl:DatatypeProperty ;
            rdfs:domain :Host .
@@ -230,11 +257,6 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
 ###  http://www.semanticweb.org/trans_experiment#type
 :type rdf:type owl:DatatypeProperty ;
       rdfs:domain :Host .
-
-
-###  http://www.semanticweb.org/trans_experiment#ward
-:ward rdf:type owl:DatatypeProperty ;
-      rdfs:domain :Environment .
 
 
 #################################################################
