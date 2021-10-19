@@ -206,7 +206,6 @@ class Ontology:
         else:
             classes_pairs = [(individual1, individual2), (individual2, individual1)]
             for classes_pair in classes_pairs:
-                print(classes_pair)
                 if (classes_pair[0].is_a, classes_pair[1].is_a) in self.class_relations:
                     relation = self.class_relations[(classes_pair[0].is_a, classes_pair[1].is_a)]
                     self.graph.add((classes_pair[0].uri, relation, classes_pair[1].uri))
