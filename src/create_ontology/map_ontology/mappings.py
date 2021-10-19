@@ -8,7 +8,7 @@ class Mappings:
         self.mappings = self.parse_config(map_file)
         self.meta_data = self.get_meta_data()
         self.required_field = self.mappings.get('required', None)
-        self.ont_mappings = self.get_trans_mappings()
+        self.ont_mappings = self.mappings['ontology_schema']
         self.column_names = columns
         self.reocurring_values = {}
         self.mapping_per_row = {}
