@@ -1,7 +1,7 @@
 Host = ['id']
 Experiment = ['Event', 'experimentID', 'experimentDay']
-Pathogen = ['name','index']
 Environment = ['level1', 'level2', 'level3']
+Pathogen = ['name','index']
 Sample = ['SampleType', 'index', 'experimentDay', 'experimentHour', 'result']
 Gene = ['name']
 BodyMass = ['BodyMass', 'index']
