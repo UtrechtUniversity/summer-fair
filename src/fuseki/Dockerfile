@@ -6,5 +6,5 @@ RUN install2.r --error \
   --deps TRUE \
     SPARQL \
     lme4
-CMD ["Rscript", "SparqlQueries.R"]
+CMD ["Rscript", "ExampleCode.R"]
 
