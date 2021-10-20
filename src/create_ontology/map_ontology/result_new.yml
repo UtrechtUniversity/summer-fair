@@ -1,7 +1,7 @@
 required: animalnr_col
 ontology_schema:
   Experiment:
-    experimentid: 'A'
+    experimentID: 'A'
     experimentDay:
       - BS.*_date
       - weight_d(.*)
@@ -42,6 +42,7 @@ ontology_schema:
         Antibiotic:
           name:
       - experimentDay: swab.*_date
+        hasHost: Host
         experimentHour:
         Sample:
           hasType: 'Swab'

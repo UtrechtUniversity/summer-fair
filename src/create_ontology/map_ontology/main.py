@@ -25,7 +25,7 @@ def main(config, filename):
         if mappings.required_field is None or row[mappings.required_field]:
             ontology.populate_ontology(mappings, row,columns)
 
-    ontology.save_ontology('data/populated_ont.owl')
+    ontology.save_ontology('data/populated_ont.ttl')
 
 if __name__ == '__main__':
     main()
