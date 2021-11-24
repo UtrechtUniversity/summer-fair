@@ -38,6 +38,12 @@ $ cd summer-fair
 $ pip install requirements.txt
 ```
 
+### Manual
+Get started with the summerfair software by trying it out in this [notebook](link) manual
+
+Make sure you have [jupyter notebook](https://jupyter.org/install) installed
+
+
 ## Usage
 Provide:
 - data in table format (.csv or spreadsheet) 
