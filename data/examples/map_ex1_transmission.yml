@@ -1,0 +1,37 @@
+
+required: animalnr
+Experiment:
+  experimentDay:
+    experimentid: 'EX1'
+  Host:
+    sex: sexe
+    id: animalnr
+    treatment: treatment
+    type: S_I
+  Environment:
+    groupNumber:
+    hospital:
+    house: isolator
+    pen:
+    ward:
+  Measurement:
+      - experimentDay: weightd(.*)
+        hasQuantity: BodyMass
+        experimentHour:
+        BodyMass:
+          hasNumericalValue: weightd.*
+          hasPhenomenon: Host
+      - experimentDay: d(.*)_swabweight_after
+        experimentHour: d(.*)_swabweight_after_hour # we need new column name
+        BodyMass:
+          hasNumericalValue: d.*_swabweight_after
+          hasPhenomenon: Sample
+      - experimentDay: d(.*)_count_ESBL
+        experimentHour: d(.*)_count_ESBL_hour # we need new column name
+        Sample:
+          hasSampleType: 'Swab'
+          result:
+          SpecificViableCount:
+            hasNumericalValue: d.*_count_ESBL
+          resultDate:
+

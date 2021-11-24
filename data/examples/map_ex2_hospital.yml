@@ -1,0 +1,27 @@
+required: 'Patient id'
+Experiment:
+  experimentid: 'EX2'
+  experimentDay: 'Date of sampling'
+  Host:
+    id: 'Patient id'
+  Environment:
+    groupNumber:
+    hospital: Hospital
+    ward: 'Ward of sampling'
+  Measurement:
+      - experimentDay: 'Date of sampling'
+        Sample:
+          sampleID: id
+          result: '+'
+          resultDate: 'Time of result'
+        Pathogen:
+          family: family
+          name: Species
+          strain:
+        Gene:
+          name:
+        PathogenResistance:
+          result: 'resistance .*'
+        Antibiotic:
+          name: (resistance .*)
+
