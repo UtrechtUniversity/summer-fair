@@ -14,7 +14,11 @@
 ## from CRAN and then loaded.
 
 ## First specify the packages of interest -> needs to be in the docker for installation but here only library
-packages = c("ggplot2","tidyverse","rje","readxl","magrittr")
+packages = c("ggplot2",
+             "tidyverse",
+             "rje",
+             "readxl",
+             "magrittr")
 
 ## Now load or install&load all
 package.check <- lapply(
@@ -67,9 +71,11 @@ prequerydata <- read_xlsx("src/R/preprocesseddata/Sample_results.xlsx",
 usedata <- prequerydata
 
 ## preprocess data ####
-#remove redundant space
+#remove redundant spaces
 names(usedata)<- str_trim(names(usedata))
-#split group name into house and pen and names these level 1 and level 2
+usedata$inoculationStatus <- str_trim(usedata$inoculationStatus)
+
+#split group name into house and pen and name these level 1 and level 2
 usedata <-usedata%>%separate(group,c("level2","level1"),"_")
 
 #set times to the correct resolution ###
@@ -82,12 +88,13 @@ datawithrule <-applyRule(usedata,   #data
           rule.sinceany.recode,     #rule to apply
           c("sample_result"),       #variables with output of tests
           codesposneg = c("+","-","mis")) #specific parameters for this rule. Here we need to recode values containing + or - to 1, 0 or NA.
-                                          #this should be removed, because it is in the mappign file                                        
+                                          #this should be removed, because it is in the mapping file                                        
   
 
 ## visualize data after applying rules ####
 ggplot(data = datawithrule)+
-  geom_raster(aes(x = times,y = host_id, fill = factor(sir)))+facet_grid(level1~level2)
+  geom_raster(aes(x = times,y = host_id, fill = factor(sir)))+
+  facet_grid(level1~level2)
 
 ##arrange data for analysis ####
 rm(data.arranged)
@@ -98,7 +105,8 @@ data.arranged <- arrangeData(data = datawithrule,
                              codesposneg = c("+","-","mis"), 
                              covariates = c("ex_day"))
 
-input = data.frame(data.arranged%>% filter(i > 0 & s>0))
+input = data.frame(data.arranged%>% 
+                     filter(i > 0 & s>0))
 input
 fit.real <- glm(cbind(cases, s - cases) ~ 1 ,
     family = binomial(link = "cloglog"), 
