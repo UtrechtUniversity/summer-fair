@@ -9,12 +9,16 @@ This shared vocabulary describes the main concepts and relations in the domain o
 By mapping existing data sets to the concepts in the ontology, the data sets can be combined.
 The mapped data sets are represented as linked data triples. 
 
-## Getting started
+## Table of Contents
+  - [Getting started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+  - [Usage](#usage)
+    - [Mapping data](#mapping-data)
+    - [Creating linked data](#creating-linked-data)
+    - [Querying linked data](querying-linked-data)
 
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Creating linked data](#creating-linked-data)
-  - [Querying linked data](querying-linked-data)
+## Getting started
 
 ### Prerequisites
 Make sure you have installed 
@@ -34,20 +38,20 @@ $ cd summer-fair
 $ pip install requirements.txt
 ```
 
-### Creating linked data
+## Usage
 Provide:
 - data in table format (.csv or spreadsheet) 
 - ontology schema (.owl)
 - mapping file (.yml)
 
-### Mapping data to the ontology
+### Mapping data 
 The ontology schema can be considered an empty data model. 
 Map the columns in the csv file to the concepts in the domain ontology to populate the ontology.
 Specify the mapping in a yaml file.
 You can find examples of these mappings in the [example data](/data/examples)
 
 
-### Populating the ontology
+### Creating linked data
 The mapping file is used to automatically create instances and populate the ontology.
 The instances are represented as RDF triples
 
@@ -61,7 +65,7 @@ $ python main.py
 ```
 
 ### Querying linked data
-
+The created RDF triples are stored in a triple store and can be retrieved via the query language SPARQL.
 The `docker.sh` shell script allows to create the local triple store and upload the data stored in `ontology` folder to  `mydataset` database in the triplestore.
 Once the data is loaded to the triplestore, we run the local algorithm ([ExampleCode.R](ExampleCode.R))  that uses the SPARQL queries to retrieve the data. 
 
@@ -77,34 +81,6 @@ sh ./docker.sh # creating dockers for triplestore and R project
 ```
 Once the script is run, you can see the model data estimates.
 If you go to `http://localhost:3030` you can access and query the ontology using Apache Fuseki UI. 
-
-
-
-## Project organization
-
-```
-.
-├── .gitignore
-├── CITATION.md
-├── LICENSE.md
-├── README.md
-├── requirements.txt
-├── bin                <- Compiled and external code, ignored by git (PG)
-│   └── external       <- Any external source code, ignored by git (RO)
-├── config             <- Configuration files (HW)
-├── data               <- All project data, ignored by git
-│   ├── processed      <- The final, canonical data sets for modeling. (PG)
-│   ├── raw            <- The original, immutable data dump. (RO)
-│   └── temp           <- Intermediate data that has been transformed. (PG)
-├── docs               <- Documentation notebook for users (HW)
-│   ├── manuscript     <- Manuscript source, e.g., LaTeX, Markdown, etc. (HW)
-│   └── reports        <- Other project reports and notebooks (e.g. Jupyter, .Rmd) (HW)
-├── results
-│   ├── figures        <- Figures for the manuscript or reports (PG)
-│   └── output         <- Other output for the manuscript or reports (PG)
-└── src                <- Source code for this project (HW)
-
-```
 
 
 ## License
