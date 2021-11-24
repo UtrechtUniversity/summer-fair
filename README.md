@@ -1,7 +1,13 @@
 # summer-fair
 
-Intergrating existing data sets on transmission experiments by using semantic web technologies
+This software integrates existing data sets on transmission experiments by using semantic web technologies
 
+Data sets on transmission experiments may vary in format, structure, syntax and semantics.
+It is difficult to combine these heterogeneous data sets, for example, to do reanalysis and meta-analysis.
+For this reason we developed an [ontology](/src/create_ontology/map_ontology/trans_ont.owl).
+This shared vocabulary describes the main concepts and relations in the domain of transmission.
+By mapping existing data sets to the concepts in the ontology, the data sets can be combined.
+The mapped data sets are represented as linked data triples. 
 
 ## Getting started
 
@@ -31,10 +37,20 @@ $ pip install requirements.txt
 ### Creating linked data
 Provide:
 - data in table format (.csv or spreadsheet) 
-- ontology
-- mapping file 
+- ontology schema (.owl)
+- mapping file (.yml)
 
-Populate the ontology and create a linked data set from the table data
+### Mapping data to the ontology
+The ontology schema can be considered an empty data model. 
+Map the columns in the csv file to the concepts in the domain ontology to populate the ontology.
+Specify the mapping in a yaml file.
+You can find examples of these mappings in the [example data](/data/examples)
+
+
+### Populating the ontology
+The mapping file is used to automatically create instances and populate the ontology.
+The instances are represented as RDF triples
+
 ```
 # Go to mapping folder
 $ cd src/create_ontology/map_ontology
