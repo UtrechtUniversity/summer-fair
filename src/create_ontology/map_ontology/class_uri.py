@@ -1,4 +1,4 @@
-Host = ['id']
+Host = ['Host','id']
 Experiment = ['Event', 'experimentID', 'experimentDay']
 Environment = ['level1', 'level2', 'level3']
 Pathogen = ['name','index']

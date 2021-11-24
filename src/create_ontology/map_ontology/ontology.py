@@ -1,7 +1,8 @@
-import uuid
-from collections import defaultdict
 import itertools
 import re
+import uuid
+from collections import defaultdict
+
 import pandas as pd
 from rdflib import Graph, OWL
 from rdflib import Namespace
@@ -9,6 +10,7 @@ from rdflib import URIRef, Literal
 from rdflib.namespace import RDF, RDFS
 
 import class_uri
+from utils import empty_data
 
 
 class Individual:
@@ -31,7 +33,6 @@ class Ontology:
         self.data_properties = self.get_data_properties()
         self.relations = self.get_object_properties()
         self.ont_individuals = self.get_existing_individuals()
-
 
     def get_classes(self):
         return [classes for classes in self.graph.subjects(RDF.type, OWL.Class)]
@@ -96,21 +97,17 @@ class Ontology:
 
         if not row.empty:
             for property, column_name in map_properties.items():
-                if property == 'experimentDay':
-                    map_properties[property]=row[property]
-                else:
-                    map_properties[property] = row[column_name] if column_name in row else column_name
+                map_properties[property] = row[column_name] if column_name in row else column_name
 
         # check if all the map_properties are empty and do not create individual
-#        all_empty = all(value == '' for value in map_properties.values())
-        uri = str(self.get_simple_uri(ont_class, map_properties)).replace(' ','_')
+        #        all_empty = all(value == '' for value in map_properties.values())
+        uri = str(self.get_simple_uri(ont_class, map_properties)).replace(' ', '_')
         map_properties['uri'] = URIRef(self.namespace + uri)
 
         self.create_properties(map_properties)
         self.assign_class(map_properties['uri'], ont_class)
 
         return Individual(ont_class, map_properties)
-
 
     def assign_class(self, individual, ont_class):
         self.graph.add((individual, RDF.type, self.class_names[ont_class]))
@@ -123,7 +120,7 @@ class Ontology:
         if '(.*)' in map_property:
             return reoccur_value
         elif '.*' in map_property:
-            map_property=map_property.replace('.*', reoccur_value)
+            map_property = map_property.replace('.*', reoccur_value)
             if map_property in row:
                 return row[map_property]
             else:
@@ -132,7 +129,6 @@ class Ontology:
             return row[map_property]
         else:
             return map_property
-
 
     def split_properties(self, ont_class, map_properties):
         relations = {ont_property: map_properties[ont_property] for ont_property in map_properties.keys() if
@@ -167,24 +163,24 @@ class Ontology:
         relations, properties = self.split_properties(ont_class, map_properties)
         linked_individual = self.get_linked_class_properties(ont_class, map_properties)
 
-        individual = self.create_individual(ont_class, properties,row)
+        individual = self.create_individual(ont_class, properties, row)
 
         if linked_individual:
-
             self.create_relation(individual, self.individuals_per_row[list(linked_individual.keys())[0]])
 
         all_dependant_classes = {}
         if dependant_classes:
             for dependant_class in dependant_classes:
-                dependant_individual = self.create_reoccur_individual(dependant_class, dependant_classes[dependant_class],row)
+                dependant_individual = self.create_reoccur_individual(dependant_class,
+                                                                      dependant_classes[dependant_class], row)
                 all_dependant_classes[dependant_class] = dependant_individual
                 self.individuals_per_row[dependant_class] = dependant_individual
-                self.create_relation(individual,dependant_individual)
+                self.create_relation(individual, dependant_individual)
 
         for pair in itertools.combinations(all_dependant_classes.values(), 2):
             self.create_relation(pair[0], pair[1])
 
-        #create a relations that the individual has
+        # create a relations that the individual has
         for relation, individual2 in relations.items():
             if individual2 in self.ont_individuals:
                 self.create_relation(individual, individual2, relation)
@@ -193,13 +189,14 @@ class Ontology:
                     individual2 = self.individuals_per_row[individual2]
                 if individual2 in all_dependant_classes:
                     individual2 = all_dependant_classes[individual2]
+                print(individual,individual2,relation)
                 self.create_relation(individual, individual2, relation)
 
         return individual
 
     def create_relation(self, individual1, individual2, relation=None):
         if individual2 in self.ont_individuals:
-                self.graph.add((individual1.uri, self.relations[relation], self.ont_individuals[individual2]))
+            self.graph.add((individual1.uri, self.relations[relation], self.ont_individuals[individual2]))
         else:
             classes_pairs = [(individual1, individual2), (individual2, individual1)]
             for classes_pair in classes_pairs:
@@ -228,7 +225,7 @@ class Ontology:
         except AttributeError:
             print(f'Class {ont_class} has no URI template')
 
-    def populate_ontology(self, mappings, row, columns):
+    def populate_ontology(self, mappings, row):
 
         for ont_class, properties_or_classes in mappings.ont_mappings.items():
             if not isinstance(properties_or_classes, list):
@@ -238,17 +235,31 @@ class Ontology:
                 properties, dependant_classes = mappings.split_properties_or_classes(property_or_class)
 
                 if ont_class in self.class_names:
+
                     if dependant_classes:
-                        self.create_reoccur_individual(ont_class, properties, row,
-                                                               dependant_classes)
+                        mapped_properties = self.get_mapped_columns(dependant_classes)
+                        if (not empty_data(mapped_properties, row) and mapped_properties) or not mapped_properties:
+                            self.create_reoccur_individual(ont_class, properties, row,
+                                                       dependant_classes)
                     else:
-                        relations, properties = self.split_properties(ont_class, properties)
-                        individual = self.create_individual(ont_class, properties, row)
-                        self.individuals_per_row[ont_class] = individual
+                        if (not empty_data(self.get_mapped_columns(properties), row) and self.get_mapped_columns(properties)) or not self.get_mapped_columns(properties) :
+                            relations, properties = self.split_properties(ont_class, properties)
+                            individual = self.create_individual(ont_class, properties, row)
+                            self.individuals_per_row[ont_class] = individual
 
-                        for relation, individual2 in relations.items():
+                            for relation, individual2 in relations.items():
+                                self.create_relation(individual, self.individuals_per_row[individual2])
 
-                            self.create_relation(individual, self.individuals_per_row[individual2])
+    def get_mapped_columns(self, mapping_slice: dict):
+        mapping_row = []
+        for key, properties in mapping_slice.items():
+            if isinstance(properties, dict):
+                mapping_row = mapping_row + self.get_mapped_columns(properties)
+            if isinstance(properties, str):
+                if key in self.data_properties:
+                    mapping_row.append(properties)
+
+        return mapping_row
 
     def save_ontology(self, name):
         self.graph.serialize(destination=name, format='ttl')
@@ -257,12 +268,10 @@ class Ontology:
         individual = mappings['uri']
         for ont_property, value in mappings.items():
             if ont_property != 'uri':
-                property =  self.data_properties[ont_property]
+                property = self.data_properties[ont_property]
                 try:
-                    value = int(float(value)) if re.search('\.0$',str(value)) else  float(value) if  isinstance(value, float) else value
+                    value = int(float(value)) if re.search('\.0$', str(value)) else float(value) if isinstance(value,
+                                                                                                               float) else value
                 except:
                     value = value
                 self.graph.add((individual, property, Literal(str(value).strip())))
-
-
-
