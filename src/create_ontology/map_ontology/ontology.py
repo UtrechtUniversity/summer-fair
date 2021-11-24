@@ -10,7 +10,10 @@ from rdflib import URIRef, Literal
 from rdflib.namespace import RDF, RDFS
 
 import class_uri
+<<<<<<< HEAD
 import urllib
+=======
+>>>>>>> added script to work with data with multiple measurements
 from utils import empty_data
 
 
@@ -103,7 +106,12 @@ class Ontology:
         # check if all the map_properties are empty and do not create individual
         #        all_empty = all(value == '' for value in map_properties.values())
         uri = str(self.get_simple_uri(ont_class, map_properties)).replace(' ', '_')
+<<<<<<< HEAD
         map_properties['uri'] = URIRef(self.namespace + urllib.parse.quote(uri))
+=======
+        map_properties['uri'] = URIRef(self.namespace + uri)
+
+>>>>>>> added script to work with data with multiple measurements
         self.create_properties(map_properties)
         self.assign_class(map_properties['uri'], ont_class)
 
@@ -163,10 +171,15 @@ class Ontology:
 
         relations, properties = self.split_properties(ont_class, map_properties)
 
+<<<<<<< HEAD
 
         individual = self.create_individual(ont_class, properties, row)
         linked_individual = self.get_linked_class_properties(ont_class, map_properties)
 
+=======
+        individual = self.create_individual(ont_class, properties, row)
+
+>>>>>>> added script to work with data with multiple measurements
         if linked_individual:
             self.create_relation(individual, self.individuals_per_row[list(linked_individual.keys())[0]])
 
@@ -245,6 +258,7 @@ class Ontology:
                                                        dependant_classes)
                     else:
                         if (not empty_data(self.get_mapped_columns(properties), row) and self.get_mapped_columns(properties)) or not self.get_mapped_columns(properties) :
+<<<<<<< HEAD
                             relations, map_properties = self.split_properties(ont_class, properties)
                             individual = self.create_individual(ont_class, map_properties, row)
                             self.individuals_per_row[ont_class] = individual
@@ -266,6 +280,24 @@ class Ontology:
                 if key in self.data_properties:
                     mapping_row.append(properties)
 
+=======
+                            relations, properties = self.split_properties(ont_class, properties)
+                            individual = self.create_individual(ont_class, properties, row)
+                            self.individuals_per_row[ont_class] = individual
+
+                            for relation, individual2 in relations.items():
+                                self.create_relation(individual, self.individuals_per_row[individual2])
+
+    def get_mapped_columns(self, mapping_slice: dict):
+        mapping_row = []
+        for key, properties in mapping_slice.items():
+            if isinstance(properties, dict):
+                mapping_row = mapping_row + self.get_mapped_columns(properties)
+            if isinstance(properties, str):
+                if key in self.data_properties:
+                    mapping_row.append(properties)
+
+>>>>>>> added script to work with data with multiple measurements
         return mapping_row
 
     def save_ontology(self, name):
@@ -281,4 +313,8 @@ class Ontology:
                                                                                                                float) else value
                 except:
                     value = value
+<<<<<<< HEAD
                 self.graph.add((individual, property, Literal(str(value).strip())))
+=======
+                self.graph.add((individual, property, Literal(str(value).strip())))
+>>>>>>> added script to work with data with multiple measurements
