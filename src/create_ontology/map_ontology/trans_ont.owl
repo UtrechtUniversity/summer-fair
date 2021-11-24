@@ -223,6 +223,11 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
                   :Pathogen .
 
 
+###  http://www.semanticweb.org/trans_experiment#repetition
+:repetition rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Experiment .
+
+
 ###  http://www.semanticweb.org/trans_experiment#resultDate
 :resultDate rdf:type owl:DatatypeProperty ;
             rdfs:domain :Sample ;
