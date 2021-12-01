@@ -10,6 +10,7 @@ from rdflib import URIRef, Literal
 from rdflib.namespace import RDF, RDFS
 
 import class_uri
+import urllib
 from utils import empty_data
 
 
@@ -102,7 +103,7 @@ class Ontology:
         # check if all the map_properties are empty and do not create individual
         #        all_empty = all(value == '' for value in map_properties.values())
         uri = str(self.get_simple_uri(ont_class, map_properties)).replace(' ', '_')
-        map_properties['uri'] = URIRef(self.namespace + uri)
+        map_properties['uri'] = URIRef(self.namespace + urllib.parse.quote(uri))
 
         self.create_properties(map_properties)
         self.assign_class(map_properties['uri'], ont_class)
