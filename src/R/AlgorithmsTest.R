@@ -62,6 +62,35 @@ mockdata <- data.frame(
 
 ##use query to create data####
 # NOT YET DONE #
+endpoint <- "http://localhost:3030/dataA2/query"
+
+get.data <- function(){
+  sparql <- "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix : <http://www.semanticweb.org/trans_experiment#>
+Prefix om: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tr: <http://www.thomsonreuters.com/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+select ?day ?host ?sample_result ?pathogen_name WHERE {
+  ?experiment a :Experiment;
+              :experimentDay ?day;
+              :hasMeasurement ?measurement.
+  ?measurement a :Measurement;
+               :hasHost ?host;
+               :hasSample ?sample.
+  ?sample :hasResult ?sample_result;
+          :hasPathogen ?pathogen.
+  ?pathogen :name ?pathogen_name
+  Filter(?pathogen_name!= '')
+} "
+  return(SPARQL(url = endpoint,query=sparql)$results)
+}
+#
+#do data set 1
+data<- get.data()
+
+
+
 
 ##load pre-queried data ####
 prequerydata <- read_xlsx("src/R/preprocesseddata/Sample_results.xlsx",
