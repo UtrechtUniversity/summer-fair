@@ -66,23 +66,34 @@ endpoint <- "http://localhost:3030/dataA2/query"
 
 get.data <- function(){
   sparql <- "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-Prefix : <http://www.semanticweb.org/trans_experiment#>
-Prefix om: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX tr: <http://www.thomsonreuters.com/>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-select ?day ?host ?sample_result ?pathogen_name WHERE {
-  ?experiment a :Experiment;
-              :experimentDay ?day;
-              :hasMeasurement ?measurement.
-  ?measurement a :Measurement;
-               :hasHost ?host;
-               :hasSample ?sample.
-  ?sample :hasResult ?sample_result;
-          :hasPathogen ?pathogen.
-  ?pathogen :name ?pathogen_name
-  Filter(?pathogen_name!= '')
-} "
+            Prefix : <http://www.semanticweb.org/trans_experiment#>
+            Prefix om: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX tr: <http://www.thomsonreuters.com/>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            SELECT ?round ?ex_day ?ex_hour ?group ?host_id ?treatment ?innoculationStatus ?sample_measure ?sample_result ?pathogen_name WHERE {
+              ?experiment a :Experiment;
+                          :experimentDay ?ex_day;
+                          :hasMeasurement ?measurement.
+              optional {?experiment :repetition ?round;}
+              ?measurement a :Measurement;
+                           :hasHost ?host;
+                           :hasSample ?sample.
+              ?host :id ?host_id;
+                    :treatment ?treatment;
+                    :innoculationStatus ?innoculationStatus;
+                    :locatedIn ?env.
+               ?env :groupNumber ?group. 
+              optional{ ?measurement :experimentHour ?ex_hour. }
+              optional{ ?measurement
+                           :hasQuantity ?quantity. 
+                ?quantity om:hasValue ?measure.
+                ?measure om:hasNumericalValue ?sample_measure.
+              }
+               optional{ ?sample  :hasPathogen ?pathogen. 
+                ?pathogen :name ?pathogen_name }
+              optional {?sample :hasResult ?sample_result.}
+            } "
   return(SPARQL(url = endpoint,query=sparql)$results)
 }
 #
