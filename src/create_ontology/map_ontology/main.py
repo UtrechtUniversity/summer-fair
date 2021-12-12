@@ -54,6 +54,7 @@ def main(config,filename,outdir):
             ontology.populate_ontology(mappings, row,columns)
 
     # save populated ontology
+    outdir = check_outdir()
     ontology.save_ontology(f'{outdir/filename.stem}.ttl')
 
 if __name__ == '__main__':
