@@ -2,12 +2,14 @@ import pandas as pd
 import click
 from mappings import Mappings
 from ontology import Ontology
+from pathlib import Path
 
 @click.command()
-@click.option('--config', required=True,
+@click.option('--config', required=True,type=Path,
 			  help='path to mapping file')
-@click.option('--filename', required=True,
-			  help='path of the dataset')
+@click.option('--filename', required=True,type=Path,
+			  help='path to dataset')
+
 def main(config, filename):
     ont_file = 'trans_ont.owl'
 
@@ -25,7 +27,7 @@ def main(config, filename):
         if mappings.required_field is None or row[mappings.required_field]:
             ontology.populate_ontology(mappings, row,columns)
 
-    ontology.save_ontology('data/populated_ont.ttl')
+    ontology.save_ontology(Path('populated_ont.ttl'))
 
 if __name__ == '__main__':
     main()
