@@ -9,12 +9,38 @@ from pathlib import Path
 			  help='path to mapping file')
 @click.option('--filename', required=True,type=Path,
 			  help='path to dataset')
+@click.option('--outdir',type=Path, default='linked_data',
+			  help='path to output folder')
 
-def main(config, filename):
+def read_tabular(filename):
+    """Read tabular data in Dataframe"""
+    try:
+        if filename.suffix == '.xlsx':
+            dataset = pd.read_excel(filename,engine='openpyxl').fillna(method='ffill',axis=0).fillna('')
+        elif filename.suffix == '.xls':
+            dataset = pd.read_excel(filename).fillna(method='ffill',axis=0).fillna('')
+        elif filename.suffix == '.csv':
+            dataset = pd.read_csv(filename)
+    except (UnicodeDecodeError,IndexError,ValueError) as e:
+        print(f'Failed reading {filename} with error msg {e} ')
+    except FileNotFoundError:    
+        print(f'File {filename} does not exist')
+
+    return dataset
+
+def check_outdir(outdir):
+    """Create outdir if it does not exist"""
+    if outdir.exists():
+        if outdir.is_file():
+            raise RuntimeError('Output path must be a folder')
+    else:
+        outdir.mkdir(parents=True, exist_ok=True)
+
+
+def main(config,filename,outdir):
     ont_file = 'trans_ont.owl'
 
-    # parse dataset
-    dataset = pd.read_excel(filename).fillna(method='ffill', axis=0).fillna('')
+    dataset = read_tabular(filename)
     columns = dataset.columns.values.tolist()
 
     # create mapping and ontology class
@@ -27,7 +53,8 @@ def main(config, filename):
         if mappings.required_field is None or row[mappings.required_field]:
             ontology.populate_ontology(mappings, row,columns)
 
-    ontology.save_ontology(Path('populated_ont.ttl'))
+    # save populated ontology
+    ontology.save_ontology(f'{outdir/filename.stem}.ttl')
 
 if __name__ == '__main__':
     main()
