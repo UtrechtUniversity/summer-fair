@@ -66,8 +66,11 @@ The instances are represented as RDF triples
 $ cd src/create_ontology/map_ontology
 
 # Run main script
-$ python main.py
+$ python main.py [OPTIONS]
 
+Options:
+  --config     path to mapping file
+  --filename   path to dataset 
 ```
 
 ### Querying linked data
