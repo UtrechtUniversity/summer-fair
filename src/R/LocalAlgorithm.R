@@ -445,7 +445,7 @@ analyseTransmission<- function(inputdata,          #input data
               family = binomial(link = "cloglog"), 
               offset = log(i/n)*dt,
               data = data.arranged),
-    mll = mle2(),#deal with number of levels. 
+    mll = mle2();stop("mle: not implemented yet"),#deal with number of levels. 
     finalsize = FinalSize,
     stop("no other methods than glm or maximum likelihood")
   )
