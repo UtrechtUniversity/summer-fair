@@ -1,3 +1,14 @@
+"""Create linked data set
+
+Create instances and populate ontology schema.
+The instances are represented as RDF triples (linked data).
+Required arguments:
+Data in tabular format
+Ontology schema
+Mapping file
+
+"""
+
 import pandas as pd
 import click
 from mappings import Mappings
@@ -12,7 +23,7 @@ from pathlib import Path
 @click.option('--outdir',type=Path, default='linked_data',
 			  help='path to output folder')
 
-def read_tabular(filename):
+def read_tabular(filename:Path) -> pd.DataFrame:
     """Read tabular data in Dataframe"""
     try:
         if filename.suffix == '.xlsx':
@@ -28,8 +39,8 @@ def read_tabular(filename):
 
     return dataset
 
-def check_outdir(outdir):
-    """Create outdir if it does not exist"""
+def check_outdir(outdir:Path):
+    """Check and/or create outdir"""
     if outdir.exists():
         if outdir.is_file():
             raise RuntimeError('Output path must be a folder')
@@ -37,7 +48,7 @@ def check_outdir(outdir):
         outdir.mkdir(parents=True, exist_ok=True)
 
 
-def main(config,filename,outdir):
+def main(config: Path,filename: Path,outdir: Path):
     ont_file = 'trans_ont.owl'
 
     dataset = read_tabular(filename)
