@@ -26,12 +26,10 @@ from pathlib import Path
 def read_tabular(filename:Path) -> pd.DataFrame:
     """Read tabular data in Dataframe"""
     try:
-        if filename.suffix == '.xlsx':
-            dataset = pd.read_excel(filename,engine='openpyxl').fillna(method='ffill',axis=0).fillna('')
-        elif filename.suffix == '.xls':
+        if filename.suffix in ('.xlsx','.xls'):
             dataset = pd.read_excel(filename).fillna(method='ffill',axis=0).fillna('')
         elif filename.suffix == '.csv':
-            dataset = pd.read_csv(filename)
+            dataset = pd.read_csv(filename,delimiter=':').fillna(method='ffill',axis=0).fillna('')
     except (UnicodeDecodeError,IndexError,ValueError) as e:
         print(f'Failed reading {filename} with error msg {e} ')
     except FileNotFoundError:    
