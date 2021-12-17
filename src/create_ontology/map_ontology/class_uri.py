@@ -1,5 +1,5 @@
 Host = ['Host','id']
-Experiment = ['Event', 'experimentID', 'experimentDay']
+Experiment = ['Event', 'experimentID', 'experimentDay','repetition']
 Environment = ['level1', 'level2', 'level3']
 Pathogen = ['name','index']
 Sample = ['SampleType', 'index', 'experimentDay', 'experimentHour', 'result']
