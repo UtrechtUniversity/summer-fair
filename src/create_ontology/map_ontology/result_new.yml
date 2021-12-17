@@ -11,14 +11,14 @@ ontology_schema:
   Environment:
     groupNumber: house_pen
     hospital:
-    house: house
-    pen: pen
+    level2: house
+    level1: pen
     ward:
   Host:
     sex: sexe
     id: animalnr_col
     treatment: treatment
-    type: I, S1, S2
+    innoculationStatus: I, S1, S2
     locatedIn: Environment
   Measurement:
       - experimentDay: weight_d(.*)
