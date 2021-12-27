@@ -267,7 +267,7 @@ arrangeData.finalsize<-function(rdata,           #data
                           covariates = NULL, #covariate column names
                           InoCase = TRUE  #remove inoculated animals as potential case
 ){ 
-  stop("NOT FINISHED")
+  stop("NOT FINISHED ~ to do  in 2022")
   #for a finals approach requires
   #1. Get the initial susceptibles
   #rdata %>% 
@@ -445,8 +445,8 @@ analyseTransmission<- function(inputdata,          #input data
               family = binomial(link = "cloglog"), 
               offset = log(i/n)*dt,
               data = data.arranged),
-    mll = mle2();stop("mle: not implemented yet"),#deal with number of levels. 
-    finalsize = FinalSize,
+    mll =stop("mle: not implemented yet"),#deal with number of levels in a maximum likelihood estimation. 
+    finalsize = FinalSize,#is not yet implemented as well
     stop("no other methods than glm or maximum likelihood")
   )
 

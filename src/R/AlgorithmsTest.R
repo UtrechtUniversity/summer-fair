@@ -31,34 +31,9 @@ package.check <- lapply(
   }
 )
 
-source("src/R/LocalAlgorithm.R") #elena tests if sourcing is possible
-source("src/R/DataManipulationRules.R")
-
-##create some mock data####
-animals.per.group = 4; #number of S and I per group
-groups = 4;
-sampletimes = 10; #number of sample events
-#number of observations
-animals.per.group*groups*sampletimes
-
-mockdata <- data.frame(
-  id = rep(c(1:(animals.per.group*groups)),each = sampletimes),         # animals
-  times = rep(c(1:sampletimes), (animals.per.group*groups)),           # times
-  location = rep(LETTERS[1:groups],
-                 each = animals.per.group*sampletimes),     #  identify group
-  type = rep(c(rep("I",animals.per.group*sampletimes/2),
-               rep("S",animals.per.group*sampletimes/2)),groups), # first 1/2 of animals per group I  
-  treatment = "none",                      # no treatment  
-  sample1 = c(replicate(rbinom(sampletimes*animals.per.group/2,1,.7),
-              rbinom(sampletimes*animals.per.group/2,1,.3),n=groups)),               # random positive and negative samples
-  sample2 = c(replicate(rbinom(sampletimes*animals.per.group/2,1,.7),
-                        rbinom(sampletimes*animals.per.group/2,1,.3),n=groups)),
-  sample3 = c(replicate(rbinom(sampletimes*animals.per.group/2,1,.2),
-                        rbinom(sampletimes*animals.per.group/2,1,.1),n =groups))
-  )               # random positive and negative samples
-  
-
-
+#Elena tests if sourcing is possible
+source("src/R/DataManipulationRules.R")    #Data manipulation rules are pre- or user defined
+source("src/R/LocalAlgorithm.R")           #Estimation methods
 
 ##use query to create data####
 # NOT YET DONE #
@@ -102,7 +77,6 @@ data<- get.data()
 
 
 
-
 ##load pre-queried data ####
 prequerydata <- read_xlsx("src/R/preprocesseddata/Sample_results.xlsx",
                           sheet = "maldi Swab samples")
@@ -137,7 +111,7 @@ ggplot(data = datawithrule)+
   facet_grid(level1~level2)
 
 ##arrange data for analysis ####
-rm(data.arranged)
+if(exists("data.arranged")) {rm(data.arranged)}
 data.arranged <- arrangeData(data = datawithrule,
                              rule = rule.sinceany.recode,
                              var.id = c("sample_result"),
@@ -147,20 +121,23 @@ data.arranged <- arrangeData(data = datawithrule,
 
 input = data.frame(data.arranged%>% 
                      filter(i > 0 & s>0))
-input
+#fit the input data directly
 fit.real <- glm(cbind(cases, s - cases) ~ 1 ,
     family = binomial(link = "cloglog"), 
     offset = log(i/n)*dt,
     data = input)
 summary(fit.real)
 
-
+#fit the analyseTransmission function
 fit <- analyseTransmission(data = usedata,
                     rule = rule.sinceany.recode,
                     var.id = c("sample_result"),
                     method = "glm",
                     codesposneg = c("+","-","mis"),
                     preventError = TRUE)
-logLik(fit)
-fit
+#check 
+fit$coefficients ==fit.real$coefficients
+fit$aic == fit.real$aic
+fit$residuals == fit.real$residuals
+
 
