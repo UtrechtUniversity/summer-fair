@@ -23,6 +23,13 @@ rule.generic <-function(timeseries,var.id,...){
 }
 
 ##rule using first sampletype in the data and determine status S or I####
+#Positive means individual is positive from that time onwards, return data 'asis'
+rule.asis <-function(timeseries,var.id,...){
+    return(2*(timeseries[,var.id[1]]%>%sign))
+}
+
+
+##rule using first sampletype in the data and determine status S or I####
 # First positive means individual is positive from that time onwards
 rule.sincefirst <- function(timeseries,var.id,...){
   if(length(var.id)>1) warning("Only first var.id entry used in rule")
@@ -47,7 +54,7 @@ rule.sinceany <- function(timeseries,var.id,...){
 }
 
 ##rule using any sample in the data and determine status S or I####
-# Animals can swithc between susceptible and infectious and back
+# Animals can switch between susceptible and infectious and back
 rule.any <- function(timeseries,var.id,...){
   new.series <- 2*(timeseries%>%
                      select(all_of(var.id))%>%
