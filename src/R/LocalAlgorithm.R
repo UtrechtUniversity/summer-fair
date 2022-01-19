@@ -87,7 +87,7 @@ setTimes<- function(input,       #data set
                     resolution, #return time at this resolution allowed is second, minute, hour, day, week, month, year
                     decimals = 1){
   timevars <- c("ex_sec","ex_min","ex_hour","ex_day","ex_week","ex_year");
-  timevarsininput<-timevars[timevars%in%names(input)]
+  #timevarsininput<-timevars[timevars%in%names(input)]
   times <-  NA;
   multiplicationfactor <- c(ex_sec = 1,
     ex_min = 60,
@@ -97,9 +97,9 @@ setTimes<- function(input,       #data set
     ex_year = 60*60*24*365);
   #ugly code but does the job of setting it to seconds
   for(t in timevars[timevars%in%names(input)])  {
-    times <- as.vector(ifelse(is.na(times), 
-                    input[,t]*multiplicationfactor[t],
-                    times+input[,t]*multiplicationfactor[t]))
+        times <- as.vector(ifelse(is.na(times), 
+                    replace_na(as.numeric(input[,t]),0)*multiplicationfactor[t],
+                    times+replace_na(as.numeric(input[,t]),0)*multiplicationfactor[t]))
   }; times<- unlist(times)
   #round off to one decimal given the resolution
   return((times/ multiplicationfactor[paste0("ex_",resolution)])%>%round(decimals))
