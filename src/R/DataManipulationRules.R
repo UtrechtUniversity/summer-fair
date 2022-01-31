@@ -1,7 +1,7 @@
 ##############################################################
 #                                                        
 #                  DataManipulationRules                 
-#   
+# 
 #           Examples of rules to determine infections status
 #           of an individual based on one or more samples
 #           Coding is Susceptible = 0
@@ -138,8 +138,7 @@ rule.sinceany.recode<- function(timeseries, var.id,codesposnegmiss,newcodes=c(1,
 rule.sinceany.cutoff<- function(timeseries, var.id,cutoff,... )
 {
   recodefunction <- function(input){
-    if(!is.numeric(input)) return(NA);
-    as.numeric(input>= cutoff)
+        as.numeric(input)>= cutoff
     
   }
   

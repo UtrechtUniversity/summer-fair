@@ -36,7 +36,6 @@ source("src/R/DataManipulationRules.R")    #Data manipulation rules are pre- or 
 source("src/R/LocalAlgorithm.R")           #Estimation methods
 
 ##use query to create data####
-# NOT YET DONE #
 endpoint <- "http://localhost:3030/datasetA"
 
 get.data <- function(){
@@ -46,7 +45,7 @@ get.data <- function(){
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX tr: <http://www.thomsonreuters.com/>
             PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-            SELECT ?round ?level1 ?level2 ?ex_day ?ex_hour ?group ?host_id ?treatment ?innoculationStatus ?sample_measure ?sample_result ?pathogen_name WHERE {
+            SELECT ?round ?ex_day ?group ?host_id ?treatment ?innoculationStatus ?sample_measure ?sample_result ?pathogen_name WHERE {
               ?experiment a :Experiment;
                           :experimentDay ?ex_day;
                           :hasMeasurement ?measurement.
@@ -58,7 +57,10 @@ get.data <- function(){
                     :treatment ?treatment;
                     :innoculationStatus ?innoculationStatus;
                     :locatedIn ?env.
-               ?env :groupNumber ?group. 
+              ?env  :groupNumber ?group. 
+              optional{?env :level1 ?level1;
+                    :level2 ?level2;
+                    :level3 ?level3.}
               optional{ ?measurement :experimentHour ?ex_hour. }
               optional{ ?measurement
                            :hasQuantity ?quantity. 
@@ -73,42 +75,29 @@ get.data <- function(){
 }
 #
 #do data set 1
-data<- get.data()
+rm(usedata);usedata<- get.data()
 
-head(data)
+head(usedata)
 
-##load pre-queried data ####
-prequerydata <- read_xlsx("src/R/preprocesseddata/Sample_results.xlsx",
-                          sheet = "maldi Swab samples")
+#####################################
+# Process data for analysis
+#####################################
 
-## Set data ####
-usedata <- data
-
-## preprocess data ####
-#remove redundant spaces
-names(usedata)<- str_trim(names(usedata))
-usedata$inoculationStatus <- str_trim(usedata$innoculationStatus)
-
-#split group name into house and pen and name these level 1 and level 2
-usedata <-usedata%>%separate(group,c("level2","level1"),"_")
-
-#set times to the correct resolution ###
+#set times to the correct resolution ####
 usedata$times <- setTimes(usedata,
                           resolution = "day",
                           decimals =1)
 
-## apply rule to this data set ####
+## apply rule to determine infection states to this data set ####
 datawithrule <-applyRule(usedata,   #data
-          rule.sinceany.recode,     #rule to apply
-          c("sample_result"),       #variables with output of tests
-          codesposneg = c("+","-","mis")) #specific parameters for this rule. Here we need to recode values containing + or - to 1, 0 or NA.
-                                          #this should be removed, because it is in the mapping file                                        
+          rule = rule.sinceany.cutoff,     #rule to apply
+          var.id = c("sample_measure"),       #variables with output of tests
+          cutoff = 0) #specific parameters for this rule. 
   
-
 ## visualize data after applying rules ####
 ggplot(data = datawithrule)+
-  geom_raster(aes(x = times,y = host_id, fill = factor(sir)))+
-  facet_grid(group~.)
+  geom_raster(aes(x = times,y = host_id, fill = factor(sir)))
+
 
 ##arrange data for analysis ####
 if(exists("data.arranged")) {rm(data.arranged)}
