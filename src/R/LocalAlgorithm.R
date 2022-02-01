@@ -31,24 +31,24 @@ package.check <- lapply(
 #source("src/R/EstimationMethods.R")
 ## The output of this algorithm should be an S4 object ####
 # define the S4 class for output ###
-setClass("TransmissionEstimate",
-         slots = c(n = "numeric", #number of observations
-                   likelihood ="function", #log-likelihood function with one or more parameters
-                   rule = "function", #rule used to determine if sample is positive or negative
-                   pars ="list" #list of estimated parameters options are of each the list contains the name and distribution
-                                #R = reproduction number
-                                #beta = transmission coefficient within a group
-                                #betab = transmission coefficient between groups
-                                #InfectiousPeriod = infectious period
-                                #alpha = shape parameter distance dependent transmission
-                                #r0 = scale parameter distance dependent transmission
-                         ))
-getClass("TransmissionEstimate")
-obj =new("TransmissionEstimate", 
-          n = 10, 
-          likelihood = function(R){R*(1-R)},
-          rule = rule.sincefirst,
-          pars = list("R"))
+# setClass("TransmissionEstimate",
+#          slots = c(n = "numeric", #number of observations
+#                    likelihood ="function", #log-likelihood function with one or more parameters
+#                    rule = "function", #rule used to determine if sample is positive or negative
+#                    pars ="list" #list of estimated parameters options are of each the list contains the name and distribution
+#                                 #R = reproduction number
+#                                 #beta = transmission coefficient within a group
+#                                 #betab = transmission coefficient between groups
+#                                 #InfectiousPeriod = infectious period
+#                                 #alpha = shape parameter distance dependent transmission
+#                                 #r0 = scale parameter distance dependent transmission
+#                          ))
+# getClass("TransmissionEstimate")
+# obj =new("TransmissionEstimate", 
+#           n = 10, 
+#           likelihood = function(R){R*(1-R)},
+#           rule = rule.sincefirst,
+#           pars = list("R"))
 
 # methods 
 setMethod("show",signature= c(object ="TransmissionEstimate"),
@@ -83,9 +83,10 @@ applyRule <- function(data,rule,var.id, ...){
 }
 
 ##create a numeric time ####
-setTimes<- function(input,       #data set
-                    resolution, #return time at this resolution allowed is second, minute, hour, day, week, month, year
-                    decimals = 1){
+setTimes<- function(input,                 #data set
+                    resolution = "day",   #return time at this resolution allowed is second, minute, hour, day, week, month, year
+                    decimals = 1,
+                    ...){
   timevars <- c("ex_sec","ex_min","ex_hour","ex_day","ex_week","ex_year");
   #timevarsininput<-timevars[timevars%in%names(input)]
   times <-  NA;
@@ -97,9 +98,9 @@ setTimes<- function(input,       #data set
     ex_year = 60*60*24*365);
   #ugly code but does the job of setting it to seconds
   for(t in timevars[timevars%in%names(input)])  {
-        times <- as.vector(ifelse(is.na(times), 
-                    replace_na(as.numeric(input[,t]),0)*multiplicationfactor[t],
-                    times+replace_na(as.numeric(input[,t]),0)*multiplicationfactor[t]))
+        if(is.na(times)){ 
+          times <- replace_na(as.numeric(input[,t]),0)*multiplicationfactor[t]} else{
+          times <- times+replace_na(as.numeric(input[,t]),0)*multiplicationfactor[t]}
   }; times<- unlist(times)
   #round off to one decimal given the resolution
   return((times/ multiplicationfactor[paste0("ex_",resolution)])%>%round(decimals))
@@ -114,7 +115,16 @@ arrangeData <- function(data,
                         InoCase = TRUE,
                         Echo = FALSE,
                         ...){
-  #print the method of analysos
+  #remove variables with all NA
+  data <- data %>%  select(
+      where(
+        ~!all(is.na(.x))
+      )
+    )
+  #set times
+  data$times <- setTimes(data,...) #To do: should that be here or else where
+  
+  #print the method of analysis
   if(Echo){print(paste("Arrange data for", method, "analysis."))};
   #select specific method
   return(eval(parse(text = paste0("arrangeData.", method)))
@@ -125,14 +135,17 @@ arrangeData <- function(data,
 ### For generalized linear model and mixed models ####
 arrangeData.glm<-function(rdata,           #data
                           covariates = NULL, #covariate column names
-                          InoCase = TRUE  #remove inoculated animals as potential case
-                          ){ 
+                          InoCase = TRUE,  #remove inoculated animals as potential case
+                          ...){ 
+  
+  
   #get the group mixinglevels 
   mixinglevels  = names(rdata)[names(rdata)%>%
                                  str_detect("level")]%>%
                                         sort(decreasing = TRUE)
+  
  
-   #for a standard glm approach requires
+  #for a standard glm approach requires
   group.data <- NULL;
   #1. time intervals (length)
   group.data <- rdata%>%
@@ -221,10 +234,11 @@ arrangeData.glm<-function(rdata,           #data
   #7. check or determine group co-variates
   if(!is.null(covariates)){
     covariate.data <- group.data;
+    print("Only returns minimum of covariate")
     for(j in covariates){
     covariate <- rdata%>%
         group_by(across(c(mixinglevels ,"times"))) %>% 
-        summarize(covar = mean(eval(parse(text = j)), na.rm = TRUE))%>%
+        summarize(covar = min(eval(parse(text = j))))%>%
         ungroup
     
     covariate.data[j]<-covariate$covar;
@@ -424,15 +438,16 @@ arrangeData.finalsize<-function(rdata,           #data
 analyseTransmission<- function(inputdata,          #input data
                                rule,          #rule to determine whether sample is positive or negative
                                var.id,        #variables to determine apply rule to
-                               estpars,       #parameters to estimate
                                method ="glm", #estimation method
                                preventError = FALSE, #remove those entries with FOI = 0 but cases>1
+                               covars = "1", #covariates 
                                ...){
   #arrange data for analysis
-  data.arranged <- arrangeData(rdata = inputdata,
+  data.arranged <- arrangeData(data = inputdata,
                                rule = rule,
                                var.id = var.id,
                                method = method,
+                               covariates = covars,
                                ...)
   #remove those entries without susceptibles (contain no information and cause errors)
   data.arranged <- data.arranged%>%filter(s>0)
@@ -441,8 +456,9 @@ analyseTransmission<- function(inputdata,          #input data
   #do analysis
   #TO DO use covariates
   fit <- switch(method,
-    glm = glm(cbind(cases, s - cases) ~ 1 ,
-              family = binomial(link = "cloglog"), 
+    glm = glm(cbind(cases, s - cases) ~ treatment,
+      #as.formula(paste("cbind(cases, s - cases) ~ ", paste(covars, collapse= "+"))),
+               family = binomial(link = "cloglog"), 
               offset = log(i/n)*dt,
               data = data.arranged),
     mll =stop("mle: not implemented yet"),#deal with number of levels in a maximum likelihood estimation. 

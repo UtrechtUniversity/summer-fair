@@ -119,7 +119,10 @@ rule.consecutive <- function(timeseries,var.id,n)
 
 ##Samples have another way to mark positive or negative
 ##If pos / neg is indicated by + or - (possibly including other values)
-rule.sinceany.recode<- function(timeseries, var.id,codesposnegmiss,newcodes=c(1,0,0),... )
+rule.sinceany.recode<- function(timeseries, 
+                                var.id,
+                                codesposnegmiss,
+                                newcodes=c(1,0,0),... )
 {
   if(length(codesposnegmiss)>3){ 
      stop("too many recodings for this rule!")}
@@ -138,7 +141,7 @@ rule.sinceany.recode<- function(timeseries, var.id,codesposnegmiss,newcodes=c(1,
 rule.sinceany.cutoff<- function(timeseries, var.id,cutoff,... )
 {
   recodefunction <- function(input){
-        as.numeric(input)>= cutoff
+        as.numeric(input)> cutoff
     
   }
   

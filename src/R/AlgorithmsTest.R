@@ -38,14 +38,14 @@ source("src/R/LocalAlgorithm.R")           #Estimation methods
 ##use query to create data####
 endpoint <- "http://localhost:3030/datasetA"
 
-get.data <- function(){
+get.data <- function(endpoint){
   sparql <- "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
             Prefix : <http://www.semanticweb.org/trans_experiment#>
             Prefix om: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX tr: <http://www.thomsonreuters.com/>
             PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-            SELECT ?round ?ex_day ?group ?host_id ?treatment ?innoculationStatus ?sample_measure ?sample_result ?pathogen_name WHERE {
+            SELECT ?round ?ex_day ?group ?level1 ?level2 ?level3 ?host_id ?treatment ?innoculationStatus ?sample_measure ?sample_result ?pathogen_name WHERE {
               ?experiment a :Experiment;
                           :experimentDay ?ex_day;
                           :hasMeasurement ?measurement.
@@ -58,9 +58,9 @@ get.data <- function(){
                     :innoculationStatus ?innoculationStatus;
                     :locatedIn ?env.
               ?env  :groupNumber ?group. 
-              optional{?env :level1 ?level1;
-                    :level2 ?level2;
-                    :level3 ?level3.}
+              optional{?env :level1 ?level1;}
+              optional{?env :level2 ?level2;}
+              optional{?env :level3 ?level3;}
               optional{ ?measurement :experimentHour ?ex_hour. }
               optional{ ?measurement
                            :hasQuantity ?quantity. 
@@ -75,8 +75,9 @@ get.data <- function(){
 }
 #
 #do data set 1
-rm(usedata);usedata<- get.data()
-
+if(exists("usedata")){rm(usedata)};usedata<- get.data(endpoint)
+#correct spelling
+usedata <- rename(usedata,"inoculationStatus" = "innoculationStatus" )
 head(usedata)
 
 #####################################
@@ -89,23 +90,29 @@ usedata$times <- setTimes(usedata,
                           decimals =1)
 
 ## apply rule to determine infection states to this data set ####
-datawithrule <-applyRule(usedata,   #data
+datawithrule <-applyRule(usedata,          #data
           rule = rule.sinceany.cutoff,     #rule to apply
-          var.id = c("sample_measure"),       #variables with output of tests
-          cutoff = 0) #specific parameters for this rule. 
+          var.id = c("sample_measure"),    #variables with output of tests
+          cutoff = 0)                      #specific parameters for this rule. 
   
 ## visualize data after applying rules ####
 ggplot(data = datawithrule)+
   geom_raster(aes(x = times,y = host_id, fill = factor(sir)))
+ggplot(data = datawithrule)+
+  geom_path(aes(x = times,y = log10(as.numeric(sample_measure)+1), colour = factor(host_id)))+
+  theme(legend.position = "none")
 
+unique(datawithrule$times)
+unique(datawithrule$sample_measure)
+unique(datawithrule$sir)
 
 ##arrange data for analysis ####
 if(exists("data.arranged")) {rm(data.arranged)}
-data.arranged <- arrangeData(data = datawithrule,
-                             rule = rule.sinceany.recode,
-                             var.id = c("sample_result"),
+data.arranged <- arrangeData(data = usedata,
+                             rule = rule.sinceany.cutoff,
+                             var.id = c("sample_measure"),
                              method = "glm",
-                             codesposneg = c("+","-","mis"), 
+                             cutoff = 0, 
                              covariates = c("ex_day"))
 
 input = data.frame(data.arranged%>% 
@@ -118,15 +125,58 @@ fit.real <- glm(cbind(cases, s - cases) ~ 1 ,
 summary(fit.real)
 
 #fit the analyseTransmission function
-fit <- analyseTransmission(data = usedata,
-                    rule = rule.sinceany.recode,
-                    var.id = c("sample_result"),
+fit <- analyseTransmission(inputdata = usedata,
+                    rule = rule.sinceany.cutoff,
+                    var.id = c("sample_measure"),
                     method = "glm",
-                    codesposneg = c("+","-","mis"),
+                    cutoff = 0,
                     preventError = TRUE)
 #check 
 fit$coefficients ==fit.real$coefficients
 fit$aic == fit.real$aic
 fit$residuals == fit.real$residuals
 
+################################################
+# Run the global algorithm over three data sets
+################################################
 
+#source the query function
+source("src/R/Query.r")
+
+#run local algorithms for each data set####
+ 
+#get data
+dataA<- get.data("http://localhost:3030/datasetA")
+dataB<- get.data("http://localhost:3030/datasetB")
+dataC<- get.data("http://localhost:3030/datasetC")
+#correct spelling
+dataA <- rename(dataA,"inoculationStatus" = "innoculationStatus" )
+dataB <- rename(dataB,"inoculationStatus" = "innoculationStatus" )
+dataC <- rename(dataC,"inoculationStatus" = "innoculationStatus" )
+
+#run analysis over each data set
+localA <- analyseTransmission(inputdata = dataA,
+                              rule = rule.sinceany.cutoff,
+                              var.id = c("sample_measure"),
+                              method = "glm",
+                              cutoff = 0,
+                              preventError = TRUE, 
+                              covars = "treatment")
+
+localB<- analyseTransmission(inputdata = dataB,
+                             rule = rule.sinceany.recode,
+                             var.id = c("sample_result"),
+                             method = "glm",
+                             codesposnegmiss = c("+","-","NA"),
+                             preventError = TRUE, 
+                             covars = "treatment")
+
+localC<- analyseTransmission(inputdata = dataC,
+                             rule = rule.sinceany.cutoff,
+                             var.id = c("sample_result"),
+                             method = "glm",
+                             cutoff = 0,
+                             preventError = TRUE, 
+                             covars = "treatment")
+#perform meta-analysis
+combine.estimates <- 
