@@ -112,6 +112,7 @@ arrangeData <- function(data,
                         id.vars,
                         method = "glm",
                         covariates = NULL,
+                        control = "none",
                         InoCase = TRUE,
                         Echo = FALSE,
                         ...){
@@ -123,7 +124,10 @@ arrangeData <- function(data,
     )
   #set times
   data$times <- setTimes(data,...) #To do: should that be here or else where
-  
+  #set value of treatment that is the control to "control"
+  data<-data%>%
+    mutate(treatment = replace(treatment, treatment == control, "control"))
+    
   #print the method of analysis
   if(Echo){print(paste("Arrange data for", method, "analysis."))};
   #select specific method
@@ -136,6 +140,7 @@ arrangeData <- function(data,
 arrangeData.glm<-function(rdata,           #data
                           covariates = NULL, #covariate column names
                           InoCase = TRUE,  #remove inoculated animals as potential case
+                          reference = NULL,
                           ...){ 
   
   
@@ -269,8 +274,12 @@ arrangeData.glm<-function(rdata,           #data
       filter(row_number()>1)%>%
       ungroup
     group.data<- cbind(group.data, covariate.data[,covariates])
-    }
-  
+  }
+  #set reference level of treatment
+  if(!is.null(reference))
+  {
+    group.data <- within(group.data, treatment <- relevel(treatment, ref = eval(reference)))
+  }
   return(group.data)
 }
 
@@ -451,6 +460,8 @@ analyseTransmission<- function(inputdata,          #input data
                                ...)
   #remove those entries without susceptibles (contain no information and cause errors)
   data.arranged <- data.arranged%>%filter(s>0)
+  data.arranged$treatment <- factor(data.arranged$treatment, ordered = FALSE)
+  data.arranged <- within(data.arranged, treatment <- relevel(treatment, ref = "control"))
   #deal with potential error
   if(preventError){data.arranged <- data.arranged%>%filter(i>0)}
   #do analysis

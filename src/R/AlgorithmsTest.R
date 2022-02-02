@@ -161,7 +161,9 @@ localA <- analyseTransmission(inputdata = dataA,
                               method = "glm",
                               cutoff = 0,
                               preventError = TRUE, 
-                              covars = "treatment")
+                              covars = "treatment",
+                              reference = "control",
+                              control = "0")
 
 localB<- analyseTransmission(inputdata = dataB,
                              rule = rule.sinceany.recode,
@@ -169,7 +171,9 @@ localB<- analyseTransmission(inputdata = dataB,
                              method = "glm",
                              codesposnegmiss = c("+","-","NA"),
                              preventError = TRUE, 
-                             covars = "treatment")
+                             covars = "treatment",
+                             reference = "control",
+                             control = "")
 
 localC<- analyseTransmission(inputdata = dataC,
                              rule = rule.sinceany.cutoff,
@@ -177,6 +181,19 @@ localC<- analyseTransmission(inputdata = dataC,
                              method = "glm",
                              cutoff = 0,
                              preventError = TRUE, 
-                             covars = "treatment")
+                             covars = "treatment",
+                             reference = "control",
+                             control = "")
 #perform meta-analysis
-combine.estimates <- 
+metaana <- combine.estimates(list(localA,localB,localC),
+                             select.treatment = "control") 
+print(metaana)
+forest.meta(metaana)
+funnel.meta(metaana,studlab=TRUE,contour = c(0.9, 0.95, 0.99))
+
+#perform meta-analysis
+metaana <- combine.estimates.glm(list(localA,localB),
+                             select.treatment = "control") 
+summary(metaana)
+forest.meta(metaana)
+funnel.meta(metaana,studlab=TRUE,contour = c(0.9, 0.95, 0.99))

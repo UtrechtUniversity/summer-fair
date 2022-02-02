@@ -1,3 +1,13 @@
+#########################################################
+#                                                        
+#                  Query for local algorithm                                 
+           
+#                                                        
+#                  Author:      Egil Fischer                         
+#                  Contact:     e.a.j.fischer@uu.nl                         
+#                  Creation date          2-2-2022               
+#########################################################
+library(SPARQL)
 
 get.data <- function(endpoint){
   sparql <- "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
