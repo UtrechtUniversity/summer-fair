@@ -8,5 +8,7 @@ BodyMass = ['BodyMass', 'index']
 Measure = ['hasNumericalValue']
 Measurement = ['M', 'index']
 SpecificViableCount = ['Quantity', 'index']
+Inoculation =['Inoculation','index']
+VolumetricViableCount = ['Dose','index']
 
-linked_classes = {'Measurement': ['Experiment']}
+linked_classes = {'Measurement': ['Experiment'],'Inoculation':['Experiment']}
