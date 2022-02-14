@@ -104,7 +104,6 @@ class Ontology:
         #        all_empty = all(value == '' for value in map_properties.values())
         uri = str(self.get_simple_uri(ont_class, map_properties)).replace(' ', '_')
         map_properties['uri'] = URIRef(self.namespace + urllib.parse.quote(uri))
-
         self.create_properties(map_properties)
         self.assign_class(map_properties['uri'], ont_class)
 
@@ -132,6 +131,7 @@ class Ontology:
             return map_property
 
     def split_properties(self, ont_class, map_properties):
+        print(ont_class)
         relations = {ont_property: map_properties[ont_property] for ont_property in map_properties.keys() if
                      ont_property in self.relations}
         properties = {ont_property: map_properties[ont_property] for ont_property in map_properties.keys() if
@@ -162,9 +162,10 @@ class Ontology:
         # Note that the relations can related to classes that are not yet created
 
         relations, properties = self.split_properties(ont_class, map_properties)
-        linked_individual = self.get_linked_class_properties(ont_class, map_properties)
+
 
         individual = self.create_individual(ont_class, properties, row)
+        linked_individual = self.get_linked_class_properties(ont_class, map_properties)
 
         if linked_individual:
             self.create_relation(individual, self.individuals_per_row[list(linked_individual.keys())[0]])
@@ -244,9 +245,14 @@ class Ontology:
                                                        dependant_classes)
                     else:
                         if (not empty_data(self.get_mapped_columns(properties), row) and self.get_mapped_columns(properties)) or not self.get_mapped_columns(properties) :
-                            relations, properties = self.split_properties(ont_class, properties)
-                            individual = self.create_individual(ont_class, properties, row)
+                            relations, map_properties = self.split_properties(ont_class, properties)
+                            individual = self.create_individual(ont_class, map_properties, row)
                             self.individuals_per_row[ont_class] = individual
+
+                            linked_individual = self.get_linked_class_properties(ont_class, properties)
+
+                            if linked_individual:
+                                self.create_relation(individual, self.individuals_per_row[list(linked_individual.keys())[0]])
 
                             for relation, individual2 in relations.items():
                                 self.create_relation(individual, self.individuals_per_row[individual2])
