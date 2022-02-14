@@ -107,10 +107,10 @@ class Dataset:
                     if map_columns:
                         # substitute the .* with columns, change column names
                         reshape_columns = self.reocur_columns_to_reshape(map_columns)
-                        unique_columns = list(set(self.columns).difference(self.reocur_columns))
+                        unique_columns = list(set(self.columns).difference(self.reocur_columns).difference(set(self.multiple_columns)))
                         uniq_reshaped = unique_columns + [v for value in reshape_columns.values() for v in value]
                         new_df = self.dataset[uniq_reshaped]
-                    elif not map_columns and len(properties_or_classes) > 1:
+                    elif not map_columns and (len(properties_or_classes) > 1 or 'experimentDay' in property_or_class):
                         reshape_columns = {k: v for k, v in self.columns_to_reshape(property_or_class).items() if
                                            k not in self.reusable_column}
                         unique_columns = list(set(self.columns).difference(self.multiple_columns))
@@ -123,7 +123,8 @@ class Dataset:
                     new_df = self.dataset[uniq_reshaped]
                     reshaped = pd.lreshape(new_df, reshape_columns)
 
-                    reshaped['experimentDay'] = reshaped['experimentDay'].astype(object)
+                    reshaped['experimentDay'] = reshaped['experimentDay'].apply(lambda x: pd.to_numeric(x, errors = 'ignore'))
+                    reshaped['experimentHour'] = reshaped['experimentHour'].apply(lambda x: pd.to_numeric(x, errors = 'ignore'))
                     # days and hours experiments
                     experiment_time = self.get_day_time(property_or_class)
 
@@ -145,11 +146,12 @@ class Dataset:
                 k, v in map_columns.items() if k not in self.reusable_column}
 
     def get_multiple_columns(self, mappings):
+        update_columns= []
         if isinstance(mappings['Experiment']['experimentDay'], list):
             experiment_days = mappings['Experiment']['experimentDay']
             # for each experiment day we check for properties that belong to it
             # only if they are in dataset
-            update_columns = []
+
 
             for properties_or_classes in mappings.values():
                 if isinstance(properties_or_classes, list):  # put it in a list for simplification
