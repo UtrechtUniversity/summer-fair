@@ -1,3 +1,12 @@
+"""Create linked data set
+Create instances and populate ontology schema.
+The instances are represented as RDF triples (linked data).
+Required arguments:
+Data in tabular format
+Ontology schema
+Mapping file
+"""
+
 import click
 
 from dataset import Dataset
