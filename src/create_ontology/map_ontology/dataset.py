@@ -124,9 +124,10 @@ class Dataset:
                     reshaped = pd.lreshape(new_df, reshape_columns)
 
                     reshaped['experimentDay'] = reshaped['experimentDay'].apply(lambda x: pd.to_numeric(x, errors = 'ignore'))
-                    reshaped['experimentHour'] = reshaped['experimentHour'].apply(lambda x: pd.to_numeric(x, errors = 'ignore'))
+                    if 'experimentHour' in reshaped:
+                        reshaped['experimentHour'] = reshaped['experimentHour'].apply(lambda x: pd.to_numeric(x, errors = 'ignore'))
                     # days and hours experiments
-                    experiment_time = self.get_day_time(property_or_class)
+                    experiment_time = ['experimentDay']
 
                     if not reshaped_combined.empty:
                         reshaped_combined = reshaped_combined.merge(reshaped,
