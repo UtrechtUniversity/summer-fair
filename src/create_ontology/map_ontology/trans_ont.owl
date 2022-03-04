@@ -209,8 +209,8 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
     rdfs:domain :Host .
 
 
-###  http://www.semanticweb.org/trans_experiment#innoculationStatus
-:innoculationStatus rdf:type owl:DatatypeProperty ;
+###  http://www.semanticweb.org/trans_experiment#inoculationStatus
+:inoculationStatus rdf:type owl:DatatypeProperty ;
                     rdfs:domain :Host .
 
 
