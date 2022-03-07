@@ -1,7 +1,6 @@
 #########################################################
 #                                                        
 #                  Query for local algorithm                                 
-           
 #                                                        
 #                  Author:      Egil Fischer                         
 #                  Contact:     e.a.j.fischer@uu.nl                         
