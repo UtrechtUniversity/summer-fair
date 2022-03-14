@@ -147,7 +147,7 @@ rule.sinceany.cutoff<- function(timeseries, var.id,cutoff,... )
   
   timeseries[,var.id]<- timeseries%>%
     select(all_of(var.id))%>%
-    sapply(recodefunction)
+    sapply(recodefunction) %>% as.numeric(var.id)
   return(rule.sinceany(timeseries, var.id,...))
 }
 
