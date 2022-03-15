@@ -42,7 +42,7 @@ localA <- analyseTransmission(inputdata = dataA,           #data set
                               method = "glm",              #estimation method
                               cutoff = 0,                  #cutoff value for infection status
                               preventError = TRUE,         #TRUE = remove entries with > 1 case but FOI = 0
-                              covars = "treatment",        #co variants 
+                              covars = "treatment",        #co variates 
                               reference = "control",       #reference category for multivariable estimation
                               control = "0")               #value of control treatment
 #run analysis over data set B
@@ -52,7 +52,7 @@ localB<- analyseTransmission(inputdata = dataB,            #data set
                              method = "glm",               #estimation method
                              codesposnegmiss = c("+","-","NA"), #values determining infection status pos, neg of missing
                              preventError = TRUE,          #TRUE = remove entries with > 1 case but FOI = 0
-                             covars = "treatment",         #co variants 
+                             covars = "treatment",         #co variates 
                              reference = "control",        #reference category for multivariable estimation
                              control = "")                 #value of control treatment
 

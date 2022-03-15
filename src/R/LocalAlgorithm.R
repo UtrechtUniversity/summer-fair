@@ -408,7 +408,7 @@ arrangeData.finalsize<-function(rdata,           #data
 
 
 
-## perform analysis ####
+# perform analysis ####
 analyseTransmission<- function(inputdata,          #input data
                                rule,          #rule to determine whether sample is positive or negative
                                var.id,        #variables to determine apply rule to
@@ -447,8 +447,51 @@ analyseTransmission<- function(inputdata,          #input data
   return(fit)
 }
 
-
-
-
-
-
+# # perform analysis with default decisions ####
+# analyseTransmission<- function(inputdata,          #input data
+#                                rule = "sinceany",          #rule to determine whether sample is positive or negative
+#                                method ="glm", #estimation method
+#                                preventError = FALSE, #remove those entries with FOI = 0 but cases>1
+#                                ){
+#   #decide settings based on input data
+#   
+#   # determine measure versus result choose for result if present
+#   
+#   # determine the values to set for result or cut off for measure
+#   
+#   # get value of reference group
+#   
+#   #arrange data for analysis
+#   data.arranged <- arrangeData(data = inputdata,
+#                                rule = rule,
+#                                var.id = var.id,
+#                                method = method,
+#                                covariates = covars,
+#                                ...)
+#   #remove those entries without susceptibles (contain no information and cause errors)
+#   data.arranged <- data.arranged%>%filter(s>0)
+#   data.arranged$treatment <- factor(data.arranged$treatment, ordered = FALSE)
+#   data.arranged <- within(data.arranged, treatment <- relevel(treatment, ref = "control"))
+#   #deal with potential error
+#   if(preventError){data.arranged <- data.arranged%>%filter(i>0)}
+#   #do analysis
+#   #TO DO use covariates
+#   fit <- switch(method,
+#                 glm = glm(#cbind(cases, s - cases) ~ treatment,
+#                   as.formula(paste("cbind(cases, s - cases) ~ ", paste(covars, collapse= "+"))),
+#                   family = binomial(link = "cloglog"), 
+#                   offset = log(i/n)*dt,
+#                   data = data.arranged),
+#                 mll =stop("mle: not implemented yet"),#deal with number of levels in a maximum likelihood estimation. 
+#                 finalsize = FinalSize,#is not yet implemented as well
+#                 stop("no other methods than glm or maximum likelihood")
+#   )
+#   
+#   
+#   #return outcome
+#   return(fit)
+# }
+# 
+# 
+# 
+# 
