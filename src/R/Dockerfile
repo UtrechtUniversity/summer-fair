@@ -1,4 +1,4 @@
-FROM rocker/tidyverse:4.0.3
+FROM rocker/tidyverse:4.1.2
 COPY src/R /usr/local/src/myscripts
 WORKDIR  /usr/local/src/myscripts
 # Install R packages
@@ -11,6 +11,8 @@ RUN install2.r --error \
     bbmle \
     magrittr \
     readxl \
-    rje
-CMD ["Rscript", "Untitled.R"]
-
+    rje \
+    meta \
+    metafor \
+    libxt6
+CMD ["Rscript", "TutorialAlgorithmDocker.R"]
