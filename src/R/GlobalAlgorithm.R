@@ -12,22 +12,25 @@
 ## are not, the missing package(s) will be installed 
 ## from CRAN and then loaded.
 
-## First specify the packages of interest
-packages = c("tidyverse",
-             "meta",
-             "metafor")
+# ## First specify the packages of interest
+# packages = c("tidyverse",
+#              "meta",
+#              "metafor")
+# 
+# ## Now load or install&load all
+# package.check <- lapply(
+#   packages,
+#   FUN = function(x) {
+#     if (!require(x, character.only = TRUE)) {
+#       install.packages(x, dependencies = TRUE)
+#       library(x, character.only = TRUE)
+#     }
+#   }
+# )
 
-## Now load or install&load all
-package.check <- lapply(
-  packages,
-  FUN = function(x) {
-    if (!require(x, character.only = TRUE)) {
-      install.packages(x, dependencies = TRUE)
-      library(x, character.only = TRUE)
-    }
-  }
-)
-
+library(meta)
+library(metafor)
+library(tidyverse)
 #combine.estimates of glm's
 combine.estimates.glm <- function(local.output,
                               select.treatment = "All"){
@@ -44,7 +47,11 @@ combine.estimates.glm <- function(local.output,
     estimates <- estimates%>%filter(treatment == "(Intercept)")
   else if(treatment!= "All")
     estimates <- estimates%>%filter(treatment == select.treatment)
-    
+  
+  print(estimates$mean)
+  print(estimates$se)
+  print(estimates$study)
+  print(estimates$treatment)
   #simply only use the intercepts
   metaout<- metagen(TE =  estimates$mean,
                     seTE = estimates$se,
