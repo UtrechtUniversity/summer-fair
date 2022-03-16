@@ -131,7 +131,6 @@ class Ontology:
             return map_property
 
     def split_properties(self, ont_class, map_properties):
-        print(ont_class)
         relations = {ont_property: map_properties[ont_property] for ont_property in map_properties.keys() if
                      ont_property in self.relations}
         properties = {ont_property: map_properties[ont_property] for ont_property in map_properties.keys() if
@@ -191,7 +190,7 @@ class Ontology:
                     individual2 = self.individuals_per_row[individual2]
                 if individual2 in all_dependant_classes:
                     individual2 = all_dependant_classes[individual2]
-                print(individual,individual2,relation)
+           #     print(individual,individual2,relation)
                 self.create_relation(individual, individual2, relation)
 
         return individual
