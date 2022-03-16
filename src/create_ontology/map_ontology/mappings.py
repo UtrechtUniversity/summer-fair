@@ -2,17 +2,19 @@ import re
 
 import yaml
 
-
+import utils
 class Mappings:
-    def __init__(self, map_file, columns):
+    def __init__(self, map_file):
         self.mappings = self.parse_config(map_file)
         self.meta_data = self.get_meta_data()
         self.required_field = self.mappings.get('required', None)
         self.ont_mappings = self.mappings['ontology_schema']
-        self.column_names = columns
+        self.reocur_mappings = utils.get_reocurring_map_columns(self.ont_mappings)
+        self.update_values = self.mappings.get('update_values',None)
         self.reocurring_values = {}
         self.mapping_per_row = {}
         self.class_properties = {}
+
 
     def parse_config(self, config):
         with open(config, 'r') as fileobj:
@@ -26,9 +28,9 @@ class Mappings:
     def get_trans_mappings(self):
         return {k: v for k, v in self.mappings.items() if k not in self.meta_data and k != 'required'}
 
-    def get_recoruring_values(self, column_name):
+    def get_recoruring_values(self, column_names, column_name):
         values = set()
-        for column in self.column_names:
+        for column in column_names:
             if re.match(column_name.replace('.*', '(\d{1,4})'), column):
                 pattern = column_name.replace('.*', '(\d{1,4})')
                 values.add(re.search(pattern, column)[1])
@@ -53,10 +55,10 @@ class Mappings:
         return any(
             [True if '.*' in property or isinstance(property, list) else False for property in mappings.values()])
 
-    def get_multiple_recoruring_values(self, properties):
+    def get_multiple_recoruring_values(self, properties, columns):
         all_values_per_group = set()
         for _, value in properties.items():
-            all_values_per_group.update(self.get_recoruring_values(value))
+            all_values_per_group.update(self.get_recoruring_values(columns,value))
         return all_values_per_group
 
     def remove_empty_prop(self, map_file):
@@ -75,3 +77,4 @@ class Mappings:
             if not v in (u'', None, {}):
                 updated[k] = v
         return updated
+

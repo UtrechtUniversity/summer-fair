@@ -34,8 +34,10 @@ om2:hasValue rdf:type owl:ObjectProperty ;
 
 ###  http://www.semanticweb.org/trans_experiment#hasDose
 :hasDose rdf:type owl:ObjectProperty ;
-         rdfs:domain :Treatment ;
-         rdfs:range om2:Quantity .
+         rdfs:domain :Inoculation ,
+                     :Treatment ;
+         rdfs:range om2:Quantity ,
+                    om2:VolumetricViableCount .
 
 
 ###  http://www.semanticweb.org/trans_experiment#hasEvent
@@ -55,6 +57,12 @@ om2:hasValue rdf:type owl:ObjectProperty ;
          rdfs:domain :Measurement ;
          rdfs:range :Environment ,
                     :Host .
+
+
+###  http://www.semanticweb.org/trans_experiment#hasInoculation
+:hasInoculation rdf:type owl:ObjectProperty ;
+                rdfs:domain :Experiment ;
+                rdfs:range :Inoculation .
 
 
 ###  http://www.semanticweb.org/trans_experiment#hasMeasurement
@@ -113,6 +121,7 @@ om2:hasValue rdf:type owl:ObjectProperty ;
 ###  http://www.semanticweb.org/trans_experiment#involves
 :involves rdf:type owl:ObjectProperty ;
           rdfs:domain :CircumstantialEvent ,
+                      :Inoculation ,
                       :Treatment ;
           rdfs:range :Host .
 
@@ -155,7 +164,9 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
 
 ###  http://www.semanticweb.org/trans_experiment#experimentHour
 :experimentHour rdf:type owl:DatatypeProperty ;
-                rdfs:domain :Measurement .
+                rdfs:domain :Inoculation ,
+                            :Measurement ,
+                            :Treatment .
 
 
 ###  http://www.semanticweb.org/trans_experiment#experimentID
@@ -188,13 +199,19 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
                        :Sample .
 
 
+###  http://www.semanticweb.org/trans_experiment#hourAfterInoculation
+:hourAfterInoculation rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Measurement .
+
+
 ###  http://www.semanticweb.org/trans_experiment#id
 :id rdf:type owl:DatatypeProperty ;
     rdfs:domain :Host .
 
 
-###  http://www.semanticweb.org/trans_experiment#innoculationStatus
-:innoculationStatus rdf:type owl:DatatypeProperty .
+###  http://www.semanticweb.org/trans_experiment#inoculationStatus
+:inoculationStatus rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Host .
 
 
 ###  http://www.semanticweb.org/trans_experiment#level1
@@ -221,6 +238,11 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
 :name rdf:type owl:DatatypeProperty ;
       rdfs:domain :Gene ,
                   :Pathogen .
+
+
+###  http://www.semanticweb.org/trans_experiment#repetition
+:repetition rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Experiment .
 
 
 ###  http://www.semanticweb.org/trans_experiment#resultDate
@@ -312,6 +334,10 @@ om2:VolumetricViableCount rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/trans_experiment#Host
 :Host rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/trans_experiment#Inoculation
+:Inoculation rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/trans_experiment#Measurement

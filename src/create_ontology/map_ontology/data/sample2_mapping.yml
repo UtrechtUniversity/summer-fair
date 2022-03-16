@@ -1,5 +1,6 @@
+
 required: animalnr_col
-merge_spreadsheets_on: #write a column name which repeats in the spreadsheets and that we can merge on.
+merge_spreadsheets_on: animalnr_col #write a column name which repeats in the spreadsheets and that we can merge on.
 meta_data:
 ontology_schema:
   Experiment:
@@ -9,16 +10,16 @@ ontology_schema:
       - weight_d(.*)
       - swab.*_date
   Environment:
-    groupNumber: house_pen
+    groupNumber:
     hospital:
-    level2: house
-    level1: pen
+    house: house
+    pen: pen
     ward:
   Host:
-    sex: sexe
+    sex:
     id: animalnr_col
     treatment: treatment
-    innoculationStatus: I, S1, S2
+    type: I, S1, S2
     locatedIn: Environment
   Measurement:
       - experimentDay: weight_d(.*)
