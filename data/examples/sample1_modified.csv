@@ -1,0 +1,2 @@
+﻿chicken_id;type;sex;pen;house;sample1_day;sample1_hour;sample1_result;sample2_day;sample2_hour;sample2_result;sample3_day;sample3_hour;sample3_result
+12345;I;F;10;1;3;12:00;-;2;12:00;-;3;12:00;+
