@@ -13,6 +13,5 @@ RUN install2.r --error \
     readxl \
     rje \
     meta \
-    metafor \
-    libxt6
+    metafor 
 CMD ["Rscript", "TutorialAlgorithmDocker.R"]
