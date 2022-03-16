@@ -17,6 +17,8 @@ docker stop fuseki-loadsh-use-fuseki-data
 
 docker start fuseki-app
 
+echo "Uploaded populated_ont_A.ttl to triplestore hosted at port 3030"
+
 # Create 2nd triple store with datasetB
 
 docker run --detach --name fuseki-data2 --volume /fuseki busybox
@@ -37,13 +39,13 @@ docker stop fuseki-loadsh-use-fuseki-data2
 
 docker start fuseki-app2
 
-
+echo "Uploaded populated_ont.ttl to triplestore hosted at port 3031"
 
 # Run R script within r-studio container
 
-docker build -t rproject . -f src/R/Dockerfile
-
-docker run --name algorithm_combined -v  "$(pwd)/src/R:/usr/local/src/myscripts"  rproject
+# docker build -t rproject . -f src/R/Dockerfile
+#
+# docker run --name algorithm_combined -v  "$(pwd)/src/R:/usr/local/src/myscripts"  rproject
 
 #-----------------#
 #   THE END       #                  
