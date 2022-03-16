@@ -18,7 +18,7 @@ ontology_schema:
     sex: sexe
     id: animalnr_col
     treatment: treatment
-    innoculationStatus: I, S1, S2
+    inoculationStatus: I, S1, S2
     locatedIn: Environment
   Measurement:
       - experimentDay: weight_d(.*)
@@ -38,7 +38,7 @@ ontology_schema:
           hasType: 'EnvironmentalSample'
         Pathogen:
           family:
-          name: BS.*_value
+          name: BS.*_pathogen
           strain:
         Gene:
           name:
@@ -47,7 +47,7 @@ ontology_schema:
         Antibiotic:
           name:
       - experimentDay: swab.*_date
-        experimentHour:
+        experimentHour: swab.*_hour
         hasHost: Host
         Sample:
           hasType: 'Swab'
@@ -55,7 +55,7 @@ ontology_schema:
           resultDate:
         Pathogen:
           family:
-          name: swab.*_value
+          name: swab.*_pathogen
           strain:
         Gene:
           name:
