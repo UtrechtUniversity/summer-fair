@@ -30,6 +30,6 @@ localB<- get.local.trasmission(dataB)
 metaana <- combine.estimates.glm(list(localA,localB),
                                  select.treatment = "control") 
 print(metaana)
-png(file='CombinedResult.png') 
+png(file='CombinedResult.png',width=580, height=680) 
 forest.meta(metaana)
 dev.off() 
