@@ -447,6 +447,23 @@ analyseTransmission<- function(inputdata,          #input data
   return(fit)
 }
 
+#run local algorithm for each data set ####
+get.local.trasmission <- function(dataA){
+                  var.id = ifelse(all(is.na(dataA$sample_measure)), c("sample_result"), c("sample_measure"))
+                  control = ifelse(any(grepl('0',dataA$treatment)),"0","")
+                  rule = ifelse(all(is.na(dataA$sample_measure)), rule.sinceany.recode, rule.sinceany.cutoff)
+
+                  return(analyseTransmission(inputdata = dataA, #data set
+                                             rule = rule, #rule to determine infection status
+                                             var.id = var.id,  #variable defining infection status
+                                             method = "glm", #estimation method
+                                             cutoff = 0, #cutoff value for infection status
+                                             codesposnegmiss = c("+","-","NA"), #values determining infection status pos, neg of missing
+                                             preventError = TRUE, #TRUE = remove entries with > 1 case but FOI = 0
+                                             covars = "treatment", #co variants
+                                             reference = "control", #reference category for multivariable estimation
+                                             control = control))   #value of control treatment
+                  }
 
 
 
