@@ -4,8 +4,9 @@ meta_data:
   institute:
 ontology_schema:
   Experiment:
-    experimentID:
+    experimentID: 
     experimentDay:
+      -
     type:
     studyDesign:
   Environment:
