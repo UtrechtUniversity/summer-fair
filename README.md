@@ -39,7 +39,7 @@ $ pip install requirements.txt
 ```
 
 ### Manual
-Get started with the summerfair software by trying it out in this [notebook](link) manual
+Get started with the summerfair software by trying it out in this [notebook](https://github.com/UtrechtUniversity/summer-fair/blob/master/src/create_ontology/map_ontology/summerfair-manual.ipynb) manual
 
 Make sure you have [jupyter notebook](https://jupyter.org/install) installed
 
