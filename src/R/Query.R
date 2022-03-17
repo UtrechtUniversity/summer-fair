@@ -14,7 +14,6 @@ get.data <- function(endpoint){
             Prefix : <http://www.semanticweb.org/trans_experiment#>
             Prefix om: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-            PREFIX tr: <http://www.thomsonreuters.com/>
             PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
             SELECT ?round ?ex_day ?inoculationHour ?group ?level1 ?level2 ?level3 ?host_id ?treatment ?inoculationStatus ?sample_measure ?sample_result ?sample_type ?pathogen_name WHERE {
               ?experiment a :Experiment;
