@@ -15,7 +15,7 @@ docker run -d --name fuseki-loadsh-use-fuseki-data \
 
 docker stop fuseki-loadsh-use-fuseki-data
 
-docker start fuseki-app
+
 
 echo "Uploaded populated_ont_A.ttl to triplestore hosted at port 3030"
 
@@ -38,6 +38,8 @@ docker run -d --name fuseki-loadsh-use-fuseki-data2 \
 docker stop fuseki-loadsh-use-fuseki-data2
 
 docker start fuseki-app2
+
+docker start fuseki-app
 
 echo "Uploaded populated_ont.ttl to triplestore hosted at port 3031"
 
