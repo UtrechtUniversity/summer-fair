@@ -15,9 +15,8 @@ docker run -d --name fuseki-loadsh-use-fuseki-data \
 
 docker stop fuseki-loadsh-use-fuseki-data
 
+docker logs fuseki-loadsh-use-fuseki-data  2>&1| grep "Finish quads load" && echo "Uploaded populated_ont_A.ttl to triplestore hosted at port 3030" || echo "Failed to load triples"
 
-
-echo "Uploaded populated_ont_A.ttl to triplestore hosted at port 3030"
 
 # Create 2nd triple store with datasetB
 
@@ -35,13 +34,14 @@ docker run -d --name fuseki-loadsh-use-fuseki-data2 \
   stain/jena-fuseki:3.14.0 \
   ./load.sh mydataset  populated_ont.ttl
 
+docker logs fuseki-loadsh-use-fuseki-data  2>&1| grep "Finish quads load" && echo "Uploaded populated_ont.ttl to triplestore hosted at port 3031" || echo "Failed to load triples"
+
+
 docker stop fuseki-loadsh-use-fuseki-data2
 
 docker start fuseki-app2
 
 docker start fuseki-app
-
-echo "Uploaded populated_ont.ttl to triplestore hosted at port 3031"
 
 # Run R script within r-studio container
 
