@@ -12,7 +12,7 @@ source("LocalAlgorithm.R") #Estimation methods
 #* Return local algorithm 
 #* @get /algorithm
 function(){#get data
-dataA<- get.data("http://host.docker.internal:3030/datasetA/query")
+dataA<- get.data("http://localhost:3030/datasetA/query")
 print(dataA)
 
 # var.id = ifelse(all(is.na(dataA$sample_measure)), c("sample_result"), c("sample_measure"))
