@@ -1,0 +1,95 @@
+required_field:
+meta_data:
+  author:
+  institute:
+ontology_schema:
+  Experiment:
+    experimentID: 
+    experimentDay:
+      -
+    type:
+    studyDesign:
+  Environment:
+    groupNumber:
+    level1:
+    level2:
+    level3:
+    coordinates:
+  Host:
+    sex:
+    id:
+    treatment:
+    type:
+    innoculationStatus:
+    locatedIn: Environment
+  Measurement:
+      - experimentDay:
+        hasQuantity: #BodyMass, SpecificViableCount, VolumetricViableCount or ViableCountUnit
+        hasHost: #Host, Environment or Sample
+        experimentHour:
+        BodyMass:
+          hasPhenomenon: #Host, Environment or Sample
+        SpecificViableCount:
+          hasPhenomenon: #Host, Environment or Sample
+        VolumetricViableCount:
+          hasPhenomenon: #Host, Environment or Sample
+        ViableCountUnit:
+          hasPhenomenon: #Host, Environment or Sample
+        Measure:
+          hasNumericalValue:
+        Sample:
+          result:
+          resultDate:
+          hasType: # Currently we have Swab or EnvironmentalSample types
+        Pathogen:
+          family:
+          name:
+          strain:
+        Gene:
+            name:
+        PathogenResistance:
+          result:
+        Antibiotic:
+          name:
+      - experimentDay:
+        hasQuantity: #BodyMass, SpecificViableCount, VolumetricViableCount or ViableCountUnit
+        hasHost: #Host, Environment or Sample
+        experimentHour:
+        BodyMass:
+          hasPhenomenon: #Host, Environment or Sample
+        SpecificViableCount:
+          hasPhenomenon: #Host, Environment or Sample
+        VolumetricViableCount:
+          hasPhenomenon: #Host, Environment or Sample
+        ViableCountUnit:
+          hasPhenomenon: #Host, Environment or Sample
+        Measure:
+          hasNumericalValue:
+        Sample:
+          result:
+          resultDate:
+          hasType: # Currently we have Swab or EnvironmentalSample types
+        Pathogen:
+          family:
+          name:
+          strain:
+        Gene:
+          name:
+        PathogenResistance:
+          result:
+        Antibiotic:
+          name:
+  Treatment:
+    experimentaDay:
+    experimentHour:
+    Measure:
+      hasNumericalValue:
+    includes: #Antobiotic or Pathogen
+  CircumstantialEvent:
+    experimentaDay:
+    experimentHour:
+    CircumstantialEvent: Death
+
+
+
+

@@ -423,6 +423,7 @@ analyseTransmission<- function(inputdata,          #input data
                                method = method,
                                covariates = covars,
                                ...)
+
   #remove those entries without susceptibles (contain no information and cause errors)
   data.arranged <- data.arranged%>%filter(s>0)
   data.arranged$treatment <- factor(data.arranged$treatment, ordered = FALSE)
@@ -446,6 +447,7 @@ analyseTransmission<- function(inputdata,          #input data
   #return outcome
   return(fit)
 }
+
 
 # # perform analysis with default decisions ####
 # analyseTransmission<- function(inputdata,          #input data
@@ -495,3 +497,27 @@ analyseTransmission<- function(inputdata,          #input data
 # 
 # 
 # 
+
+#run local algorithm for each data set ####
+get.local.trasmission <- function(dataA){
+                  var.id = ifelse(all(is.na(dataA$sample_measure)), c("sample_result"), c("sample_measure"))
+                  control = ifelse(any(grepl('0',dataA$treatment)),"0","")
+                  rule = ifelse(all(is.na(dataA$sample_measure)), ifelse(any(grepl('1',dataA$sample_result)),rule.sinceany.numeric,rule.sinceany.recode) , rule.sinceany.cutoff)
+
+                  return(analyseTransmission(inputdata = dataA, #data set
+                                             rule = rule, #rule to determine infection status
+                                             var.id = var.id,  #variable defining infection status
+                                             method = "glm", #estimation method
+                                             cutoff = 0, #cutoff value for infection status
+                                             codesposnegmiss = c("+","-","NA"), #values determining infection status pos, neg of missing
+                                             preventError = TRUE, #TRUE = remove entries with > 1 case but FOI = 0
+                                             covars = "treatment", #co variants
+                                             reference = "control", #reference category for multivariable estimation
+                                             control = control))   #value of control treatment
+                  }
+
+
+
+
+
+

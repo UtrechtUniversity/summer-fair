@@ -50,6 +50,7 @@ rule.sinceany <- function(timeseries,var.id,...){
                      cumsum%>%
                      rowSums%>%
                      sign);
+  print(new.series)
   return(new.series)
 }
 
@@ -134,6 +135,17 @@ rule.sinceany.recode<- function(timeseries,
   timeseries[,var.id]<- timeseries%>%
     select(all_of(var.id))%>%
     sapply(recodefunction)
+  return(rule.sinceany(timeseries, var.id,...))
+}
+
+
+rule.sinceany.numeric<- function(timeseries, 
+                                var.id,
+                                codesposnegmiss,
+                                newcodes=c(1,0,0),... )
+{
+  
+  timeseries[,var.id]<- as.numeric(timeseries[,var.id])
   return(rule.sinceany(timeseries, var.id,...))
 }
 

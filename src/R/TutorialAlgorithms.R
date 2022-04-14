@@ -28,14 +28,16 @@ lapply(
 # scripts should be in subfolder "src/R" 
 source("src/R/DataManipulationRules.R")    #Data manipulation rules are pre- or user defined
 source("src/R/LocalAlgorithm.R")           #Estimation methods
-source("src/R/Query.r")                    #Query function
+source("src/R/Query.r") #Query function
+source("src/R/GlobalAlgorithm.R")
 
 # get data ####
-dataA<- get.data("http://localhost:3030/datasetA")
-dataB<- get.data("http://localhost:3030/datasetB")
+dataA<- get.data("http://localhost:3030/mydataset")
+dataB<- get.data("http://localhost:3031/mydataset")
 
 #run local algorithm for each data set ####
 #run analysis over data set A
+<<<<<<< HEAD
 localA <- analyseTransmission(inputdata = dataA,           #data set
                               rule = rule.sinceany.cutoff, #rule to determine infection status
                               var.id = c("sample_measure"),#variable defining infection status
@@ -55,6 +57,11 @@ localB<- analyseTransmission(inputdata = dataB,            #data set
                              covars = "treatment",         #co variates 
                              reference = "control",        #reference category for multivariable estimation
                              control = "")                 #value of control treatment
+=======
+localA <- get.local.trasmission(dataA)
+#run analysis over data set B
+localB<- get.local.trasmission(dataB)
+>>>>>>> d9797775b2eaa479f6c1cee1914a722f60604cf6
 
 #combine estimates of control group with standard meta-analysis techniques ####
 metaana <- combine.estimates.glm(list(localA,localB),

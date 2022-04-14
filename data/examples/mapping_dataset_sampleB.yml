@@ -1,0 +1,38 @@
+required: animalnr_col
+merge_spreadsheets_on: #write a column name which repeats in the spreadsheets and that we can merge on.
+meta_data:
+ontology_schema:
+  Experiment:
+    experimentID: 'datasetB'
+    experimentDay:
+      - swab.*_day
+  Environment:
+    groupNumber: house_pen
+    level2: house
+    level1: pen
+    level3:
+  Host:
+    id: animalnr_col
+    treatment: treatment
+    inoculationStatus: I, S1, S2
+    locatedIn: Environment
+  Measurement:
+      - experimentDay: swab.*_day
+        experimentHour: swab.*_hour
+        hasHost: Host
+        Sample:
+          hasType: 'Swab'
+          hasResult: swab.*
+          resultDate:
+        Pathogen:
+          family:
+          name: swab.*_pathogen
+          strain:
+        Gene:
+          name:
+        PathogenResistance:
+          result:
+        Antibiotic:
+          name:
+
+

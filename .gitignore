@@ -6,6 +6,11 @@
 /data/raw
 .Rproj.user
 summer-fair.Rproj
+.RData
+.Rhistory
+
+
+>>>>>>> d9797775b2eaa479f6c1cee1914a722f60604cf6
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
