@@ -50,7 +50,7 @@ rule.sinceany <- function(timeseries,var.id,...){
                      cumsum%>%
                      rowSums%>%
                      sign);
-  print(new.series)
+  
   return(new.series)
 }
 
@@ -123,14 +123,15 @@ rule.consecutive <- function(timeseries,var.id,n)
 rule.sinceany.recode<- function(timeseries, 
                                 var.id,
                                 codesposnegmiss,
-                                newcodes=c(1,0,0),... )
+                                newcodes=c(1,0,0),
+                                ... )
 {
   if(length(codesposnegmiss)>3){ 
      stop("too many recodings for this rule!")}
   recodefunction <- function(input){
-    ifelse(str_detect(pattern =paste0("[",codesposnegmiss[1],"]"),string = input),newcodes[1],
+    ifelse(str_detect(pattern = paste0("",codesposnegmiss[1],""),string = input),newcodes[1],
        ifelse(str_detect(pattern=paste0("[",codesposnegmiss[2],"]"),string = input),newcodes[2],
-              ifelse(str_detect(pattern=paste0("[",codesposnegmiss[3],"]"),string = input),newcodes[3],NA)))}
+           ifelse(str_detect(pattern=paste0("[",codesposnegmiss[3],"]"),string = input),newcodes[3],NA)))}
   
   timeseries[,var.id]<- timeseries%>%
     select(all_of(var.id))%>%

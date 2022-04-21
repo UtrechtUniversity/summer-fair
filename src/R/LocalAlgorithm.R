@@ -32,7 +32,9 @@ package.check <- lapply(
 ### function apply a rule to the data to determine status of a sample ####
 # status of a sample is determined by the own value and all other values of that chicken 
 # status of a sample can be determined by one value or multiple inputs
-applyRule <- function(data,rule,var.id, ...){
+applyRule <- function(data,rule,
+                      var.id, 
+                      ...){
   #set new data set arranged by times
   dataRuled <- data%>%arrange(times);
   sir<- NULL;#0 indicates susceptible individual
@@ -499,7 +501,7 @@ analyseTransmission<- function(inputdata,          #input data
 # 
 
 #run local algorithm for each data set ####
-get.local.trasmission <- function(dataA){
+get.local.transmission <- function(dataA){
                   var.id = ifelse(all(is.na(dataA$sample_measure)), c("sample_result"), c("sample_measure"))
                   control = ifelse(any(grepl('0',dataA$treatment)),"0","")
                   rule = ifelse(all(is.na(dataA$sample_measure)), ifelse(any(grepl('1',dataA$sample_result)),rule.sinceany.numeric,rule.sinceany.recode) , rule.sinceany.cutoff)
