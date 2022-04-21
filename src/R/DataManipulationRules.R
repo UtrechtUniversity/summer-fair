@@ -129,7 +129,7 @@ rule.sinceany.recode<- function(timeseries,
   if(length(codesposnegmiss)>3){ 
      stop("too many recodings for this rule!")}
   recodefunction <- function(input){
-    ifelse(str_detect(pattern = paste0("",codesposnegmiss[1],""),string = input),newcodes[1],
+    ifelse(str_detect(pattern = paste0("[",codesposnegmiss[1],"]"),string = input),newcodes[1],
        ifelse(str_detect(pattern=paste0("[",codesposnegmiss[2],"]"),string = input),newcodes[2],
            ifelse(str_detect(pattern=paste0("[",codesposnegmiss[3],"]"),string = input),newcodes[3],NA)))}
   
@@ -142,8 +142,7 @@ rule.sinceany.recode<- function(timeseries,
 
 rule.sinceany.numeric<- function(timeseries, 
                                 var.id,
-                                codesposnegmiss,
-                                newcodes=c(1,0,0),... )
+                                ... )
 {
   
   timeseries[,var.id]<- as.numeric(timeseries[,var.id])

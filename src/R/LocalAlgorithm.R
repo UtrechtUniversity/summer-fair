@@ -32,7 +32,8 @@ package.check <- lapply(
 ### function apply a rule to the data to determine status of a sample ####
 # status of a sample is determined by the own value and all other values of that chicken 
 # status of a sample can be determined by one value or multiple inputs
-applyRule <- function(data,rule,
+applyRule <- function(data,
+                      rule,
                       var.id, 
                       ...){
   #set new data set arranged by times
@@ -141,14 +142,14 @@ arrangeData.glm<-function(rdata,           #data
     
   cases   <- indiv.cases%>%
     group_by(across(c(mixinglevels ,"times"))) %>% 
-    summarise(sum(case,na.rm = TRUE))
-  group.data$cases<- data.frame(cases)[,ncol(cases)]
+    summarise(cases = sum(case,na.rm = TRUE))
+  group.data <- group.data%>%right_join(cases, by = c(mixinglevels,"times")) 
   #3. number of infectious individual at start interval at each of the levels
   #level 1
   i <- rdata%>%
     group_by(across(c(mixinglevels ,"times"))) %>% 
     summarise(sum(sir == 2,na.rm = TRUE))
-  group.data$i <- data.frame(i)[,ncol(i)]
+  group.data <- group.data%>%right_join(i, by = c(mixinglevels,"times"))
   group.data$i2 <- 0;#default values
   group.data$i3 <- 0;#default values
   #here also take into account infectious individuals in other levels
@@ -172,18 +173,18 @@ arrangeData.glm<-function(rdata,           #data
   s <- rdata%>%
     filter(if(InoCase)!str_detect(inoculationStatus,"I")else TRUE)%>%
     group_by(across(c(mixinglevels ,"times"))) %>% 
-    summarise(sum(sir == 0,na.rm = TRUE))
-  group.data$s <- data.frame(s)[,ncol(s)]
+    summarise(s = sum(sir == 0,na.rm = TRUE))
+  group.data <- group.data%>%right_join(s, by = c(mixinglevels,"times"))
   #5. number of recovered individuals at start of interval
   r <- rdata%>%
     group_by(across(c(mixinglevels ,"times"))) %>% 
-    summarise(sum(sir == 3,na.rm = TRUE))
-  group.data$r <- data.frame(r)[,ncol(r)]
+    summarise(r = sum(sir == 3,na.rm = TRUE))
+  group.data <- group.data%>%right_join(r, by = c(mixinglevels,"times"))
   #6. total number of individuals
   n <- rdata%>%
     group_by(across(c(mixinglevels ,"times"))) %>% 
-    summarise(sum(!is.na(sir)))
-  group.data$n <- data.frame(n)[,ncol(n)]
+    summarise(n = sum(!is.na(sir)))
+  group.data <- group.data%>%right_join(n, by = c(mixinglevels,"times"))
   group.data$n2 <- 0;#default values
   group.data$n3 <- 0;#default values
   #here also take into account infectious individuals in other levels
@@ -501,12 +502,18 @@ analyseTransmission<- function(inputdata,          #input data
 # 
 
 #run local algorithm for each data set ####
-get.local.transmission <- function(dataA){
-                  var.id = ifelse(all(is.na(dataA$sample_measure)), c("sample_result"), c("sample_measure"))
-                  control = ifelse(any(grepl('0',dataA$treatment)),"0","")
-                  rule = ifelse(all(is.na(dataA$sample_measure)), ifelse(any(grepl('1',dataA$sample_result)),rule.sinceany.numeric,rule.sinceany.recode) , rule.sinceany.cutoff)
+get.local.transmission <- function(dataset){
+                  var.id = ifelse(all(is.na(dataset$sample_measure)), c("sample_result"), c("sample_measure"))
+                  control = ifelse(any(grepl('control',dataset$treatment,ignore.case = T)),"control",
+                    ifelse(any(grepl('0',dataset$treatment)),"0",""))
+                  rule = if(!all(is.na(dataset$sample_measure))) {rule.sinceany.cutoff}
+                             else{#check if the data consists of 0, 1 and empty spaces
+                                 if(any(sapply(c('^0$','^1$',"^$"),
+                                               FUN = function(x){any(grepl(x,dataset$sample_result ))} ))){
+                                        rule.sinceany.numeric}else{rule.sinceany.recode} 
+                             }
 
-                  return(analyseTransmission(inputdata = dataA, #data set
+                  return(analyseTransmission(inputdata = dataset, #data set
                                              rule = rule, #rule to determine infection status
                                              var.id = var.id,  #variable defining infection status
                                              method = "glm", #estimation method

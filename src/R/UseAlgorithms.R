@@ -37,8 +37,13 @@ dataB<- get.data("http://localhost:3030/datasetB")
 datapigs2018<- get.data("http://localhost:3030/pigs2018data")
 datapigs2020<- get.data("http://localhost:3030/pigs2020data")
 #run local algorithm for each data set ####
-#run analysis over data set A
+localA <- get.local.transmission(dataA)
+localB <- get.local.transmission(dataB)
 
+localpigs2018 <- get.local.transmission(datapigs2018)
+localpigs2020 <- get.local.transmission(datapigs2020)
+
+#run analysis over data set A
 localA <- analyseTransmission(inputdata = dataA,           #data set
                               rule = rule.sinceany.cutoff, #rule to determine infection status
                               var.id = c("sample_measure"),#variable defining infection status
