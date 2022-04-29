@@ -1,4 +1,5 @@
 # summer-fair
+![GitHub](https://img.shields.io/github/license/UtrechtUniversity/summer-fair)
 
 This software integrates existing data sets on transmission experiments by using semantic web technologies
 
