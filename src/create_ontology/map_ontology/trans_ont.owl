@@ -310,7 +310,7 @@ om2:VolumetricViableCount rdf:type owl:Class ;
 
 ###  http://www.purl.org/trans_experiment#Antibiotic
 :Antibiotic rdf:type owl:Class ;
-            rdfs:comment "medicine used for treatmnet of a host"
+            rdfs:comment "medicine used for treatmnet of a host".
 
 
 ###  http://www.purl.org/trans_experiment#CircumstantialEvent
