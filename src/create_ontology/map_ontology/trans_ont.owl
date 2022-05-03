@@ -193,12 +193,6 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
              rdfs:domain :Environment .
 
 
-###  http://www.purl.org/trans_experiment#result
-:result rdf:type owl:DatatypeProperty ;
-           rdfs:domain :PathogenResistence ,
-                       :Sample .
-
-
 ###  http://www.purl.org/trans_experiment#hourAfterInoculation
 :hourAfterInoculation rdf:type owl:DatatypeProperty ;
                       rdfs:domain :Measurement .
@@ -211,7 +205,7 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
 
 ###  http://www.purl.org/trans_experiment#inoculationStatus
 :inoculationStatus rdf:type owl:DatatypeProperty ;
-                    rdfs:domain :Host .
+                   rdfs:domain :Host .
 
 
 ###  http://www.purl.org/trans_experiment#level1
@@ -243,6 +237,12 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
 ###  http://www.purl.org/trans_experiment#repetition
 :repetition rdf:type owl:DatatypeProperty ;
             rdfs:domain :Experiment .
+
+
+###  http://www.purl.org/trans_experiment#result
+:result rdf:type owl:DatatypeProperty ;
+        rdfs:domain :PathogenResistence ,
+                    :Sample .
 
 
 ###  http://www.purl.org/trans_experiment#resultDate
@@ -291,11 +291,13 @@ om2:BodyMass rdf:type owl:Class ;
 
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/Measure
-om2:Measure rdf:type owl:Class .
+om2:Measure rdf:type owl:Class ;
+            rdfs:isDefinedBy "http://www.ontology-of-units-of-measure.org/resource/om-2/Measure" .
 
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity
-om2:Quantity rdf:type owl:Class .
+om2:Quantity rdf:type owl:Class ;
+             rdfs:isDefinedBy "http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity" .
 
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/SpecificViableCount
@@ -322,47 +324,59 @@ om2:VolumetricViableCount rdf:type owl:Class ;
 
 
 ###  http://www.purl.org/trans_experiment#Environment
-:Environment rdf:type owl:Class .
+:Environment rdf:type owl:Class ;
+             rdfs:comment "location of the conducted experiment." .
 
 
 ###  http://www.purl.org/trans_experiment#Experiment
-:Experiment rdf:type owl:Class .
+:Experiment rdf:type owl:Class ;
+            rdfs:comment "A transmission experiment specifies setup and day of the experiment." .
 
 
 ###  http://www.purl.org/trans_experiment#Gene
-:Gene rdf:type owl:Class .
+:Gene rdf:type owl:Class ;
+      rdfs:comment "the minimal contiguous stretch of DNA in a bacterium that contains the expressed and regulatory sequences sufficient to complement the function of a null mutation in trans." .
 
 
 ###  http://www.purl.org/trans_experiment#Host
-:Host rdf:type owl:Class .
+:Host rdf:type owl:Class ;
+      rdfs:comment "a larger organism that harbours a smaller orgamisms." ;
+      rdfs:isDefinedBy "https://en.wikipedia.org/wiki/Host_(biology)" .
 
 
 ###  http://www.purl.org/trans_experiment#Inoculation
-:Inoculation rdf:type owl:Class .
+:Inoculation rdf:type owl:Class ;
+             rdfs:comment "a set of methods of artificially inducing immunity against various infectious diseases." .
 
 
 ###  http://www.purl.org/trans_experiment#Measurement
-:Measurement rdf:type owl:Class .
+:Measurement rdf:type owl:Class ;
+             rdfs:isDefinedBy "process of associating numbers with physical quantities and phenomena. For example, indicating negative or positive sample, measuring bacteruim count or mass of host." .
 
 
 ###  http://www.purl.org/trans_experiment#Pathogen
-:Pathogen rdf:type owl:Class .
+:Pathogen rdf:type owl:Class ;
+          rdfs:comment "an organism causing disease to its host." .
 
 
 ###  http://www.purl.org/trans_experiment#PathogenResistence
-:PathogenResistence rdf:type owl:Class .
+:PathogenResistence rdf:type owl:Class ;
+                    rdfs:comment "an ability to limit pathogen burden." .
 
 
 ###  http://www.purl.org/trans_experiment#Sample
-:Sample rdf:type owl:Class .
+:Sample rdf:type owl:Class ;
+        rdfs:comment "A biological specimen including, for example, blood, tissue, urine, etc. taken from a host." .
 
 
 ###  http://www.purl.org/trans_experiment#SampleType
-:SampleType rdf:type owl:Class .
+:SampleType rdf:type owl:Class ;
+            rdfs:comment "type of the sample. For example, swab sample or bootsock sample." .
 
 
 ###  http://www.purl.org/trans_experiment#Treatment
-:Treatment rdf:type owl:Class .
+:Treatment rdf:type owl:Class ;
+           rdfs:comment "a process of giving medication or antibiotic to a host." .
 
 
 #################################################################
