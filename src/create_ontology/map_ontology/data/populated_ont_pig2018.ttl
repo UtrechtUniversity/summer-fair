@@ -1,0 +1,4627 @@
+@prefix : <http://www.purl.org/trans_experiment#> .
+@prefix om2: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+om2:hasNumericalValue a owl:DatatypeProperty ;
+    rdfs:domain om2:Measure ;
+    rdfs:range rdfs:Literal .
+
+om2:hasPhenomenon a owl:ObjectProperty ;
+    rdfs:domain om2:Quantity ;
+    rdfs:range :Host,
+        :Sample .
+
+om2:hasValue a owl:ObjectProperty ;
+    rdfs:domain om2:Quantity ;
+    rdfs:range om2:Measure .
+
+:Death a :CircumstantialEventTpe,
+        owl:NamedIndividual .
+
+:EnvironmentalSample a :SampleType,
+        owl:NamedIndividual .
+
+:Event_Pig2018_0_1 a :Experiment ;
+    :experimentDay "0" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_36c4c676-2c12-4d11-b608-dd8dcbf4da8d,
+        :M_3ba4d217-ede2-467a-a9dd-0eecd80a7108,
+        :M_4ec90323-2d10-43f7-a5b3-d68719455ce0,
+        :M_6db9c2d5-c7bf-4027-9bd7-8cffb97e4f62,
+        :M_82f00179-0a0d-4287-81ed-f304ab05a279,
+        :M_86ee900c-8649-40f0-9f6e-b21b681ad44b,
+        :M_8ec0cec1-d865-4f62-a263-173c18154c0b,
+        :M_adac3e33-284b-40d6-8ca8-186467546574,
+        :M_b4b70b08-5174-4514-af20-f8a2ad26e5ef,
+        :M_c4d05ee8-81c9-4b84-b369-d1600fc4626d ;
+    :repetition "1" .
+
+:Event_Pig2018_0_2 a :Experiment ;
+    :experimentDay "0" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_160ee9d5-a4d5-44b7-8388-52876fed5794,
+        :M_2e4f7eb6-5409-4280-9a0c-f0cc9042771e,
+        :M_32c75251-81d5-4f1a-b0a1-c6269722d0c9,
+        :M_78c88dcb-b798-4ff3-8a58-40e69065d1b0,
+        :M_96588a14-d5ef-4d4d-8678-db97cee5aa8c,
+        :M_ab5811e9-db49-4652-84e7-80f7c98684eb,
+        :M_ccc1291a-1fdd-474a-ac1f-e62f08b26c31,
+        :M_e6bec741-8263-4185-8b7a-8e51eea0dc66,
+        :M_fce00f28-cf68-4ee7-b719-bf260d3b0671,
+        :M_fe282c80-c2a0-4f68-b673-c7e17c60328c ;
+    :repetition "2" .
+
+:Event_Pig2018_11_1 a :Experiment ;
+    :experimentDay "11" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_2196086c-efa9-4dc0-8335-3a8e91868521,
+        :M_3647fb4b-c2bc-4f65-b85f-918665966861,
+        :M_47d9a4bd-b9e4-4cde-a608-fc481122403f,
+        :M_5b2bada9-2dc0-4c15-a790-ac5e67965cb9,
+        :M_6ac33487-dfd3-4758-9e00-3de93a34f3d9,
+        :M_6d6f9f3d-950e-4c6a-b151-fa187b2bf31e,
+        :M_737dc08f-6363-43ee-9b63-ebb3776eb95a,
+        :M_97aeb6ba-6b1d-4650-af6f-f2a05543eb23,
+        :M_ad9caee7-b56f-48b5-bf60-0f8fcf6b5aef,
+        :M_ba2d39b6-75c9-405e-ad6a-2f275a26a067 ;
+    :repetition "1" .
+
+:Event_Pig2018_11_2 a :Experiment ;
+    :experimentDay "11" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_222975dc-040b-44df-b472-3f2b7632c817,
+        :M_24569b02-19d8-4a3f-b11d-7364d1b19b7e,
+        :M_2d94d8bf-7fe0-4cb3-bce2-a6ec3198b710,
+        :M_3c5fced8-edbf-47d8-a3f9-82e00694e932,
+        :M_42ec1369-1a53-4049-b5ff-2cf01cc6dbde,
+        :M_4f591e72-a814-4e95-94da-9642a2272a7a,
+        :M_9456b9dc-7cac-44e5-9160-c759a26f8da4,
+        :M_c77b3222-9883-4ffe-acbb-04cac6664621,
+        :M_cd94dca4-94b0-4494-a396-c38c41580cbd,
+        :M_fad72fb6-2de7-4d16-8c86-43e46b7470b5 ;
+    :repetition "2" .
+
+:Event_Pig2018_14_1 a :Experiment ;
+    :experimentDay "14" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_21072cd9-7659-411e-9ced-f98f50ac39b8,
+        :M_877f3ad5-99f3-4817-a504-36a76fc33dac,
+        :M_9b60fd1f-41ec-4ca9-a19d-54fa976c769a,
+        :M_aaa996c9-23f2-4a1a-ab17-b30d37595d59,
+        :M_b1cfd478-9db4-4f7b-8506-8a15d1167859,
+        :M_c106b4fc-0a32-4a5d-9114-3a32d343ec5f,
+        :M_d324230d-d8b4-4333-99e6-a109fec65c97,
+        :M_ddb18be9-6479-4bfd-873a-405265731644,
+        :M_ed61ac66-1a2c-4a74-945f-403c3d18fbab,
+        :M_f5c88dfc-de39-4ad3-a584-f181a4aa4648 ;
+    :repetition "1" .
+
+:Event_Pig2018_14_2 a :Experiment ;
+    :experimentDay "14" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_2233499d-e864-4d32-baa3-8f0bbc8c343d,
+        :M_2383383a-ceb6-4b59-ab32-2ee52147bbb8,
+        :M_36bea7a6-9535-49f6-b36c-b8c27c168f2f,
+        :M_40466aba-879d-4b3e-b7db-9b4459251a94,
+        :M_5bfe34fb-9c8d-4e9b-bf0c-ff176eda7179,
+        :M_5fb9a81b-1b05-4750-9cc1-01e255b2d130,
+        :M_66e92b70-a9d4-465a-b279-e275facffa61,
+        :M_7196b694-7df7-4f52-a656-9d310115dcc6,
+        :M_bf934d90-3fc3-4554-a186-5035b6b85a7b,
+        :M_df72b64b-1221-4722-ab92-3b907b72a0ee ;
+    :repetition "2" .
+
+:Event_Pig2018_16_1 a :Experiment ;
+    :experimentDay "16" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_11f99888-09e2-4c94-b2ef-6f9df7ceddce,
+        :M_1cbb5b78-5ed8-4caf-a96f-1376f40ba529,
+        :M_4e231bc9-c36d-4f8a-b991-3e7433d108e9,
+        :M_505e09b1-b7a3-446b-a952-c2531a640665,
+        :M_514b0740-df73-4042-84aa-a21259931790,
+        :M_56131c8a-cebc-4f34-864d-837dade02ed3,
+        :M_b0765c62-0864-4c24-b22c-8acbcbc838db,
+        :M_ce5cbff8-2f25-48bf-8eef-de40c42c8168,
+        :M_da179a11-8993-4755-bbfc-720de52657e5,
+        :M_e38b41bf-8e48-4603-8584-5165cbd42de7 ;
+    :repetition "1" .
+
+:Event_Pig2018_16_2 a :Experiment ;
+    :experimentDay "16" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_06c31da5-69fb-4a86-b75c-dd7aecde5225,
+        :M_15a1d5c6-489a-4e38-91ed-0e2f95f76289,
+        :M_30ed7abb-9786-4ff4-9b4d-cb267039fa82,
+        :M_337d9045-c992-49f8-9228-442dff4856d7,
+        :M_893bd64a-f08b-4e75-bb99-6fb6a805d8a0,
+        :M_ad4ee1dc-556e-40db-9bc6-bfbacef8dc09,
+        :M_ce015a6b-12f8-4ba9-b2dc-d59977b7c286,
+        :M_d04e3acf-35b1-4ca6-8d60-c8de782318ef,
+        :M_da6836f8-5914-4525-8a8e-1d59c65d7b8a,
+        :M_f3938ac1-63ce-4001-b176-8fd251cf137d ;
+    :repetition "2" .
+
+:Event_Pig2018_18_1 a :Experiment ;
+    :experimentDay "18" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_079c7b17-3935-4d9a-b2b7-788e2cba9e5f,
+        :M_20f1c1c1-aecc-4aaf-84cc-e89d28b60f10,
+        :M_3d6f2c1a-a8f5-459c-8a5e-20ca14eb8aef,
+        :M_403a87d8-ac7a-4d9f-b785-dc9bdcff41e0,
+        :M_4c3b53ae-57a6-40d7-84dc-637d4682f921,
+        :M_bb9fa851-a18f-4551-aa30-823f26d5281f,
+        :M_c8fc2011-4d5f-4242-98c8-281e592bc68d,
+        :M_dbce118a-d709-461e-9afa-05c7c53745c7,
+        :M_e3b53219-b337-48ac-98a2-563f56707496,
+        :M_f1e351e0-3df5-4f0f-a6d7-883c19061aff ;
+    :repetition "1" .
+
+:Event_Pig2018_18_2 a :Experiment ;
+    :experimentDay "18" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_3e508c1c-da2f-41cc-8638-8ff11625b9f5,
+        :M_40f4108d-6026-4976-bdd8-40a0959d70c7,
+        :M_63e271b7-9a6e-43b2-bed9-760f372e8342,
+        :M_972a4a88-acff-46b8-b1e9-92199fa7b158,
+        :M_99f990a8-82e1-40bb-bceb-799ac7cce47b,
+        :M_9c333def-2fb6-4f2d-8943-81b4c784c377,
+        :M_a3d3c8a8-8e75-412e-bc53-146c34913798,
+        :M_a6c003c0-7191-4ebd-b477-9828d3cf3f9c,
+        :M_afd7f137-8aad-4d7c-9708-a77162d725e0,
+        :M_c12f339e-9f88-48c2-83da-bbf7b2d17801 ;
+    :repetition "2" .
+
+:Event_Pig2018_1_1 a :Experiment ;
+    :experimentDay "1" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_092fb751-c338-4210-9c7b-9a40eaf507aa,
+        :M_65949d88-6f78-46e2-a71b-c813c9753c66,
+        :M_d0c5ccb8-6230-4eef-8d82-589b2690436d,
+        :M_d5872df6-66d4-4b29-ab62-d36e6f6f70ce ;
+    :repetition "1" .
+
+:Event_Pig2018_1_2 a :Experiment ;
+    :experimentDay "1" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_1e5bfaed-a8b9-4ad5-b969-dba1f573006c,
+        :M_4f15b658-406c-4d72-a78e-bbde0d7f2578,
+        :M_ba427461-8f07-4623-97ab-dc8d4841d39e,
+        :M_f8b4c201-bbfc-4873-94e4-1fe046223aa4 ;
+    :repetition "2" .
+
+:Event_Pig2018_2_1 a :Experiment ;
+    :experimentDay "2" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_3c77d438-ddbc-44f5-ba35-fd44132492a3,
+        :M_473b7042-7478-4cdf-aee3-697d2b0e9506,
+        :M_5bff85ef-4545-424c-9757-c9df49675a5e,
+        :M_609cfd0d-7911-4d78-a359-961fbf59ea54,
+        :M_6c5eaa86-ad63-4931-8443-772c52fe0886,
+        :M_6cfa6ad7-c0d1-41df-b9f6-5ace5752565c,
+        :M_b7b4b46f-72c8-4e1c-88b2-7d9643c8e55c,
+        :M_edcfb930-b080-47c3-92b9-972ce319f5fc,
+        :M_f10aa5ac-5506-4fae-993b-71146550d7fc,
+        :M_f6c69013-0c76-48a7-8f62-e0d19c0bd502 ;
+    :repetition "1" .
+
+:Event_Pig2018_2_2 a :Experiment ;
+    :experimentDay "2" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_1b3bf7b3-8a1e-4385-a97f-9ff6c0cc08ed,
+        :M_21ae8880-c35f-450d-b226-04f34387e051,
+        :M_34b62c8c-3cae-4cb9-bc83-b1ceb8174e01,
+        :M_384dc596-9ba6-43fb-8ac5-ddd9023c3d6b,
+        :M_3d41ff03-5db2-41ad-9268-35ca0a0adf05,
+        :M_40522b8c-5c52-43c5-b512-74d5ee247029,
+        :M_4bd4a743-8cba-4b65-bf53-2e47a80e6a27,
+        :M_8fb259fd-13bc-4c06-a7a7-abd03fff2a20,
+        :M_974fea9b-20a1-4c0a-8f9b-2661e5183bcc,
+        :M_f8b1b5ac-cf02-4966-a732-c9b15746e408 ;
+    :repetition "2" .
+
+:Event_Pig2018_3_1 a :Experiment ;
+    :experimentDay "3" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_5078636a-9151-4929-b273-004d925f5c28,
+        :M_5688f9ca-c266-455d-9ac1-43d142af8842,
+        :M_94f0940c-8b79-46fb-9342-21a0ed19c5b4,
+        :M_95b195f1-f25d-41f1-aa48-c8439d239b96,
+        :M_9d140854-fc71-414b-9f80-e12f5eea829d,
+        :M_b4f27422-1093-44b1-a27e-5ab62559244a,
+        :M_c7cd5060-d213-46d2-8e91-a7380393f5e3,
+        :M_ec9cdd85-cd33-4234-82e6-115c6aaffe6b,
+        :M_fb711d23-9716-45ac-9018-1f46628dab3c,
+        :M_fc6b6b0a-e265-40ac-9e14-8c36085b8dbd ;
+    :repetition "1" .
+
+:Event_Pig2018_3_2 a :Experiment ;
+    :experimentDay "3" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_0ce56260-2d9d-416f-a7ae-bddcb93759f8,
+        :M_27cace8a-4090-423f-ae7c-fe0a086cd177,
+        :M_4294858a-360c-416f-b030-56503efb0bb0,
+        :M_463d1897-e6e2-4457-99ca-7b81eae37772,
+        :M_532ab366-86c8-4a24-ad90-6e3b4e202604,
+        :M_72e00de4-5272-4123-8ee4-9d10e0fa3ea2,
+        :M_7bd76d6a-8809-4d08-a6c2-f1c2b1f181ad,
+        :M_873b6a93-9818-4b0b-9584-e1ab5825f322,
+        :M_ce2cd07c-4df0-406f-8dbb-7eef048dff15,
+        :M_f960a46b-ff17-4c3c-ac14-bd369ba04bda ;
+    :repetition "2" .
+
+:Event_Pig2018_4_1 a :Experiment ;
+    :experimentDay "4" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_0c1c2a0f-6391-49a6-8ed4-c4e4fbf67b71,
+        :M_100df965-042f-4053-b72a-43fee450bc1b,
+        :M_1a70acee-82e0-49c1-b500-4e4e1ee0e7e2,
+        :M_58107613-6a03-4a76-bdc8-f3513bd20aed,
+        :M_85f7820f-91d7-4bde-ab4b-b3b544b5c409,
+        :M_8ee1faf9-7a2b-447e-a8b4-fc31d48bea7b,
+        :M_9f4987b2-18d6-483c-bd56-4925661e8528,
+        :M_eed66713-42ab-4f65-8b07-74c11fb840cb,
+        :M_f0fbaa1f-0f7c-4320-8465-35f66a0bd6d0,
+        :M_fb4dab85-4d9f-4b71-b2a3-533a9b6bf11c ;
+    :repetition "1" .
+
+:Event_Pig2018_4_2 a :Experiment ;
+    :experimentDay "4" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_0caf9c8b-a15b-4b2e-bd3e-96ba8a55bb1a,
+        :M_2f5b2729-b0e6-416e-afe7-852b07b41480,
+        :M_3d32ef70-eeff-4eab-8396-940cf6b4fc3e,
+        :M_48be2ece-8ee2-4c4c-8307-3b19b4b03ce6,
+        :M_93f1d275-79b9-4f1b-92da-c4ffe5818acd,
+        :M_94cbb5d7-51f8-4a26-a978-076e4dd9c02c,
+        :M_d699c6ef-2d5e-44fe-a794-ff266fac4f44,
+        :M_dbc11458-0337-46e4-a94a-d0da3dba4eab,
+        :M_eb18ca94-eee1-44ed-8efd-36832e61d3cc,
+        :M_f992ec82-d220-4b9e-8a8e-561d49a0a863 ;
+    :repetition "2" .
+
+:Event_Pig2018_5_1 a :Experiment ;
+    :experimentDay "5" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_1074f59e-290c-4fd2-9b1a-82d8cce29c01,
+        :M_51c6b4b3-eb0f-4c9a-8b31-63adcb299669,
+        :M_5dd37306-9193-4974-8393-49cb101003fb,
+        :M_809fb190-3fd1-4b63-bf71-44bf93c667d2,
+        :M_90662b4d-b0ad-4bf2-a257-996f97328316,
+        :M_a8eb3441-91f8-4fa3-b5ad-3622128bfe2f,
+        :M_b53ac1d2-259a-45f6-afa9-e2fd08ac00fe,
+        :M_b971e50d-6881-47c7-b5c8-476f3e8a5efb,
+        :M_d3bc6ed6-3dc5-40e7-92b5-acaac01edbff,
+        :M_efb8c433-fa0c-4783-83ed-46ec44e20319 ;
+    :repetition "1" .
+
+:Event_Pig2018_5_2 a :Experiment ;
+    :experimentDay "5" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_02d9618f-2b1b-46fc-ae36-e93d52a63f1b,
+        :M_142a05ad-f5b9-49e5-88ec-a29fbfb6d6a6,
+        :M_15f3610f-25d6-4671-8d6b-0ec0ca52fd69,
+        :M_194180ec-de42-4938-b740-4b61599b61e7,
+        :M_48866668-facd-4c44-92f2-f0e879a9272d,
+        :M_4cff0c3d-f418-4a8c-89a2-f7ae938ec742,
+        :M_6da65fbd-4e43-476e-a188-bbdc34c68cbf,
+        :M_9ac89bdc-0ef9-473d-b0cb-2636ff34532b,
+        :M_e4e89fea-3555-4bc6-874b-c3556e929c67,
+        :M_f4f593a6-2b63-498f-9d08-71b143639be5 ;
+    :repetition "2" .
+
+:Event_Pig2018_6_1 a :Experiment ;
+    :experimentDay "6" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_007f2174-02ff-4cc8-aa5c-3939c72a084a,
+        :M_20bbf8d5-4a80-4aaa-9635-937e10d14cd8,
+        :M_25dcab57-bbb5-41eb-869a-610da9ed54e2,
+        :M_6cb5e37c-42bd-412d-b3fe-c6355a1f0b87,
+        :M_850c4cfa-a38c-403c-b9e8-ab00bb6d76be,
+        :M_bc4f2eb1-0a06-4e20-92c9-26081339cd2c,
+        :M_c92e6eef-4c7d-4008-86b5-e060fb3c61db,
+        :M_c9646615-ed47-47f8-b2d1-71bd14dbdfa9,
+        :M_d9630f85-fb4a-43d4-80b8-ee0aafedf3ab,
+        :M_e0e79da1-f2bb-4b1e-b669-741f60aff80a ;
+    :repetition "1" .
+
+:Event_Pig2018_6_2 a :Experiment ;
+    :experimentDay "6" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_5d72ecfa-c963-491e-85ea-e45552166ee0,
+        :M_61677f2f-f575-44f9-98d2-f56a1a54564f,
+        :M_6e77d45a-e4f0-47a2-beb2-a61ca4419b53,
+        :M_7f4a90b0-e77c-479c-af15-37da561d9b48,
+        :M_8352094c-3e9c-4db0-b6e7-07f761e40496,
+        :M_c3e46126-01ff-4ccf-84a7-01560c0ed599,
+        :M_c661d527-1b61-451b-9fb4-ddbe55bc611c,
+        :M_ccc07637-ad93-4009-9578-fc069d2ef756,
+        :M_edb84b88-7bb5-403f-b91c-cc133baf9912,
+        :M_f4d1abe3-145e-45c4-811c-ccb960ff320d ;
+    :repetition "2" .
+
+:Event_Pig2018_7_1 a :Experiment ;
+    :experimentDay "7" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_0e689f47-2479-48e2-86aa-63da2a103c15,
+        :M_46547131-2a20-4977-b31a-192855d7dc02,
+        :M_475a289d-c0ad-499b-9a4c-8daa0d73ada1,
+        :M_6c5be69e-6cd3-4555-a74b-3aaf0c890793,
+        :M_6de08d68-8a33-480f-b65b-51857d5d306d,
+        :M_71e03167-e78a-45fc-8880-6a8e0e0d437a,
+        :M_b12685c0-48b3-408c-b17c-d8e94212e628,
+        :M_c02f8d4e-e4f9-4128-b353-37129bc4c298,
+        :M_cecafec4-547e-4096-850f-94eb19b36a9d,
+        :M_d3304274-0123-400d-8bf2-85df931ac28e ;
+    :repetition "1" .
+
+:Event_Pig2018_7_2 a :Experiment ;
+    :experimentDay "7" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_06026d97-1e03-497b-b00b-2bd7b0a20f84,
+        :M_06574238-6270-42f6-883c-9a9bcf0b1501,
+        :M_157ed1ac-cc44-4b3c-8dfb-2d720dbda199,
+        :M_304499a5-5468-4509-a1fa-973be3ec4a45,
+        :M_5ac84c6f-bdf9-49c9-aebc-c8dcc84a563a,
+        :M_5ba62d51-fc49-49f4-b6af-62e08399348b,
+        :M_74730039-b5b8-4fdd-89ca-24cdfe76229b,
+        :M_a70d33df-5587-4988-bf16-423cb1ee89cd,
+        :M_b40328c7-ed8b-40e6-97f6-dfe5a5376328,
+        :M_dc4b3ea7-0de0-4e1e-9499-668911386125 ;
+    :repetition "2" .
+
+:Event_Pig2018_8_1 a :Experiment ;
+    :experimentDay "8" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_09b85f6d-e1e9-4acb-8460-03e6f1da038b,
+        :M_35c45977-e1ca-4f33-83ef-fed450adb22d,
+        :M_395b5eb6-8ef9-40ce-8158-e2af4dcc26c9,
+        :M_4a7cb232-b54c-4bc3-982a-2dcdf659fff1,
+        :M_4d9ac9a7-3c3a-41bf-95d7-7075690699ee,
+        :M_54a8d9cc-ff03-4eae-8d7e-89e372a9f51a,
+        :M_9fbec070-c8b1-4c61-b5a6-e2f709db49d1,
+        :M_a44d9323-74aa-4a9b-807e-2b0ed2c94089,
+        :M_ac59a528-52ca-45fd-802c-1eb5f4a11f3f,
+        :M_e6bfb685-b87e-4506-a2cb-dc640dc82f74 ;
+    :repetition "1" .
+
+:Event_Pig2018_8_2 a :Experiment ;
+    :experimentDay "8" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_0b7439bb-96bc-4b1d-8d9e-47df1fff4c36,
+        :M_1acff2b3-d6ac-4aad-82ea-1ee25e035305,
+        :M_2cced1c9-5311-4aeb-af4d-e25332e13ab1,
+        :M_5f96a1f6-a66f-44c0-807b-7b98ce1ec65f,
+        :M_6412540f-e1b2-4009-8adc-db621c72d239,
+        :M_80bbbf10-2402-462b-8f5c-7e6d29c81108,
+        :M_9532e2b9-b8fa-438d-b0c5-63e0e872ffcb,
+        :M_9a2c90f0-3bb7-4b60-92c7-7fc721d45522,
+        :M_d86e7655-3459-4d28-9044-32af91bdd05e,
+        :M_ee3bc3fd-e6e8-4323-8397-ee5bbae151c2 ;
+    :repetition "2" .
+
+:Event_Pig2018_9_1 a :Experiment ;
+    :experimentDay "9" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_0721e3ca-0f5c-4a5e-8eb9-6c970881476a,
+        :M_7153392a-47ff-4851-a332-5931ba6f4fa5,
+        :M_858753b5-bfc3-4146-8bea-b59d504ecef2,
+        :M_f7f5d9be-7267-4e1f-805e-acad14030f40 ;
+    :repetition "1" .
+
+:Event_Pig2018_9_2 a :Experiment ;
+    :experimentDay "9" ;
+    :experimentID "Pig2018" ;
+    :hasMeasurement :M_0638d0f8-5231-4bf8-9126-14862172966a,
+        :M_1c971deb-1f8d-41bf-a313-dcc5f12f6de2,
+        :M_328eafd1-b637-4a66-a133-962f0581d32e,
+        :M_43e06cce-a79d-4008-8344-7f624b11d367 ;
+    :repetition "2" .
+
+:against a owl:ObjectProperty ;
+    rdfs:domain :PathogenResistence ;
+    rdfs:range :Antibiotic .
+
+:age a owl:DatatypeProperty ;
+    rdfs:domain :Host .
+
+:coordinates a owl:DatatypeProperty ;
+    rdfs:domain :Environment .
+
+:date a owl:DatatypeProperty ;
+    rdfs:range xsd:dateTime .
+
+:experimentDay a owl:DatatypeProperty ;
+    rdfs:domain :Experiment .
+
+:experimentHour a owl:DatatypeProperty ;
+    rdfs:domain :Inoculation,
+        :Measurement,
+        :Treatment .
+
+:experimentID a owl:DatatypeProperty ;
+    rdfs:domain :Experiment .
+
+:experimentType a owl:DatatypeProperty ;
+    rdfs:domain :Experiment .
+
+:family a owl:DatatypeProperty ;
+    rdfs:domain :Pathogen .
+
+:feedConsumption a owl:DatatypeProperty .
+
+:groupNumber a owl:DatatypeProperty ;
+    rdfs:domain :Environment .
+
+:hasDose a owl:ObjectProperty ;
+    rdfs:domain :Inoculation,
+        :Treatment ;
+    rdfs:range om2:Quantity,
+        om2:VolumetricViableCount .
+
+:hasEvent a owl:ObjectProperty ;
+    rdfs:domain :Experiment ;
+    rdfs:range :CircumstantialEvent .
+
+:hasGene a owl:ObjectProperty ;
+    rdfs:domain :Pathogen ;
+    rdfs:range :Gene .
+
+:hasHost a owl:ObjectProperty ;
+    rdfs:domain :Measurement ;
+    rdfs:range :Environment,
+        :Host .
+
+:hasInoculation a owl:ObjectProperty ;
+    rdfs:domain :Experiment ;
+    rdfs:range :Inoculation .
+
+:hasMeasurement a owl:ObjectProperty ;
+    rdfs:domain :Experiment ;
+    rdfs:range :Measurement .
+
+:hasPathogen a owl:ObjectProperty ;
+    rdfs:domain :Sample ;
+    rdfs:range :Pathogen .
+
+:hasQuantity a owl:ObjectProperty ;
+    rdfs:domain :Measurement ;
+    rdfs:range om2:BodyMass,
+        om2:SpecificViableCount,
+        om2:VolumetricViableCount .
+
+:hasResistance a owl:ObjectProperty ;
+    rdfs:domain :Pathogen ;
+    rdfs:range :PathogenResistence .
+
+:hasSample a owl:ObjectProperty ;
+    rdfs:domain :Measurement ;
+    rdfs:range :Sample .
+
+:hasTreatment a owl:ObjectProperty ;
+    rdfs:domain :Experiment ;
+    rdfs:range :Treatment .
+
+:hasType a owl:ObjectProperty ;
+    rdfs:domain :CircumstantialEvent,
+        :Sample ;
+    rdfs:range :CircumstantialEventTpe,
+        :SampleType .
+
+:hourAfterInoculation a owl:DatatypeProperty ;
+    rdfs:domain :Measurement .
+
+:id a owl:DatatypeProperty ;
+    rdfs:domain :Host .
+
+:includes a owl:ObjectProperty ;
+    rdfs:domain :Treatment ;
+    rdfs:range :Antibiotic,
+        :Pathogen .
+
+:inoculationStatus a owl:DatatypeProperty ;
+    rdfs:domain :Host .
+
+:involves a owl:ObjectProperty ;
+    rdfs:domain :CircumstantialEvent,
+        :Inoculation,
+        :Treatment ;
+    rdfs:range :Host .
+
+:level1 a owl:DatatypeProperty ;
+    rdfs:domain :Environment .
+
+:level2 a owl:DatatypeProperty ;
+    rdfs:domain :Environment .
+
+:level3 a owl:DatatypeProperty ;
+    rdfs:domain :Environment .
+
+:locatedIn a owl:ObjectProperty ;
+    rdfs:domain :Host ;
+    rdfs:range :Environment .
+
+:material a owl:DatatypeProperty ;
+    rdfs:domain :Sample .
+
+:name a owl:DatatypeProperty ;
+    rdfs:domain :Gene,
+        :Pathogen .
+
+:repetition a owl:DatatypeProperty ;
+    rdfs:domain :Experiment .
+
+:result a owl:DatatypeProperty ;
+    rdfs:domain :PathogenResistence,
+        :Sample .
+
+:resultDate a owl:DatatypeProperty ;
+    rdfs:domain :Sample ;
+    rdfs:range xsd:dateTime .
+
+:sample a owl:DatatypeProperty ;
+    rdfs:domain :Experiment .
+
+:sex a owl:DatatypeProperty ;
+    rdfs:domain :Host .
+
+:strain a owl:DatatypeProperty ;
+    rdfs:domain :Pathogen .
+
+:studyDesign a owl:DatatypeProperty ;
+    rdfs:domain :Experiment .
+
+:treatment a owl:DatatypeProperty ;
+    rdfs:domain :Host .
+
+:type a owl:DatatypeProperty ;
+    rdfs:domain :Host .
+
+om2:BodyMass a owl:Class ;
+    rdfs:subClassOf om2:Quantity .
+
+om2:SpecificViableCount a owl:Class ;
+    rdfs:subClassOf om2:Quantity .
+
+:E.Coli_0055ee6c-d86d-4e79-ac16-114ab366e05c a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_00c3e0d2-dc1d-4f66-ae03-cc5f6f1ea570 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_03cf15c1-4c5b-447a-965c-8c88c24ad46d a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_045e76e5-435e-4c04-bc65-531e8ff4d94c a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_06d73923-1b92-4472-9857-0c37728db2c2 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_07c0615e-86ba-4f47-afa1-c0b3fcd2e6ee a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_087aedd4-f3fb-42a7-9d9c-6d8b1a3f791a a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_08ab0cee-1b2c-4046-a4d2-f3bbe993a12f a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_098adad4-19cc-47ea-8b9c-748f2b4db543 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_09e066d1-7fcf-44b8-b6d2-4510f5ea9104 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_0ab63488-6bf1-4fed-bfa4-df1db24236b8 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_0bdbf3d7-26b2-4258-8abb-56dcdd176a13 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_0c3ba2ed-bf36-423c-a8ec-afed4b4aebba a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_0dc2fae2-01ff-49da-aa63-e3314950b4be a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_10270c8a-d07f-46b0-9116-1856e296ce46 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_10f0c0a8-8055-429e-a521-40da00ff69f6 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_12be1a54-6d9d-4468-9669-2a0862ada0ab a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_13c2c812-556b-444b-91d2-b29b6d402218 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_1593d1ee-bdfa-484b-9b38-0670f1959fa7 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_18902aba-f832-40e8-8c59-720839e4eff2 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_192845ef-61d5-453c-bed1-cbfd43e8bce4 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_1af044cb-5cd3-4444-a10e-72b3def31ae3 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_1b6da4e2-c6cf-463e-a57e-620f0c8e75f8 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_1bd35580-dd7a-4e64-943a-88f4dcf5a923 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_1f257c55-e0b4-4139-88c6-6c55394dd19f a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_1f72aa78-da71-47ab-ad86-681b916c0f43 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_1fc4ebec-8cd8-497d-be9b-54e9291101b8 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_206bfc65-ad6c-4952-8cb3-0cc766d5ffff a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_21491048-ce1f-4152-9328-270710354647 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_21650c45-bf60-4c2e-8f88-6d96d04efc6f a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_22ff122e-c5c1-477b-a7fa-7b88fd25e4d0 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_2377b8b2-d4e0-40d3-a9f6-ed0e7a042c62 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_24fbaa52-cd52-412f-b7a7-9f99d64b381e a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_250dfc6a-f79d-4f42-b684-bb24752d56b3 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_2593fdd3-7ba6-43f3-8cf4-439da3f58087 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_27c4436f-a7ac-4777-9823-dd36c65f4194 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_29ca7248-caef-456c-9be0-eb2b1d10cbb7 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_29ea70f6-6ad6-4937-a68e-b0817b9cdd1c a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_2a4449a7-a967-4728-a699-b8e2b9223061 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_2bbe6ccb-fac4-44b4-ba04-6b436e8a4500 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_2c833391-4bba-4ea7-b54c-4edb7a9a534c a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_2d565249-1d32-46e0-9bcd-ee8b5ff4c24b a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_2eec2d3c-44c9-4b7e-af8e-c6b21dc32c86 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_2f66a013-b6df-4c65-ad42-f3d5bb2f7118 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_2feb40f6-fdc3-4aae-a444-448fd4dc40a8 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_303bc58d-e066-4f7f-9cc0-7d9d124e3454 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_30c74c6a-412d-47c2-a49c-aaed881cb7ce a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_30ecf9a8-4961-481f-9788-3f7e49020cc7 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_30f550a4-7adc-405d-83cf-8471169e6f39 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_3310df5d-890b-4f89-97d3-421fbe1b316c a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_371215e1-39f3-4aeb-b1c4-bd19954dc754 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_376292ad-9bc9-4cec-b355-2f0a181a1932 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_37ac9c5a-aab2-4670-8db0-5423af6a723f a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_38bb89c8-28da-4821-bae4-73645757d59b a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_3987c607-27ea-4c98-b895-97792dca125b a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_39e07c44-9c31-4772-870b-f1bae3a5d2e2 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_3c12fdfc-b514-4ffc-9c1d-add70dcb81e6 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_3c234573-a9b6-4f70-a90e-4ea71cc46e59 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_3df2cd0b-1dfc-4b42-9dea-a553a5c7ff42 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_3f837cba-f2fa-4319-b7e8-d00c514ac232 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_40b1f172-69e7-4f6d-833d-bb5f4fbd411e a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_410e3e57-1fe9-440e-88ef-3745db747394 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_411e66f4-c4c1-4b32-882d-cac0e4a700aa a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_41d2d77c-7254-47a4-94d9-d6c2bf0149cc a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_4266c2e8-51e9-4f96-886c-c1a1b5e90f52 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_432abaed-816d-43fa-b1ba-164b02c458c4 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_46519be0-2d53-4384-a44f-c1961647731c a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_469bad81-3755-44eb-b877-b0ca67473c24 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_46dae63b-8ac1-4513-8399-2958ccc2bd60 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_499ae022-a00f-4276-b426-9d4a515c4a61 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_49b73c38-84d1-4395-84fa-9151198c0082 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_4a244110-9b0a-4ebe-a5a5-2ae2401faf25 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_4b7ef3b7-c8f7-42c6-beae-3cf93e8d3fe8 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_4c7aab2a-21bd-4338-8072-f52892162040 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_4c8dc300-96a1-4261-a28d-d9b5cc62aa46 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_4ea42475-6662-491d-a74e-c281f1261788 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_4efcc25c-4802-402c-ab0e-1daa80b778cd a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_5047e73f-baca-483f-8a8b-82f6b3cdce34 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_5096eeb3-7358-4f80-aa76-ef52ec80adb7 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_5193e51c-82d4-4abd-a65e-1a77dab395a9 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_52dfd00e-f498-4f77-931a-b522eb8dc2e2 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_53b37a60-4387-4fb9-a3e3-ab7db83c5f81 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_53fc33ca-5e1f-45df-8b8f-4e71c03b4686 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_54893dee-47d5-4119-a92a-c783340d45e4 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_55fd3fb0-c245-45ae-a69e-6826e1291b12 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_56b769cd-2fbe-41b2-9c1f-b922b80a25b2 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_57c6c7f8-685b-4423-b187-5ab61c89a0f7 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_58ae777f-440b-45a5-86b7-42f247ac0c9d a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_58ed6d4b-f206-409e-bf74-cb8133bbbb8e a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_5a579493-738b-497e-8f1d-8c9e4e9aea0a a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_5afecfc6-464d-42be-8205-cb0f584f992f a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_60e88acd-6101-460c-bbbb-f0550ea8bafb a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_616c8200-5b7e-483b-bf56-bfc1442a113e a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_63380846-6cd9-4ec4-afeb-257dcb7953e9 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_63591a1b-f113-4ea7-b130-994adb6d8f3b a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_6634175b-6569-47da-82f0-d1d3a5ce9948 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_67a455f9-0678-4d34-b2c8-4b03897ceb2b a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_67b76ab6-b85d-44e3-acc2-47146f217c95 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_67f4c289-b011-427e-a1b5-1adc3770cf68 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_6892167d-992c-458f-95f5-2bc661a0faef a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_69128478-fcda-460d-a636-43cb65479928 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_6a49c0b5-dff6-42d2-9679-72d07fdaa786 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_6b92c6df-dfcd-40f7-a2a9-73cb57959c11 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_702041a9-ba8d-4b0c-893f-b50a20127864 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_7056dc83-667f-438b-bd66-a505b8920abd a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_70cc6f58-71f0-4a32-a75a-31ca7b49da77 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_719d34ad-82bf-45cd-b5ea-f6fcc373441d a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_727236d2-e31c-41b3-a587-59443f06723b a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_75f68176-02c2-4408-b95e-4dca866a7498 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_76c3e45c-8e10-433f-8cd0-27b8eaaba068 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_777598f1-5e5d-4de4-8083-02558ddded4f a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_778d27ac-d266-4968-b4f3-efe99675f284 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_78230819-08bf-498b-aa1e-1c0d8d83cc0f a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_7878946e-050f-4114-8b29-4e17382586af a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_79b51c47-126b-4bf1-9ac4-a228f4dba3d7 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_7b4e234d-f489-48fa-a33b-e9eae535dab8 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_7c5d1284-aaa2-45eb-8563-f9cb0b97ec47 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_7da09737-01ca-4eee-82c9-707deee9dedc a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_7ef152de-9ffe-4298-a829-35bfa434d7ea a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_8126daa7-54ec-4198-bbd2-f239cf3d834c a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_81372516-d1fd-4c43-8ca4-26a6aa9ea965 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_82093184-0fd7-4d23-bd61-682411e38eb3 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_841187c8-dd74-425e-aa61-372a55fb5ad6 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_841c14a8-f580-48eb-912f-07303662e4cb a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_849fcc0a-8630-4767-8896-ec67e1348e7d a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_84c6408b-0d88-4aa9-b741-3418053eade8 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_8552cebb-4640-47e1-bac4-a07321c0f1f5 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_87602984-224b-4268-9a92-a7dcc27791cc a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_87954406-a221-4c39-b5f9-f8896fed7c8d a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_8828cd25-fea3-4517-b0cc-3dde9cda0cb9 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_8a8103bb-8b48-4bde-9fc6-be99051bb696 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_8aed1d9c-0d0c-486e-8c56-742d94bb09bb a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_8c17338f-4782-4ad3-84c2-5621fcd01c66 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_8ca293d0-4184-41f9-8567-aab5f6ac914e a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_8e2dc22c-b7c5-46bf-9e73-99b533a4e0d2 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_910953fe-0082-42bb-bacc-ba417716e44f a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_91c6e474-bd67-4b13-a0f5-8bdc0824b382 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_9204f473-241f-4316-ac4d-85602d9ad16c a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_92ce5915-cc47-453a-8714-44db97d64b2a a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_98bde52e-8613-41e2-9d3b-50185af54754 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_99d23043-4360-4ce3-9b76-f00a110fd6aa a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_9a36a446-7df8-4fb3-9105-f7a22ceb429a a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_9ad33819-745b-4517-8a41-bf46f33d02f2 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_9b948761-f42f-492e-86e8-37d94d314bd2 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_9cca5fcc-eb67-4a7b-bf19-dd9ea8ff4870 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_9de3b3a6-8f0e-4924-986f-622f8ce2b9f1 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_9eaf2f68-9cb4-481a-8a47-c23b9847735d a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_9f6cf442-9153-4fab-8923-034d690048ea a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_9f9a2222-941a-4bf9-84db-4f3456f81f04 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_9fca8f52-d0ac-43ba-b507-ae1e0527890d a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_a239fbfc-49f0-478e-8116-c9024079283e a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_a32fbaff-3bb3-43dc-9379-66fb1323a2b3 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_a3cc17f5-7e92-47d9-95a4-df835fdbde5a a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_a4345526-81a2-4d26-b39f-279d4f76e3ac a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_a4da378c-b261-4111-9503-4e65a2d3ee1e a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_a51f66bf-a36f-429f-8f73-0381c2ad4725 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_a6a99f72-57f0-4a8e-b6a4-83d94c5d42a9 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_a6ebae05-e26d-4056-b060-da72b77b81c7 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_a811b73b-a571-4992-bbcd-01a7a5185fe9 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_a85f393a-1a21-4643-80c6-b226d727d5d1 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_a87375e9-11c6-42a5-af5f-2ac772aa8ba8 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_a904663d-b573-44c0-bf38-6480595b1628 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_aa596957-14b0-49b2-9b1f-5c50eb443af5 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_ad7e6840-b92b-47ae-bfe3-e748ac0fcf3d a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_aeb58e09-980a-473d-99e0-244cc3250d1b a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_aef4d116-3bb4-414a-b597-25beee4ae42b a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_af05775c-6551-4c29-b90f-4f365f54fb29 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_af7a36bf-ce8d-414b-a73d-9d40bd4d7744 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_b064c1e6-9c8a-4bc8-8288-1c66aac4f3c9 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_b0a4b6ba-8d8a-4400-a09c-472c50576e1e a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_b0cdba0c-dee3-49f3-8262-57acdc9f167b a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_b118bec2-9756-4479-bcba-443d5981aea4 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_b17a433b-035c-443c-91dd-31a9e62c4401 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_b1a0bdf3-6a5a-4ba2-8614-03cb239c907b a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_b344dd25-cc79-4e65-bec3-8ce7241074e6 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_b3a7e535-0224-4b39-9255-34a39d73041b a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_b3db4dee-d03f-4b25-9e12-10c0e5bf7658 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_b55991a7-2254-4d07-b4a4-83a07c02bc0b a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_b6f69f92-d238-4302-8ae4-bbab83171000 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_b7327a02-3185-4d8e-8117-7998ecc4c49b a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_b81fa87d-d0db-4cf6-8a0b-f547e1ed9299 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_b8b19df5-e930-4250-9053-8ede31c2d701 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_b93120ca-1277-4402-a8eb-97bc420d1935 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_b949ed5d-4aa9-4b48-a52c-09de5d8fe2e6 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_ba654f01-285b-4aea-a74b-6613f9c56dea a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_bb745fd8-d550-4084-a15b-925d4f4947ac a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_bb94c1e8-c412-4013-8a69-faac0b3037c6 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_bc621eba-3940-4bfb-9996-e6e3fdc4490d a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_bde1082f-018e-4b25-90d5-78111a3237c5 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_bef4104b-126f-4b9b-a02e-e65b4c0463d5 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_bf3cd64a-2596-4965-8cb3-59da3a5fd6b5 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_c1c51968-1800-4ca2-993b-208eb766d142 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_c1f014e6-c6bc-4f7a-ae05-26c43a4644b4 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_c2c5fb77-679c-4702-8eae-4068af261267 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_c3192f61-3e48-4dea-8755-409eb637c676 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_c37dd9b3-abab-41b5-8e83-be409a9e7f8f a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_c4b4dd41-e554-4e95-89fd-a3abdcdfcb8f a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_c5651056-53ac-4545-bd9e-96af1ff2c506 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_cc121a68-a59b-4ed4-891b-37f2d1c8c657 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_cc12d0ce-8df9-435b-aa34-c2e947943476 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_cc8f880a-ac42-4b53-96a9-08bb8b09c0b3 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_cdeef963-e25e-47f4-ba57-3fac619ed0a5 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_cff06601-d7e8-4f87-89e4-4a5d26e9a9b5 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_d3125353-d9a7-4f76-bd90-c6b78bb2165f a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_d50f6a93-f5e7-43f1-8c1d-0aed0df82846 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_d7aad6c9-e5af-4891-8853-f3aff050bfb1 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_d7ea797c-5a0c-45f1-a405-1d7620b61395 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_d83417be-bdbb-4cd5-b4c8-789bbca165ea a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_d9f327c5-7373-421e-93fe-fd34972d6f2d a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_da989ccb-758c-4931-a88e-a4418aedccd1 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_dabb72f6-9a77-463c-a1fe-d9266576398f a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_dae8b036-b318-4e72-895e-cd28d264b42f a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_db016615-10e9-4e46-8a60-68d08b50f0c1 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_db73f76f-2632-4868-95a6-7b2f079a13fd a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_dcc99d4e-104a-4785-b870-03ca56e67a2a a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_dd4ae06d-bf4f-4347-a3eb-9f776e1dcd05 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_de2e4c97-a00b-4889-8008-0713ee0fdf76 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_de35f4c8-7f2c-43da-b643-fa489d889b8d a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_e03ee18f-b1df-49ed-b782-eca37182e95e a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_e159cd9a-d74b-466e-a7ef-a8953ff2df65 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_e252dbaf-6f63-4e78-93e2-44e353db917b a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_e254daa5-722c-48e8-aa51-929fe95c5b2d a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_e296faf2-5b81-4891-ac8c-b2841947c98f a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_e540d709-0aa8-4290-af2f-0c591d3fe0c0 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_e5c86a59-cf40-41c5-ad45-b29d8a3a1b5a a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_e6550bb5-ed22-4f80-abf8-0ef9826f740c a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_e68c1e95-451a-4e94-890e-8ac11d32d8a6 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_e6fce019-ff8d-46b9-bc6a-3b81d5b9c316 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_e716110e-f7cb-4883-8c9d-8c9b0bd3d6be a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_e81025cb-8e77-4786-acf6-286673a031e7 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_e8ad6790-d42a-44c9-bf85-4d92735ac00c a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_e96e5945-034f-49f4-998f-0d590afad79d a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_ea370bbe-b984-4f07-b5fb-76d04ced23cd a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_eae9e4c7-def3-47a3-bf9c-564ebeeb0e81 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_eb01b4e6-a58e-4ba8-8820-e1a32211101b a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_ebdcc29e-0e36-4bc0-988e-cfa47a0e076c a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_ec404f2a-c87e-4652-85c6-72f21dfbb1d8 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_ece85a33-9c46-4248-85dd-79e8db7080fb a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_ee072dd8-44dd-4de1-8c9c-a4c7b056cf28 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_ee54045b-178c-46e3-8d85-9bc4c4a8bb9a a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_eedd81f2-eac2-4a1b-b2b5-e92909e327ad a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_f05109df-76e1-4641-9f3e-13d71ca334a2 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_f275042e-4790-4efa-af26-4df177e413ff a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_f2fec21b-1ac6-4847-bb20-b4488a2729f2 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_f3fd9a28-66f2-4d38-8e52-0fe7ed42fe0e a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_f7578df7-1bfe-4b72-9c3e-941961ea72dc a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_f7c3ab41-8b6c-4447-9d75-d5cb0b598db6 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_f7c668c9-f0f6-4228-a2fc-90e9596a6489 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_fa6b03b5-a94e-4c25-9b92-e3cfc40bd64f a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_fad1c740-4822-4526-91a0-5ef2826387f5 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_fc668343-e921-4ae0-a9be-a015e5b0a306 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:E.Coli_fd678f76-f960-4bde-b637-b165f8044a38 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_fe48fba3-def3-4f55-b1be-89eb6a96a590 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_fe49cf00-531d-4033-866f-5872ef733e4d a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_fe7186a5-cf7d-4509-bfdc-6a4eb3ef5dd1 a :Pathogen ;
+    :hasGene : ;
+    :name "E.Coli" .
+
+:E.Coli_fff78957-cdc9-4ee5-b248-f5e4c8f556e3 a :Pathogen ;
+    :hasGene :UB10-260Rif ;
+    :name "E.Coli" .
+
+:M_007f2174-02ff-4cc8-aa5c-3939c72a084a a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6190 ;
+    :hasSample :SampleType_6ecd9275-fd8b-44df-a5e0-854df34e932e_0 ;
+    :hourAfterInoculation "144" .
+
+:M_02d9618f-2b1b-46fc-ae36-e93d52a63f1b a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6107 ;
+    :hasSample :SampleType_04cfccbf-53a9-48b3-8f82-2e22bfefe7ce_0 ;
+    :hourAfterInoculation "120" .
+
+:M_06026d97-1e03-497b-b00b-2bd7b0a20f84 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6176 ;
+    :hasSample :SampleType_373420fc-383f-4511-8f49-7606054c3d55_0 ;
+    :hourAfterInoculation "168" .
+
+:M_0638d0f8-5231-4bf8-9126-14862172966a a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6107 ;
+    :hasSample :SampleType_19b5a3c7-4f6d-42a3-96bf-e3a93c8f12dc_ ;
+    :hourAfterInoculation "216" .
+
+:M_06574238-6270-42f6-883c-9a9bcf0b1501 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6103 ;
+    :hasSample :SampleType_860423b5-b7b8-4c84-9b63-071ac5949f9a_0 ;
+    :hourAfterInoculation "168" .
+
+:M_06c31da5-69fb-4a86-b75c-dd7aecde5225 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6176 ;
+    :hasSample :SampleType_278d87d6-fd88-4b81-a66b-0c2138ed3bfd_0 ;
+    :hourAfterInoculation "384" .
+
+:M_0721e3ca-0f5c-4a5e-8eb9-6c970881476a a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6101 ;
+    :hasSample :SampleType_7bba9cf5-7464-408d-8d3d-4a25fca93a27_1.0 ;
+    :hourAfterInoculation "216" .
+
+:M_079c7b17-3935-4d9a-b2b7-788e2cba9e5f a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6100 ;
+    :hasSample :SampleType_e81ba3a3-6c00-49c2-a4aa-5e41dd76fd3e_0 ;
+    :hourAfterInoculation "432" .
+
+:M_092fb751-c338-4210-9c7b-9a40eaf507aa a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6101 ;
+    :hasSample :SampleType_a9ec03c5-0c00-4629-b070-63dafd729a2f_1.0 ;
+    :hourAfterInoculation "44" .
+
+:M_09b85f6d-e1e9-4acb-8460-03e6f1da038b a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6101 ;
+    :hasSample :SampleType_76e3ae3f-cf41-4323-983f-efb5ceacf9c9_0 ;
+    :hourAfterInoculation "192" .
+
+:M_0b7439bb-96bc-4b1d-8d9e-47df1fff4c36 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6102 ;
+    :hasSample :SampleType_ac7f7d54-8239-4aa7-82a1-fbda0268a124_0 ;
+    :hourAfterInoculation "192" .
+
+:M_0c1c2a0f-6391-49a6-8ed4-c4e4fbf67b71 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6178 ;
+    :hasSample :SampleType_a45a896b-fa17-4550-bd57-354558eafd1b_1 ;
+    :hourAfterInoculation "96" .
+
+:M_0caf9c8b-a15b-4b2e-bd3e-96ba8a55bb1a a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6104 ;
+    :hasSample :SampleType_5b121a84-1057-4d0e-9e47-9c73ad602064_0 ;
+    :hourAfterInoculation "96" .
+
+:M_0ce56260-2d9d-416f-a7ae-bddcb93759f8 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6175 ;
+    :hasSample :SampleType_a481aa0b-10d1-4604-9a8b-1d928be89927_0 ;
+    :hourAfterInoculation "72" .
+
+:M_0e689f47-2479-48e2-86aa-63da2a103c15 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6100 ;
+    :hasSample :SampleType_4aac4ac6-d851-42cc-8b48-09508ae551e7_0 ;
+    :hourAfterInoculation "168" .
+
+:M_100df965-042f-4053-b72a-43fee450bc1b a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6108 ;
+    :hasSample :SampleType_2ca0ed66-e813-4ddf-956b-4766221c2670_0 ;
+    :hourAfterInoculation "96" .
+
+:M_1074f59e-290c-4fd2-9b1a-82d8cce29c01 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6171 ;
+    :hasSample :SampleType_db9aedd3-ba25-48e9-b2fc-55479e0a65fc_0 ;
+    :hourAfterInoculation "120" .
+
+:M_11f99888-09e2-4c94-b2ef-6f9df7ceddce a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6108 ;
+    :hasSample :SampleType_380d487f-3cd2-4e06-8454-1568f292f581_1 ;
+    :hourAfterInoculation "384" .
+
+:M_142a05ad-f5b9-49e5-88ec-a29fbfb6d6a6 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6167 ;
+    :hasSample :SampleType_bcd302a8-d3e3-417a-b79b-c6ff61408e70_0 ;
+    :hourAfterInoculation "120" .
+
+:M_157ed1ac-cc44-4b3c-8dfb-2d720dbda199 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6167 ;
+    :hasSample :SampleType_a8b452ca-9ffb-49b8-8d3a-afb373a6447c_0 ;
+    :hourAfterInoculation "168" .
+
+:M_15a1d5c6-489a-4e38-91ed-0e2f95f76289 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6104 ;
+    :hasSample :SampleType_e7d76c79-00b2-4385-afe7-67f027896c82_0 ;
+    :hourAfterInoculation "384" .
+
+:M_15f3610f-25d6-4671-8d6b-0ec0ca52fd69 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6103 ;
+    :hasSample :SampleType_8ee215b4-af5a-4178-add6-3c01dca4637c_0 ;
+    :hourAfterInoculation "120" .
+
+:M_160ee9d5-a4d5-44b7-8388-52876fed5794 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6186 ;
+    :hasSample :SampleType_2e02d4bd-068d-409f-a9f5-2b090d934b99_0 ;
+    :hourAfterInoculation "0" .
+
+:M_194180ec-de42-4938-b740-4b61599b61e7 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6176 ;
+    :hasSample :SampleType_67751175-ac45-42c5-968f-7b7fad70688f_0 ;
+    :hourAfterInoculation "120" .
+
+:M_1a70acee-82e0-49c1-b500-4e4e1ee0e7e2 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6101 ;
+    :hasSample :SampleType_de9fa917-6cf4-4c21-ba92-0fb981be4042_1 ;
+    :hourAfterInoculation "96" .
+
+:M_1acff2b3-d6ac-4aad-82ea-1ee25e035305 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6104 ;
+    :hasSample :SampleType_b939fbaa-579b-4d51-9fa4-f86c5bc3e6dd_0 ;
+    :hourAfterInoculation "192" .
+
+:M_1b3bf7b3-8a1e-4385-a97f-9ff6c0cc08ed a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6103 ;
+    :hasSample :SampleType_b2867796-baa2-43e8-9ff2-ed12c31ba452_0 ;
+    :hourAfterInoculation "28" .
+
+:M_1c971deb-1f8d-41bf-a313-dcc5f12f6de2 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6175 ;
+    :hasSample :SampleType_869d307f-f526-4b2c-badb-4d39ff9dbca3_ ;
+    :hourAfterInoculation "216" .
+
+:M_1cbb5b78-5ed8-4caf-a96f-1376f40ba529 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6178 ;
+    :hasSample :SampleType_b4f94e3a-2138-4f5e-a183-6e6877abf9cb_1 ;
+    :hourAfterInoculation "384" .
+
+:M_1e5bfaed-a8b9-4ad5-b969-dba1f573006c a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6102 ;
+    :hasSample :SampleType_587d9c57-60ac-46bd-ac60-82b93a252499_ ;
+    :hourAfterInoculation "44" .
+
+:M_20bbf8d5-4a80-4aaa-9635-937e10d14cd8 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6101 ;
+    :hasSample :SampleType_1fd03094-8a40-4e02-be73-b486280c76f3_0 ;
+    :hourAfterInoculation "144" .
+
+:M_20f1c1c1-aecc-4aaf-84cc-e89d28b60f10 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6178 ;
+    :hasSample :SampleType_8576062d-5e99-487c-917f-54379e0f87cc_1 ;
+    :hourAfterInoculation "432" .
+
+:M_21072cd9-7659-411e-9ced-f98f50ac39b8 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6101 ;
+    :hasSample :SampleType_003a298f-de9c-4260-95f8-b0c58236848e_0 ;
+    :hourAfterInoculation "336" .
+
+:M_2196086c-efa9-4dc0-8335-3a8e91868521 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6189 ;
+    :hasSample :SampleType_d47ed43b-41f2-4e2b-b34f-d4fe83eb2a2d_0 ;
+    :hourAfterInoculation "264" .
+
+:M_21ae8880-c35f-450d-b226-04f34387e051 a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6167 ;
+    :hasSample :SampleType_8e733927-d5ed-4ff2-8244-f035d87da857_0 ;
+    :hourAfterInoculation "28" .
+
+:M_222975dc-040b-44df-b472-3f2b7632c817 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6186 ;
+    :hasSample :SampleType_82674e81-76ae-4aca-86d2-592964ae8ed0_0 ;
+    :hourAfterInoculation "264" .
+
+:M_2233499d-e864-4d32-baa3-8f0bbc8c343d a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6167 ;
+    :hasSample :SampleType_1792388e-a48e-4a9d-b476-27890b3e89e0_0 ;
+    :hourAfterInoculation "336" .
+
+:M_2383383a-ceb6-4b59-ab32-2ee52147bbb8 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6103 ;
+    :hasSample :SampleType_b3e44ec6-370c-4252-abd3-821344e6723d_0 ;
+    :hourAfterInoculation "336" .
+
+:M_24569b02-19d8-4a3f-b11d-7364d1b19b7e a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6169 ;
+    :hasSample :SampleType_2f3edcde-7a5b-4700-98c4-7c04f29a04a5_0 ;
+    :hourAfterInoculation "264" .
+
+:M_25dcab57-bbb5-41eb-869a-610da9ed54e2 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6189 ;
+    :hasSample :SampleType_5ec7f77c-83be-4a92-a354-8ef912dee188_1 ;
+    :hourAfterInoculation "144" .
+
+:M_27cace8a-4090-423f-ae7c-fe0a086cd177 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6102 ;
+    :hasSample :SampleType_7db2a92b-80cf-48cc-a7ea-772164e558d2_0 ;
+    :hourAfterInoculation "72" .
+
+:M_2cced1c9-5311-4aeb-af4d-e25332e13ab1 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6175 ;
+    :hasSample :SampleType_2bad1efa-2e57-4ebf-b23c-b4ba8b8c892f_0 ;
+    :hourAfterInoculation "192" .
+
+:M_2d94d8bf-7fe0-4cb3-bce2-a6ec3198b710 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6107 ;
+    :hasSample :SampleType_78a21d1b-d11f-4c8b-88ad-955eb7bc5b8b_0 ;
+    :hourAfterInoculation "264" .
+
+:M_2e4f7eb6-5409-4280-9a0c-f0cc9042771e a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6107 ;
+    :hasSample :SampleType_87fc27c3-2ca3-486f-bb56-8b018b01a755_0 ;
+    :hourAfterInoculation "0" .
+
+:M_2f5b2729-b0e6-416e-afe7-852b07b41480 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6191 ;
+    :hasSample :SampleType_2a57a8c1-7335-44f8-8d16-ebdb09c3cc54_0 ;
+    :hourAfterInoculation "96" .
+
+:M_304499a5-5468-4509-a1fa-973be3ec4a45 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6186 ;
+    :hasSample :SampleType_c7df44a7-918f-413d-8b55-bb3bced3e832_0 ;
+    :hourAfterInoculation "168" .
+
+:M_30ed7abb-9786-4ff4-9b4d-cb267039fa82 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6167 ;
+    :hasSample :SampleType_824ad506-a79e-434f-8992-c6cd74815c1d_0 ;
+    :hourAfterInoculation "384" .
+
+:M_328eafd1-b637-4a66-a133-962f0581d32e a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6176 ;
+    :hasSample :SampleType_c3e6cfb2-50d4-4796-ac41-d2c667ea0cd1_ ;
+    :hourAfterInoculation "216" .
+
+:M_32c75251-81d5-4f1a-b0a1-c6269722d0c9 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6191 ;
+    :hasSample :SampleType_69551353-a7e5-47f7-a487-a4a05ada772c_0 ;
+    :hourAfterInoculation "0" .
+
+:M_337d9045-c992-49f8-9228-442dff4856d7 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6169 ;
+    :hasSample :SampleType_a46895f5-6ff5-4551-8772-788fefc7bb8d_0 ;
+    :hourAfterInoculation "384" .
+
+:M_34b62c8c-3cae-4cb9-bc83-b1ceb8174e01 a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6104 ;
+    :hasSample :SampleType_32ea3045-3701-422b-9cc8-c2b7463d22a9_0 ;
+    :hourAfterInoculation "28" .
+
+:M_35c45977-e1ca-4f33-83ef-fed450adb22d a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6100 ;
+    :hasSample :SampleType_291e8b14-a697-46e1-af01-0154eb70cf83_0 ;
+    :hourAfterInoculation "192" .
+
+:M_3647fb4b-c2bc-4f65-b85f-918665966861 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6108 ;
+    :hasSample :SampleType_ebd3f1e4-aafa-4fde-a3f9-3da9d7948002_1 ;
+    :hourAfterInoculation "264" .
+
+:M_36bea7a6-9535-49f6-b36c-b8c27c168f2f a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6102 ;
+    :hasSample :SampleType_1cb7d6d5-5780-4dc8-afab-b11635b1681b_0 ;
+    :hourAfterInoculation "336" .
+
+:M_36c4c676-2c12-4d11-b608-dd8dcbf4da8d a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6178 ;
+    :hasSample :SampleType_6b644ade-8ac1-4301-9ade-aea05b75e5d8_0 ;
+    :hourAfterInoculation "0" .
+
+:M_384dc596-9ba6-43fb-8ac5-ddd9023c3d6b a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6107 ;
+    :hasSample :SampleType_c7b91a4a-8854-4b6d-aba1-2f2cf18940fe_0 ;
+    :hourAfterInoculation "28" .
+
+:M_395b5eb6-8ef9-40ce-8158-e2af4dcc26c9 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6108 ;
+    :hasSample :SampleType_83e2291a-be13-4c8c-9184-4384c820fbc7_1 ;
+    :hourAfterInoculation "192" .
+
+:M_3ba4d217-ede2-467a-a9dd-0eecd80a7108 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6105 ;
+    :hasSample :SampleType_57101109-98c6-4c23-911f-e123185a5576_1 ;
+    :hourAfterInoculation "0" .
+
+:M_3c5fced8-edbf-47d8-a3f9-82e00694e932 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6102 ;
+    :hasSample :SampleType_a713132c-d7f8-439f-be6c-9dd3d5cd5dbf_0 ;
+    :hourAfterInoculation "264" .
+
+:M_3c77d438-ddbc-44f5-ba35-fd44132492a3 a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6189 ;
+    :hasSample :SampleType_085a9214-780b-4008-8185-c208765d55b2_0 ;
+    :hourAfterInoculation "28" .
+
+:M_3d32ef70-eeff-4eab-8396-940cf6b4fc3e a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6186 ;
+    :hasSample :SampleType_3b1ce02f-e734-484c-9e9d-9e92d328c6b6_0 ;
+    :hourAfterInoculation "96" .
+
+:M_3d41ff03-5db2-41ad-9268-35ca0a0adf05 a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6176 ;
+    :hasSample :SampleType_dc6c69c8-d25a-4baf-8097-73be188d815d_0 ;
+    :hourAfterInoculation "28" .
+
+:M_3d6f2c1a-a8f5-459c-8a5e-20ca14eb8aef a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6108 ;
+    :hasSample :SampleType_e312924d-fbd8-4e50-bc89-d2258c239735_0 ;
+    :hourAfterInoculation "432" .
+
+:M_3e508c1c-da2f-41cc-8638-8ff11625b9f5 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6191 ;
+    :hasSample :SampleType_f13c6787-f2a9-41fd-98f8-756c8f099448_0 ;
+    :hourAfterInoculation "432" .
+
+:M_403a87d8-ac7a-4d9f-b785-dc9bdcff41e0 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6101 ;
+    :hasSample :SampleType_c5dde0ed-784c-463d-93b4-2651e19e2c4d_0 ;
+    :hourAfterInoculation "432" .
+
+:M_40466aba-879d-4b3e-b7db-9b4459251a94 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6107 ;
+    :hasSample :SampleType_67e0305a-e373-4a9f-b827-927f1dbd22a2_0 ;
+    :hourAfterInoculation "336" .
+
+:M_40522b8c-5c52-43c5-b512-74d5ee247029 a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6191 ;
+    :hasSample :SampleType_fdd8c622-bf44-4303-a1b7-abea8704f2bf_0 ;
+    :hourAfterInoculation "28" .
+
+:M_40f4108d-6026-4976-bdd8-40a0959d70c7 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6103 ;
+    :hasSample :SampleType_b4588690-b955-4c6a-bf4a-1b2a4e943fab_0 ;
+    :hourAfterInoculation "432" .
+
+:M_4294858a-360c-416f-b030-56503efb0bb0 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6167 ;
+    :hasSample :SampleType_2cd286d5-74d7-4ec4-be35-0d5051fdff98_0 ;
+    :hourAfterInoculation "72" .
+
+:M_42ec1369-1a53-4049-b5ff-2cf01cc6dbde a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6175 ;
+    :hasSample :SampleType_8ca87bbb-2f6b-4d62-a6a0-9d16059d87f3_0 ;
+    :hourAfterInoculation "264" .
+
+:M_43e06cce-a79d-4008-8344-7f624b11d367 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6102 ;
+    :hasSample :SampleType_36636c43-a364-4de8-b87d-7fe4d17bb85b_ ;
+    :hourAfterInoculation "216" .
+
+:M_463d1897-e6e2-4457-99ca-7b81eae37772 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6104 ;
+    :hasSample :SampleType_ebff9151-8e31-4f10-ad7c-f76cfc90ba0a_0 ;
+    :hourAfterInoculation "72" .
+
+:M_46547131-2a20-4977-b31a-192855d7dc02 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6190 ;
+    :hasSample :SampleType_00cd67f9-9715-486f-825d-f2e203567724_1 ;
+    :hourAfterInoculation "168" .
+
+:M_473b7042-7478-4cdf-aee3-697d2b0e9506 a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6178 ;
+    :hasSample :SampleType_b9d288f7-96e1-4638-a7f5-a427d79a0f15_0 ;
+    :hourAfterInoculation "48" .
+
+:M_475a289d-c0ad-499b-9a4c-8daa0d73ada1 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6101 ;
+    :hasSample :SampleType_dc6661a9-23d0-41b3-bde7-43e3bf793a62_0 ;
+    :hourAfterInoculation "168" .
+
+:M_47d9a4bd-b9e4-4cde-a608-fc481122403f a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6178 ;
+    :hasSample :SampleType_4e0c0672-ead6-4c4c-a6f3-214fbd8f5a96_0 ;
+    :hourAfterInoculation "264" .
+
+:M_48866668-facd-4c44-92f2-f0e879a9272d a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6191 ;
+    :hasSample :SampleType_68d44b9b-5f7e-415f-885c-daf8d85f181f_0 ;
+    :hourAfterInoculation "120" .
+
+:M_48be2ece-8ee2-4c4c-8307-3b19b4b03ce6 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6107 ;
+    :hasSample :SampleType_3e4db0cb-6e5c-4865-b8c6-fb9687303041_0 ;
+    :hourAfterInoculation "96" .
+
+:M_4a7cb232-b54c-4bc3-982a-2dcdf659fff1 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6105 ;
+    :hasSample :SampleType_bd882dac-f292-4610-beed-3639ded33b16_0 ;
+    :hourAfterInoculation "192" .
+
+:M_4bd4a743-8cba-4b65-bf53-2e47a80e6a27 a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6175 ;
+    :hasSample :SampleType_2212f296-63a3-46f0-9f8d-1dad59002ab8_0 ;
+    :hourAfterInoculation "28" .
+
+:M_4c3b53ae-57a6-40d7-84dc-637d4682f921 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6189 ;
+    :hasSample :SampleType_1f7c7af2-a2a3-43a4-a810-ba59d3f171c1_0 ;
+    :hourAfterInoculation "432" .
+
+:M_4cff0c3d-f418-4a8c-89a2-f7ae938ec742 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6102 ;
+    :hasSample :SampleType_498e85b3-975d-4455-9ae2-347a063ae398_0 ;
+    :hourAfterInoculation "120" .
+
+:M_4d9ac9a7-3c3a-41bf-95d7-7075690699ee a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6178 ;
+    :hasSample :SampleType_660780dc-154d-48bf-8cd1-977d76593d66_1 ;
+    :hourAfterInoculation "192" .
+
+:M_4e231bc9-c36d-4f8a-b991-3e7433d108e9 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6100 ;
+    :hasSample :SampleType_2282bdf2-8a0d-4168-8479-06419a5e41cb_0 ;
+    :hourAfterInoculation "384" .
+
+:M_4ec90323-2d10-43f7-a5b3-d68719455ce0 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6189 ;
+    :hasSample :SampleType_c8f99778-c4fd-44c2-ade2-c1f5591c1bd5_0 ;
+    :hourAfterInoculation "0" .
+
+:M_4f15b658-406c-4d72-a78e-bbde0d7f2578 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6176 ;
+    :hasSample :SampleType_264b09b6-0884-418a-907f-9e7b5b515218_ ;
+    :hourAfterInoculation "44" .
+
+:M_4f591e72-a814-4e95-94da-9642a2272a7a a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6167 ;
+    :hasSample :SampleType_44e574b8-7d02-4027-9b0e-bc9e00cfb737_0 ;
+    :hourAfterInoculation "264" .
+
+:M_505e09b1-b7a3-446b-a952-c2531a640665 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6189 ;
+    :hasSample :SampleType_afa4d524-6849-47ba-9035-ccde3b03d836_1 ;
+    :hourAfterInoculation "384" .
+
+:M_5078636a-9151-4929-b273-004d925f5c28 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6177 ;
+    :hasSample :SampleType_181f8f30-f431-44f1-9767-ebbbbb3406d7_1 ;
+    :hourAfterInoculation "72" .
+
+:M_514b0740-df73-4042-84aa-a21259931790 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6171 ;
+    :hasSample :SampleType_66be29f8-33b3-4dbf-88a9-1ef9863b372e_0 ;
+    :hourAfterInoculation "384" .
+
+:M_51c6b4b3-eb0f-4c9a-8b31-63adcb299669 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6177 ;
+    :hasSample :SampleType_310d15b2-4fe0-4db7-ab10-5d159e40dd6b_1 ;
+    :hourAfterInoculation "120" .
+
+:M_532ab366-86c8-4a24-ad90-6e3b4e202604 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6176 ;
+    :hasSample :SampleType_8576d60d-533f-409d-b3f6-8855192c1848_0 ;
+    :hourAfterInoculation "72" .
+
+:M_54a8d9cc-ff03-4eae-8d7e-89e372a9f51a a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6171 ;
+    :hasSample :SampleType_08557396-e9ea-43e0-8d83-564c25057b19_0 ;
+    :hourAfterInoculation "192" .
+
+:M_56131c8a-cebc-4f34-864d-837dade02ed3 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6101 ;
+    :hasSample :SampleType_787648cd-5bb3-49d5-a6ca-d3e598fdc353_0 ;
+    :hourAfterInoculation "384" .
+
+:M_5688f9ca-c266-455d-9ac1-43d142af8842 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6101 ;
+    :hasSample :SampleType_635173c4-6d60-49cf-9aab-daf6502f13db_0 ;
+    :hourAfterInoculation "72" .
+
+:M_58107613-6a03-4a76-bdc8-f3513bd20aed a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6189 ;
+    :hasSample :SampleType_c2b7c307-59ae-4c05-96a4-70077cacca1c_0 ;
+    :hourAfterInoculation "96" .
+
+:M_5ac84c6f-bdf9-49c9-aebc-c8dcc84a563a a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6175 ;
+    :hasSample :SampleType_f9d94f39-c11d-48c6-9aad-263de114f991_0 ;
+    :hourAfterInoculation "168" .
+
+:M_5b2bada9-2dc0-4c15-a790-ac5e67965cb9 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6190 ;
+    :hasSample :SampleType_055527ea-88b6-4311-bbd1-d849d685feee_1 ;
+    :hourAfterInoculation "264" .
+
+:M_5ba62d51-fc49-49f4-b6af-62e08399348b a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6104 ;
+    :hasSample :SampleType_171e8c90-fe5f-40d4-a193-896907662d29_0 ;
+    :hourAfterInoculation "168" .
+
+:M_5bfe34fb-9c8d-4e9b-bf0c-ff176eda7179 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6104 ;
+    :hasSample :SampleType_b270092e-8949-4e0f-bc28-19604a49e408_0 ;
+    :hourAfterInoculation "336" .
+
+:M_5bff85ef-4545-424c-9757-c9df49675a5e a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6105 ;
+    :hasSample :SampleType_325ca180-1dca-4d96-8c44-b6b02891d19c_0 ;
+    :hourAfterInoculation "48" .
+
+:M_5d72ecfa-c963-491e-85ea-e45552166ee0 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6104 ;
+    :hasSample :SampleType_8facd23a-d088-4eaf-8ee7-a55f044dc4f8_0 ;
+    :hourAfterInoculation "144" .
+
+:M_5dd37306-9193-4974-8393-49cb101003fb a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6105 ;
+    :hasSample :SampleType_ed084ec7-b0fa-41ff-b729-88f94d4f37b4_1 ;
+    :hourAfterInoculation "120" .
+
+:M_5f96a1f6-a66f-44c0-807b-7b98ce1ec65f a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6176 ;
+    :hasSample :SampleType_e6d38755-d164-4245-bad0-71805582700f_0 ;
+    :hourAfterInoculation "192" .
+
+:M_5fb9a81b-1b05-4750-9cc1-01e255b2d130 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6175 ;
+    :hasSample :SampleType_5119f12b-deac-49d9-8955-a134d2d76543_0 ;
+    :hourAfterInoculation "336" .
+
+:M_609cfd0d-7911-4d78-a359-961fbf59ea54 a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6174 ;
+    :hasSample :SampleType_2a57b39b-9baf-47b9-8a5c-a014ceaf64f6_0 ;
+    :hourAfterInoculation "28" .
+
+:M_61677f2f-f575-44f9-98d2-f56a1a54564f a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6176 ;
+    :hasSample :SampleType_a5b843c2-bfa2-4bfa-9fe7-6e84921e3095_0 ;
+    :hourAfterInoculation "144" .
+
+:M_63e271b7-9a6e-43b2-bed9-760f372e8342 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6107 ;
+    :hasSample :SampleType_247062d2-3f99-4b66-afca-242ff21ecd6e_0 ;
+    :hourAfterInoculation "432" .
+
+:M_6412540f-e1b2-4009-8adc-db621c72d239 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6167 ;
+    :hasSample :SampleType_f8fda253-b725-41c2-8007-b9bb901cba04_0 ;
+    :hourAfterInoculation "192" .
+
+:M_65949d88-6f78-46e2-a71b-c813c9753c66 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6177 ;
+    :hasSample :SampleType_54743f94-56c9-43fe-b332-a051c1ff710d_1.0 ;
+    :hourAfterInoculation "44" .
+
+:M_66e92b70-a9d4-465a-b279-e275facffa61 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6191 ;
+    :hasSample :SampleType_7cb9ed36-c223-46bc-85b1-121e204152a9_0 ;
+    :hourAfterInoculation "336" .
+
+:M_6ac33487-dfd3-4758-9e00-3de93a34f3d9 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6105 ;
+    :hasSample :SampleType_371d184b-e84c-4d58-a4b8-baed35472d8d_1 ;
+    :hourAfterInoculation "264" .
+
+:M_6c5be69e-6cd3-4555-a74b-3aaf0c890793 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6178 ;
+    :hasSample :SampleType_a7898219-3af6-4ad5-b689-80089312842c_1 ;
+    :hourAfterInoculation "168" .
+
+:M_6c5eaa86-ad63-4931-8443-772c52fe0886 a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6177 ;
+    :hasSample :SampleType_a3003374-f110-4eaf-9afd-024c1182d09a_0 ;
+    :hourAfterInoculation "28" .
+
+:M_6cb5e37c-42bd-412d-b3fe-c6355a1f0b87 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6171 ;
+    :hasSample :SampleType_fca4c4fa-ac4e-4aeb-ae09-34fd512c1da9_0 ;
+    :hourAfterInoculation "144" .
+
+:M_6cfa6ad7-c0d1-41df-b9f6-5ace5752565c a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6101 ;
+    :hasSample :SampleType_6e2f803d-0091-4534-b8ff-b518385a3117_0 ;
+    :hourAfterInoculation "28" .
+
+:M_6d6f9f3d-950e-4c6a-b151-fa187b2bf31e a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6174 ;
+    :hasSample :SampleType_a3384daa-def2-4325-9cce-0b4a0f89698e_1 ;
+    :hourAfterInoculation "264" .
+
+:M_6da65fbd-4e43-476e-a188-bbdc34c68cbf a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6104 ;
+    :hasSample :SampleType_9c0dfb92-ea48-4ae6-993d-ff5cc722e4f1_0 ;
+    :hourAfterInoculation "120" .
+
+:M_6db9c2d5-c7bf-4027-9bd7-8cffb97e4f62 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6190 ;
+    :hasSample :SampleType_345b474e-70ee-4940-82f8-4425d3275f61_0 ;
+    :hourAfterInoculation "0" .
+
+:M_6de08d68-8a33-480f-b65b-51857d5d306d a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6177 ;
+    :hasSample :SampleType_a60e882c-6601-4dc7-b4bc-4829c20ecaa5_0 ;
+    :hourAfterInoculation "168" .
+
+:M_6e77d45a-e4f0-47a2-beb2-a61ca4419b53 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6191 ;
+    :hasSample :SampleType_44915691-5e9f-4ff7-95ab-bd89074c1157_0 ;
+    :hourAfterInoculation "144" .
+
+:M_7153392a-47ff-4851-a332-5931ba6f4fa5 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6108 ;
+    :hasSample :SampleType_5cd0a13d-34da-47f5-82f0-44af3e1470e4_1.0 ;
+    :hourAfterInoculation "216" .
+
+:M_7196b694-7df7-4f52-a656-9d310115dcc6 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6169 ;
+    :hasSample :SampleType_958b7999-9658-42e8-9473-d550d4522352_0 ;
+    :hourAfterInoculation "336" .
+
+:M_71e03167-e78a-45fc-8880-6a8e0e0d437a a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6189 ;
+    :hasSample :SampleType_bba9e173-5313-4bcf-9ed5-37e2e0dd7ffa_0 ;
+    :hourAfterInoculation "168" .
+
+:M_72e00de4-5272-4123-8ee4-9d10e0fa3ea2 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6186 ;
+    :hasSample :SampleType_537ee831-68c1-4de3-8e44-650563102806_0 ;
+    :hourAfterInoculation "72" .
+
+:M_737dc08f-6363-43ee-9b63-ebb3776eb95a a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6177 ;
+    :hasSample :SampleType_90f7ec35-3563-4b4b-923d-abae05c2a61f_1 ;
+    :hourAfterInoculation "264" .
+
+:M_74730039-b5b8-4fdd-89ca-24cdfe76229b a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6102 ;
+    :hasSample :SampleType_680e7d71-5ae6-4905-b071-93a78d8b4ef9_0 ;
+    :hourAfterInoculation "168" .
+
+:M_78c88dcb-b798-4ff3-8a58-40e69065d1b0 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6103 ;
+    :hasSample :SampleType_f296b87a-44de-47f3-8d5f-9f884feebd00_0 ;
+    :hourAfterInoculation "0" .
+
+:M_7bd76d6a-8809-4d08-a6c2-f1c2b1f181ad a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6107 ;
+    :hasSample :SampleType_160ad429-51e1-4f68-b469-f2774e2cae73_0 ;
+    :hourAfterInoculation "72" .
+
+:M_7f4a90b0-e77c-479c-af15-37da561d9b48 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6169 ;
+    :hasSample :SampleType_2cc0f978-80bd-4f33-bb5a-9d1bff14ad28_0 ;
+    :hourAfterInoculation "144" .
+
+:M_809fb190-3fd1-4b63-bf71-44bf93c667d2 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6178 ;
+    :hasSample :SampleType_6ee749da-4e18-4b79-88e3-0d6a86c2f3d4_0 ;
+    :hourAfterInoculation "120" .
+
+:M_80bbbf10-2402-462b-8f5c-7e6d29c81108 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6107 ;
+    :hasSample :SampleType_4112a3db-f03e-4a81-93b3-a6c307118f5b_0 ;
+    :hourAfterInoculation "192" .
+
+:M_82f00179-0a0d-4287-81ed-f304ab05a279 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6177 ;
+    :hasSample :SampleType_69edba4b-984f-4d83-9a90-9b9d2bc07942_1 ;
+    :hourAfterInoculation "0" .
+
+:M_8352094c-3e9c-4db0-b6e7-07f761e40496 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6186 ;
+    :hasSample :SampleType_1bab8d42-d5c7-4e73-a88d-bbfc39db6693_0 ;
+    :hourAfterInoculation "144" .
+
+:M_850c4cfa-a38c-403c-b9e8-ab00bb6d76be a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6178 ;
+    :hasSample :SampleType_70711c96-fe4e-4240-ba8a-b2954094ebb1_0 ;
+    :hourAfterInoculation "144" .
+
+:M_858753b5-bfc3-4146-8bea-b59d504ecef2 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6177 ;
+    :hasSample :SampleType_1c859766-df70-49ce-8192-58bc5bca7d65_1.0 ;
+    :hourAfterInoculation "216" .
+
+:M_85f7820f-91d7-4bde-ab4b-b3b544b5c409 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6177 ;
+    :hasSample :SampleType_97de5c72-7658-4590-ae63-b18956ed71be_1 ;
+    :hourAfterInoculation "96" .
+
+:M_86ee900c-8649-40f0-9f6e-b21b681ad44b a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6174 ;
+    :hasSample :SampleType_c308363f-674f-445d-b56c-2465d2ff0ea2_0 ;
+    :hourAfterInoculation "0" .
+
+:M_873b6a93-9818-4b0b-9584-e1ab5825f322 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6191 ;
+    :hasSample :SampleType_9ccec411-1fe4-49be-a3b0-80cc129018c4_0 ;
+    :hourAfterInoculation "72" .
+
+:M_877f3ad5-99f3-4817-a504-36a76fc33dac a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6189 ;
+    :hasSample :SampleType_381c7f00-fe4f-436d-a061-6003a3eb0b69_0 ;
+    :hourAfterInoculation "336" .
+
+:M_893bd64a-f08b-4e75-bb99-6fb6a805d8a0 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6175 ;
+    :hasSample :SampleType_8690438d-3585-4092-aea9-0f1f0f1b9031_0 ;
+    :hourAfterInoculation "384" .
+
+:M_8ec0cec1-d865-4f62-a263-173c18154c0b a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6171 ;
+    :hasSample :SampleType_5210f7ab-20b5-4208-af18-159f029cb747_0 ;
+    :hourAfterInoculation "0" .
+
+:M_8ee1faf9-7a2b-447e-a8b4-fc31d48bea7b a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6105 ;
+    :hasSample :SampleType_2728a447-7820-48ed-8c45-e11cb4e2f1e8_1 ;
+    :hourAfterInoculation "96" .
+
+:M_8fb259fd-13bc-4c06-a7a7-abd03fff2a20 a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6169 ;
+    :hasSample :SampleType_f9fd2235-6e69-45fc-904f-f57373b20de0_0 ;
+    :hourAfterInoculation "28" .
+
+:M_90662b4d-b0ad-4bf2-a257-996f97328316 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6100 ;
+    :hasSample :SampleType_e3ccc0c0-31f2-4ebf-953e-e38c66f0ba9c_0 ;
+    :hourAfterInoculation "120" .
+
+:M_93f1d275-79b9-4f1b-92da-c4ffe5818acd a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6102 ;
+    :hasSample :SampleType_efa00192-6681-4fcb-863c-ea688193910f_0 ;
+    :hourAfterInoculation "96" .
+
+:M_9456b9dc-7cac-44e5-9160-c759a26f8da4 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6191 ;
+    :hasSample :SampleType_3eecceae-3c3a-4913-b9bd-061c8f7a53ad_0 ;
+    :hourAfterInoculation "264" .
+
+:M_94cbb5d7-51f8-4a26-a978-076e4dd9c02c a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6176 ;
+    :hasSample :SampleType_05dc409c-6824-4c3e-951a-94c701d638dd_0 ;
+    :hourAfterInoculation "96" .
+
+:M_94f0940c-8b79-46fb-9342-21a0ed19c5b4 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6171 ;
+    :hasSample :SampleType_b64ba4d1-05dc-46b7-8daa-15da2ef56f97_1 ;
+    :hourAfterInoculation "72" .
+
+:M_9532e2b9-b8fa-438d-b0c5-63e0e872ffcb a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6169 ;
+    :hasSample :SampleType_cbd9620c-9f89-4be9-9edc-c7dc93c25206_0 ;
+    :hourAfterInoculation "192" .
+
+:M_95b195f1-f25d-41f1-aa48-c8439d239b96 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6190 ;
+    :hasSample :SampleType_97b62565-5fdd-4cc5-b237-aa9461b5e26c_0 ;
+    :hourAfterInoculation "72" .
+
+:M_96588a14-d5ef-4d4d-8678-db97cee5aa8c a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6176 ;
+    :hasSample :SampleType_b0dd0731-ffb6-4c51-adf2-6634a2541bd7_0 ;
+    :hourAfterInoculation "0" .
+
+:M_972a4a88-acff-46b8-b1e9-92199fa7b158 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6167 ;
+    :hasSample :SampleType_7e8bb575-f204-41d3-9ead-007e4394d4c2_0 ;
+    :hourAfterInoculation "432" .
+
+:M_974fea9b-20a1-4c0a-8f9b-2661e5183bcc a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6102 ;
+    :hasSample :SampleType_05377343-299a-46a9-b527-1eecd5f9ec92_0 ;
+    :hourAfterInoculation "28" .
+
+:M_97aeb6ba-6b1d-4650-af6f-f2a05543eb23 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6171 ;
+    :hasSample :SampleType_86032908-a7ba-41e6-bcdd-e603ab7d25c0_0 ;
+    :hourAfterInoculation "264" .
+
+:M_99f990a8-82e1-40bb-bceb-799ac7cce47b a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6175 ;
+    :hasSample :SampleType_7914d25b-dcf6-4a0f-9df8-c319e865630d_0 ;
+    :hourAfterInoculation "432" .
+
+:M_9a2c90f0-3bb7-4b60-92c7-7fc721d45522 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6103 ;
+    :hasSample :SampleType_8a42e8eb-92f5-4d2a-a63b-e82c5fd31b83_0 ;
+    :hourAfterInoculation "192" .
+
+:M_9ac89bdc-0ef9-473d-b0cb-2636ff34532b a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6169 ;
+    :hasSample :SampleType_7951e05d-bf13-4b91-b858-0f4cf35a9a06_0 ;
+    :hourAfterInoculation "120" .
+
+:M_9b60fd1f-41ec-4ca9-a19d-54fa976c769a a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6178 ;
+    :hasSample :SampleType_4ce824d3-f174-44f5-9330-ca75b5985ed2_0 ;
+    :hourAfterInoculation "336" .
+
+:M_9c333def-2fb6-4f2d-8943-81b4c784c377 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6169 ;
+    :hasSample :SampleType_61c03a39-34c1-494a-b3ee-f2758d43e6ce_0 ;
+    :hourAfterInoculation "432" .
+
+:M_9d140854-fc71-414b-9f80-e12f5eea829d a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6174 ;
+    :hasSample :SampleType_996f4787-0c8c-4310-afb6-505382a1a47f_1 ;
+    :hourAfterInoculation "72" .
+
+:M_9f4987b2-18d6-483c-bd56-4925661e8528 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6171 ;
+    :hasSample :SampleType_b5b8502a-9db2-4eeb-bb9a-5d0c38d7c999_1 ;
+    :hourAfterInoculation "96" .
+
+:M_9fbec070-c8b1-4c61-b5a6-e2f709db49d1 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6174 ;
+    :hasSample :SampleType_cdfbe5a8-2ed6-4574-9662-306559e6ffbe_0 ;
+    :hourAfterInoculation "192" .
+
+:M_a3d3c8a8-8e75-412e-bc53-146c34913798 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6102 ;
+    :hasSample :SampleType_ef6f7d10-2dad-450b-84a9-698b380e942d_0 ;
+    :hourAfterInoculation "432" .
+
+:M_a44d9323-74aa-4a9b-807e-2b0ed2c94089 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6190 ;
+    :hasSample :SampleType_86cdc0a0-c999-4f2b-a4a2-8a1c6f0fcac2_1 ;
+    :hourAfterInoculation "192" .
+
+:M_a6c003c0-7191-4ebd-b477-9828d3cf3f9c a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6176 ;
+    :hasSample :SampleType_bb7c2c73-d5ae-4d76-99f8-d3201cbcc118_0 ;
+    :hourAfterInoculation "432" .
+
+:M_a70d33df-5587-4988-bf16-423cb1ee89cd a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6107 ;
+    :hasSample :SampleType_21beff96-f2fd-481b-8880-5ed6312d99cf_0 ;
+    :hourAfterInoculation "168" .
+
+:M_a8eb3441-91f8-4fa3-b5ad-3622128bfe2f a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6190 ;
+    :hasSample :SampleType_beb7a57c-81a1-4ee3-9eb2-846fa939fcb9_1 ;
+    :hourAfterInoculation "120" .
+
+:M_aaa996c9-23f2-4a1a-ab17-b30d37595d59 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6108 ;
+    :hasSample :SampleType_fc30d9a9-8e63-43af-a104-a1036fdadd6f_0 ;
+    :hourAfterInoculation "336" .
+
+:M_ab5811e9-db49-4652-84e7-80f7c98684eb a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6104 ;
+    :hasSample :SampleType_aba56c91-ec3c-4b86-bdff-863e9ee2f697_0 ;
+    :hourAfterInoculation "0" .
+
+:M_ac59a528-52ca-45fd-802c-1eb5f4a11f3f a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6189 ;
+    :hasSample :SampleType_a23e2a69-e460-4eb6-895c-ea8cb4d62260_0 ;
+    :hourAfterInoculation "192" .
+
+:M_ad4ee1dc-556e-40db-9bc6-bfbacef8dc09 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6102 ;
+    :hasSample :SampleType_aadc9b27-17ae-405b-a3b2-30968952b3e3_0 ;
+    :hourAfterInoculation "384" .
+
+:M_ad9caee7-b56f-48b5-bf60-0f8fcf6b5aef a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6100 ;
+    :hasSample :SampleType_51294d72-0824-4a0d-af1c-f2bc39c22a21_0 ;
+    :hourAfterInoculation "264" .
+
+:M_adac3e33-284b-40d6-8ca8-186467546574 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6100 ;
+    :hasSample :SampleType_c5bae599-8eaa-4cef-b3ce-7821e3710cbd_0 ;
+    :hourAfterInoculation "0" .
+
+:M_afd7f137-8aad-4d7c-9708-a77162d725e0 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6186 ;
+    :hasSample :SampleType_9ee9b72e-b968-48f5-8d7c-695ca6c8a48d_0 ;
+    :hourAfterInoculation "432" .
+
+:M_b0765c62-0864-4c24-b22c-8acbcbc838db a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6177 ;
+    :hasSample :SampleType_65068ad7-b91b-4f7b-b49a-cd6d0f907175_0 ;
+    :hourAfterInoculation "384" .
+
+:M_b12685c0-48b3-408c-b17c-d8e94212e628 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6108 ;
+    :hasSample :SampleType_731796bb-3337-4464-8ee2-3ad0015f406d_1 ;
+    :hourAfterInoculation "168" .
+
+:M_b1cfd478-9db4-4f7b-8506-8a15d1167859 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6171 ;
+    :hasSample :SampleType_6e00d355-498c-4eee-84f6-24d7e02dfa6d_0 ;
+    :hourAfterInoculation "336" .
+
+:M_b40328c7-ed8b-40e6-97f6-dfe5a5376328 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6169 ;
+    :hasSample :SampleType_92c5f2d9-a52b-4330-a846-6ef393bbf987_0 ;
+    :hourAfterInoculation "168" .
+
+:M_b4b70b08-5174-4514-af20-f8a2ad26e5ef a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6101 ;
+    :hasSample :SampleType_ce3edf1c-fb5a-4d6c-ac72-91b171066c97_0 ;
+    :hourAfterInoculation "0" .
+
+:M_b4f27422-1093-44b1-a27e-5ab62559244a a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6189 ;
+    :hasSample :SampleType_8a989cfa-bd8c-4be8-9299-fad6b81784eb_1 ;
+    :hourAfterInoculation "72" .
+
+:M_b53ac1d2-259a-45f6-afa9-e2fd08ac00fe a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6108 ;
+    :hasSample :SampleType_87fbce08-7cdc-4e07-95e8-eac5f3610a29_1 ;
+    :hourAfterInoculation "120" .
+
+:M_b7b4b46f-72c8-4e1c-88b2-7d9643c8e55c a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6108 ;
+    :hasSample :SampleType_c9711d0a-5e9a-4e02-85a9-514af0a3a1be_0 ;
+    :hourAfterInoculation "28" .
+
+:M_b971e50d-6881-47c7-b5c8-476f3e8a5efb a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6189 ;
+    :hasSample :SampleType_48cf265f-96be-44e2-976c-ba5f60382d39_0 ;
+    :hourAfterInoculation "120" .
+
+:M_ba2d39b6-75c9-405e-ad6a-2f275a26a067 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6101 ;
+    :hasSample :SampleType_6a7129c8-111c-4af7-aa8c-75a7883bf19a_1 ;
+    :hourAfterInoculation "264" .
+
+:M_ba427461-8f07-4623-97ab-dc8d4841d39e a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6107 ;
+    :hasSample :SampleType_57916f86-9acf-4823-8cd5-78bdf9c841fb_ ;
+    :hourAfterInoculation "44" .
+
+:M_bb9fa851-a18f-4551-aa30-823f26d5281f a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6177 ;
+    :hasSample :SampleType_c59237b0-fd57-4543-94b7-2dbd80c75f6d_0 ;
+    :hourAfterInoculation "432" .
+
+:M_bc4f2eb1-0a06-4e20-92c9-26081339cd2c a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6177 ;
+    :hasSample :SampleType_a4a47344-8a95-4507-ad18-7aed5320c093_1 ;
+    :hourAfterInoculation "144" .
+
+:M_bf934d90-3fc3-4554-a186-5035b6b85a7b a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6176 ;
+    :hasSample :SampleType_6163bf40-99ec-4e2c-8f18-95fe96d4ff51_0 ;
+    :hourAfterInoculation "336" .
+
+:M_c02f8d4e-e4f9-4128-b353-37129bc4c298 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6105 ;
+    :hasSample :SampleType_6fed8562-3187-440c-a293-bfe9421caa64_0 ;
+    :hourAfterInoculation "168" .
+
+:M_c106b4fc-0a32-4a5d-9114-3a32d343ec5f a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6174 ;
+    :hasSample :SampleType_e7b647a0-a0cb-45d0-962d-d6abfd0cd864_0 ;
+    :hourAfterInoculation "336" .
+
+:M_c12f339e-9f88-48c2-83da-bbf7b2d17801 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6104 ;
+    :hasSample :SampleType_84587f6f-2d2c-4046-ab22-6f24e0600dca_0 ;
+    :hourAfterInoculation "432" .
+
+:M_c3e46126-01ff-4ccf-84a7-01560c0ed599 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6102 ;
+    :hasSample :SampleType_fa8d004f-f010-41fc-89a7-8db0bff007aa_0 ;
+    :hourAfterInoculation "144" .
+
+:M_c4d05ee8-81c9-4b84-b369-d1600fc4626d a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6108 ;
+    :hasSample :SampleType_71f3bf1f-7410-4ac8-ab11-0970d3246e5e_0 ;
+    :hourAfterInoculation "0" .
+
+:M_c661d527-1b61-451b-9fb4-ddbe55bc611c a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6103 ;
+    :hasSample :SampleType_c37d31c0-1e52-48bd-8aa0-c02d78825a2b_0 ;
+    :hourAfterInoculation "144" .
+
+:M_c77b3222-9883-4ffe-acbb-04cac6664621 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6103 ;
+    :hasSample :SampleType_fc524b3e-fd6e-4cdf-bf1f-c143257358e4_0 ;
+    :hourAfterInoculation "264" .
+
+:M_c7cd5060-d213-46d2-8e91-a7380393f5e3 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6105 ;
+    :hasSample :SampleType_6a767480-edd2-432d-9532-c1c56950cb90_1 ;
+    :hourAfterInoculation "72" .
+
+:M_c8fc2011-4d5f-4242-98c8-281e592bc68d a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6174 ;
+    :hasSample :SampleType_2b1d805e-3db5-41d7-86f1-91e41a9e71e2_1 ;
+    :hourAfterInoculation "432" .
+
+:M_c92e6eef-4c7d-4008-86b5-e060fb3c61db a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6105 ;
+    :hasSample :SampleType_57e8c62c-9a94-43bf-8f59-05a172bc0903_1 ;
+    :hourAfterInoculation "144" .
+
+:M_c9646615-ed47-47f8-b2d1-71bd14dbdfa9 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6108 ;
+    :hasSample :SampleType_77afb899-ac45-4464-b957-0229531ca17f_0 ;
+    :hourAfterInoculation "144" .
+
+:M_ccc07637-ad93-4009-9578-fc069d2ef756 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6175 ;
+    :hasSample :SampleType_f894ef88-c138-4bdf-922c-df505e2f5039_0 ;
+    :hourAfterInoculation "144" .
+
+:M_ccc1291a-1fdd-474a-ac1f-e62f08b26c31 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6169 ;
+    :hasSample :SampleType_27c21708-83f2-42e1-9a12-322d3a438af2_0 ;
+    :hourAfterInoculation "0" .
+
+:M_cd94dca4-94b0-4494-a396-c38c41580cbd a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6104 ;
+    :hasSample :SampleType_2c31ad90-9185-4567-b1e8-1c61680def6e_0 ;
+    :hourAfterInoculation "264" .
+
+:M_ce015a6b-12f8-4ba9-b2dc-d59977b7c286 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6191 ;
+    :hasSample :SampleType_cef327d1-70fc-40f3-a4a6-38cd7ad74510_0 ;
+    :hourAfterInoculation "384" .
+
+:M_ce2cd07c-4df0-406f-8dbb-7eef048dff15 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6169 ;
+    :hasSample :SampleType_232f8d9c-4ffb-4688-b75f-84bd52eba163_0 ;
+    :hourAfterInoculation "72" .
+
+:M_ce5cbff8-2f25-48bf-8eef-de40c42c8168 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6190 ;
+    :hasSample :SampleType_13fb1526-7b82-472e-802b-9b47fc8203d9_1 ;
+    :hourAfterInoculation "384" .
+
+:M_cecafec4-547e-4096-850f-94eb19b36a9d a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6174 ;
+    :hasSample :SampleType_b3a53fb0-f594-4b70-8474-3f2484b273f0_0 ;
+    :hourAfterInoculation "168" .
+
+:M_d04e3acf-35b1-4ca6-8d60-c8de782318ef a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6107 ;
+    :hasSample :SampleType_0d77834a-fbfd-45d2-b854-47dd66efce6d_0 ;
+    :hourAfterInoculation "384" .
+
+:M_d0c5ccb8-6230-4eef-8d82-589b2690436d a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6174 ;
+    :hasSample :SampleType_ab356975-e996-4b5a-aaba-0493928e8bb7_1.0 ;
+    :hourAfterInoculation "44" .
+
+:M_d324230d-d8b4-4333-99e6-a109fec65c97 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6105 ;
+    :hasSample :SampleType_d556cc1f-cf48-41f7-82ba-841deaf3551a_0 ;
+    :hourAfterInoculation "336" .
+
+:M_d3304274-0123-400d-8bf2-85df931ac28e a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6171 ;
+    :hasSample :SampleType_7719e1b0-7ade-450b-99e8-b5c69476c32f_0 ;
+    :hourAfterInoculation "168" .
+
+:M_d3bc6ed6-3dc5-40e7-92b5-acaac01edbff a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6101 ;
+    :hasSample :SampleType_4d7c6f53-c99a-414c-9897-a56e3a2d6373_1 ;
+    :hourAfterInoculation "120" .
+
+:M_d5872df6-66d4-4b29-ab62-d36e6f6f70ce a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6108 ;
+    :hasSample :SampleType_8eedd22b-62ad-4134-8c05-c10797ef2342_1.0 ;
+    :hourAfterInoculation "44" .
+
+:M_d699c6ef-2d5e-44fe-a794-ff266fac4f44 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6175 ;
+    :hasSample :SampleType_07c1ae0b-9492-45fc-bdbe-7584dd51106b_0 ;
+    :hourAfterInoculation "96" .
+
+:M_d86e7655-3459-4d28-9044-32af91bdd05e a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6186 ;
+    :hasSample :SampleType_d72049c8-1959-47b7-afc1-822b1d800d43_0 ;
+    :hourAfterInoculation "192" .
+
+:M_d9630f85-fb4a-43d4-80b8-ee0aafedf3ab a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6174 ;
+    :hasSample :SampleType_09d994ac-bf5a-4210-9762-ef5451571a16_1 ;
+    :hourAfterInoculation "144" .
+
+:M_da179a11-8993-4755-bbfc-720de52657e5 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6105 ;
+    :hasSample :SampleType_0494590a-620e-4551-9425-a2732bf97293_1 ;
+    :hourAfterInoculation "384" .
+
+:M_da6836f8-5914-4525-8a8e-1d59c65d7b8a a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6186 ;
+    :hasSample :SampleType_74c14c68-fd64-4f6d-8c56-3dfb65f1d293_0 ;
+    :hourAfterInoculation "384" .
+
+:M_dbc11458-0337-46e4-a94a-d0da3dba4eab a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6103 ;
+    :hasSample :SampleType_25445e17-7d9e-4db0-9525-61536ba1ac02_0 ;
+    :hourAfterInoculation "96" .
+
+:M_dbce118a-d709-461e-9afa-05c7c53745c7 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6171 ;
+    :hasSample :SampleType_4d20f014-53fb-43e4-a5b4-57ee2b2dad4a_0 ;
+    :hourAfterInoculation "432" .
+
+:M_dc4b3ea7-0de0-4e1e-9499-668911386125 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6191 ;
+    :hasSample :SampleType_b5ddf283-5201-4205-83b9-e0bebcc20a99_0 ;
+    :hourAfterInoculation "168" .
+
+:M_ddb18be9-6479-4bfd-873a-405265731644 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6190 ;
+    :hasSample :SampleType_4daf7942-0b86-454c-b840-e44eca71f0ce_0 ;
+    :hourAfterInoculation "336" .
+
+:M_df72b64b-1221-4722-ab92-3b907b72a0ee a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6186 ;
+    :hasSample :SampleType_75fff637-c904-45eb-b475-34fc12d879cb_0 ;
+    :hourAfterInoculation "336" .
+
+:M_e0e79da1-f2bb-4b1e-b669-741f60aff80a a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6100 ;
+    :hasSample :SampleType_247ff7c1-a3fe-4cfc-9d86-aef6060f0644_0 ;
+    :hourAfterInoculation "144" .
+
+:M_e38b41bf-8e48-4603-8584-5165cbd42de7 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6174 ;
+    :hasSample :SampleType_760bd374-4d3d-4f2b-9f14-3547c9445560_1 ;
+    :hourAfterInoculation "384" .
+
+:M_e3b53219-b337-48ac-98a2-563f56707496 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6105 ;
+    :hasSample :SampleType_f66a61a6-f370-4d74-a0d4-1752f1aefec6_0 ;
+    :hourAfterInoculation "432" .
+
+:M_e4e89fea-3555-4bc6-874b-c3556e929c67 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6175 ;
+    :hasSample :SampleType_21951c8a-b256-49f2-a336-178f33a433f5_0 ;
+    :hourAfterInoculation "120" .
+
+:M_e6bec741-8263-4185-8b7a-8e51eea0dc66 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6102 ;
+    :hasSample :SampleType_8cc73013-a1c0-45d4-95dd-5a78e02f2d96_0 ;
+    :hourAfterInoculation "0" .
+
+:M_e6bfb685-b87e-4506-a2cb-dc640dc82f74 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6177 ;
+    :hasSample :SampleType_392516c6-9fb1-45b5-9663-51f537ac1431_1 ;
+    :hourAfterInoculation "192" .
+
+:M_eb18ca94-eee1-44ed-8efd-36832e61d3cc a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6169 ;
+    :hasSample :SampleType_6b00f865-f3a6-4c34-9cd3-1e3f3352ab08_0 ;
+    :hourAfterInoculation "96" .
+
+:M_ec9cdd85-cd33-4234-82e6-115c6aaffe6b a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6108 ;
+    :hasSample :SampleType_18d23661-f510-4b88-8be7-1ea72ffbb1fa_1 ;
+    :hourAfterInoculation "72" .
+
+:M_ed61ac66-1a2c-4a74-945f-403c3d18fbab a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6177 ;
+    :hasSample :SampleType_692eeeb6-ea4f-4c13-ba1c-543ab96a770c_0 ;
+    :hourAfterInoculation "336" .
+
+:M_edb84b88-7bb5-403f-b91c-cc133baf9912 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6107 ;
+    :hasSample :SampleType_e3bb5f60-596a-469f-8488-72d71e1ed66d_0 ;
+    :hourAfterInoculation "144" .
+
+:M_edcfb930-b080-47c3-92b9-972ce319f5fc a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6100 ;
+    :hasSample :SampleType_d8240a1e-76ed-460e-b06c-f24d605431cf_0 ;
+    :hourAfterInoculation "28" .
+
+:M_ee3bc3fd-e6e8-4323-8397-ee5bbae151c2 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6191 ;
+    :hasSample :SampleType_6dfc0fce-05b5-4f1a-90b3-563725eba9e1_0 ;
+    :hourAfterInoculation "192" .
+
+:M_eed66713-42ab-4f65-8b07-74c11fb840cb a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6100 ;
+    :hasSample :SampleType_3db53a8e-0882-4be1-8811-1ee4acea3151_0 ;
+    :hourAfterInoculation "96" .
+
+:M_efb8c433-fa0c-4783-83ed-46ec44e20319 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6174 ;
+    :hasSample :SampleType_75c50a26-89eb-42c8-b1cc-39ce14ae58ef_1 ;
+    :hourAfterInoculation "120" .
+
+:M_f0fbaa1f-0f7c-4320-8465-35f66a0bd6d0 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6190 ;
+    :hasSample :SampleType_f7a093ae-df70-4481-a5dd-14ddd9e410c4_1 ;
+    :hourAfterInoculation "96" .
+
+:M_f10aa5ac-5506-4fae-993b-71146550d7fc a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6171 ;
+    :hasSample :SampleType_ee2ce5da-df4c-4907-9b4d-64b99d96c9fd_0 ;
+    :hourAfterInoculation "28" .
+
+:M_f1e351e0-3df5-4f0f-a6d7-883c19061aff a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6190 ;
+    :hasSample :SampleType_bcce24dd-2a19-468b-a710-3b02cbf0928c_0 ;
+    :hourAfterInoculation "432" .
+
+:M_f3938ac1-63ce-4001-b176-8fd251cf137d a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6103 ;
+    :hasSample :SampleType_041d311b-f446-4c4d-bf05-4260440aee67_0 ;
+    :hourAfterInoculation "384" .
+
+:M_f4d1abe3-145e-45c4-811c-ccb960ff320d a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6167 ;
+    :hasSample :SampleType_3c0ecd24-57b4-453c-a0cb-424210e45ca2_0 ;
+    :hourAfterInoculation "144" .
+
+:M_f4f593a6-2b63-498f-9d08-71b143639be5 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6186 ;
+    :hasSample :SampleType_e4cbc00a-6f08-4517-8c50-778fb1bad2fe_0 ;
+    :hourAfterInoculation "120" .
+
+:M_f5c88dfc-de39-4ad3-a584-f181a4aa4648 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6100 ;
+    :hasSample :SampleType_7e12e681-b559-46ea-9dc7-357d9069dfd9_0 ;
+    :hourAfterInoculation "336" .
+
+:M_f6c69013-0c76-48a7-8f62-e0d19c0bd502 a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6190 ;
+    :hasSample :SampleType_326bd507-9678-4a31-b037-bb2718361691_1 ;
+    :hourAfterInoculation "28" .
+
+:M_f7f5d9be-7267-4e1f-805e-acad14030f40 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6174 ;
+    :hasSample :SampleType_471d1500-b4e6-4e8f-8be9-16d227167b9d_1.0 ;
+    :hourAfterInoculation "216" .
+
+:M_f8b1b5ac-cf02-4966-a732-c9b15746e408 a :Measurement ;
+    :experimentHour "16" ;
+    :hasHost :Host_6186 ;
+    :hasSample :SampleType_c031cd23-e79c-4a27-91bb-f3497b687d4e_0 ;
+    :hourAfterInoculation "28" .
+
+:M_f8b4c201-bbfc-4873-94e4-1fe046223aa4 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6175 ;
+    :hasSample :SampleType_e296b64e-fdcc-4baf-b87f-a0834b796cfb_ ;
+    :hourAfterInoculation "44" .
+
+:M_f960a46b-ff17-4c3c-ac14-bd369ba04bda a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6103 ;
+    :hasSample :SampleType_170b1a49-3dc2-453d-9351-6e37080d2aea_0 ;
+    :hourAfterInoculation "72" .
+
+:M_f992ec82-d220-4b9e-8a8e-561d49a0a863 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6167 ;
+    :hasSample :SampleType_6aa77365-1ba8-4b83-9468-c476f72e2844_0 ;
+    :hourAfterInoculation "96" .
+
+:M_fad72fb6-2de7-4d16-8c86-43e46b7470b5 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6176 ;
+    :hasSample :SampleType_0032cc44-a7fb-4df9-86c7-9348d98c6912_0 ;
+    :hourAfterInoculation "264" .
+
+:M_fb4dab85-4d9f-4b71-b2a3-533a9b6bf11c a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6174 ;
+    :hasSample :SampleType_5026960b-fec7-4dbf-84ec-e3136c285673_0 ;
+    :hourAfterInoculation "96" .
+
+:M_fb711d23-9716-45ac-9018-1f46628dab3c a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6178 ;
+    :hasSample :SampleType_5c978d98-1070-4439-b249-70ddd4fd3e87_0 ;
+    :hourAfterInoculation "72" .
+
+:M_fc6b6b0a-e265-40ac-9e14-8c36085b8dbd a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6100 ;
+    :hasSample :SampleType_c4e465dc-a836-4c88-9e1c-964b92fda6a4_0 ;
+    :hourAfterInoculation "72" .
+
+:M_fce00f28-cf68-4ee7-b719-bf260d3b0671 a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6167 ;
+    :hasSample :SampleType_ac38fce5-0d7e-47cb-b10e-492414733fbf_0 ;
+    :hourAfterInoculation "0" .
+
+:M_fe282c80-c2a0-4f68-b673-c7e17c60328c a :Measurement ;
+    :experimentHour "12" ;
+    :hasHost :Host_6175 ;
+    :hasSample :SampleType_4384006f-a213-4360-94b9-91cf91f96403_0 ;
+    :hourAfterInoculation "0" .
+
+:SampleType_0032cc44-a7fb-4df9-86c7-9348d98c6912_0 a :Sample ;
+    :hasPathogen :E.Coli_0c3ba2ed-bf36-423c-a8ec-afed4b4aebba ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_003a298f-de9c-4260-95f8-b0c58236848e_0 a :Sample ;
+    :hasPathogen :E.Coli_ee072dd8-44dd-4de1-8c9c-a4c7b056cf28 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_00cd67f9-9715-486f-825d-f2e203567724_1 a :Sample ;
+    :hasPathogen :E.Coli_d50f6a93-f5e7-43f1-8c1d-0aed0df82846 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_041d311b-f446-4c4d-bf05-4260440aee67_0 a :Sample ;
+    :hasPathogen :E.Coli_b064c1e6-9c8a-4bc8-8288-1c66aac4f3c9 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_0494590a-620e-4551-9425-a2732bf97293_1 a :Sample ;
+    :hasPathogen :E.Coli_1af044cb-5cd3-4444-a10e-72b3def31ae3 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_04cfccbf-53a9-48b3-8f82-2e22bfefe7ce_0 a :Sample ;
+    :hasPathogen :E.Coli_1f257c55-e0b4-4139-88c6-6c55394dd19f ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_05377343-299a-46a9-b527-1eecd5f9ec92_0 a :Sample ;
+    :hasPathogen :E.Coli_f7c3ab41-8b6c-4447-9d75-d5cb0b598db6 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_055527ea-88b6-4311-bbd1-d849d685feee_1 a :Sample ;
+    :hasPathogen :E.Coli_b81fa87d-d0db-4cf6-8a0b-f547e1ed9299 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_05dc409c-6824-4c3e-951a-94c701d638dd_0 a :Sample ;
+    :hasPathogen :E.Coli_2bbe6ccb-fac4-44b4-ba04-6b436e8a4500 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_07c1ae0b-9492-45fc-bdbe-7584dd51106b_0 a :Sample ;
+    :hasPathogen :E.Coli_719d34ad-82bf-45cd-b5ea-f6fcc373441d ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_08557396-e9ea-43e0-8d83-564c25057b19_0 a :Sample ;
+    :hasPathogen :E.Coli_f7c668c9-f0f6-4228-a2fc-90e9596a6489 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_085a9214-780b-4008-8185-c208765d55b2_0 a :Sample ;
+    :hasPathogen :E.Coli_cdeef963-e25e-47f4-ba57-3fac619ed0a5 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_09d994ac-bf5a-4210-9762-ef5451571a16_1 a :Sample ;
+    :hasPathogen :E.Coli_c4b4dd41-e554-4e95-89fd-a3abdcdfcb8f ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_0d77834a-fbfd-45d2-b854-47dd66efce6d_0 a :Sample ;
+    :hasPathogen :E.Coli_d3125353-d9a7-4f76-bd90-c6b78bb2165f ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_13fb1526-7b82-472e-802b-9b47fc8203d9_1 a :Sample ;
+    :hasPathogen :E.Coli_cff06601-d7e8-4f87-89e4-4a5d26e9a9b5 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_160ad429-51e1-4f68-b469-f2774e2cae73_0 a :Sample ;
+    :hasPathogen :E.Coli_087aedd4-f3fb-42a7-9d9c-6d8b1a3f791a ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_170b1a49-3dc2-453d-9351-6e37080d2aea_0 a :Sample ;
+    :hasPathogen :E.Coli_67a455f9-0678-4d34-b2c8-4b03897ceb2b ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_171e8c90-fe5f-40d4-a193-896907662d29_0 a :Sample ;
+    :hasPathogen :E.Coli_a51f66bf-a36f-429f-8f73-0381c2ad4725 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_1792388e-a48e-4a9d-b476-27890b3e89e0_0 a :Sample ;
+    :hasPathogen :E.Coli_e716110e-f7cb-4883-8c9d-8c9b0bd3d6be ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_181f8f30-f431-44f1-9767-ebbbbb3406d7_1 a :Sample ;
+    :hasPathogen :E.Coli_dabb72f6-9a77-463c-a1fe-d9266576398f ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_18d23661-f510-4b88-8be7-1ea72ffbb1fa_1 a :Sample ;
+    :hasPathogen :E.Coli_bde1082f-018e-4b25-90d5-78111a3237c5 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_19b5a3c7-4f6d-42a3-96bf-e3a93c8f12dc_ a :Sample ;
+    :hasPathogen :E.Coli_e6fce019-ff8d-46b9-bc6a-3b81d5b9c316 ;
+    :hasType :Swab ;
+    :result "" .
+
+:SampleType_1bab8d42-d5c7-4e73-a88d-bbfc39db6693_0 a :Sample ;
+    :hasPathogen :E.Coli_00c3e0d2-dc1d-4f66-ae03-cc5f6f1ea570 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_1c859766-df70-49ce-8192-58bc5bca7d65_1.0 a :Sample ;
+    :hasPathogen :E.Coli_9cca5fcc-eb67-4a7b-bf19-dd9ea8ff4870 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_1cb7d6d5-5780-4dc8-afab-b11635b1681b_0 a :Sample ;
+    :hasPathogen :E.Coli_2a4449a7-a967-4728-a699-b8e2b9223061 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_1f7c7af2-a2a3-43a4-a810-ba59d3f171c1_0 a :Sample ;
+    :hasPathogen :E.Coli_d7ea797c-5a0c-45f1-a405-1d7620b61395 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_1fd03094-8a40-4e02-be73-b486280c76f3_0 a :Sample ;
+    :hasPathogen :E.Coli_22ff122e-c5c1-477b-a7fa-7b88fd25e4d0 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_21951c8a-b256-49f2-a336-178f33a433f5_0 a :Sample ;
+    :hasPathogen :E.Coli_0ab63488-6bf1-4fed-bfa4-df1db24236b8 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_21beff96-f2fd-481b-8880-5ed6312d99cf_0 a :Sample ;
+    :hasPathogen :E.Coli_c5651056-53ac-4545-bd9e-96af1ff2c506 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_2212f296-63a3-46f0-9f8d-1dad59002ab8_0 a :Sample ;
+    :hasPathogen :E.Coli_cc12d0ce-8df9-435b-aa34-c2e947943476 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_2282bdf2-8a0d-4168-8479-06419a5e41cb_0 a :Sample ;
+    :hasPathogen :E.Coli_de35f4c8-7f2c-43da-b643-fa489d889b8d ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_232f8d9c-4ffb-4688-b75f-84bd52eba163_0 a :Sample ;
+    :hasPathogen :E.Coli_91c6e474-bd67-4b13-a0f5-8bdc0824b382 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_247062d2-3f99-4b66-afca-242ff21ecd6e_0 a :Sample ;
+    :hasPathogen :E.Coli_cc121a68-a59b-4ed4-891b-37f2d1c8c657 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_247ff7c1-a3fe-4cfc-9d86-aef6060f0644_0 a :Sample ;
+    :hasPathogen :E.Coli_910953fe-0082-42bb-bacc-ba417716e44f ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_25445e17-7d9e-4db0-9525-61536ba1ac02_0 a :Sample ;
+    :hasPathogen :E.Coli_30ecf9a8-4961-481f-9788-3f7e49020cc7 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_264b09b6-0884-418a-907f-9e7b5b515218_ a :Sample ;
+    :hasPathogen :E.Coli_e81025cb-8e77-4786-acf6-286673a031e7 ;
+    :hasType :Swab ;
+    :result "" .
+
+:SampleType_2728a447-7820-48ed-8c45-e11cb4e2f1e8_1 a :Sample ;
+    :hasPathogen :E.Coli_b93120ca-1277-4402-a8eb-97bc420d1935 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_278d87d6-fd88-4b81-a66b-0c2138ed3bfd_0 a :Sample ;
+    :hasPathogen :E.Coli_250dfc6a-f79d-4f42-b684-bb24752d56b3 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_27c21708-83f2-42e1-9a12-322d3a438af2_0 a :Sample ;
+    :hasPathogen :E.Coli_192845ef-61d5-453c-bed1-cbfd43e8bce4 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_291e8b14-a697-46e1-af01-0154eb70cf83_0 a :Sample ;
+    :hasPathogen :E.Coli_469bad81-3755-44eb-b877-b0ca67473c24 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_2a57a8c1-7335-44f8-8d16-ebdb09c3cc54_0 a :Sample ;
+    :hasPathogen :E.Coli_58ae777f-440b-45a5-86b7-42f247ac0c9d ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_2a57b39b-9baf-47b9-8a5c-a014ceaf64f6_0 a :Sample ;
+    :hasPathogen :E.Coli_06d73923-1b92-4472-9857-0c37728db2c2 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_2b1d805e-3db5-41d7-86f1-91e41a9e71e2_1 a :Sample ;
+    :hasPathogen :E.Coli_9b948761-f42f-492e-86e8-37d94d314bd2 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_2bad1efa-2e57-4ebf-b23c-b4ba8b8c892f_0 a :Sample ;
+    :hasPathogen :E.Coli_ec404f2a-c87e-4652-85c6-72f21dfbb1d8 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_2c31ad90-9185-4567-b1e8-1c61680def6e_0 a :Sample ;
+    :hasPathogen :E.Coli_54893dee-47d5-4119-a92a-c783340d45e4 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_2ca0ed66-e813-4ddf-956b-4766221c2670_0 a :Sample ;
+    :hasPathogen :E.Coli_7878946e-050f-4114-8b29-4e17382586af ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_2cc0f978-80bd-4f33-bb5a-9d1bff14ad28_0 a :Sample ;
+    :hasPathogen :E.Coli_8ca293d0-4184-41f9-8567-aab5f6ac914e ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_2cd286d5-74d7-4ec4-be35-0d5051fdff98_0 a :Sample ;
+    :hasPathogen :E.Coli_b0cdba0c-dee3-49f3-8262-57acdc9f167b ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_2e02d4bd-068d-409f-a9f5-2b090d934b99_0 a :Sample ;
+    :hasPathogen :E.Coli_5193e51c-82d4-4abd-a65e-1a77dab395a9 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_2f3edcde-7a5b-4700-98c4-7c04f29a04a5_0 a :Sample ;
+    :hasPathogen :E.Coli_a4da378c-b261-4111-9503-4e65a2d3ee1e ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_310d15b2-4fe0-4db7-ab10-5d159e40dd6b_1 a :Sample ;
+    :hasPathogen :E.Coli_ece85a33-9c46-4248-85dd-79e8db7080fb ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_325ca180-1dca-4d96-8c44-b6b02891d19c_0 a :Sample ;
+    :hasPathogen :E.Coli_ea370bbe-b984-4f07-b5fb-76d04ced23cd ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_326bd507-9678-4a31-b037-bb2718361691_1 a :Sample ;
+    :hasPathogen :E.Coli_18902aba-f832-40e8-8c59-720839e4eff2 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_32ea3045-3701-422b-9cc8-c2b7463d22a9_0 a :Sample ;
+    :hasPathogen :E.Coli_dae8b036-b318-4e72-895e-cd28d264b42f ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_345b474e-70ee-4940-82f8-4425d3275f61_0 a :Sample ;
+    :hasPathogen :E.Coli_8a8103bb-8b48-4bde-9fc6-be99051bb696 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_36636c43-a364-4de8-b87d-7fe4d17bb85b_ a :Sample ;
+    :hasPathogen :E.Coli_30f550a4-7adc-405d-83cf-8471169e6f39 ;
+    :hasType :Swab ;
+    :result "" .
+
+:SampleType_371d184b-e84c-4d58-a4b8-baed35472d8d_1 a :Sample ;
+    :hasPathogen :E.Coli_8c17338f-4782-4ad3-84c2-5621fcd01c66 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_373420fc-383f-4511-8f49-7606054c3d55_0 a :Sample ;
+    :hasPathogen :E.Coli_99d23043-4360-4ce3-9b76-f00a110fd6aa ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_380d487f-3cd2-4e06-8454-1568f292f581_1 a :Sample ;
+    :hasPathogen :E.Coli_7ef152de-9ffe-4298-a829-35bfa434d7ea ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_381c7f00-fe4f-436d-a061-6003a3eb0b69_0 a :Sample ;
+    :hasPathogen :E.Coli_13c2c812-556b-444b-91d2-b29b6d402218 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_392516c6-9fb1-45b5-9663-51f537ac1431_1 a :Sample ;
+    :hasPathogen :E.Coli_0dc2fae2-01ff-49da-aa63-e3314950b4be ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_3b1ce02f-e734-484c-9e9d-9e92d328c6b6_0 a :Sample ;
+    :hasPathogen :E.Coli_6892167d-992c-458f-95f5-2bc661a0faef ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_3c0ecd24-57b4-453c-a0cb-424210e45ca2_0 a :Sample ;
+    :hasPathogen :E.Coli_371215e1-39f3-4aeb-b1c4-bd19954dc754 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_3db53a8e-0882-4be1-8811-1ee4acea3151_0 a :Sample ;
+    :hasPathogen :E.Coli_303bc58d-e066-4f7f-9cc0-7d9d124e3454 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_3e4db0cb-6e5c-4865-b8c6-fb9687303041_0 a :Sample ;
+    :hasPathogen :E.Coli_5a579493-738b-497e-8f1d-8c9e4e9aea0a ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_3eecceae-3c3a-4913-b9bd-061c8f7a53ad_0 a :Sample ;
+    :hasPathogen :E.Coli_a4345526-81a2-4d26-b39f-279d4f76e3ac ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_4112a3db-f03e-4a81-93b3-a6c307118f5b_0 a :Sample ;
+    :hasPathogen :E.Coli_3f837cba-f2fa-4319-b7e8-d00c514ac232 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_4384006f-a213-4360-94b9-91cf91f96403_0 a :Sample ;
+    :hasPathogen :E.Coli_fc668343-e921-4ae0-a9be-a015e5b0a306 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_44915691-5e9f-4ff7-95ab-bd89074c1157_0 a :Sample ;
+    :hasPathogen :E.Coli_53fc33ca-5e1f-45df-8b8f-4e71c03b4686 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_44e574b8-7d02-4027-9b0e-bc9e00cfb737_0 a :Sample ;
+    :hasPathogen :E.Coli_dd4ae06d-bf4f-4347-a3eb-9f776e1dcd05 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_471d1500-b4e6-4e8f-8be9-16d227167b9d_1.0 a :Sample ;
+    :hasPathogen :E.Coli_6a49c0b5-dff6-42d2-9679-72d07fdaa786 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_48cf265f-96be-44e2-976c-ba5f60382d39_0 a :Sample ;
+    :hasPathogen :E.Coli_38bb89c8-28da-4821-bae4-73645757d59b ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_498e85b3-975d-4455-9ae2-347a063ae398_0 a :Sample ;
+    :hasPathogen :E.Coli_9fca8f52-d0ac-43ba-b507-ae1e0527890d ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_4aac4ac6-d851-42cc-8b48-09508ae551e7_0 a :Sample ;
+    :hasPathogen :E.Coli_702041a9-ba8d-4b0c-893f-b50a20127864 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_4ce824d3-f174-44f5-9330-ca75b5985ed2_0 a :Sample ;
+    :hasPathogen :E.Coli_39e07c44-9c31-4772-870b-f1bae3a5d2e2 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_4d20f014-53fb-43e4-a5b4-57ee2b2dad4a_0 a :Sample ;
+    :hasPathogen :E.Coli_56b769cd-2fbe-41b2-9c1f-b922b80a25b2 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_4d7c6f53-c99a-414c-9897-a56e3a2d6373_1 a :Sample ;
+    :hasPathogen :E.Coli_e68c1e95-451a-4e94-890e-8ac11d32d8a6 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_4daf7942-0b86-454c-b840-e44eca71f0ce_0 a :Sample ;
+    :hasPathogen :E.Coli_4266c2e8-51e9-4f96-886c-c1a1b5e90f52 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_4e0c0672-ead6-4c4c-a6f3-214fbd8f5a96_0 a :Sample ;
+    :hasPathogen :E.Coli_4b7ef3b7-c8f7-42c6-beae-3cf93e8d3fe8 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_5026960b-fec7-4dbf-84ec-e3136c285673_0 a :Sample ;
+    :hasPathogen :E.Coli_fff78957-cdc9-4ee5-b248-f5e4c8f556e3 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_5119f12b-deac-49d9-8955-a134d2d76543_0 a :Sample ;
+    :hasPathogen :E.Coli_b8b19df5-e930-4250-9053-8ede31c2d701 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_51294d72-0824-4a0d-af1c-f2bc39c22a21_0 a :Sample ;
+    :hasPathogen :E.Coli_c1c51968-1800-4ca2-993b-208eb766d142 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_5210f7ab-20b5-4208-af18-159f029cb747_0 a :Sample ;
+    :hasPathogen :E.Coli_b344dd25-cc79-4e65-bec3-8ce7241074e6 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_537ee831-68c1-4de3-8e44-650563102806_0 a :Sample ;
+    :hasPathogen :E.Coli_eae9e4c7-def3-47a3-bf9c-564ebeeb0e81 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_54743f94-56c9-43fe-b332-a051c1ff710d_1.0 a :Sample ;
+    :hasPathogen :E.Coli_9a36a446-7df8-4fb3-9105-f7a22ceb429a ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_57101109-98c6-4c23-911f-e123185a5576_1 a :Sample ;
+    :hasPathogen :E.Coli_4a244110-9b0a-4ebe-a5a5-2ae2401faf25 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_57916f86-9acf-4823-8cd5-78bdf9c841fb_ a :Sample ;
+    :hasPathogen :E.Coli_52dfd00e-f498-4f77-931a-b522eb8dc2e2 ;
+    :hasType :Swab ;
+    :result "" .
+
+:SampleType_57e8c62c-9a94-43bf-8f59-05a172bc0903_1 a :Sample ;
+    :hasPathogen :E.Coli_a6a99f72-57f0-4a8e-b6a4-83d94c5d42a9 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_587d9c57-60ac-46bd-ac60-82b93a252499_ a :Sample ;
+    :hasPathogen :E.Coli_499ae022-a00f-4276-b426-9d4a515c4a61 ;
+    :hasType :Swab ;
+    :result "" .
+
+:SampleType_5b121a84-1057-4d0e-9e47-9c73ad602064_0 a :Sample ;
+    :hasPathogen :E.Coli_aeb58e09-980a-473d-99e0-244cc3250d1b ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_5c978d98-1070-4439-b249-70ddd4fd3e87_0 a :Sample ;
+    :hasPathogen :E.Coli_b6f69f92-d238-4302-8ae4-bbab83171000 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_5cd0a13d-34da-47f5-82f0-44af3e1470e4_1.0 a :Sample ;
+    :hasPathogen :E.Coli_0055ee6c-d86d-4e79-ac16-114ab366e05c ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_5ec7f77c-83be-4a92-a354-8ef912dee188_1 a :Sample ;
+    :hasPathogen :E.Coli_c3192f61-3e48-4dea-8755-409eb637c676 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_6163bf40-99ec-4e2c-8f18-95fe96d4ff51_0 a :Sample ;
+    :hasPathogen :E.Coli_9f6cf442-9153-4fab-8923-034d690048ea ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_61c03a39-34c1-494a-b3ee-f2758d43e6ce_0 a :Sample ;
+    :hasPathogen :E.Coli_55fd3fb0-c245-45ae-a69e-6826e1291b12 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_635173c4-6d60-49cf-9aab-daf6502f13db_0 a :Sample ;
+    :hasPathogen :E.Coli_10270c8a-d07f-46b0-9116-1856e296ce46 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_65068ad7-b91b-4f7b-b49a-cd6d0f907175_0 a :Sample ;
+    :hasPathogen :E.Coli_727236d2-e31c-41b3-a587-59443f06723b ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_660780dc-154d-48bf-8cd1-977d76593d66_1 a :Sample ;
+    :hasPathogen :E.Coli_75f68176-02c2-4408-b95e-4dca866a7498 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_66be29f8-33b3-4dbf-88a9-1ef9863b372e_0 a :Sample ;
+    :hasPathogen :E.Coli_fad1c740-4822-4526-91a0-5ef2826387f5 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_67751175-ac45-42c5-968f-7b7fad70688f_0 a :Sample ;
+    :hasPathogen :E.Coli_70cc6f58-71f0-4a32-a75a-31ca7b49da77 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_67e0305a-e373-4a9f-b827-927f1dbd22a2_0 a :Sample ;
+    :hasPathogen :E.Coli_ee54045b-178c-46e3-8d85-9bc4c4a8bb9a ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_680e7d71-5ae6-4905-b071-93a78d8b4ef9_0 a :Sample ;
+    :hasPathogen :E.Coli_3310df5d-890b-4f89-97d3-421fbe1b316c ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_68d44b9b-5f7e-415f-885c-daf8d85f181f_0 a :Sample ;
+    :hasPathogen :E.Coli_2377b8b2-d4e0-40d3-a9f6-ed0e7a042c62 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_692eeeb6-ea4f-4c13-ba1c-543ab96a770c_0 a :Sample ;
+    :hasPathogen :E.Coli_f7578df7-1bfe-4b72-9c3e-941961ea72dc ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_69551353-a7e5-47f7-a487-a4a05ada772c_0 a :Sample ;
+    :hasPathogen :E.Coli_2c833391-4bba-4ea7-b54c-4edb7a9a534c ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_69edba4b-984f-4d83-9a90-9b9d2bc07942_1 a :Sample ;
+    :hasPathogen :E.Coli_1f72aa78-da71-47ab-ad86-681b916c0f43 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_6a7129c8-111c-4af7-aa8c-75a7883bf19a_1 a :Sample ;
+    :hasPathogen :E.Coli_376292ad-9bc9-4cec-b355-2f0a181a1932 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_6a767480-edd2-432d-9532-c1c56950cb90_1 a :Sample ;
+    :hasPathogen :E.Coli_bb745fd8-d550-4084-a15b-925d4f4947ac ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_6aa77365-1ba8-4b83-9468-c476f72e2844_0 a :Sample ;
+    :hasPathogen :E.Coli_e5c86a59-cf40-41c5-ad45-b29d8a3a1b5a ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_6b00f865-f3a6-4c34-9cd3-1e3f3352ab08_0 a :Sample ;
+    :hasPathogen :E.Coli_aa596957-14b0-49b2-9b1f-5c50eb443af5 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_6b644ade-8ac1-4301-9ade-aea05b75e5d8_0 a :Sample ;
+    :hasPathogen :E.Coli_a85f393a-1a21-4643-80c6-b226d727d5d1 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_6dfc0fce-05b5-4f1a-90b3-563725eba9e1_0 a :Sample ;
+    :hasPathogen :E.Coli_de2e4c97-a00b-4889-8008-0713ee0fdf76 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_6e00d355-498c-4eee-84f6-24d7e02dfa6d_0 a :Sample ;
+    :hasPathogen :E.Coli_c2c5fb77-679c-4702-8eae-4068af261267 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_6e2f803d-0091-4534-b8ff-b518385a3117_0 a :Sample ;
+    :hasPathogen :E.Coli_03cf15c1-4c5b-447a-965c-8c88c24ad46d ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_6ecd9275-fd8b-44df-a5e0-854df34e932e_0 a :Sample ;
+    :hasPathogen :E.Coli_fd678f76-f960-4bde-b637-b165f8044a38 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_6ee749da-4e18-4b79-88e3-0d6a86c2f3d4_0 a :Sample ;
+    :hasPathogen :E.Coli_4c8dc300-96a1-4261-a28d-d9b5cc62aa46 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_6fed8562-3187-440c-a293-bfe9421caa64_0 a :Sample ;
+    :hasPathogen :E.Coli_841187c8-dd74-425e-aa61-372a55fb5ad6 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_70711c96-fe4e-4240-ba8a-b2954094ebb1_0 a :Sample ;
+    :hasPathogen :E.Coli_a32fbaff-3bb3-43dc-9379-66fb1323a2b3 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_71f3bf1f-7410-4ac8-ab11-0970d3246e5e_0 a :Sample ;
+    :hasPathogen :E.Coli_b17a433b-035c-443c-91dd-31a9e62c4401 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_731796bb-3337-4464-8ee2-3ad0015f406d_1 a :Sample ;
+    :hasPathogen :E.Coli_cc8f880a-ac42-4b53-96a9-08bb8b09c0b3 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_74c14c68-fd64-4f6d-8c56-3dfb65f1d293_0 a :Sample ;
+    :hasPathogen :E.Coli_7da09737-01ca-4eee-82c9-707deee9dedc ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_75c50a26-89eb-42c8-b1cc-39ce14ae58ef_1 a :Sample ;
+    :hasPathogen :E.Coli_8828cd25-fea3-4517-b0cc-3dde9cda0cb9 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_75fff637-c904-45eb-b475-34fc12d879cb_0 a :Sample ;
+    :hasPathogen :E.Coli_87602984-224b-4268-9a92-a7dcc27791cc ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_760bd374-4d3d-4f2b-9f14-3547c9445560_1 a :Sample ;
+    :hasPathogen :E.Coli_411e66f4-c4c1-4b32-882d-cac0e4a700aa ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_76e3ae3f-cf41-4323-983f-efb5ceacf9c9_0 a :Sample ;
+    :hasPathogen :E.Coli_841c14a8-f580-48eb-912f-07303662e4cb ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_7719e1b0-7ade-450b-99e8-b5c69476c32f_0 a :Sample ;
+    :hasPathogen :E.Coli_81372516-d1fd-4c43-8ca4-26a6aa9ea965 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_77afb899-ac45-4464-b957-0229531ca17f_0 a :Sample ;
+    :hasPathogen :E.Coli_0bdbf3d7-26b2-4258-8abb-56dcdd176a13 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_787648cd-5bb3-49d5-a6ca-d3e598fdc353_0 a :Sample ;
+    :hasPathogen :E.Coli_e296faf2-5b81-4891-ac8c-b2841947c98f ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_78a21d1b-d11f-4c8b-88ad-955eb7bc5b8b_0 a :Sample ;
+    :hasPathogen :E.Coli_92ce5915-cc47-453a-8714-44db97d64b2a ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_7914d25b-dcf6-4a0f-9df8-c319e865630d_0 a :Sample ;
+    :hasPathogen :E.Coli_7c5d1284-aaa2-45eb-8563-f9cb0b97ec47 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_7951e05d-bf13-4b91-b858-0f4cf35a9a06_0 a :Sample ;
+    :hasPathogen :E.Coli_7b4e234d-f489-48fa-a33b-e9eae535dab8 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_7bba9cf5-7464-408d-8d3d-4a25fca93a27_1.0 a :Sample ;
+    :hasPathogen :E.Coli_63380846-6cd9-4ec4-afeb-257dcb7953e9 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_7cb9ed36-c223-46bc-85b1-121e204152a9_0 a :Sample ;
+    :hasPathogen :E.Coli_08ab0cee-1b2c-4046-a4d2-f3bbe993a12f ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_7db2a92b-80cf-48cc-a7ea-772164e558d2_0 a :Sample ;
+    :hasPathogen :E.Coli_bef4104b-126f-4b9b-a02e-e65b4c0463d5 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_7e12e681-b559-46ea-9dc7-357d9069dfd9_0 a :Sample ;
+    :hasPathogen :E.Coli_b949ed5d-4aa9-4b48-a52c-09de5d8fe2e6 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_7e8bb575-f204-41d3-9ead-007e4394d4c2_0 a :Sample ;
+    :hasPathogen :E.Coli_b3a7e535-0224-4b39-9255-34a39d73041b ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_824ad506-a79e-434f-8992-c6cd74815c1d_0 a :Sample ;
+    :hasPathogen :E.Coli_46519be0-2d53-4384-a44f-c1961647731c ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_82674e81-76ae-4aca-86d2-592964ae8ed0_0 a :Sample ;
+    :hasPathogen :E.Coli_db73f76f-2632-4868-95a6-7b2f079a13fd ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_83e2291a-be13-4c8c-9184-4384c820fbc7_1 a :Sample ;
+    :hasPathogen :E.Coli_849fcc0a-8630-4767-8896-ec67e1348e7d ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_84587f6f-2d2c-4046-ab22-6f24e0600dca_0 a :Sample ;
+    :hasPathogen :E.Coli_58ed6d4b-f206-409e-bf74-cb8133bbbb8e ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_8576062d-5e99-487c-917f-54379e0f87cc_1 a :Sample ;
+    :hasPathogen :E.Coli_49b73c38-84d1-4395-84fa-9151198c0082 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_8576d60d-533f-409d-b3f6-8855192c1848_0 a :Sample ;
+    :hasPathogen :E.Coli_bb94c1e8-c412-4013-8a69-faac0b3037c6 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_86032908-a7ba-41e6-bcdd-e603ab7d25c0_0 a :Sample ;
+    :hasPathogen :E.Coli_3987c607-27ea-4c98-b895-97792dca125b ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_860423b5-b7b8-4c84-9b63-071ac5949f9a_0 a :Sample ;
+    :hasPathogen :E.Coli_4c7aab2a-21bd-4338-8072-f52892162040 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_8690438d-3585-4092-aea9-0f1f0f1b9031_0 a :Sample ;
+    :hasPathogen :E.Coli_5afecfc6-464d-42be-8205-cb0f584f992f ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_869d307f-f526-4b2c-badb-4d39ff9dbca3_ a :Sample ;
+    :hasPathogen :E.Coli_e254daa5-722c-48e8-aa51-929fe95c5b2d ;
+    :hasType :Swab ;
+    :result "" .
+
+:SampleType_86cdc0a0-c999-4f2b-a4a2-8a1c6f0fcac2_1 a :Sample ;
+    :hasPathogen :E.Coli_9204f473-241f-4316-ac4d-85602d9ad16c ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_87fbce08-7cdc-4e07-95e8-eac5f3610a29_1 a :Sample ;
+    :hasPathogen :E.Coli_30c74c6a-412d-47c2-a49c-aaed881cb7ce ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_87fc27c3-2ca3-486f-bb56-8b018b01a755_0 a :Sample ;
+    :hasPathogen :E.Coli_9ad33819-745b-4517-8a41-bf46f33d02f2 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_8a42e8eb-92f5-4d2a-a63b-e82c5fd31b83_0 a :Sample ;
+    :hasPathogen :E.Coli_7056dc83-667f-438b-bd66-a505b8920abd ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_8a989cfa-bd8c-4be8-9299-fad6b81784eb_1 a :Sample ;
+    :hasPathogen :E.Coli_af7a36bf-ce8d-414b-a73d-9d40bd4d7744 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_8ca87bbb-2f6b-4d62-a6a0-9d16059d87f3_0 a :Sample ;
+    :hasPathogen :E.Coli_76c3e45c-8e10-433f-8cd0-27b8eaaba068 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_8cc73013-a1c0-45d4-95dd-5a78e02f2d96_0 a :Sample ;
+    :hasPathogen :E.Coli_21650c45-bf60-4c2e-8f88-6d96d04efc6f ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_8e733927-d5ed-4ff2-8244-f035d87da857_0 a :Sample ;
+    :hasPathogen :E.Coli_e03ee18f-b1df-49ed-b782-eca37182e95e ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_8ee215b4-af5a-4178-add6-3c01dca4637c_0 a :Sample ;
+    :hasPathogen :E.Coli_69128478-fcda-460d-a636-43cb65479928 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_8eedd22b-62ad-4134-8c05-c10797ef2342_1.0 a :Sample ;
+    :hasPathogen :E.Coli_40b1f172-69e7-4f6d-833d-bb5f4fbd411e ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_8facd23a-d088-4eaf-8ee7-a55f044dc4f8_0 a :Sample ;
+    :hasPathogen :E.Coli_432abaed-816d-43fa-b1ba-164b02c458c4 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_90f7ec35-3563-4b4b-923d-abae05c2a61f_1 a :Sample ;
+    :hasPathogen :E.Coli_41d2d77c-7254-47a4-94d9-d6c2bf0149cc ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_92c5f2d9-a52b-4330-a846-6ef393bbf987_0 a :Sample ;
+    :hasPathogen :E.Coli_4ea42475-6662-491d-a74e-c281f1261788 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_958b7999-9658-42e8-9473-d550d4522352_0 a :Sample ;
+    :hasPathogen :E.Coli_98bde52e-8613-41e2-9d3b-50185af54754 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_97b62565-5fdd-4cc5-b237-aa9461b5e26c_0 a :Sample ;
+    :hasPathogen :E.Coli_f05109df-76e1-4641-9f3e-13d71ca334a2 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_97de5c72-7658-4590-ae63-b18956ed71be_1 a :Sample ;
+    :hasPathogen :E.Coli_9f9a2222-941a-4bf9-84db-4f3456f81f04 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_996f4787-0c8c-4310-afb6-505382a1a47f_1 a :Sample ;
+    :hasPathogen :E.Coli_b3db4dee-d03f-4b25-9e12-10c0e5bf7658 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_9c0dfb92-ea48-4ae6-993d-ff5cc722e4f1_0 a :Sample ;
+    :hasPathogen :E.Coli_37ac9c5a-aab2-4670-8db0-5423af6a723f ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_9ccec411-1fe4-49be-a3b0-80cc129018c4_0 a :Sample ;
+    :hasPathogen :E.Coli_9de3b3a6-8f0e-4924-986f-622f8ce2b9f1 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_9ee9b72e-b968-48f5-8d7c-695ca6c8a48d_0 a :Sample ;
+    :hasPathogen :E.Coli_f2fec21b-1ac6-4847-bb20-b4488a2729f2 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_a23e2a69-e460-4eb6-895c-ea8cb4d62260_0 a :Sample ;
+    :hasPathogen :E.Coli_fa6b03b5-a94e-4c25-9b92-e3cfc40bd64f ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_a3003374-f110-4eaf-9afd-024c1182d09a_0 a :Sample ;
+    :hasPathogen :E.Coli_3c12fdfc-b514-4ffc-9c1d-add70dcb81e6 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_a3384daa-def2-4325-9cce-0b4a0f89698e_1 a :Sample ;
+    :hasPathogen :E.Coli_67f4c289-b011-427e-a1b5-1adc3770cf68 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_a45a896b-fa17-4550-bd57-354558eafd1b_1 a :Sample ;
+    :hasPathogen :E.Coli_777598f1-5e5d-4de4-8083-02558ddded4f ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_a46895f5-6ff5-4551-8772-788fefc7bb8d_0 a :Sample ;
+    :hasPathogen :E.Coli_6b92c6df-dfcd-40f7-a2a9-73cb57959c11 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_a481aa0b-10d1-4604-9a8b-1d928be89927_0 a :Sample ;
+    :hasPathogen :E.Coli_63591a1b-f113-4ea7-b130-994adb6d8f3b ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_a4a47344-8a95-4507-ad18-7aed5320c093_1 a :Sample ;
+    :hasPathogen :E.Coli_84c6408b-0d88-4aa9-b741-3418053eade8 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_a5b843c2-bfa2-4bfa-9fe7-6e84921e3095_0 a :Sample ;
+    :hasPathogen :E.Coli_045e76e5-435e-4c04-bc65-531e8ff4d94c ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_a60e882c-6601-4dc7-b4bc-4829c20ecaa5_0 a :Sample ;
+    :hasPathogen :E.Coli_2d565249-1d32-46e0-9bcd-ee8b5ff4c24b ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_a713132c-d7f8-439f-be6c-9dd3d5cd5dbf_0 a :Sample ;
+    :hasPathogen :E.Coli_87954406-a221-4c39-b5f9-f8896fed7c8d ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_a7898219-3af6-4ad5-b689-80089312842c_1 a :Sample ;
+    :hasPathogen :E.Coli_1fc4ebec-8cd8-497d-be9b-54e9291101b8 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_a8b452ca-9ffb-49b8-8d3a-afb373a6447c_0 a :Sample ;
+    :hasPathogen :E.Coli_d83417be-bdbb-4cd5-b4c8-789bbca165ea ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_a9ec03c5-0c00-4629-b070-63dafd729a2f_1.0 a :Sample ;
+    :hasPathogen :E.Coli_57c6c7f8-685b-4423-b187-5ab61c89a0f7 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_aadc9b27-17ae-405b-a3b2-30968952b3e3_0 a :Sample ;
+    :hasPathogen :E.Coli_53b37a60-4387-4fb9-a3e3-ab7db83c5f81 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_ab356975-e996-4b5a-aaba-0493928e8bb7_1.0 a :Sample ;
+    :hasPathogen :E.Coli_8aed1d9c-0d0c-486e-8c56-742d94bb09bb ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_aba56c91-ec3c-4b86-bdff-863e9ee2f697_0 a :Sample ;
+    :hasPathogen :E.Coli_29ea70f6-6ad6-4937-a68e-b0817b9cdd1c ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_ac38fce5-0d7e-47cb-b10e-492414733fbf_0 a :Sample ;
+    :hasPathogen :E.Coli_24fbaa52-cd52-412f-b7a7-9f99d64b381e ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_ac7f7d54-8239-4aa7-82a1-fbda0268a124_0 a :Sample ;
+    :hasPathogen :E.Coli_a6ebae05-e26d-4056-b060-da72b77b81c7 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_afa4d524-6849-47ba-9035-ccde3b03d836_1 a :Sample ;
+    :hasPathogen :E.Coli_a239fbfc-49f0-478e-8116-c9024079283e ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_b0dd0731-ffb6-4c51-adf2-6634a2541bd7_0 a :Sample ;
+    :hasPathogen :E.Coli_2f66a013-b6df-4c65-ad42-f3d5bb2f7118 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_b270092e-8949-4e0f-bc28-19604a49e408_0 a :Sample ;
+    :hasPathogen :E.Coli_eedd81f2-eac2-4a1b-b2b5-e92909e327ad ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_b2867796-baa2-43e8-9ff2-ed12c31ba452_0 a :Sample ;
+    :hasPathogen :E.Coli_b55991a7-2254-4d07-b4a4-83a07c02bc0b ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_b3a53fb0-f594-4b70-8474-3f2484b273f0_0 a :Sample ;
+    :hasPathogen :E.Coli_ba654f01-285b-4aea-a74b-6613f9c56dea ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_b3e44ec6-370c-4252-abd3-821344e6723d_0 a :Sample ;
+    :hasPathogen :E.Coli_fe7186a5-cf7d-4509-bfdc-6a4eb3ef5dd1 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_b4588690-b955-4c6a-bf4a-1b2a4e943fab_0 a :Sample ;
+    :hasPathogen :E.Coli_b0a4b6ba-8d8a-4400-a09c-472c50576e1e ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_b4f94e3a-2138-4f5e-a183-6e6877abf9cb_1 a :Sample ;
+    :hasPathogen :E.Coli_bf3cd64a-2596-4965-8cb3-59da3a5fd6b5 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_b5b8502a-9db2-4eeb-bb9a-5d0c38d7c999_1 a :Sample ;
+    :hasPathogen :E.Coli_fe49cf00-531d-4033-866f-5872ef733e4d ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_b5ddf283-5201-4205-83b9-e0bebcc20a99_0 a :Sample ;
+    :hasPathogen :E.Coli_8552cebb-4640-47e1-bac4-a07321c0f1f5 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_b64ba4d1-05dc-46b7-8daa-15da2ef56f97_1 a :Sample ;
+    :hasPathogen :E.Coli_67b76ab6-b85d-44e3-acc2-47146f217c95 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_b939fbaa-579b-4d51-9fa4-f86c5bc3e6dd_0 a :Sample ;
+    :hasPathogen :E.Coli_a3cc17f5-7e92-47d9-95a4-df835fdbde5a ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_b9d288f7-96e1-4638-a7f5-a427d79a0f15_0 a :Sample ;
+    :hasPathogen :E.Coli_206bfc65-ad6c-4952-8cb3-0cc766d5ffff ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_bb7c2c73-d5ae-4d76-99f8-d3201cbcc118_0 a :Sample ;
+    :hasPathogen :E.Coli_dcc99d4e-104a-4785-b870-03ca56e67a2a ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_bba9e173-5313-4bcf-9ed5-37e2e0dd7ffa_0 a :Sample ;
+    :hasPathogen :E.Coli_e540d709-0aa8-4290-af2f-0c591d3fe0c0 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_bcce24dd-2a19-468b-a710-3b02cbf0928c_0 a :Sample ;
+    :hasPathogen :E.Coli_3df2cd0b-1dfc-4b42-9dea-a553a5c7ff42 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_bcd302a8-d3e3-417a-b79b-c6ff61408e70_0 a :Sample ;
+    :hasPathogen :E.Coli_d9f327c5-7373-421e-93fe-fd34972d6f2d ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_bd882dac-f292-4610-beed-3639ded33b16_0 a :Sample ;
+    :hasPathogen :E.Coli_098adad4-19cc-47ea-8b9c-748f2b4db543 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_beb7a57c-81a1-4ee3-9eb2-846fa939fcb9_1 a :Sample ;
+    :hasPathogen :E.Coli_2feb40f6-fdc3-4aae-a444-448fd4dc40a8 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_c031cd23-e79c-4a27-91bb-f3497b687d4e_0 a :Sample ;
+    :hasPathogen :E.Coli_10f0c0a8-8055-429e-a521-40da00ff69f6 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_c2b7c307-59ae-4c05-96a4-70077cacca1c_0 a :Sample ;
+    :hasPathogen :E.Coli_1593d1ee-bdfa-484b-9b38-0670f1959fa7 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_c308363f-674f-445d-b56c-2465d2ff0ea2_0 a :Sample ;
+    :hasPathogen :E.Coli_aef4d116-3bb4-414a-b597-25beee4ae42b ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_c37d31c0-1e52-48bd-8aa0-c02d78825a2b_0 a :Sample ;
+    :hasPathogen :E.Coli_8e2dc22c-b7c5-46bf-9e73-99b533a4e0d2 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_c3e6cfb2-50d4-4796-ac41-d2c667ea0cd1_ a :Sample ;
+    :hasPathogen :E.Coli_c1f014e6-c6bc-4f7a-ae05-26c43a4644b4 ;
+    :hasType :Swab ;
+    :result "" .
+
+:SampleType_c4e465dc-a836-4c88-9e1c-964b92fda6a4_0 a :Sample ;
+    :hasPathogen :E.Coli_f275042e-4790-4efa-af26-4df177e413ff ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_c59237b0-fd57-4543-94b7-2dbd80c75f6d_0 a :Sample ;
+    :hasPathogen :E.Coli_29ca7248-caef-456c-9be0-eb2b1d10cbb7 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_c5bae599-8eaa-4cef-b3ce-7821e3710cbd_0 a :Sample ;
+    :hasPathogen :E.Coli_3c234573-a9b6-4f70-a90e-4ea71cc46e59 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_c5dde0ed-784c-463d-93b4-2651e19e2c4d_0 a :Sample ;
+    :hasPathogen :E.Coli_da989ccb-758c-4931-a88e-a4418aedccd1 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_c7b91a4a-8854-4b6d-aba1-2f2cf18940fe_0 a :Sample ;
+    :hasPathogen :E.Coli_78230819-08bf-498b-aa1e-1c0d8d83cc0f ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_c7df44a7-918f-413d-8b55-bb3bced3e832_0 a :Sample ;
+    :hasPathogen :E.Coli_12be1a54-6d9d-4468-9669-2a0862ada0ab ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_c8f99778-c4fd-44c2-ade2-c1f5591c1bd5_0 a :Sample ;
+    :hasPathogen :E.Coli_ebdcc29e-0e36-4bc0-988e-cfa47a0e076c ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_c9711d0a-5e9a-4e02-85a9-514af0a3a1be_0 a :Sample ;
+    :hasPathogen :E.Coli_616c8200-5b7e-483b-bf56-bfc1442a113e ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_cbd9620c-9f89-4be9-9edc-c7dc93c25206_0 a :Sample ;
+    :hasPathogen :E.Coli_b7327a02-3185-4d8e-8117-7998ecc4c49b ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_cdfbe5a8-2ed6-4574-9662-306559e6ffbe_0 a :Sample ;
+    :hasPathogen :E.Coli_f3fd9a28-66f2-4d38-8e52-0fe7ed42fe0e ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_ce3edf1c-fb5a-4d6c-ac72-91b171066c97_0 a :Sample ;
+    :hasPathogen :E.Coli_e252dbaf-6f63-4e78-93e2-44e353db917b ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_cef327d1-70fc-40f3-a4a6-38cd7ad74510_0 a :Sample ;
+    :hasPathogen :E.Coli_2eec2d3c-44c9-4b7e-af8e-c6b21dc32c86 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_d47ed43b-41f2-4e2b-b34f-d4fe83eb2a2d_0 a :Sample ;
+    :hasPathogen :E.Coli_e6550bb5-ed22-4f80-abf8-0ef9826f740c ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_d556cc1f-cf48-41f7-82ba-841deaf3551a_0 a :Sample ;
+    :hasPathogen :E.Coli_21491048-ce1f-4152-9328-270710354647 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_d72049c8-1959-47b7-afc1-822b1d800d43_0 a :Sample ;
+    :hasPathogen :E.Coli_a87375e9-11c6-42a5-af5f-2ac772aa8ba8 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_d8240a1e-76ed-460e-b06c-f24d605431cf_0 a :Sample ;
+    :hasPathogen :E.Coli_a811b73b-a571-4992-bbcd-01a7a5185fe9 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_db9aedd3-ba25-48e9-b2fc-55479e0a65fc_0 a :Sample ;
+    :hasPathogen :E.Coli_c37dd9b3-abab-41b5-8e83-be409a9e7f8f ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_dc6661a9-23d0-41b3-bde7-43e3bf793a62_0 a :Sample ;
+    :hasPathogen :E.Coli_5096eeb3-7358-4f80-aa76-ef52ec80adb7 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_dc6c69c8-d25a-4baf-8097-73be188d815d_0 a :Sample ;
+    :hasPathogen :E.Coli_e159cd9a-d74b-466e-a7ef-a8953ff2df65 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_de9fa917-6cf4-4c21-ba92-0fb981be4042_1 a :Sample ;
+    :hasPathogen :E.Coli_79b51c47-126b-4bf1-9ac4-a228f4dba3d7 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_e296b64e-fdcc-4baf-b87f-a0834b796cfb_ a :Sample ;
+    :hasPathogen :E.Coli_8126daa7-54ec-4198-bbd2-f239cf3d834c ;
+    :hasType :Swab ;
+    :result "" .
+
+:SampleType_e312924d-fbd8-4e50-bc89-d2258c239735_0 a :Sample ;
+    :hasPathogen :E.Coli_60e88acd-6101-460c-bbbb-f0550ea8bafb ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_e3bb5f60-596a-469f-8488-72d71e1ed66d_0 a :Sample ;
+    :hasPathogen :E.Coli_b1a0bdf3-6a5a-4ba2-8614-03cb239c907b ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_e3ccc0c0-31f2-4ebf-953e-e38c66f0ba9c_0 a :Sample ;
+    :hasPathogen :E.Coli_af05775c-6551-4c29-b90f-4f365f54fb29 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_e4cbc00a-6f08-4517-8c50-778fb1bad2fe_0 a :Sample ;
+    :hasPathogen :E.Coli_82093184-0fd7-4d23-bd61-682411e38eb3 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_e6d38755-d164-4245-bad0-71805582700f_0 a :Sample ;
+    :hasPathogen :E.Coli_1b6da4e2-c6cf-463e-a57e-620f0c8e75f8 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_e7b647a0-a0cb-45d0-962d-d6abfd0cd864_0 a :Sample ;
+    :hasPathogen :E.Coli_9eaf2f68-9cb4-481a-8a47-c23b9847735d ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_e7d76c79-00b2-4385-afe7-67f027896c82_0 a :Sample ;
+    :hasPathogen :E.Coli_27c4436f-a7ac-4777-9823-dd36c65f4194 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_e81ba3a3-6c00-49c2-a4aa-5e41dd76fd3e_0 a :Sample ;
+    :hasPathogen :E.Coli_e96e5945-034f-49f4-998f-0d590afad79d ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_ebd3f1e4-aafa-4fde-a3f9-3da9d7948002_1 a :Sample ;
+    :hasPathogen :E.Coli_e8ad6790-d42a-44c9-bf85-4d92735ac00c ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_ebff9151-8e31-4f10-ad7c-f76cfc90ba0a_0 a :Sample ;
+    :hasPathogen :E.Coli_fe48fba3-def3-4f55-b1be-89eb6a96a590 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_ed084ec7-b0fa-41ff-b729-88f94d4f37b4_1 a :Sample ;
+    :hasPathogen :E.Coli_09e066d1-7fcf-44b8-b6d2-4510f5ea9104 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_ee2ce5da-df4c-4907-9b4d-64b99d96c9fd_0 a :Sample ;
+    :hasPathogen :E.Coli_db016615-10e9-4e46-8a60-68d08b50f0c1 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_ef6f7d10-2dad-450b-84a9-698b380e942d_0 a :Sample ;
+    :hasPathogen :E.Coli_778d27ac-d266-4968-b4f3-efe99675f284 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_efa00192-6681-4fcb-863c-ea688193910f_0 a :Sample ;
+    :hasPathogen :E.Coli_b118bec2-9756-4479-bcba-443d5981aea4 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_f13c6787-f2a9-41fd-98f8-756c8f099448_0 a :Sample ;
+    :hasPathogen :E.Coli_bc621eba-3940-4bfb-9996-e6e3fdc4490d ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_f296b87a-44de-47f3-8d5f-9f884feebd00_0 a :Sample ;
+    :hasPathogen :E.Coli_1bd35580-dd7a-4e64-943a-88f4dcf5a923 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_f66a61a6-f370-4d74-a0d4-1752f1aefec6_0 a :Sample ;
+    :hasPathogen :E.Coli_ad7e6840-b92b-47ae-bfe3-e748ac0fcf3d ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_f7a093ae-df70-4481-a5dd-14ddd9e410c4_1 a :Sample ;
+    :hasPathogen :E.Coli_410e3e57-1fe9-440e-88ef-3745db747394 ;
+    :hasType :Swab ;
+    :result "1" .
+
+:SampleType_f894ef88-c138-4bdf-922c-df505e2f5039_0 a :Sample ;
+    :hasPathogen :E.Coli_07c0615e-86ba-4f47-afa1-c0b3fcd2e6ee ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_f8fda253-b725-41c2-8007-b9bb901cba04_0 a :Sample ;
+    :hasPathogen :E.Coli_46dae63b-8ac1-4513-8399-2958ccc2bd60 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_f9d94f39-c11d-48c6-9aad-263de114f991_0 a :Sample ;
+    :hasPathogen :E.Coli_6634175b-6569-47da-82f0-d1d3a5ce9948 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_f9fd2235-6e69-45fc-904f-f57373b20de0_0 a :Sample ;
+    :hasPathogen :E.Coli_a904663d-b573-44c0-bf38-6480595b1628 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_fa8d004f-f010-41fc-89a7-8db0bff007aa_0 a :Sample ;
+    :hasPathogen :E.Coli_eb01b4e6-a58e-4ba8-8820-e1a32211101b ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_fc30d9a9-8e63-43af-a104-a1036fdadd6f_0 a :Sample ;
+    :hasPathogen :E.Coli_4efcc25c-4802-402c-ab0e-1daa80b778cd ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_fc524b3e-fd6e-4cdf-bf1f-c143257358e4_0 a :Sample ;
+    :hasPathogen :E.Coli_5047e73f-baca-483f-8a8b-82f6b3cdce34 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_fca4c4fa-ac4e-4aeb-ae09-34fd512c1da9_0 a :Sample ;
+    :hasPathogen :E.Coli_2593fdd3-7ba6-43f3-8cf4-439da3f58087 ;
+    :hasType :Swab ;
+    :result "0" .
+
+:SampleType_fdd8c622-bf44-4303-a1b7-abea8704f2bf_0 a :Sample ;
+    :hasPathogen :E.Coli_d7aad6c9-e5af-4891-8853-f3aff050bfb1 ;
+    :hasType :Swab ;
+    :result "0" .
+
+om2:Measure a owl:Class .
+
+om2:VolumetricViableCount a owl:Class ;
+    rdfs:subClassOf om2:Quantity .
+
+:Antibiotic a owl:Class .
+
+:CircumstantialEventTpe a owl:Class .
+
+:CircumstantialEvent a owl:Class .
+
+:PathogenResistence a owl:Class .
+
+:SampleType a owl:Class .
+
+:Gene a owl:Class .
+
+:Inoculation a owl:Class .
+
+:1 a :Environment ;
+    :groupNumber "1" ;
+    :level1 "1" .
+
+:2 a :Environment ;
+    :groupNumber "2" ;
+    :level1 "2" .
+
+:3 a :Environment ;
+    :groupNumber "3" ;
+    :level1 "3" .
+
+:4 a :Environment ;
+    :groupNumber "4" ;
+    :level1 "4" .
+
+:Treatment a owl:Class .
+
+om2:Quantity a owl:Class .
+
+:Environment a owl:Class .
+
+:Host_6100 a :Host ;
+    :id "6100" ;
+    :inoculationStatus "S" ;
+    :locatedIn :2 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6103 a :Host ;
+    :id "6103" ;
+    :inoculationStatus "S" ;
+    :locatedIn :3 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6104 a :Host ;
+    :id "6104" ;
+    :inoculationStatus "S" ;
+    :locatedIn :4 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6105 a :Host ;
+    :id "6105" ;
+    :inoculationStatus "S" ;
+    :locatedIn :1 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6167 a :Host ;
+    :id "6167" ;
+    :inoculationStatus "S" ;
+    :locatedIn :3 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6169 a :Host ;
+    :id "6169" ;
+    :inoculationStatus "S" ;
+    :locatedIn :4 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6171 a :Host ;
+    :id "6171" ;
+    :inoculationStatus "S" ;
+    :locatedIn :2 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6178 a :Host ;
+    :id "6178" ;
+    :inoculationStatus "S" ;
+    :locatedIn :1 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6186 a :Host ;
+    :id "6186" ;
+    :inoculationStatus "S" ;
+    :locatedIn :3 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6189 a :Host ;
+    :id "6189" ;
+    :inoculationStatus "S" ;
+    :locatedIn :2 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6190 a :Host ;
+    :id "6190" ;
+    :inoculationStatus "S" ;
+    :locatedIn :1 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6191 a :Host ;
+    :id "6191" ;
+    :inoculationStatus "S" ;
+    :locatedIn :4 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6101 a :Host ;
+    :id "6101" ;
+    :inoculationStatus "I" ;
+    :locatedIn :2 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6102 a :Host ;
+    :id "6102" ;
+    :inoculationStatus "I" ;
+    :locatedIn :4 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6107 a :Host ;
+    :id "6107" ;
+    :inoculationStatus "I" ;
+    :locatedIn :3 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6108 a :Host ;
+    :id "6108" ;
+    :inoculationStatus "I" ;
+    :locatedIn :1 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6174 a :Host ;
+    :id "6174" ;
+    :inoculationStatus "I" ;
+    :locatedIn :1 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6175 a :Host ;
+    :id "6175" ;
+    :inoculationStatus "I" ;
+    :locatedIn :3 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6176 a :Host ;
+    :id "6176" ;
+    :inoculationStatus "I" ;
+    :locatedIn :4 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host_6177 a :Host ;
+    :id "6177" ;
+    :inoculationStatus "I" ;
+    :locatedIn :2 ;
+    :treatment "-" ;
+    :type "pig" .
+
+:Host a owl:Class .
+
+:Experiment a owl:Class .
+
+:UB10-260Rif a :Gene ;
+    :name "UB10-260Rif" .
+
+: a :Gene,
+        owl:Ontology ;
+    :name "" .
+
+:Swab a :SampleType,
+        owl:NamedIndividual .
+
+:Measurement a owl:Class .
+
+:Pathogen a owl:Class .
+
+:Sample a owl:Class .
+
