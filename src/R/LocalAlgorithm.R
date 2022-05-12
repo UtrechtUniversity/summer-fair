@@ -460,7 +460,8 @@ analyseTransmission<- function(inputdata,          #input data
 
   
   #return outcome
-  return(fit)
+  return(list(covariates = covars,
+              estimation = fit))
 }
 
 

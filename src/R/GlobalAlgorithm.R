@@ -38,11 +38,12 @@ combine.estimates.glm <- function(local.output,
   estimates = NULL;
   for(i in c(1:length(local.output)))      {
         estimates <- rbind(estimates,
-                           cbind(data.frame(mean = summary(local.output[[i]])$coefficients[,1],
-                                            se  = summary(local.output[[i]])$coefficients[,2],
-                                 treatment = names(summary(local.output[[i]])$coefficients[,1])),
+                           cbind(data.frame(mean = summary(local.output[[i]]$estimation)$coefficients[,1],
+                                            se  = summary(local.output[[i]]$estimation)$coefficients[,2],
+                                 treatment = names(summary(local.output[[i]]$estimation)$coefficients[,1])),
                                  study = i))
   }
+  #select treatments
   if(select.treatment == "reference" | select.treatment == "control" )
     estimates <- estimates%>%filter(treatment == "(Intercept)")
   else if(treatment!= "All")
