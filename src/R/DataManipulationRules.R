@@ -16,6 +16,7 @@
 ##############################################################
 library(magrittr)
 
+
 ##generic of a rule ####
 rule.generic <-function(timeseries,var.id,...){
   print("generic rule returns first column");

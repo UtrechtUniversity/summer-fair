@@ -40,20 +40,21 @@ combine.estimates.glm <- function(local.output,
         estimates <- rbind(estimates,
                            cbind(data.frame(mean = summary(local.output[[i]]$estimation)$coefficients[,1],
                                             se  = summary(local.output[[i]]$estimation)$coefficients[,2],
-                                 treatment = names(summary(local.output[[i]]$estimation)$coefficients[,1])),
+                                            
+                                 treatment =row.names(summary(local.output[[i]]$estimation)$coefficients)),
                                  study = i))
   }
   #select treatments
   if(select.treatment == "reference" | select.treatment == "control" )
     estimates <- estimates%>%filter(treatment == "(Intercept)")
-  else if(treatment!= "All")
-    estimates <- estimates%>%filter(treatment == select.treatment)
-  
-  print(estimates$mean)
-  print(estimates$se)
-  print(estimates$study)
-  print(estimates$treatment)
-  #simply only use the intercepts
+  # else if(treatment!= "All")
+  #   estimates <- estimates%>%filter(treatment == select.treatment)
+  # 
+  # print(estimates$mean)
+  # print(estimates$se)
+  # print(estimates$study)
+  # print(estimates$treatment)
+  # #simply only use the intercepts
   metaout<- metagen(TE =  estimates$mean,
                     seTE = estimates$se,
                     studlab = estimates$study,
