@@ -31,8 +31,8 @@ class Mappings:
     def get_recoruring_values(self, column_names, column_name):
         values = set()
         for column in column_names:
-            if re.match(column_name.replace('.*', '(\d{1,4})'), column):
-                pattern = column_name.replace('.*', '(\d{1,4})')
+            if re.match(column_name.replace('.*', '-?\d*\.{0,1}\d+'), column):
+                pattern = column_name.replace('.*', '-?\d*\.{0,1}\d+')
                 values.add(re.search(pattern, column)[1])
 
         return values
