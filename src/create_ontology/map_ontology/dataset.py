@@ -51,13 +51,13 @@ class Dataset:
         for pattern in reocur_columns:
             values = self.get_recoruring_values(pattern)
             if values:
-                reocur_ds_columns[pattern] = values
+                reocur_ds_columns[pattern] = list(values)
         return reocur_ds_columns
 
     def get_recoruring_values(self, column_name_pattern):
         values = set()
         for column in self.columns:
-            column_name_new = column_name_pattern.replace(".*", "\d{1,4}")
+            column_name_new = column_name_pattern.replace(".*", "-?\d*\.{0,1}\d+")
             if re.match(rf'{column_name_new}$', column):
                 values.add(column)
         return values
@@ -143,7 +143,7 @@ class Dataset:
         return reshaped_combined if not reshaped_combined.empty else self.dataset
 
     def reocur_columns_to_reshape(self, map_columns):
-        return {(v if k != 'experimentDay' and k != 'experimentHour' else k): sorted(self.reocur_columns_dict[v]) for
+        return {(v if k != 'experimentDay' and k != 'experimentHour' else k): sorted(self.reocur_columns_dict[v],key=utils.num_sort) for
                 k, v in map_columns.items() if k not in self.reusable_column}
 
     def get_multiple_columns(self, mappings):
