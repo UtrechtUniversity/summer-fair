@@ -1,6 +1,6 @@
 #########################################################
 #                                                        
-#                  Tutorial SUMMERFAIR                                  
+#                  Usage of SUMMERFAIR                                  
 #                  Local and global algorithms 
 #                                                        
 #                  Author: Egil A.J. Fischer                               
@@ -36,12 +36,37 @@ dataA<- get.data("http://localhost:3030/datasetA")
 dataB<- get.data("http://localhost:3030/datasetB")
 datapigs2018<- get.data("http://localhost:3030/pigs2018data")
 datapigs2020<- get.data("http://localhost:3030/pigs2020data")
+
 #run local algorithm for each data set ####
 localA <- get.local.transmission(dataA)
 localB <- get.local.transmission(dataB)
 
 localpigs2018 <- get.local.transmission(datapigs2018)
 localpigs2020 <- get.local.transmission(datapigs2020)
+
+
+#combine estimates of control group with standard meta-analysis techniques ####
+metaana <- combine.estimates.glm(list(localA,localB,localpigs2018,localpigs2020),
+                             select.treatment = "reference") 
+print(metaana)
+forest.meta(metaana)
+
+#combine estimates of control group with standard meta-analysis techniques ####
+metaana <- combine.estimates.glm(list(localA,localB,localpigs2018,localpigs2020),
+                                 select.treatment = "All") 
+print(metaana)
+forest.meta(metaana)
+
+#combine estimates of control group with standard meta-analysis techniques ####
+metaana <- combine.estimates.glm(list(localA,localB),
+                                 select.treatment = "All") 
+print(metaana)
+forest.meta(metaana)
+
+
+################
+#  Do all setting your self
+#################
 
 #run analysis over data set A
 localA <- analyseTransmission(inputdata = dataA,           #data set
@@ -64,14 +89,3 @@ localB<- analyseTransmission(inputdata = dataB,            #data set
                              reference = "control",        #reference category for multivariable estimation
                              control = "")                 #value of control treatment
 
-localA <- get.local.transmission(dataA)
-#run analysis over data set B
-localB<- get.local.transmission(dataB)
-
-
-#combine estimates of control group with standard meta-analysis techniques ####
-metaana <- combine.estimates.glm(list(localA,localB),
-                             select.treatment = "control") 
-print(metaana)
-forest.meta(metaana)
-funnel.meta(metaana,studlab=TRUE,contour = c(0.9, 0.95, 0.99))

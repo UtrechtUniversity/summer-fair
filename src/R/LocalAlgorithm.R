@@ -13,6 +13,7 @@
 packages = c("SPARQL",
              "ggplot2",
              "tidyverse",
+             "rlog",
             # "rstan",     #not yet used
             #"shinystan", #not yet used
             #"rstanarm",  #not yet used
@@ -28,6 +29,8 @@ package.check <- lapply(
     }
   }
 )
+#silence this warning because it has no use in this code
+options(dplyr.summarise.inform = FALSE) 
 
 ### function apply a rule to the data to determine status of a sample ####
 # status of a sample is determined by the own value and all other values of that chicken 
@@ -66,7 +69,7 @@ setTimes<- function(input,                 #data set
     ex_year = 60*60*24*365);
   #ugly code but does the job of setting it to seconds
   for(t in timevars[timevars%in%names(input)])  {
-        if(is.na(times)){ 
+        if(is.na(times[1])){ 
           times <- replace_na(as.numeric(input[,t]),0)*multiplicationfactor[t]} else{
           times <- times+replace_na(as.numeric(input[,t]),0)*multiplicationfactor[t]}
   }; times<- unlist(times)
@@ -99,6 +102,7 @@ arrangeData <- function(data,
     
   #print the method of analysis
   if(Echo){print(paste("Arrange data for", method, "analysis."))};
+  
   #select specific method
   return(eval(parse(text = paste0("arrangeData.", method)))
          (applyRule(data,rule,...),covariates,remInoCase))
@@ -112,7 +116,8 @@ arrangeData.glm<-function(rdata,           #data
                           inoMarker = "I",    #marker used for inoculated animals
                           reference = NULL,
                           ...){ 
-  
+  #start a string to collect messages
+  algorithm.log <- ""
   #if no round in the data add
   if(is.null(rdata$round))rdata$round <- 1;
   #get the group mixinglevels 
@@ -126,7 +131,7 @@ arrangeData.glm<-function(rdata,           #data
   group.data <- NULL;
   #1. time intervals (length)
   group.data <- rdata%>%
-      group_by(across(c("round", mixinglevels ,"times"))) %>% 
+      group_by(across(c("round", all_of(mixinglevels) ,"times"))) %>% 
       summarize(times = mean(times))
   group.data <-group.data%>%
          mutate(dt = c(times-lag(times)))%>%
@@ -139,29 +144,29 @@ arrangeData.glm<-function(rdata,           #data
     mutate(case = as.numeric(sir > 0 & lag(sir)==0))
     
   cases   <- indiv.cases%>%
-    group_by(across(c("round",mixinglevels ,"times"))) %>% 
+    group_by(across(c("round",all_of(mixinglevels) ,"times"))) %>% 
     summarise(cases = sum(case,na.rm = TRUE))
-  group.data <- group.data%>%right_join(cases, by = c("round",mixinglevels,"times")) 
+  group.data <- group.data%>%right_join(cases, by = c("round",all_of(mixinglevels),"times")) 
   #3. number of infectious individual at start interval at each of the levels
   #level 1
   i <- rdata%>%
-    group_by(across(c("round",mixinglevels ,"times"))) %>% 
+    group_by(across(c("round",all_of(mixinglevels) ,"times"))) %>% 
     summarise(i = sum(sir == 2,na.rm = TRUE))
-  group.data <- group.data%>%right_join(i, by = c("round",mixinglevels,"times"))
+  group.data <- group.data%>%right_join(i, by = c("round",all_of(mixinglevels),"times"))
   group.data$i2 <- 0;#default values
   group.data$i3 <- 0;#default values
   #here also take into account infectious individuals in other levels
   if(length(mixinglevels) > 1){
     #level 2
     i2 <- rdata%>%
-      group_by(across(c("round",mixinglevels[-2] ,"times"))) %>% #negative indexing due to descending ordering
+      group_by(across(c("round",all_of(mixinglevels)[-2] ,"times"))) %>% #negative indexing due to descending ordering
       summarise(sum(sir == 2,na.rm = TRUE))
     group.data$i2 <- data.frame(i2)[,ncol(i2)]-group.data$i
     if(length(mixinglevels)>2)
     {
       #level 3
       i3 <- rdata%>%
-        group_by(across(c("round",mixinglevels[-3] ,"times"))) %>% #negative indexing due to descending ordering
+        group_by(across(c("round",all_of(mixinglevels)[-3] ,"times"))) %>% #negative indexing due to descending ordering
         summarise(sum(sir == 2,na.rm = TRUE))
       group.data$i3 <- data.frame(i3)[,ncol(i3)]-group.data$i2-group.data$i1
     }
@@ -170,33 +175,33 @@ arrangeData.glm<-function(rdata,           #data
   #4. number of susceptible individuals at start interval
   s <- rdata%>%
     filter(if(remInoCase)!str_detect(inoculationStatus,inoMarker)else TRUE)%>%
-    group_by(across(c("round",mixinglevels ,"times"))) %>% 
+    group_by(across(c("round",all_of(mixinglevels) ,"times"))) %>% 
     summarise(s = sum(sir == 0,na.rm = TRUE))
-  group.data <- group.data%>%right_join(s, by = c("round",mixinglevels,"times"))
+  group.data <- group.data%>%right_join(s, by = c("round",all_of(mixinglevels),"times"))
   #5. number of recovered individuals at start of interval
   r <- rdata%>%
-    group_by(across(c("round",mixinglevels ,"times"))) %>% 
+    group_by(across(c("round",all_of(mixinglevels) ,"times"))) %>% 
     summarise(r = sum(sir == 3,na.rm = TRUE))
-  group.data <- group.data%>%right_join(r, by = c("round",mixinglevels,"times"))
+  group.data <- group.data%>%right_join(r, by = c("round",all_of(mixinglevels),"times"))
   #6. total number of individuals
   n <- rdata%>%
-    group_by(across(c("round",mixinglevels ,"times"))) %>% 
+    group_by(across(c("round",all_of(mixinglevels) ,"times"))) %>% 
     summarise(n = sum(!is.na(sir)))
-  group.data <- group.data%>%right_join(n, by = c("round",mixinglevels,"times"))
+  group.data <- group.data%>%right_join(n, by = c("round",all_of(mixinglevels),"times"))
   group.data$n2 <- 0;#default values
   group.data$n3 <- 0;#default values
   #here also take into account infectious individuals in other levels
   if(length(mixinglevels) > 1){
     #level 2
     n2 <- rdata%>%
-      group_by(across(c("round",mixinglevels[-2] ,"times"))) %>% #negative indexing due to descending ordering
+      group_by(across(c("round",all_of(mixinglevels[-2]) ,"times"))) %>% #negative indexing due to descending ordering
       summarise(sum(!is.na(sir)))
     group.data$n2 <- data.frame(n2)[,ncol(n2)]-group.data$n
     if(length(mixinglevels)>2)
     {
       #level 3
       n3 <- rdata%>%
-        group_by(across(c("round",mixinglevels[-3] ,"times"))) %>% #negative indexing due to descending ordering
+        group_by(across(c("round",all_of(mixinglevels[-3]) ,"times"))) %>% #negative indexing due to descending ordering
         summarise(sum(!is.na(sir)))
       group.data$n3 <- data.frame(n3)[,ncol(n3)]-group.data$n2-group.data$n
     }
@@ -205,10 +210,11 @@ arrangeData.glm<-function(rdata,           #data
   #7. check or determine group co-variates
   if(!is.null(covariates)){
     covariate.data <- group.data;
-    print("Only returns minimum of covariate")
+    algorithm.log <- paste(algorithm.log, 
+                           "\n For group level summarizing in arranging the data for a glm, the minimum of the group is used.")
     for(j in covariates){
     covariate <- rdata%>%
-        group_by(across(c("round",mixinglevels ,"times"))) %>% 
+        group_by(across(c("round",all_of(mixinglevels) ,"times"))) %>% 
         summarize(covar = min(eval(parse(text = j))))%>%
         ungroup
     
@@ -219,7 +225,7 @@ arrangeData.glm<-function(rdata,           #data
   # cases the numbers after the interval, thus shift SIR values to one time later
   # the first time moment should be removed
   group.data <- group.data %>%
-    group_by(across(c("round",mixinglevels ))) %>% 
+    group_by(across(c("round",all_of(mixinglevels) ))) %>% 
     summarize(
       times = tail(times,-1),
       dt = tail(dt,-1),
@@ -235,7 +241,7 @@ arrangeData.glm<-function(rdata,           #data
       )%>%ungroup
   if(!is.null(covariates)){
     covariate.data <- covariate.data%>%
-      group_by(across(c("round",mixinglevels ))) %>% 
+      group_by(across(c("round",all_of(mixinglevels) ))) %>% 
       select(all_of(covariates))%>%
       filter(row_number()>1)%>%
       ungroup
@@ -247,7 +253,8 @@ arrangeData.glm<-function(rdata,           #data
     group.data <- within(group.data, 
                          treatment <- relevel(treatment, ref = eval(reference)))
   }
-  return(group.data)
+  return(list(arranged.data  = group.data,
+              algortihm.log  = algorithm.log))
 }
 
 
@@ -423,6 +430,8 @@ analyseTransmission<- function(inputdata,          #input data
                                inoMarker = "I",    #marker used for inoculated animals
                                reference = NULL,
                                ...){
+  #create a log data frame
+  algorithm.log <- paste("Analysing transmission using ",method, "at", Sys.time(),"\n");
   #arrange data for analysis
   data.arranged <- arrangeData(data = inputdata,
                                rule = rule,
@@ -433,6 +442,13 @@ analyseTransmission<- function(inputdata,          #input data
                                inoMarker = inoMarker,    #marker used for inoculated animals
                                ...)
 
+  
+  #get the data arrangement log
+  if(!is.null(data.arranged[[2]])) algorithm.log<- paste(algorithm.log, data.arranged[[2]])
+  
+  #data
+  data.arranged <- data.arranged[[1]]
+  
   #remove those entries without susceptibles (contain no information and cause errors)
   data.arranged <- data.arranged%>%filter(s>0)
   data.arranged$treatment <- factor(data.arranged$treatment, 
@@ -440,27 +456,33 @@ analyseTransmission<- function(inputdata,          #input data
  if(!is.null(reference)){ if(any(str_detect(eval(reference),as.character(data.arranged$treatment)))){
   data.arranged <- within(data.arranged, 
                           treatment <- relevel(treatment, ref = eval(reference))) }else print(paste("Control group:  ", eval(reference), "not present"))}
-  #deal with potential error
-  if(preventError){
-    data.arranged <- data.arranged %>% filter(i>0 &!is.na(cases)&!is.na(s)&!is.na(i)&!is.na(r));
-    covars = if(length(unique(data.arranged$treatment))>1){"treatment"}else{"1"}}
+ 
   #do analysis
   
   #TO DO use covariates
   fit <- switch(method,
-    glm = glm(#cbind(cases, s - cases) ~ treatment,
-              as.formula(paste("cbind(cases, s - cases) ~ ", paste(covars, collapse= "+"))),
-              family = binomial(link = "cloglog"), 
-              offset = log(i/n)*dt,
-              data = data.arranged),
+    glm = run.glm(covars = covars,
+              data.arranged = data.arranged, 
+              preventError = preventError),
     mll =stop("mle: not implemented yet"),#deal with number of levels in a maximum likelihood estimation. 
     finalsize = FinalSize,#is not yet implemented as well
     stop("no other methods than glm or maximum likelihood")
   )
 
-  
+  #return covariate entries (categorical = values or numeric = range)
+  if(length(covars) > 0)
+  {
+    covar.values = list()
+    for(j in covars){}
+      if(is.factor(data.arranged[,j])){covar.values <- append(covar.values, levels(data.arranged[,j]))}
+    else{covar.values <- append(covar.values, range(data.arranged[,j]))}
+  }
   #return outcome
-  return(fit)
+  return(list(covariates = list(names = covars,
+                                values = covar.values,
+                                algorithm.log = cat(algorithm.log)),
+              
+              estimation = fit))
 }
 
 
@@ -515,6 +537,7 @@ analyseTransmission<- function(inputdata,          #input data
 
 #run local algorithm for each data set ####
 get.local.transmission <- function(dataset){
+   if(length(dataset)==0)stop("Empty data set cannot be analysed")
                   var.id = ifelse(all(is.na(dataset$sample_measure)), c("sample_result"), c("sample_measure"))
                   control = ifelse(any(grepl('control',dataset$treatment,ignore.case = T)),"control",
                     ifelse(any(grepl('0',dataset$treatment)),"0",""))
@@ -541,7 +564,30 @@ get.local.transmission <- function(dataset){
                   }
 
 
+###################################
+# run.glm is a function equal to glm but will filter time points that cannot be used. 
 
+run.glm<-function(covars,
+                  data.arranged,
+                  preventError = TRUE){
+  
+  #filter intervals without infected animals. 
+  if(preventError){
+    data.filtered <- data.arranged %>% filter(i>0 &!is.na(cases)&!is.na(s)&!is.na(i)&!is.na(r));
+  }else data.filtered <- data.arranged
+    
+  #if covariates only have one unique value it cannot be used in the glm
+  use.covars <- covars[data.arranged[,covars]%>%unique%>%length>1]
+  if(length(use.covars)==0){use.covars <- "1"}
+  #
+ 
+  return(glm(as.formula(paste("cbind(cases, s - cases) ~ ", paste(use.covars, collapse= "+"))),
+                  family = binomial(link = "cloglog"), 
+                  offset = log(i/n)*dt,
+                  data = data.filtered 
+                  ))
+  
+}
 
 
 
