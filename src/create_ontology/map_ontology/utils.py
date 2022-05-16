@@ -188,3 +188,7 @@ def get_reocurring_map_columns(mappings):
                     for value in values:
                         reocur_props.update(get_reocurring_map_columns({k: {props: value}}))
     return reocur_props
+
+
+def num_sort(test_string):
+    return list(map(int, re.findall(r'-?\d+', test_string)))[0]
