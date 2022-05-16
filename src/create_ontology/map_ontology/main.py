@@ -8,6 +8,7 @@ Mapping file
 """
 
 import click
+from pathlib import Path
 
 from dataset import Dataset
 from mappings import Mappings
@@ -35,7 +36,9 @@ def main(config, filename, worksheet):
         if mappings.required_field is None or row[mappings.required_field]:
             ontology.populate_ontology(mappings, row)
 
-    ontology.save_ontology('data/populated_ont.ttl')
+    ontology_file = Path('data/populated_ont.ttl')
+    ontology.save_ontology(ontology_file)
+    print('Semantically annotated dataset is created.' if ontology_file.is_file() else "Ontology file is not created." )
 
 
 if __name__ == '__main__':
