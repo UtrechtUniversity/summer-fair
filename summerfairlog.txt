@@ -1,0 +1,20 @@
+Warning message:
+In sink() : no sink to remove
+Error in library(logr) : there is no package called ‘logr’
+In addition: Warning message:
+In for (i in seq_along(`_node`)) .rs.recursiveWalk(`_node`[[i]],  :
+  closing unused connection 3 (summerfairlog.txt)
+Error: object 'error_log' not found
+Error in error_log("") : could not find function "error_log"
+Error in today() : could not find function "today"
+Error in system.time() : argument "expr" is missing, with no default
+Timing stopped at: 0.02 0 0.01
+Error in system.time() : argument "expr" is missing, with no default
+Timing stopped at: 0 0 0
+Error: unexpected '>' in ">"
+Error: object 'today' not found
+Error in today() : could not find function "today"
+Error during wrapup: object 'algorithm.log' not found
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+Error during wrapup: could not find function "today"
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
