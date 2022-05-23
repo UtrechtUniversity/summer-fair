@@ -10,5 +10,7 @@ Measurement = ['M', 'index']
 SpecificViableCount = ['Quantity', 'index']
 Inoculation =['Inoculation','index']
 VolumetricViableCount = ['Dose','index']
+Antibiotic = ['Antibiotic','name']
+PathogenResistence = ['Resistence','index']
 
 linked_classes = {'Measurement': ['Experiment'],'Inoculation':['Experiment']}
