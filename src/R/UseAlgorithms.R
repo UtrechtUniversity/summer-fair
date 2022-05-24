@@ -49,13 +49,13 @@ localpigs2020 <- get.local.transmission(datapigs2020)
 metaana <- combine.estimates.glm(list(localA,localB,localpigs2018,localpigs2020),
                              select.treatment = "reference") 
 print(metaana)
-forest.meta(metaana)
+forest.meta(metaana, studlab=c('DatasetA', 'DatasetB','DatasetC','DatasetD'))
 
 #combine estimates of control group with standard meta-analysis techniques ####
 metaana <- combine.estimates.glm(list(localA,localB,localpigs2018,localpigs2020),
                                  select.treatment = "All") 
 print(metaana)
-forest.meta(metaana)
+forest.meta(metaana, colgap.forest.left='24mm', studlab=c('DatasetA', 'DatasetA', 'DatasetA', 'DatasetB', 'DatasetB','DatasetC','DatasetD'))
 
 #combine estimates of control group with standard meta-analysis techniques ####
 metaana <- combine.estimates.glm(list(localA,localB),
