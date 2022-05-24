@@ -51,6 +51,21 @@ metaana <- combine.estimates.glm(list(localA,localB,localpigs2018,localpigs2020)
 print(metaana)
 forest.meta(metaana, studlab=c('DatasetA', 'DatasetB','DatasetC','DatasetD'))
 
+#combine estimates of control group with standard meta-analysis techniques only broiler data ####
+metaana <- combine.estimates.glm(list(localA,localB,localpigs2018,localpigs2020),
+                                 select.treatment = "reference",
+                                 sub.group =   c("broiler","broiler","pig","pig") ) 
+print(metaana)
+forest.meta(metaana)
+
+#combine estimates of control group with standard meta-analysis techniques only pig data ####
+metaana <- combine.estimates.glm(list(localpigs2018,localpigs2020),
+                                 select.treatment = "reference") 
+print(metaana)
+forest.meta(metaana)
+
+
+
 #combine estimates of control group with standard meta-analysis techniques ####
 metaana <- combine.estimates.glm(list(localA,localB,localpigs2018,localpigs2020),
                                  select.treatment = "All") 

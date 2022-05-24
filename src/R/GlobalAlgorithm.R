@@ -33,7 +33,8 @@ library(metafor)
 library(tidyverse)
 #combine.estimates of glm's
 combine.estimates.glm <- function(local.output,
-                              select.treatment = "All"){
+                              select.treatment = "All",
+                              sub.group = c()){
   #get the means and standard errors
   estimates = NULL;
   for(i in c(1:length(local.output)))      {
@@ -45,15 +46,21 @@ combine.estimates.glm <- function(local.output,
                                  study = i))
   }
   #select treatments
-  if(select.treatment == "reference" | select.treatment == "control" )
+  if(select.treatment == "reference" | select.treatment == "control" ){
     estimates <- estimates%>%filter(treatment == "(Intercept)")
-  # else if(treatment!= "All")
-  #   estimates <- estimates%>%filter(treatment == select.treatment)
-  # 
-  # print(estimates$mean)
-  # print(estimates$se)
-  # print(estimates$study)
-  # print(estimates$treatment)
+    
+   }
+   else if(treatment!= "All")
+     estimates <- estimates%>%filter(treatment == select.treatment)
+  
+  #if sub.group analysis indicates some sort of additional information for example from meta-data on study design
+   if(length(sub.group)>0){
+     if(length(sub.group)!= length(estimates$treatment)) stop("lengths of sub.group and estimates not equal")
+     estimates$treatment <- mapply(paste,
+                                   estimates$treatment,sub.group)
+     
+   }
+    
   # #simply only use the intercepts
   metaout<- metagen(TE =  estimates$mean,
                     seTE = estimates$se,
