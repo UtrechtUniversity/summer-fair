@@ -62,7 +62,7 @@ forest.meta(metaana)
 metaana <- combine.estimates.glm(list(localpigs2018,localpigs2020),
                                  select.treatment = "reference") 
 print(metaana)
-forest.meta(metaana)
+forest.meta(forest.meta(metaana, colgap.forest.left='29mm',studlab=c('DatasetA', 'DatasetB','DatasetC','DatasetD'),subgroup=FALSE, subgroup.hetstat= FALSE,xlim=c(-3,3)))
 
 
 
