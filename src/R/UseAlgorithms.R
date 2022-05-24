@@ -34,32 +34,32 @@ source("src/R/GlobalAlgorithm.R")
 # get data ####
 dataA<- get.data("http://localhost:3030/datasetA")
 dataB<- get.data("http://localhost:3030/datasetB")
-datapigs2018<- get.data("http://localhost:3030/pigs2018data")
-datapigs2020<- get.data("http://localhost:3030/pigs2020data")
+dataC<- get.data("http://localhost:3030/datasetC")
+dataD<- get.data("http://localhost:3030/datasetD")
 
 #run local algorithm for each data set ####
 localA <- get.local.transmission(dataA)
 localB <- get.local.transmission(dataB)
 
-localpigs2018 <- get.local.transmission(datapigs2018)
-localpigs2020 <- get.local.transmission(datapigs2020)
+localC <- get.local.transmission(dataC)
+localD <- get.local.transmission(dataD)
 
 
 #combine estimates of control group with standard meta-analysis techniques ####
-metaana <- combine.estimates.glm(list(localA,localB,localpigs2018,localpigs2020),
+metaana <- combine.estimates.glm(list(localA,localB,localC,localD),
                              select.treatment = "reference") 
 print(metaana)
 forest.meta(metaana, studlab=c('DatasetA', 'DatasetB','DatasetC','DatasetD'))
 
-#combine estimates of control group with standard meta-analysis techniques only broiler data ####
-metaana <- combine.estimates.glm(list(localA,localB,localpigs2018,localpigs2020),
+#combine estimates of control group with standard meta-analysis techniques separate by known host species ####
+metaana <- combine.estimates.glm(list(localA,localB,localC,localD),
                                  select.treatment = "reference",
                                  sub.group =   c("broiler","broiler","pig","pig") ) 
 print(metaana)
 forest.meta(metaana)
 
 #combine estimates of control group with standard meta-analysis techniques only pig data ####
-metaana <- combine.estimates.glm(list(localpigs2018,localpigs2020),
+metaana <- combine.estimates.glm(list(localC,localD),
                                  select.treatment = "reference") 
 print(metaana)
 forest.meta(forest.meta(metaana, colgap.forest.left='29mm',studlab=c('DatasetA', 'DatasetB','DatasetC','DatasetD'),subgroup=FALSE, subgroup.hetstat= FALSE,xlim=c(-3,3)))
@@ -67,7 +67,7 @@ forest.meta(forest.meta(metaana, colgap.forest.left='29mm',studlab=c('DatasetA',
 
 
 #combine estimates of control group with standard meta-analysis techniques ####
-metaana <- combine.estimates.glm(list(localA,localB,localpigs2018,localpigs2020),
+metaana <- combine.estimates.glm(list(localA,localB,localC,localD),
                                  select.treatment = "All") 
 print(metaana)
 forest.meta(metaana, colgap.forest.left='24mm', studlab=c('DatasetA', 'DatasetA', 'DatasetA', 'DatasetB', 'DatasetB','DatasetC','DatasetD'))

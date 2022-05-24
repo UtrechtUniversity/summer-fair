@@ -31,6 +31,7 @@ get.data <- function(endpoint){
                     :treatment ?treatment;
                     :inoculationStatus ?inoculationStatus;
                     :locatedIn ?env.
+     optional{?host :type ?host_type.}
               ?env  :groupNumber ?group.
  optional{?experiment :hasInoculation ?inoculation.
     ?inoculation :involves ?host.
