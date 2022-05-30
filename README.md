@@ -1,4 +1,4 @@
-# summer-fair
+# SUMMER_FAIR
 ![GitHub](https://img.shields.io/github/license/UtrechtUniversity/summer-fair)
 
 This software integrates existing data sets on transmission experiments by using semantic web technologies
@@ -11,7 +11,7 @@ By mapping existing data sets to the concepts in the ontology, the data sets can
 The mapped data sets are represented as linked data triples. 
 ## WIKI 
 
-Pleas refer to a [wiki page](https://github.com/UtrechtUniversity/summer-fair/wiki) for tutorials and background information on ontologies and SPARQL
+Please refer to a [wiki page](https://github.com/UtrechtUniversity/summer-fair/wiki) for tutorials and background information on ontologies and SPARQL
 ## License
 
 This project is licensed under the terms of the [MIT License](/LICENSE.md)
