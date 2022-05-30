@@ -1,4 +1,4 @@
-@prefix : <http://www.purl.org/trans_experiment#> .
+@prefix : <http://www.purl.org/infection_trans#> .
 @prefix om2: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -7,7 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://www.purl.org/trans_experiment#> .
 
-<http://www.purl.org/trans_experiment#> rdf:type owl:Ontology .
+<http://www.purl.org/infection_trans#> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
