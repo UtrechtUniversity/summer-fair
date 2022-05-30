@@ -23,7 +23,7 @@ from ontology import Ontology
               help='name of the worksheet to ')
 def main(config, filename, worksheet):
     # File with ontology
-    ont_file = 'trans_ont.owl'
+    ont_file = 'infection_trans.owl'
 
     mappings = Mappings(config)
     ontology = Ontology(ont_file)
@@ -36,7 +36,7 @@ def main(config, filename, worksheet):
         if mappings.required_field is None or row[mappings.required_field]:
             ontology.populate_ontology(mappings, row)
 
-    ontology_file = Path('data/populated_ont.ttl')
+    ontology_file = Path('data/populated_ont_B.ttl')
     ontology.save_ontology(ontology_file)
     print('Populated ontology is created.' if ontology_file.is_file() else "Ontology file is not created." )
 

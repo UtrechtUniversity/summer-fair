@@ -230,7 +230,8 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
 
 ###  http://www.purl.org/trans_experiment#name
 :name rdf:type owl:DatatypeProperty ;
-      rdfs:domain :Gene ,
+      rdfs:domain :Antibiotic ,
+                  :Gene ,
                   :Pathogen .
 
 

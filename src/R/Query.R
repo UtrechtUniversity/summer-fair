@@ -11,7 +11,7 @@ library(SPARQL)
 
 get.data <- function(endpoint){
   sparql <- "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-            Prefix : <http://www.purl.org/trans_experiment#>
+            Prefix : <http://www.purl.org/infection_trans#>
             Prefix om: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
