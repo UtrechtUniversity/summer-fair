@@ -5,13 +5,18 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.purl.org/trans_experiment#> .
+@base <http://www.purl.org/infection_trans#> .
 
 <http://www.purl.org/infection_trans#> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
 #################################################################
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/commonlyHasUnit
+om2:commonlyHasUnit rdf:type owl:ObjectProperty ;
+                    rdfs:range om2:Unit .
+
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasPhenomenon
 om2:hasPhenomenon rdf:type owl:ObjectProperty ;
@@ -20,19 +25,25 @@ om2:hasPhenomenon rdf:type owl:ObjectProperty ;
                              :Sample .
 
 
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit
+om2:hasUnit rdf:type owl:ObjectProperty ;
+            rdfs:domain om2:Measure ;
+            rdfs:range om2:Unit .
+
+
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue
 om2:hasValue rdf:type owl:ObjectProperty ;
              rdfs:domain om2:Quantity ;
              rdfs:range om2:Measure .
 
 
-###  http://www.purl.org/trans_experiment#against
+###  http://www.purl.org/infection_trans#against
 :against rdf:type owl:ObjectProperty ;
          rdfs:domain :PathogenResistence ;
          rdfs:range :Antibiotic .
 
 
-###  http://www.purl.org/trans_experiment#hasDose
+###  http://www.purl.org/infection_trans#hasDose
 :hasDose rdf:type owl:ObjectProperty ;
          rdfs:domain :Inoculation ,
                      :Treatment ;
@@ -40,44 +51,44 @@ om2:hasValue rdf:type owl:ObjectProperty ;
                     om2:VolumetricViableCount .
 
 
-###  http://www.purl.org/trans_experiment#hasEvent
+###  http://www.purl.org/infection_trans#hasEvent
 :hasEvent rdf:type owl:ObjectProperty ;
           rdfs:domain :Experiment ;
-          rdfs:range :CircumstantialEvent .
+          rdfs:range :Observation .
 
 
-###  http://www.purl.org/trans_experiment#hasGene
+###  http://www.purl.org/infection_trans#hasGene
 :hasGene rdf:type owl:ObjectProperty ;
          rdfs:domain :Pathogen ;
          rdfs:range :Gene .
 
 
-###  http://www.purl.org/trans_experiment#hasHost
+###  http://www.purl.org/infection_trans#hasHost
 :hasHost rdf:type owl:ObjectProperty ;
          rdfs:domain :Measurement ;
          rdfs:range :Environment ,
                     :Host .
 
 
-###  http://www.purl.org/trans_experiment#hasInoculation
+###  http://www.purl.org/infection_trans#hasInoculation
 :hasInoculation rdf:type owl:ObjectProperty ;
                 rdfs:domain :Experiment ;
                 rdfs:range :Inoculation .
 
 
-###  http://www.purl.org/trans_experiment#hasMeasurement
+###  http://www.purl.org/infection_trans#hasMeasurement
 :hasMeasurement rdf:type owl:ObjectProperty ;
                 rdfs:domain :Experiment ;
                 rdfs:range :Measurement .
 
 
-###  http://www.purl.org/trans_experiment#hasPathogen
+###  http://www.purl.org/infection_trans#hasPathogen
 :hasPathogen rdf:type owl:ObjectProperty ;
              rdfs:domain :Sample ;
              rdfs:range :Pathogen .
 
 
-###  http://www.purl.org/trans_experiment#hasQuantity
+###  http://www.purl.org/infection_trans#hasQuantity
 :hasQuantity rdf:type owl:ObjectProperty ;
              rdfs:domain :Measurement ;
              rdfs:range om2:BodyMass ,
@@ -85,48 +96,48 @@ om2:hasValue rdf:type owl:ObjectProperty ;
                         om2:VolumetricViableCount .
 
 
-###  http://www.purl.org/trans_experiment#hasResistance
+###  http://www.purl.org/infection_trans#hasResistance
 :hasResistance rdf:type owl:ObjectProperty ;
                rdfs:domain :Pathogen ;
                rdfs:range :PathogenResistence .
 
 
-###  http://www.purl.org/trans_experiment#hasSample
+###  http://www.purl.org/infection_trans#hasSample
 :hasSample rdf:type owl:ObjectProperty ;
            rdfs:domain :Measurement ;
            rdfs:range :Sample .
 
 
-###  http://www.purl.org/trans_experiment#hasTreatment
+###  http://www.purl.org/infection_trans#hasTreatment
 :hasTreatment rdf:type owl:ObjectProperty ;
               rdfs:domain :Experiment ;
               rdfs:range :Treatment .
 
 
-###  http://www.purl.org/trans_experiment#hasType
+###  http://www.purl.org/infection_trans#hasType
 :hasType rdf:type owl:ObjectProperty ;
-         rdfs:domain :CircumstantialEvent ,
+         rdfs:domain :Observation ,
                      :Sample ;
-         rdfs:range :CircumstantialEventTpe ,
+         rdfs:range :ObservationType ,
                     :SampleType .
 
 
-###  http://www.purl.org/trans_experiment#includes
+###  http://www.purl.org/infection_trans#includes
 :includes rdf:type owl:ObjectProperty ;
           rdfs:domain :Treatment ;
           rdfs:range :Antibiotic ,
                      :Pathogen .
 
 
-###  http://www.purl.org/trans_experiment#involves
+###  http://www.purl.org/infection_trans#involves
 :involves rdf:type owl:ObjectProperty ;
-          rdfs:domain :CircumstantialEvent ,
-                      :Inoculation ,
+          rdfs:domain :Inoculation ,
+                      :Observation ,
                       :Treatment ;
           rdfs:range :Host .
 
 
-###  http://www.purl.org/trans_experiment#locatedIn
+###  http://www.purl.org/infection_trans#locatedIn
 :locatedIn rdf:type owl:ObjectProperty ;
            rdfs:domain :Host ;
            rdfs:range :Environment .
@@ -142,142 +153,142 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
                       rdfs:range rdfs:Literal .
 
 
-###  http://www.purl.org/trans_experiment#age
+###  http://www.purl.org/infection_trans#age
 :age rdf:type owl:DatatypeProperty ;
      rdfs:domain :Host .
 
 
-###  http://www.purl.org/trans_experiment#coordinates
+###  http://www.purl.org/infection_trans#coordinates
 :coordinates rdf:type owl:DatatypeProperty ;
              rdfs:domain :Environment .
 
 
-###  http://www.purl.org/trans_experiment#date
+###  http://www.purl.org/infection_trans#date
 :date rdf:type owl:DatatypeProperty ;
       rdfs:range xsd:dateTime .
 
 
-###  http://www.purl.org/trans_experiment#experimentDay
+###  http://www.purl.org/infection_trans#experimentDay
 :experimentDay rdf:type owl:DatatypeProperty ;
                rdfs:domain :Experiment .
 
 
-###  http://www.purl.org/trans_experiment#experimentHour
+###  http://www.purl.org/infection_trans#experimentHour
 :experimentHour rdf:type owl:DatatypeProperty ;
                 rdfs:domain :Inoculation ,
                             :Measurement ,
                             :Treatment .
 
 
-###  http://www.purl.org/trans_experiment#experimentID
+###  http://www.purl.org/infection_trans#experimentID
 :experimentID rdf:type owl:DatatypeProperty ;
               rdfs:domain :Experiment .
 
 
-###  http://www.purl.org/trans_experiment#experimentType
+###  http://www.purl.org/infection_trans#experimentType
 :experimentType rdf:type owl:DatatypeProperty ;
                 rdfs:domain :Experiment .
 
 
-###  http://www.purl.org/trans_experiment#family
+###  http://www.purl.org/infection_trans#family
 :family rdf:type owl:DatatypeProperty ;
         rdfs:domain :Pathogen .
 
 
-###  http://www.purl.org/trans_experiment#feedConsumption
+###  http://www.purl.org/infection_trans#feedConsumption
 :feedConsumption rdf:type owl:DatatypeProperty .
 
 
-###  http://www.purl.org/trans_experiment#groupNumber
+###  http://www.purl.org/infection_trans#groupNumber
 :groupNumber rdf:type owl:DatatypeProperty ;
              rdfs:domain :Environment .
 
 
-###  http://www.purl.org/trans_experiment#hourAfterInoculation
+###  http://www.purl.org/infection_trans#hourAfterInoculation
 :hourAfterInoculation rdf:type owl:DatatypeProperty ;
                       rdfs:domain :Measurement .
 
 
-###  http://www.purl.org/trans_experiment#id
+###  http://www.purl.org/infection_trans#id
 :id rdf:type owl:DatatypeProperty ;
     rdfs:domain :Host .
 
 
-###  http://www.purl.org/trans_experiment#inoculationStatus
+###  http://www.purl.org/infection_trans#inoculationStatus
 :inoculationStatus rdf:type owl:DatatypeProperty ;
                    rdfs:domain :Host .
 
 
-###  http://www.purl.org/trans_experiment#level1
+###  http://www.purl.org/infection_trans#level1
 :level1 rdf:type owl:DatatypeProperty ;
         rdfs:domain :Environment .
 
 
-###  http://www.purl.org/trans_experiment#level2
+###  http://www.purl.org/infection_trans#level2
 :level2 rdf:type owl:DatatypeProperty ;
         rdfs:domain :Environment .
 
 
-###  http://www.purl.org/trans_experiment#level3
+###  http://www.purl.org/infection_trans#level3
 :level3 rdf:type owl:DatatypeProperty ;
         rdfs:domain :Environment .
 
 
-###  http://www.purl.org/trans_experiment#material
+###  http://www.purl.org/infection_trans#material
 :material rdf:type owl:DatatypeProperty ;
           rdfs:domain :Sample .
 
 
-###  http://www.purl.org/trans_experiment#name
+###  http://www.purl.org/infection_trans#name
 :name rdf:type owl:DatatypeProperty ;
       rdfs:domain :Antibiotic ,
                   :Gene ,
                   :Pathogen .
 
 
-###  http://www.purl.org/trans_experiment#repetition
+###  http://www.purl.org/infection_trans#repetition
 :repetition rdf:type owl:DatatypeProperty ;
             rdfs:domain :Experiment .
 
 
-###  http://www.purl.org/trans_experiment#result
+###  http://www.purl.org/infection_trans#result
 :result rdf:type owl:DatatypeProperty ;
         rdfs:domain :PathogenResistence ,
                     :Sample .
 
 
-###  http://www.purl.org/trans_experiment#resultDate
+###  http://www.purl.org/infection_trans#resultDate
 :resultDate rdf:type owl:DatatypeProperty ;
             rdfs:domain :Sample ;
             rdfs:range xsd:dateTime .
 
 
-###  http://www.purl.org/trans_experiment#sample
+###  http://www.purl.org/infection_trans#sample
 :sample rdf:type owl:DatatypeProperty ;
         rdfs:domain :Experiment .
 
 
-###  http://www.purl.org/trans_experiment#sex
+###  http://www.purl.org/infection_trans#sex
 :sex rdf:type owl:DatatypeProperty ;
      rdfs:domain :Host .
 
 
-###  http://www.purl.org/trans_experiment#strain
+###  http://www.purl.org/infection_trans#strain
 :strain rdf:type owl:DatatypeProperty ;
         rdfs:domain :Pathogen .
 
 
-###  http://www.purl.org/trans_experiment#studyDesign
+###  http://www.purl.org/infection_trans#studyDesign
 :studyDesign rdf:type owl:DatatypeProperty ;
              rdfs:domain :Experiment .
 
 
-###  http://www.purl.org/trans_experiment#treatment
+###  http://www.purl.org/infection_trans#treatment
 :treatment rdf:type owl:DatatypeProperty ;
            rdfs:domain :Host .
 
 
-###  http://www.purl.org/trans_experiment#type
+###  http://www.purl.org/infection_trans#type
 :type rdf:type owl:DatatypeProperty ;
       rdfs:domain :Host .
 
@@ -303,79 +314,122 @@ om2:Quantity rdf:type owl:Class ;
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/SpecificViableCount
 om2:SpecificViableCount rdf:type owl:Class ;
-                        rdfs:subClassOf om2:Quantity .
+                        rdfs:subClassOf om2:Quantity ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty om2:hasValue ;
+                                          owl:allValuesFrom [ rdf:type owl:Restriction ;
+                                                              owl:onProperty om2:hasUnit ;
+                                                              owl:allValuesFrom om2:SpecificViableCountUnit
+                                                            ]
+                                        ] .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/SpecificViableCountUnit
+om2:SpecificViableCountUnit rdf:type owl:Class ;
+                            owl:equivalentClass [ rdf:type owl:Class ;
+                                                  owl:oneOf ( om2:colonyFormingUnitPerGram
+                                                            )
+                                                ] ;
+                            rdfs:subClassOf om2:Unit ;
+                            rdfs:label "specific viable count unit"@en .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/Unit
+om2:Unit rdf:type owl:Class ;
+         rdfs:comment "A unit of measure is a definite magnitude of a quantity, defined and adopted by convention or by law. It is used as a standard for measurement of the same quantity, where any other value of the quantity can be expressed as a simple multiple of the unit. For example, length is a quantity; the metre is a unit of length that represents a definite predetermined length. When we say 10 metre (or 10 m), we actually mean 10 times the definite predetermined length called \"metre\"." .
 
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/VolumetricViableCount
 om2:VolumetricViableCount rdf:type owl:Class ;
-                          rdfs:subClassOf om2:Quantity .
+                          rdfs:subClassOf om2:Quantity ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty om2:hasValue ;
+                                            owl:allValuesFrom [ rdf:type owl:Restriction ;
+                                                                owl:onProperty om2:hasUnit ;
+                                                                owl:allValuesFrom om2:VolumetricViableCountUnit
+                                                              ]
+                                          ] ;
+                          rdfs:label "viable count (volumetric)"@en .
 
 
-###  http://www.purl.org/trans_experiment#Antibiotic
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/VolumetricViableCountUnit
+om2:VolumetricViableCountUnit rdf:type owl:Class ;
+                              owl:equivalentClass [ rdf:type owl:Class ;
+                                                    owl:oneOf ( om2:_1000ColonyFormingUnitPerMillilitre
+                                                                om2:colonyFormingUnitPer25Millilitre
+                                                                om2:colonyFormingUnitPerMillilitre
+                                                              )
+                                                  ] ;
+                              rdfs:subClassOf om2:Unit ;
+                              rdfs:label "volumetric viable count unit"@en .
+
+
+###  http://www.purl.org/infection_trans#Antibiotic
 :Antibiotic rdf:type owl:Class ;
             rdfs:comment "medicine used for treatmnet of a host" .
 
 
-###  http://www.purl.org/trans_experiment#CircumstantialEvent
-:CircumstantialEvent rdf:type owl:Class .
-
-
-###  http://www.purl.org/trans_experiment#CircumstantialEventTpe
-:CircumstantialEventTpe rdf:type owl:Class .
-
-
-###  http://www.purl.org/trans_experiment#Environment
+###  http://www.purl.org/infection_trans#Environment
 :Environment rdf:type owl:Class ;
              rdfs:comment "location of the conducted experiment." .
 
 
-###  http://www.purl.org/trans_experiment#Experiment
+###  http://www.purl.org/infection_trans#Experiment
 :Experiment rdf:type owl:Class ;
             rdfs:comment "A transmission experiment specifies setup and day of the experiment." .
 
 
-###  http://www.purl.org/trans_experiment#Gene
+###  http://www.purl.org/infection_trans#Gene
 :Gene rdf:type owl:Class ;
       rdfs:comment "the minimal contiguous stretch of DNA in a bacterium that contains the expressed and regulatory sequences sufficient to complement the function of a null mutation in trans." .
 
 
-###  http://www.purl.org/trans_experiment#Host
+###  http://www.purl.org/infection_trans#Host
 :Host rdf:type owl:Class ;
       rdfs:comment "a larger organism that harbours a smaller orgamisms." ;
       rdfs:isDefinedBy "https://en.wikipedia.org/wiki/Host_(biology)" .
 
 
-###  http://www.purl.org/trans_experiment#Inoculation
+###  http://www.purl.org/infection_trans#Inoculation
 :Inoculation rdf:type owl:Class ;
              rdfs:comment "a set of methods of artificially inducing immunity against various infectious diseases." .
 
 
-###  http://www.purl.org/trans_experiment#Measurement
+###  http://www.purl.org/infection_trans#Measurement
 :Measurement rdf:type owl:Class ;
              rdfs:isDefinedBy "process of associating numbers with physical quantities and phenomena. For example, indicating negative or positive sample, measuring bacteruim count or mass of host." .
 
 
-###  http://www.purl.org/trans_experiment#Pathogen
+###  http://www.purl.org/infection_trans#Observation
+:Observation rdf:type owl:Class .
+
+
+###  http://www.purl.org/infection_trans#ObservationType
+:ObservationType rdf:type owl:Class ;
+                 rdfs:comment "is a process of closely  monitoring the host." .
+
+
+###  http://www.purl.org/infection_trans#Pathogen
 :Pathogen rdf:type owl:Class ;
           rdfs:comment "an organism causing disease to its host." .
 
 
-###  http://www.purl.org/trans_experiment#PathogenResistence
+###  http://www.purl.org/infection_trans#PathogenResistence
 :PathogenResistence rdf:type owl:Class ;
                     rdfs:comment "an ability to limit pathogen burden." .
 
 
-###  http://www.purl.org/trans_experiment#Sample
+###  http://www.purl.org/infection_trans#Sample
 :Sample rdf:type owl:Class ;
         rdfs:comment "A biological specimen including, for example, blood, tissue, urine, etc. taken from a host." .
 
 
-###  http://www.purl.org/trans_experiment#SampleType
+###  http://www.purl.org/infection_trans#SampleType
 :SampleType rdf:type owl:Class ;
             rdfs:comment "type of the sample. For example, swab sample or bootsock sample." .
 
 
-###  http://www.purl.org/trans_experiment#Treatment
+###  http://www.purl.org/infection_trans#Treatment
 :Treatment rdf:type owl:Class ;
            rdfs:comment "a process of giving medication or antibiotic to a host." .
 
@@ -384,17 +438,66 @@ om2:VolumetricViableCount rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
-###  http://www.purl.org/trans_experiment#Death
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/BodyMass
+om2:BodyMass rdf:type owl:NamedIndividual ;
+             om2:commonlyHasUnit om2:gram ,
+                                 om2:kilogram ,
+                                 om2:tonne .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/_1000ColonyFormingUnitPerMillilitre
+om2:_1000ColonyFormingUnitPerMillilitre rdf:type owl:NamedIndividual .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPer25Millilitre
+om2:colonyFormingUnitPer25Millilitre rdf:type owl:NamedIndividual .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerGram
+om2:colonyFormingUnitPerGram rdf:type owl:NamedIndividual .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerMillilitre
+om2:colonyFormingUnitPerMillilitre rdf:type owl:NamedIndividual .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/gram
+om2:gram rdf:type owl:NamedIndividual ,
+                  om2:Unit ;
+         rdfs:comment "The gram is a unit of mass defined as 1.0e-3 kilogram."@en ;
+         rdfs:label "gram"@en ,
+                    "gram"@nl ,
+                    "克"@zh .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/kilogram
+om2:kilogram rdf:type owl:NamedIndividual ,
+                      om2:Unit ;
+             rdfs:comment "The kilogram is a unit of mass defined as the mass of the international prototype of the kilogram."@en ,
+                          "The tonne is a unit of mass defined as 1000 kilogram."@en ;
+             rdfs:label "kilogram"@en ,
+                        "kilogram"@nl ,
+                        "ton"@nl ,
+                        "tonne"@en ,
+                        "公吨"@zh ,
+                        "公斤"@zh .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/tonne
+om2:tonne rdf:type owl:NamedIndividual .
+
+
+###  http://www.purl.org/infection_trans#Death
 :Death rdf:type owl:NamedIndividual ,
-                :CircumstantialEventTpe .
+                :ObservationType .
 
 
-###  http://www.purl.org/trans_experiment#EnvironmentalSample
+###  http://www.purl.org/infection_trans#EnvironmentalSample
 :EnvironmentalSample rdf:type owl:NamedIndividual ,
                               :SampleType .
 
 
-###  http://www.purl.org/trans_experiment#Swab
+###  http://www.purl.org/infection_trans#Swab
 :Swab rdf:type owl:NamedIndividual ,
                :SampleType .
 
