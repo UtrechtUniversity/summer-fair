@@ -402,7 +402,7 @@ om2:VolumetricViableCountUnit rdf:type owl:Class ;
 
 ###  http://www.purl.org/infection_trans#Observation
 :Observation rdf:type owl:Class ;
-        rdfs:comment "is a process of closely  monitoring the host."
+        rdfs:comment "is a process of closely  monitoring the host.".
 
 
 ###  http://www.purl.org/infection_trans#ObservationType
