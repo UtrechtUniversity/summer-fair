@@ -6,7 +6,7 @@
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://raw.githubusercontent.com/UtrechtUniversity/summer-fair/master/src/create_ontology/map_ontology/trans_ont.owl","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://raw.githubusercontent.com/UtrechtUniversity/summer-fair/master/src/create_ontology/map_ontology/trans_ont.owl","name":"Transmission Experiment Ontology", "headline":"Document describing the ontology https://raw.githubusercontent.com/UtrechtUniversity/summer-fair/master/src/create_ontology/map_ontology/trans_ont.owl", "datePublished":"Tue May 03 15:08:18 UTC 2022", "version":"1.0", "author":[{"@type":"Person","name":"Elena Slavco"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://raw.githubusercontent.com/UtrechtUniversity/summer-fair/master/src/create_ontology/map_ontology/trans_ont.owl","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://raw.githubusercontent.com/UtrechtUniversity/summer-fair/master/src/create_ontology/map_ontology/trans_ont.owl","name":"Infection Transmission Ontology", "headline":"Document describing the ontology https://raw.githubusercontent.com/UtrechtUniversity/summer-fair/master/src/create_ontology/map_ontology/trans_ont.owl", "datePublished":"Tue May 03 15:08:18 UTC 2022", "version":"1.0", "author":[{"@type":"Person","name":"Elena Slavco"}]}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -45,7 +45,6 @@ function loadTOC(){
  $.fn.ignore = function(sel){
         return this.clone().find(sel||">*").remove().end();
  };    $(function(){
-      $("#abstract").load("sections/abstract-en.html"); 
       $("#introduction").load("sections/introduction-en.html"); 
       $("#overview").load("sections/overview-en.html"); 
       $("#description").load("sections/description-en.html"); 
@@ -64,7 +63,7 @@ function loadTOC(){
 
 <dl>
 <dt>This version:</dt>
-<dd><a href="http://purl.org/trans_experiment#">http://purl.org/trans_experiment#</a></dd>
+<dd><a href="http://purl.org/infection_trans#">http://purl.org/infection_trans#</a></dd>
 <dt>Revision:</dt>
 <dd>1.0</dd>
 <dt>Authors:</dt>
@@ -75,7 +74,6 @@ function loadTOC(){
 
 <a href="provenance/provenance-en.html" target="_blank">Provenance of this page</a><hr/>
 </div>
-     <div id="abstract"></div>
 <div id="toc"></div>     <div id="introduction"></div>
      <div id="overview"></div>
      <div id="description"></div>
