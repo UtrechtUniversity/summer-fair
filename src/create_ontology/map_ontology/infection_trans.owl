@@ -143,6 +143,12 @@ om2:hasValue rdf:type owl:ObjectProperty ;
            rdfs:range :Environment .
 
 
+###  http://www.purl.org/infection_trans#takenFrom
+:takenFrom rdf:type owl:ObjectProperty ;
+           rdfs:domain :Measurement ;
+           rdfs:range :Environment .
+
+
 #################################################################
 #    Data properties
 #################################################################
@@ -402,7 +408,7 @@ om2:VolumetricViableCountUnit rdf:type owl:Class ;
 
 ###  http://www.purl.org/infection_trans#Observation
 :Observation rdf:type owl:Class ;
-        rdfs:comment "is a process of closely  monitoring the host.".
+             rdfs:comment "is a process of closely  monitoring the host." .
 
 
 ###  http://www.purl.org/infection_trans#ObservationType
