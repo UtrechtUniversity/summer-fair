@@ -26,7 +26,7 @@ class Individual:
 class Ontology:
     def __init__(self, ont_file):
         self.graph = Graph().parse(ont_file, format="ttl")
-        self.namespace = Namespace("http://www.purl.org/trans_experiment#")
+        self.namespace = Namespace("http://www.purl.org/infection_trans#")
         self.om = Namespace("http://www.ontology-of-units-of-measure.org/resource/om-2/")
         self.class_names = self.get_class_names()
         self.class_relations = self.get_class_relations()

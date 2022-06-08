@@ -29,14 +29,13 @@ def main(config, filename, worksheet):
     ontology = Ontology(ont_file)
     dataset = Dataset(filename, mappings)
 
-    print('Starting populate ontology schema with data')
     for _, row in dataset.tidy_dataset.iterrows():
         # check for the required field
         # if it doesn't exit then run it for each row
         if mappings.required_field is None or row[mappings.required_field]:
             ontology.populate_ontology(mappings, row)
 
-    ontology_file = Path('data/populated_ont_B.ttl')
+    ontology_file = Path('data/populated_ont.ttl')
     ontology.save_ontology(ontology_file)
     print('Populated ontology is created.' if ontology_file.is_file() else "Ontology file is not created." )
 
