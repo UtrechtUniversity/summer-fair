@@ -294,6 +294,11 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
            rdfs:domain :Host .
 
 
+###  http://www.purl.org/infection_trans#trialArm
+:trialArm rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Host .
+
+
 ###  http://www.purl.org/infection_trans#type
 :type rdf:type owl:DatatypeProperty ;
       rdfs:domain :Host .
