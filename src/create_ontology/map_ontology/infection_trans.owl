@@ -5,9 +5,18 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <https://www.w3.org/2004/02/skos/#> .
 @base <http://www.purl.org/infection_trans#> .
 
 <http://www.purl.org/infection_trans#> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#closeMatch
+<http://www.w3.org/2004/02/skos/core#closeMatch> rdf:type owl:AnnotationProperty .
+
 
 #################################################################
 #    Object Properties
@@ -172,6 +181,11 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
 ###  http://www.purl.org/infection_trans#date
 :date rdf:type owl:DatatypeProperty ;
       rdfs:range xsd:dateTime .
+
+
+###  http://www.purl.org/infection_trans#detectionLimit
+:detectionLimit rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Sample .
 
 
 ###  http://www.purl.org/infection_trans#experimentDay
@@ -423,7 +437,8 @@ om2:VolumetricViableCountUnit rdf:type owl:Class ;
 
 ###  http://www.purl.org/infection_trans#Pathogen
 :Pathogen rdf:type owl:Class ;
-          rdfs:comment "an organism causing disease to its host." .
+          rdfs:comment "an organism causing disease to its host." ;
+          <http://www.w3.org/2004/02/skos/core#closeMatch> "http://purl.obolibrary.org/obo/IDO_0000528" .
 
 
 ###  http://www.purl.org/infection_trans#PathogenResistence
