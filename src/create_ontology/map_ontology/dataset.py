@@ -86,13 +86,13 @@ class Dataset:
     def read_file(self, file: str, merge_field=None):
         if file.endswith('.csv'):
             dataset = pd.read_csv(file,delimiter=';')
-
         elif file.endswith('.xlsx') and merge_field:
             dataset = pd.read_excel(file, sheet_name=None)
         elif file.endswith('.xlsx') and not merge_field:
             dataset = pd.read_excel(file)
         else:
             print('We only support .csv and .xlsx files.')
+            exit()
 
         return dataset
 
@@ -148,7 +148,7 @@ class Dataset:
                         property_or_class['experimentHour'] = 'experimentHour'
                 mappings['Experiment']['experimentDay'] = 'experimentDay'
 
-        reshaped_combined.dropna(subset=['experimentHour'], inplace=True)
+        reshaped_combined.dropna(subset=['experimentDay'], inplace=True)
         return reshaped_combined if not reshaped_combined.empty else self.dataset
 
     def reocur_columns_to_reshape(self, map_columns):
