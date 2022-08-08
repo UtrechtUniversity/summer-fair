@@ -14,6 +14,8 @@ from dataset import Dataset
 from mappings import Mappings
 from ontology import Ontology
 
+import requests
+
 @click.command()
 @click.option('--config', required=True,
               help='path to mapping file')
@@ -24,6 +26,8 @@ from ontology import Ontology
 def main(config, filename, worksheet):
     # File with ontology
     ont_file = 'infection_trans.owl'
+    ontology_file = Path('data/populated_ont.ttl')
+    print(config,filename)
 
     mappings = Mappings(config)
     ontology = Ontology(ont_file)
@@ -35,9 +39,17 @@ def main(config, filename, worksheet):
         if mappings.required_field is None or row[mappings.required_field]:
             ontology.populate_ontology(mappings, row)
 
-    ontology_file = Path('data/populated_ont.ttl')
+
     ontology.save_ontology(ontology_file)
     print('Populated ontology is created.' if ontology_file.is_file() else "Ontology file is not created." )
+
+    ## Upload Data to the triplestore
+
+    data = open(ontology_file).read()
+    headers = {'Content-Type': 'text/turtle;charset=utf-8', 'Authorization': 'admin:admin'}
+    r = requests.post('http://host.docker.internal:3032/mydataset/data?default', data=data.encode('utf-8'), headers=headers)
+    info_message = 'Ontology uploaded to triplestore' if r.status_code == 200 else 'Check the triplestore logs'
+    print(info_message)
 
 
 if __name__ == '__main__':
