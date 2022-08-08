@@ -1,0 +1,11 @@
+FROM python:3.9
+
+ARG CONFIG
+ENV CONFIG=${CONFIG}
+ARG FILENAME
+ENV FILENAME=${FILENAME}
+
+WORKDIR /map
+COPY  . .
+RUN pip3 install -r requirements.txt
+CMD ["sh", "-c","python main.py --config $CONFIG --filename $FILENAME"]

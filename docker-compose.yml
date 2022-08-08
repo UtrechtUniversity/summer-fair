@@ -1,0 +1,49 @@
+version: "3.10"
+
+services:
+  algorithm:
+    build:
+      context: ./src/R/
+      dockerfile: ./Dockerfile_algorithm
+    depends_on:
+      mapping:
+        condition: service_completed_successfully
+    volumes:
+      - ./src/R:/usr/local/src/myscripts
+  mapping:
+    build:
+      context: src/create_ontology/map_ontology/
+      dockerfile: ./Dockerfile_mapping
+      args:
+        - CONFIG=result_2.yml
+        - FILENAME=results_exp3_r123_rfile.xlsx
+    depends_on:
+      triplestore:
+        condition: service_healthy
+
+    volumes:
+      - ./src/create_ontology/map_ontology/data:/map/data
+  triplestore:
+    image: stain/jena-fuseki:jena4
+    environment:
+      - ADMIN_PASSWORD=admin
+      - FUSEKI_DATASET_1=mydataset
+    ports:
+      - "3032:3030"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://host.docker.internal:3032/mydataset" ]
+      interval: 30s
+      timeout: 10s
+      retries: 2
+      start_period: 10s
+
+
+
+
+
+
+
+
+
+
+
