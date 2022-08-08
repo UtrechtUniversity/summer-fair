@@ -18,7 +18,8 @@ ontology_schema:
     sex: sexe
     id: animalnr_col
     treatment: treatment
-    innoculationStatus: I, S1, S2
+    inoculationStatus: I, S1, S2
+    type: 'broiler'
     locatedIn: Environment
   Measurement:
       - experimentDay: weight_d(.*)
