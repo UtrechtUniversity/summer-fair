@@ -15,7 +15,7 @@ get.data <- function(endpoint){
             Prefix om: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-            SELECT ?round ?ex_day ?ex_hour ?hour_after_inoc  ?inoculationHour ?group ?level1 ?level2 ?level3 ?host_id ?type ?treatment ?inoculationStatus ?sample_measure ?sample_material ?detectionLimit ?sample_result ?sample_type ?pathogen_name WHERE {
+            SELECT ?round ?ex_day ?ex_hour ?hour_after_inoc  ?inoculationHour ?group ?level1 ?level2 ?level3 ?host_id ?type ?treatment ?inoculationStatus ?sample_measure ?sample_material ?detectionLimit ?sample_result ?sample_type ?pathogen_name ?gene_name  WHERE {
               ?experiment a :Experiment;
                           :experimentDay ?ex_day;
                           :hasMeasurement ?measurement.
@@ -54,6 +54,9 @@ get.data <- function(endpoint){
             
                optional{?sample  :hasPathogen ?pathogen.
                 ?pathogen :name ?pathogen_name }
+              
+              optional{?pathogen :hasGene ?gene.
+                ?gene :name ?gene_name. }
       }
 "
   return(SPARQL(url = endpoint,query=sparql)$results)
