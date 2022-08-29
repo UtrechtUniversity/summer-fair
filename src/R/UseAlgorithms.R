@@ -49,8 +49,8 @@ localC <- get.local.transmission(dataC)
 localD <- get.local.transmission(dataD)
 
 #data mapped at WBVR
-localE <- get.local.transmission(dataE) #Cecarelli
-localF <- get.local.transmission(dataF) #Van Bunnik
+localE <- get.local.transmission(dataE) #Cecarelli  -> algorithm cannot interpret these data yet
+localF <- get.local.transmission(dataF) #Van Bunnik -> data set does not work yet because of 2 levels 
 
 
 #combine estimates of control group with standard meta-analysis techniques ####

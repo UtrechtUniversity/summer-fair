@@ -20,8 +20,6 @@ get.data <- function(endpoint){
                           :experimentDay ?ex_day;
                           :hasMeasurement ?measurement.
               optional {?experiment :repetition ?round;}
-
-
               ?measurement a :Measurement;
                            :hasHost ?host.
                  ?measurement  :hasSample ?sample.
