@@ -22,6 +22,8 @@ class Dataset:
 
         self.tidy_dataset = self.transform_dataset(mappings.ont_mappings).fillna('')
 
+
+
         if mappings.update_values:
             self.update_dataset_values(mappings.update_values)
 
@@ -83,14 +85,14 @@ class Dataset:
 
     def read_file(self, file: str, merge_field=None):
         if file.endswith('.csv'):
-            dataset = pd.read_csv(file)
-
+            dataset = pd.read_csv(file,delimiter=';')
         elif file.endswith('.xlsx') and merge_field:
             dataset = pd.read_excel(file, sheet_name=None)
         elif file.endswith('.xlsx') and not merge_field:
             dataset = pd.read_excel(file)
         else:
             print('We only support .csv and .xlsx files.')
+            exit()
 
         return dataset
 
@@ -124,14 +126,20 @@ class Dataset:
                     reshaped = pd.lreshape(new_df, reshape_columns)
 
                     reshaped['experimentDay'] = reshaped['experimentDay'].apply(lambda x: pd.to_numeric(x, errors = 'ignore'))
-                    if 'experimentHour' in reshaped:
-                        reshaped['experimentHour'] = reshaped['experimentHour'].apply(lambda x: pd.to_numeric(x, errors = 'ignore'))
+
                     # days and hours experiments
                     experiment_time = ['experimentDay']
 
+                    if 'experimentHour' in reshaped:
+                        reshaped['experimentHour'] = reshaped['experimentHour'].apply(lambda x: pd.to_numeric(x, errors = 'ignore'))
+                        if 'experimentHour' in reshaped_combined:
+                            experiment_time.append('experimentHour')
+
+
                     if not reshaped_combined.empty:
+                        # fix experiment hour
                         reshaped_combined = reshaped_combined.merge(reshaped,
-                                                                    on=unique_columns + experiment_time + self.reusable_column,
+                                                                    on=unique_columns + experiment_time  + self.reusable_column,
                                                                     how="outer")
                     else:
                         reshaped_combined = reshaped
@@ -140,6 +148,7 @@ class Dataset:
                         property_or_class['experimentHour'] = 'experimentHour'
                 mappings['Experiment']['experimentDay'] = 'experimentDay'
 
+        reshaped_combined.dropna(subset=['experimentDay'], inplace=True)
         return reshaped_combined if not reshaped_combined.empty else self.dataset
 
     def reocur_columns_to_reshape(self, map_columns):

@@ -3,3 +3,4 @@ rdflib==6.0.0
 pyyaml==5.4.1
 openpyxl==3.0.7
 click
+requests
