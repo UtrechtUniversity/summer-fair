@@ -1,0 +1,41 @@
+required: animalnr
+ontology_schema:
+  Experiment:
+    experimentID: '1'
+    repetition: round
+    experimentDay:
+      - weight_d(.*)
+      - d(.*)_count_ESBL
+  Environment:
+    groupNumber: isolator
+    level1: isolator
+  Host:
+    sex: sexe
+    id: animalnr
+    type: broiler
+    treatment: treatment
+    inoculationStatus: S_I
+    locatedIn: Environment
+  Measurement:
+      - experimentDay: weightd(.*)
+        hasQuantity: BodyMass
+        hasHost: Host
+        experimentHour:
+        BodyMass:
+          hasPhenomenon: Host
+        Measure:
+          hasNumericalValue: weightd.*
+      - experimentDay: d(.*)_count_ESBL
+        hasHost: Host
+        Sample:
+          hasType: 'Swab'
+
+          result:
+        SpecificViableCount:
+          hasPhenomenon: Sample
+        Measure:
+          hasNumericalValue: d.*_count_ESBL
+        Pathogen:
+          name: 'E.Coli'
+
+
