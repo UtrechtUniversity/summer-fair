@@ -1,5 +1,4 @@
 required: chicken_id
-merge_spreadsheets_on: chicken_id #write a column name which repeats in the spreadsheets and that we can merge on.
 meta_data:
 ontology_schema:
   Experiment:
@@ -23,7 +22,7 @@ ontology_schema:
         hasHost: Host
         Sample:
           hasType: 'Swab'
-          hasResult: sample.*_result
+          result: sample.*_result
           resultDate:
         Pathogen:
           family:
