@@ -37,12 +37,20 @@ dataB<- get.data("http://localhost:3030/datasetB")
 dataC<- get.data("http://localhost:3030/datasetC")
 dataD<- get.data("http://localhost:3030/datasetD")
 
+#data mapped at WBVR
+dataE<- get.data("http://localhost:3030/datasetE")
+dataF<- get.data("http://localhost:3030/datasetF")
+
 #run local algorithm for each data set ####
 localA <- get.local.transmission(dataA)
 localB <- get.local.transmission(dataB)
 
 localC <- get.local.transmission(dataC)
 localD <- get.local.transmission(dataD)
+
+#data mapped at WBVR
+localE <- get.local.transmission(dataE) #Cecarelli  -> algorithm cannot interpret these data yet
+localF <- get.local.transmission(dataF) #Van Bunnik -> data set does not work yet because of 2 levels 
 
 
 #combine estimates of control group with standard meta-analysis techniques ####
