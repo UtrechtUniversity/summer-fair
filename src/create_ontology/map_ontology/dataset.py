@@ -142,7 +142,11 @@ class Dataset:
         Method reads the files based on the extension
         """
         if file.endswith('.csv'):
+<<<<<<< HEAD
             dataset = pd.read_csv(file, sep = None, engine = 'python',encoding='utf-8-sig')
+=======
+            dataset = pd.read_csv(file, sep="[;,]", engine='python')
+>>>>>>> changed delimiter
         elif file.endswith('.xlsx') and merge_field:
             dataset = pd.read_excel(file, sheet_name=None)
         elif file.endswith('.xlsx') and not merge_field:
