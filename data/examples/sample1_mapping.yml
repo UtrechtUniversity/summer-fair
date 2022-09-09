@@ -7,13 +7,13 @@ ontology_schema:
       - sample.*_day
   Environment:
     groupNumber:
-    hospital:
-    house: house
-    pen: pen
-    ward:
+    level3:
+    level2: house
+    level1: pen
   Host:
     id: chicken_id
-    inoculationType: type
+    inoculationStatus: type
+    treatmet:
     sex: sex
     locatedIn: Environment
   Measurement:

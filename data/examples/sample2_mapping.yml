@@ -11,15 +11,15 @@ ontology_schema:
       - swab.*_date
   Environment:
     groupNumber:
-    hospital:
-    house: house
-    pen: pen
-    ward:
+    level3:
+    level2: house
+    level1: pen
   Host:
     sex:
     id: animalnr_col
     treatment: treatment
-    type: I, S1, S2
+    inoculationStatus: I, S1, S2
+    type: broiler
     locatedIn: Environment
   Measurement:
       - experimentDay: weight_d(.*)
