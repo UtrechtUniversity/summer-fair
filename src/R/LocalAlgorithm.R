@@ -152,7 +152,7 @@ arrangeData.glm<-function(rdata,           #data
   i <- rdata%>%
     group_by(across(c("round",all_of(mixinglevels) ,"times"))) %>% 
     summarise(i = sum(sir == 2,na.rm = TRUE))
-  group.data <- group.data%>%right_join(i, by = c("round",all_of(mixinglevels),"times"))
+  group.data <- group.data%>%right_join(i, by = c("round",all_of(mixinglevels[-1]),"times"))
   group.data$i2 <- 0;#default values
   group.data$i3 <- 0;#default values
   #here also take into account infectious individuals in other levels
@@ -172,20 +172,20 @@ arrangeData.glm<-function(rdata,           #data
     }
   
   }
-  #4. number of susceptible individuals at start interval
+  #4. number of susceptible individuals at start interval at level 1
   s <- rdata%>%
     filter(if(remInoCase)!str_detect(inoculationStatus,inoMarker)else TRUE)%>%
-    group_by(across(c("round",all_of(mixinglevels) ,"times"))) %>% 
+    group_by(across(c("round",all_of(mixinglevels[-1]) ,"times"))) %>% 
     summarise(s = sum(sir == 0,na.rm = TRUE))
   group.data <- group.data%>%right_join(s, by = c("round",all_of(mixinglevels),"times"))
-  #5. number of recovered individuals at start of interval
+  #5. number of recovered individuals at start of interval at level 1
   r <- rdata%>%
-    group_by(across(c("round",all_of(mixinglevels) ,"times"))) %>% 
+    group_by(across(c("round",all_of(mixinglevels[-1]) ,"times"))) %>% 
     summarise(r = sum(sir == 3,na.rm = TRUE))
   group.data <- group.data%>%right_join(r, by = c("round",all_of(mixinglevels),"times"))
-  #6. total number of individuals
+  #6. total number of individuals in level 1
   n <- rdata%>%
-    group_by(across(c("round",all_of(mixinglevels) ,"times"))) %>% 
+    group_by(across(c("round",all_of(mixinglevels[-1]) ,"times"))) %>% 
     summarise(n = sum(!is.na(sir)))
   group.data <- group.data%>%right_join(n, by = c("round",all_of(mixinglevels),"times"))
   group.data$n2 <- 0;#default values
@@ -419,6 +419,7 @@ arrangeData.finalsize<-function(rdata,           #data
 
 
 
+
 # perform analysis ####
 analyseTransmission<- function(inputdata,          #input data
                                rule,          #rule to determine whether sample is positive or negative
@@ -486,7 +487,7 @@ analyseTransmission<- function(inputdata,          #input data
 }
 
 
-# # perform analysis with default decisions ####
+# perform analysis with default decisions ####
 # analyseTransmission<- function(inputdata,          #input data
 #                                rule = "sinceany",          #rule to determine whether sample is positive or negative
 #                                method ="glm", #estimation method
@@ -535,6 +536,7 @@ analyseTransmission<- function(inputdata,          #input data
 # 
 # 
 
+
 #run local algorithm for each data set ####
 get.local.transmission <- function(dataset){
    if(length(dataset)==0)stop("Empty data set cannot be analysed")
@@ -564,6 +566,8 @@ get.local.transmission <- function(dataset){
                   }
 
 
+
+
 ###################################
 # run.glm is a function equal to glm but will filter time points that cannot be used. 
 
@@ -573,20 +577,45 @@ run.glm<-function(covars,
   
   #filter intervals without infected animals. 
   if(preventError){
-    data.filtered <- data.arranged %>% filter(i>0 &!is.na(cases)&!is.na(s)&!is.na(i)&!is.na(r));
+    data.filtered <- data.arranged %>% filter(i + i2 + i3 > 0 &!is.na(i + i2 + i3 )&!is.na(cases)&!is.na(s)&!is.na(i)&!is.na(r));
   }else data.filtered <- data.arranged
     
   #if covariates only have one unique value it cannot be used in the glm
   use.covars <- covars[data.arranged[,covars]%>%unique%>%length>1]
   if(length(use.covars)==0){use.covars <- "1"}
-  #
- 
-  return(glm(as.formula(paste("cbind(cases, s - cases) ~ ", paste(use.covars, collapse= "+"))),
+  #determine number of levels
+  levels = "L1" ;
+  if(sum(data.arranged$i2)>0)levels = "L2";
+  if(sum(data.arranged$i3)>0)levels = "L3";
+  #Do the analysis
+  fit <- switch(levels,
+                #only one level do simple glm
+               "L1" = return(glm(as.formula(paste("cbind(cases, s - cases) ~ ", paste(use.covars, collapse= "+"))),
                   family = binomial(link = "cloglog"), 
                   offset = log(i/n)*dt,
                   data = data.filtered 
-                  ))
+                  ),
+                "L2" = {
+                  logl = function(beta1,beta2,data){
+                    sum((data$cases*log(exp((beta1*data$i/dataa$n + 
+                                                        beta2*dataa$i2/dataa$n2)*dataa$dt)-1)+
+                           data$s*(beta1*data$i1/data$n + beta2*data$i2/data$n2)*data$dt))}
+                  return(mle2(logl, data = data.filtered));}
+                 ,
+                "L3" = {
+                 logl = function(beta1,beta2,beta3, data){
+                   sum((data$cases*log(exp((beta1*data$i/data$n + 
+                                                       beta2*data$i2/data$n2+
+                                                       beta3*data$i3/data$n3)*data$dt)-1)+
+                          data$s*(beta1*data$i1/data$n + 
+                               beta2*data$i2/data$n2+
+                                beta3*data$i3/data$n3)*data$dt))}
+                return(mle2(logl, data = data.filtered));}
+               
+                )
+    )
   
+  return(fit)
 }
 
 
