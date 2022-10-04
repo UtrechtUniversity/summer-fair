@@ -2,7 +2,7 @@ required: chicken_id
 meta_data:
 ontology_schema:
   Experiment:
-    experimentID: 'ChickenData'
+    experimentID: 'UU'
     experimentDay:
       - sample.*_day
   Environment:

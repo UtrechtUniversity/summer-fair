@@ -52,7 +52,7 @@ ontology_schema:
         hasHost: Host
         Sample:
           hasType: 'Swab'
-          hasResult: swab.*
+          result: swab.*
           resultDate:
         Pathogen:
           family:
