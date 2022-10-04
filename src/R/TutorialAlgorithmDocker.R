@@ -22,9 +22,9 @@ dataA<- get.data("http://host.docker.internal:3030/mydataset/query")
 dataB<- get.data("http://host.docker.internal:3031/mydataset/query")
 
 #run analysis over data set A
-localA <- get.local.trasmission(dataA)
+localA <- get.local.transmission(dataA)
 #run analysis over data set B
-localB<- get.local.trasmission(dataB)
+localB<- get.local.transmission(dataB)
 
 #combine estimates of control group with standard meta-analysis techniques ####
 metaana <- combine.estimates.glm(list(localA,localB),
