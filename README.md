@@ -1,5 +1,6 @@
 # SUMMER_FAIR
 ![GitHub](https://img.shields.io/github/license/UtrechtUniversity/summer-fair)
+[![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B%20%20%E2%97%8F%20%20%E2%97%8B-orange)](https://fair-software.eu)
 
 This software integrates existing data sets on transmission experiments by using semantic web technologies
 
@@ -19,3 +20,6 @@ This project is licensed under the terms of the [MIT License](/LICENSE.md)
 ## Citation
 
 Please [cite this project as described here](/CITATION.md).
+
+
+
