@@ -1,0 +1,15 @@
+name: fair-software
+
+on:
+  workflow_dispatch:
+  schedule:
+    # every 5 days at 03:00, see https://crontab.guru
+    - cron: '0 3 */5 * *'
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: fair-software/howfairis-github-action@0.2.1
+        with:
+          MY_REPO_URL: "https://github.com/${{ github.repository }}"
