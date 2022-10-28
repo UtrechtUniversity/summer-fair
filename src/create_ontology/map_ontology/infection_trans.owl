@@ -1,532 +1,939 @@
-@prefix : <http://www.purl.org/infection_trans#> .
-@prefix om2: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <https://www.w3.org/2004/02/skos/#> .
-@base <http://www.purl.org/infection_trans#> .
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.purl.org/infection_trans#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.purl.org/infection_trans#">
+    <Prefix name="" IRI="http://www.purl.org/infection_trans#"/>
+    <Prefix name="om2" IRI="http://www.ontology-of-units-of-measure.org/resource/om-2/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="skos" IRI="https://www.w3.org/2004/02/skos/#"/>
+    <Import>http://purl.org/dc/terms</Import>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/bibliographicCitation"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">[TO DO] IEEE eScience 2022 paper</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/contributor"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">Egil Fischer</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/contributor"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">Martine de Vos</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/contributor"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">Miel Hostens</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/created"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">07-20-2022</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/creator"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">Elena Slavco</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">The ontology describes the domain of infection transmission experiments. It is applicable to animal and human (hospital) data from both experimental and observational studies.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/license"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">MIT</Literal>
+    </Annotation>
+    <Declaration>
+        <Class abbreviatedIRI="om2:BodyMass"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="om2:Measure"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="om2:Quantity"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="om2:SpecificViableCount"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="om2:SpecificViableCountUnit"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="om2:Unit"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="om2:VolumetricViableCount"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="om2:VolumetricViableCountUnit"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Antibiotic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Environment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Experiment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Gene"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Host"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Inoculation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Measurement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Observation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="ObservationType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Pathogen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="PathogenResistence"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Sample"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="SampleType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Treatment"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="om2:commonlyHasUnit"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="om2:hasPhenomenon"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="om2:hasUnit"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="om2:hasValue"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="against"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasDose"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasEvent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasGene"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasHost"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasInoculation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasMeasurement"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasPathogen"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasQuantity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasResistance"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasSample"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasTreatment"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="includes"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="involves"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="locatedIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="takenFrom"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="om2:hasNumericalValue"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="age"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="coordinates"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="date"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="detectionLimit"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="experimentDay"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="experimentHour"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="experimentID"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="experimentType"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="family"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="feedConsumption"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="groupNumber"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="hourAfterInoculation"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="id"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="inoculationStatus"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="level1"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="level2"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="level3"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="material"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="repetition"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="result"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="resultDate"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="sample"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="sex"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="strain"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="studyDesign"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="treatment"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="trialArm"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="type"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="om2:BodyMass"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="om2:_1000ColonyFormingUnitPerMillilitre"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="om2:colonyFormingUnitPer25Millilitre"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="om2:colonyFormingUnitPerGram"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="om2:colonyFormingUnitPerMillilitre"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="om2:gram"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="om2:kilogram"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="om2:tonne"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="Death"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="EnvironmentalSample"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="Swab"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/bibliographicCitation"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/contributor"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/created"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/creator"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/license"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="om2:SpecificViableCountUnit"/>
+        <ObjectOneOf>
+            <NamedIndividual abbreviatedIRI="om2:colonyFormingUnitPerGram"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="om2:VolumetricViableCountUnit"/>
+        <ObjectOneOf>
+            <NamedIndividual abbreviatedIRI="om2:_1000ColonyFormingUnitPerMillilitre"/>
+            <NamedIndividual abbreviatedIRI="om2:colonyFormingUnitPer25Millilitre"/>
+            <NamedIndividual abbreviatedIRI="om2:colonyFormingUnitPerMillilitre"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class abbreviatedIRI="om2:BodyMass"/>
+        <Class abbreviatedIRI="om2:Quantity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="om2:SpecificViableCount"/>
+        <Class abbreviatedIRI="om2:Quantity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="om2:SpecificViableCount"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="om2:hasValue"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty abbreviatedIRI="om2:hasUnit"/>
+                <Class abbreviatedIRI="om2:SpecificViableCountUnit"/>
+            </ObjectAllValuesFrom>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="om2:SpecificViableCountUnit"/>
+        <Class abbreviatedIRI="om2:Unit"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="om2:VolumetricViableCount"/>
+        <Class abbreviatedIRI="om2:Quantity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="om2:VolumetricViableCount"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="om2:hasValue"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty abbreviatedIRI="om2:hasUnit"/>
+                <Class abbreviatedIRI="om2:VolumetricViableCountUnit"/>
+            </ObjectAllValuesFrom>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="om2:VolumetricViableCountUnit"/>
+        <Class abbreviatedIRI="om2:Unit"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class abbreviatedIRI="om2:Unit"/>
+        <NamedIndividual abbreviatedIRI="om2:gram"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="om2:Unit"/>
+        <NamedIndividual abbreviatedIRI="om2:kilogram"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="ObservationType"/>
+        <NamedIndividual IRI="Death"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="SampleType"/>
+        <NamedIndividual IRI="EnvironmentalSample"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="SampleType"/>
+        <NamedIndividual IRI="Swab"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="om2:commonlyHasUnit"/>
+        <NamedIndividual abbreviatedIRI="om2:BodyMass"/>
+        <NamedIndividual abbreviatedIRI="om2:gram"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="om2:commonlyHasUnit"/>
+        <NamedIndividual abbreviatedIRI="om2:BodyMass"/>
+        <NamedIndividual abbreviatedIRI="om2:kilogram"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="om2:commonlyHasUnit"/>
+        <NamedIndividual abbreviatedIRI="om2:BodyMass"/>
+        <NamedIndividual abbreviatedIRI="om2:tonne"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="om2:hasPhenomenon"/>
+        <Class abbreviatedIRI="om2:Quantity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="om2:hasUnit"/>
+        <Class abbreviatedIRI="om2:Measure"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="om2:hasValue"/>
+        <Class abbreviatedIRI="om2:Quantity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="against"/>
+        <Class IRI="PathogenResistence"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasDose"/>
+        <Class IRI="Inoculation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasDose"/>
+        <Class IRI="Treatment"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasEvent"/>
+        <Class IRI="Experiment"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasGene"/>
+        <Class IRI="Pathogen"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasHost"/>
+        <Class IRI="Measurement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasInoculation"/>
+        <Class IRI="Experiment"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasMeasurement"/>
+        <Class IRI="Experiment"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasPathogen"/>
+        <Class IRI="Sample"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasQuantity"/>
+        <Class IRI="Measurement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasResistance"/>
+        <Class IRI="Pathogen"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasSample"/>
+        <Class IRI="Measurement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasTreatment"/>
+        <Class IRI="Experiment"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasType"/>
+        <Class IRI="Observation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasType"/>
+        <Class IRI="Sample"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="includes"/>
+        <Class IRI="Treatment"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="involves"/>
+        <Class IRI="Inoculation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="involves"/>
+        <Class IRI="Observation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="involves"/>
+        <Class IRI="Treatment"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="locatedIn"/>
+        <Class IRI="Host"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="takenFrom"/>
+        <Class IRI="Measurement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="om2:commonlyHasUnit"/>
+        <Class abbreviatedIRI="om2:Unit"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="om2:hasPhenomenon"/>
+        <Class IRI="Host"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="om2:hasPhenomenon"/>
+        <Class IRI="Sample"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="om2:hasUnit"/>
+        <Class abbreviatedIRI="om2:Unit"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="om2:hasValue"/>
+        <Class abbreviatedIRI="om2:Measure"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="against"/>
+        <Class IRI="Antibiotic"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasDose"/>
+        <Class abbreviatedIRI="om2:Quantity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasDose"/>
+        <Class abbreviatedIRI="om2:VolumetricViableCount"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasEvent"/>
+        <Class IRI="Observation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasGene"/>
+        <Class IRI="Gene"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasHost"/>
+        <Class IRI="Environment"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasHost"/>
+        <Class IRI="Host"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasInoculation"/>
+        <Class IRI="Inoculation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasMeasurement"/>
+        <Class IRI="Measurement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasPathogen"/>
+        <Class IRI="Pathogen"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasQuantity"/>
+        <Class abbreviatedIRI="om2:BodyMass"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasQuantity"/>
+        <Class abbreviatedIRI="om2:SpecificViableCount"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasQuantity"/>
+        <Class abbreviatedIRI="om2:VolumetricViableCount"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasResistance"/>
+        <Class IRI="PathogenResistence"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasSample"/>
+        <Class IRI="Sample"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasTreatment"/>
+        <Class IRI="Treatment"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasType"/>
+        <Class IRI="ObservationType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasType"/>
+        <Class IRI="SampleType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="includes"/>
+        <Class IRI="Antibiotic"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="includes"/>
+        <Class IRI="Pathogen"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="involves"/>
+        <Class IRI="Host"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="locatedIn"/>
+        <Class IRI="Environment"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="takenFrom"/>
+        <Class IRI="Environment"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="om2:hasNumericalValue"/>
+        <Class abbreviatedIRI="om2:Measure"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="age"/>
+        <Class IRI="Host"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="coordinates"/>
+        <Class IRI="Environment"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="detectionLimit"/>
+        <Class IRI="Sample"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="experimentDay"/>
+        <Class IRI="Experiment"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="experimentHour"/>
+        <Class IRI="Inoculation"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="experimentHour"/>
+        <Class IRI="Measurement"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="experimentHour"/>
+        <Class IRI="Treatment"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="experimentID"/>
+        <Class IRI="Experiment"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="experimentType"/>
+        <Class IRI="Experiment"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="family"/>
+        <Class IRI="Pathogen"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="groupNumber"/>
+        <Class IRI="Environment"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="hourAfterInoculation"/>
+        <Class IRI="Measurement"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="id"/>
+        <Class IRI="Host"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="inoculationStatus"/>
+        <Class IRI="Host"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="level1"/>
+        <Class IRI="Environment"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="level2"/>
+        <Class IRI="Environment"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="level3"/>
+        <Class IRI="Environment"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="material"/>
+        <Class IRI="Sample"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="name"/>
+        <Class IRI="Antibiotic"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="name"/>
+        <Class IRI="Gene"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="name"/>
+        <Class IRI="Pathogen"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="repetition"/>
+        <Class IRI="Experiment"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="result"/>
+        <Class IRI="PathogenResistence"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="result"/>
+        <Class IRI="Sample"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="resultDate"/>
+        <Class IRI="Sample"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="sample"/>
+        <Class IRI="Experiment"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="sex"/>
+        <Class IRI="Host"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="strain"/>
+        <Class IRI="Pathogen"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="studyDesign"/>
+        <Class IRI="Experiment"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="treatment"/>
+        <Class IRI="Host"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="trialArm"/>
+        <Class IRI="Host"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="type"/>
+        <Class IRI="Host"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="om2:hasNumericalValue"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="date"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="resultDate"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>om2:Measure</AbbreviatedIRI>
+        <Literal>http://www.ontology-of-units-of-measure.org/resource/om-2/Measure</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>om2:Quantity</AbbreviatedIRI>
+        <Literal>http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>om2:SpecificViableCountUnit</AbbreviatedIRI>
+        <Literal xml:lang="en">specific viable count unit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>om2:Unit</AbbreviatedIRI>
+        <Literal>A unit of measure is a definite magnitude of a quantity, defined and adopted by convention or by law. It is used as a standard for measurement of the same quantity, where any other value of the quantity can be expressed as a simple multiple of the unit. For example, length is a quantity; the metre is a unit of length that represents a definite predetermined length. When we say 10 metre (or 10 m), we actually mean 10 times the definite predetermined length called &quot;metre&quot;.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>om2:VolumetricViableCount</AbbreviatedIRI>
+        <Literal xml:lang="en">viable count (volumetric)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>om2:VolumetricViableCountUnit</AbbreviatedIRI>
+        <Literal xml:lang="en">volumetric viable count unit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>om2:gram</AbbreviatedIRI>
+        <Literal xml:lang="en">The gram is a unit of mass defined as 1.0e-3 kilogram.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>om2:gram</AbbreviatedIRI>
+        <Literal xml:lang="en">gram</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>om2:gram</AbbreviatedIRI>
+        <Literal xml:lang="nl">gram</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>om2:gram</AbbreviatedIRI>
+        <Literal xml:lang="zh">克</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>om2:kilogram</AbbreviatedIRI>
+        <Literal xml:lang="en">The kilogram is a unit of mass defined as the mass of the international prototype of the kilogram.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>om2:kilogram</AbbreviatedIRI>
+        <Literal xml:lang="en">The tonne is a unit of mass defined as 1000 kilogram.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>om2:kilogram</AbbreviatedIRI>
+        <Literal xml:lang="en">kilogram</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>om2:kilogram</AbbreviatedIRI>
+        <Literal xml:lang="nl">kilogram</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>om2:kilogram</AbbreviatedIRI>
+        <Literal xml:lang="nl">ton</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>om2:kilogram</AbbreviatedIRI>
+        <Literal xml:lang="en">tonne</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>om2:kilogram</AbbreviatedIRI>
+        <Literal xml:lang="zh">公吨</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>om2:kilogram</AbbreviatedIRI>
+        <Literal xml:lang="zh">公斤</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Antibiotic</IRI>
+        <Literal>medicine used for treatmnet of a host</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Environment</IRI>
+        <Literal>location of the conducted experiment.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Experiment</IRI>
+        <Literal>A transmission experiment specifies setup and day of the experiment.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Gene</IRI>
+        <Literal>the minimal contiguous stretch of DNA in a bacterium that contains the expressed and regulatory sequences sufficient to complement the function of a null mutation in trans.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Host</IRI>
+        <Literal>a larger organism that harbours a smaller orgamisms.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>Host</IRI>
+        <Literal>https://en.wikipedia.org/wiki/Host_(biology)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Inoculation</IRI>
+        <Literal>a set of methods of artificially inducing immunity against various infectious diseases.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>Measurement</IRI>
+        <Literal>process of associating numbers with physical quantities and phenomena. For example, indicating negative or positive sample, measuring bacteruim count or mass of host.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Observation</IRI>
+        <Literal>is a process of closely  monitoring the host.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>ObservationType</IRI>
+        <Literal>type of observation . For example, &apos;Death&apos; or &apos;HighFever&apos;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Pathogen</IRI>
+        <Literal>an organism causing disease to its host.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+        <IRI>Pathogen</IRI>
+        <Literal>http://purl.obolibrary.org/obo/IDO_0000528</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>PathogenResistence</IRI>
+        <Literal>an ability to limit pathogen burden.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Sample</IRI>
+        <Literal>A biological specimen including, for example, blood, tissue, urine, etc. taken from a host.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>SampleType</IRI>
+        <Literal>type of the sample. For example, swab sample or bootsock sample.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Treatment</IRI>
+        <Literal>a process of giving medication or antibiotic to a host.</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 
-<http://www.purl.org/infection_trans#> rdf:type owl:Ontology .
-
-#################################################################
-#    Annotation properties
-#################################################################
-
-###  http://www.w3.org/2004/02/skos/core#closeMatch
-<http://www.w3.org/2004/02/skos/core#closeMatch> rdf:type owl:AnnotationProperty .
-
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/commonlyHasUnit
-om2:commonlyHasUnit rdf:type owl:ObjectProperty ;
-                    rdfs:range om2:Unit .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasPhenomenon
-om2:hasPhenomenon rdf:type owl:ObjectProperty ;
-                  rdfs:domain om2:Quantity ;
-                  rdfs:range :Host ,
-                             :Sample .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit
-om2:hasUnit rdf:type owl:ObjectProperty ;
-            rdfs:domain om2:Measure ;
-            rdfs:range om2:Unit .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue
-om2:hasValue rdf:type owl:ObjectProperty ;
-             rdfs:domain om2:Quantity ;
-             rdfs:range om2:Measure .
-
-
-###  http://www.purl.org/infection_trans#against
-:against rdf:type owl:ObjectProperty ;
-         rdfs:domain :PathogenResistence ;
-         rdfs:range :Antibiotic .
-
-
-###  http://www.purl.org/infection_trans#hasDose
-:hasDose rdf:type owl:ObjectProperty ;
-         rdfs:domain :Inoculation ,
-                     :Treatment ;
-         rdfs:range om2:Quantity ,
-                    om2:VolumetricViableCount .
-
-
-###  http://www.purl.org/infection_trans#hasEvent
-:hasEvent rdf:type owl:ObjectProperty ;
-          rdfs:domain :Experiment ;
-          rdfs:range :Observation .
-
-
-###  http://www.purl.org/infection_trans#hasGene
-:hasGene rdf:type owl:ObjectProperty ;
-         rdfs:domain :Pathogen ;
-         rdfs:range :Gene .
-
-
-###  http://www.purl.org/infection_trans#hasHost
-:hasHost rdf:type owl:ObjectProperty ;
-         rdfs:domain :Measurement ;
-         rdfs:range :Environment ,
-                    :Host .
-
-
-###  http://www.purl.org/infection_trans#hasInoculation
-:hasInoculation rdf:type owl:ObjectProperty ;
-                rdfs:domain :Experiment ;
-                rdfs:range :Inoculation .
-
-
-###  http://www.purl.org/infection_trans#hasMeasurement
-:hasMeasurement rdf:type owl:ObjectProperty ;
-                rdfs:domain :Experiment ;
-                rdfs:range :Measurement .
-
-
-###  http://www.purl.org/infection_trans#hasPathogen
-:hasPathogen rdf:type owl:ObjectProperty ;
-             rdfs:domain :Sample ;
-             rdfs:range :Pathogen .
-
-
-###  http://www.purl.org/infection_trans#hasQuantity
-:hasQuantity rdf:type owl:ObjectProperty ;
-             rdfs:domain :Measurement ;
-             rdfs:range om2:BodyMass ,
-                        om2:SpecificViableCount ,
-                        om2:VolumetricViableCount .
-
-
-###  http://www.purl.org/infection_trans#hasResistance
-:hasResistance rdf:type owl:ObjectProperty ;
-               rdfs:domain :Pathogen ;
-               rdfs:range :PathogenResistence .
-
-
-###  http://www.purl.org/infection_trans#hasSample
-:hasSample rdf:type owl:ObjectProperty ;
-           rdfs:domain :Measurement ;
-           rdfs:range :Sample .
-
-
-###  http://www.purl.org/infection_trans#hasTreatment
-:hasTreatment rdf:type owl:ObjectProperty ;
-              rdfs:domain :Experiment ;
-              rdfs:range :Treatment .
-
-
-###  http://www.purl.org/infection_trans#hasType
-:hasType rdf:type owl:ObjectProperty ;
-         rdfs:domain :Observation ,
-                     :Sample ;
-         rdfs:range :ObservationType ,
-                    :SampleType .
-
-
-###  http://www.purl.org/infection_trans#includes
-:includes rdf:type owl:ObjectProperty ;
-          rdfs:domain :Treatment ;
-          rdfs:range :Antibiotic ,
-                     :Pathogen .
-
-
-###  http://www.purl.org/infection_trans#involves
-:involves rdf:type owl:ObjectProperty ;
-          rdfs:domain :Inoculation ,
-                      :Observation ,
-                      :Treatment ;
-          rdfs:range :Host .
-
-
-###  http://www.purl.org/infection_trans#locatedIn
-:locatedIn rdf:type owl:ObjectProperty ;
-           rdfs:domain :Host ;
-           rdfs:range :Environment .
-
-
-###  http://www.purl.org/infection_trans#takenFrom
-:takenFrom rdf:type owl:ObjectProperty ;
-           rdfs:domain :Measurement ;
-           rdfs:range :Environment .
-
-
-#################################################################
-#    Data properties
-#################################################################
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue
-om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
-                      rdfs:domain om2:Measure ;
-                      rdfs:range rdfs:Literal .
-
-
-###  http://www.purl.org/infection_trans#age
-:age rdf:type owl:DatatypeProperty ;
-     rdfs:domain :Host .
-
-
-###  http://www.purl.org/infection_trans#coordinates
-:coordinates rdf:type owl:DatatypeProperty ;
-             rdfs:domain :Environment .
-
-
-###  http://www.purl.org/infection_trans#date
-:date rdf:type owl:DatatypeProperty ;
-      rdfs:range xsd:dateTime .
-
-
-###  http://www.purl.org/infection_trans#detectionLimit
-:detectionLimit rdf:type owl:DatatypeProperty ;
-                rdfs:domain :Sample .
-
-
-###  http://www.purl.org/infection_trans#experimentDay
-:experimentDay rdf:type owl:DatatypeProperty ;
-               rdfs:domain :Experiment .
-
-
-###  http://www.purl.org/infection_trans#experimentHour
-:experimentHour rdf:type owl:DatatypeProperty ;
-                rdfs:domain :Inoculation ,
-                            :Measurement ,
-                            :Treatment .
-
-
-###  http://www.purl.org/infection_trans#experimentID
-:experimentID rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Experiment .
-
-
-###  http://www.purl.org/infection_trans#experimentType
-:experimentType rdf:type owl:DatatypeProperty ;
-                rdfs:domain :Experiment .
-
-
-###  http://www.purl.org/infection_trans#family
-:family rdf:type owl:DatatypeProperty ;
-        rdfs:domain :Pathogen .
-
-
-###  http://www.purl.org/infection_trans#feedConsumption
-:feedConsumption rdf:type owl:DatatypeProperty .
-
-
-###  http://www.purl.org/infection_trans#groupNumber
-:groupNumber rdf:type owl:DatatypeProperty ;
-             rdfs:domain :Environment .
-
-
-###  http://www.purl.org/infection_trans#hourAfterInoculation
-:hourAfterInoculation rdf:type owl:DatatypeProperty ;
-                      rdfs:domain :Measurement .
-
-
-###  http://www.purl.org/infection_trans#id
-:id rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Host .
-
-
-###  http://www.purl.org/infection_trans#inoculationStatus
-:inoculationStatus rdf:type owl:DatatypeProperty ;
-                   rdfs:domain :Host .
-
-
-###  http://www.purl.org/infection_trans#level1
-:level1 rdf:type owl:DatatypeProperty ;
-        rdfs:domain :Environment .
-
-
-###  http://www.purl.org/infection_trans#level2
-:level2 rdf:type owl:DatatypeProperty ;
-        rdfs:domain :Environment .
-
-
-###  http://www.purl.org/infection_trans#level3
-:level3 rdf:type owl:DatatypeProperty ;
-        rdfs:domain :Environment .
-
-
-###  http://www.purl.org/infection_trans#material
-:material rdf:type owl:DatatypeProperty ;
-          rdfs:domain :Sample .
-
-
-###  http://www.purl.org/infection_trans#name
-:name rdf:type owl:DatatypeProperty ;
-      rdfs:domain :Antibiotic ,
-                  :Gene ,
-                  :Pathogen .
-
-
-###  http://www.purl.org/infection_trans#repetition
-:repetition rdf:type owl:DatatypeProperty ;
-            rdfs:domain :Experiment .
-
-
-###  http://www.purl.org/infection_trans#result
-:result rdf:type owl:DatatypeProperty ;
-        rdfs:domain :PathogenResistence ,
-                    :Sample .
-
-
-###  http://www.purl.org/infection_trans#resultDate
-:resultDate rdf:type owl:DatatypeProperty ;
-            rdfs:domain :Sample ;
-            rdfs:range xsd:dateTime .
-
-
-###  http://www.purl.org/infection_trans#sample
-:sample rdf:type owl:DatatypeProperty ;
-        rdfs:domain :Experiment .
-
-
-###  http://www.purl.org/infection_trans#sex
-:sex rdf:type owl:DatatypeProperty ;
-     rdfs:domain :Host .
-
-
-###  http://www.purl.org/infection_trans#strain
-:strain rdf:type owl:DatatypeProperty ;
-        rdfs:domain :Pathogen .
-
-
-###  http://www.purl.org/infection_trans#studyDesign
-:studyDesign rdf:type owl:DatatypeProperty ;
-             rdfs:domain :Experiment .
-
-
-###  http://www.purl.org/infection_trans#treatment
-:treatment rdf:type owl:DatatypeProperty ;
-           rdfs:domain :Host .
-
-
-###  http://www.purl.org/infection_trans#trialArm
-:trialArm rdf:type owl:DatatypeProperty ;
-          rdfs:domain :Host .
-
-
-###  http://www.purl.org/infection_trans#type
-:type rdf:type owl:DatatypeProperty ;
-      rdfs:domain :Host .
-
-
-#################################################################
-#    Classes
-#################################################################
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/BodyMass
-om2:BodyMass rdf:type owl:Class ;
-             rdfs:subClassOf om2:Quantity .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/Measure
-om2:Measure rdf:type owl:Class ;
-            rdfs:isDefinedBy "http://www.ontology-of-units-of-measure.org/resource/om-2/Measure" .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity
-om2:Quantity rdf:type owl:Class ;
-             rdfs:isDefinedBy "http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity" .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/SpecificViableCount
-om2:SpecificViableCount rdf:type owl:Class ;
-                        rdfs:subClassOf om2:Quantity ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty om2:hasValue ;
-                                          owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                              owl:onProperty om2:hasUnit ;
-                                                              owl:allValuesFrom om2:SpecificViableCountUnit
-                                                            ]
-                                        ] .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/SpecificViableCountUnit
-om2:SpecificViableCountUnit rdf:type owl:Class ;
-                            owl:equivalentClass [ rdf:type owl:Class ;
-                                                  owl:oneOf ( om2:colonyFormingUnitPerGram
-                                                            )
-                                                ] ;
-                            rdfs:subClassOf om2:Unit ;
-                            rdfs:label "specific viable count unit"@en .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/Unit
-om2:Unit rdf:type owl:Class ;
-         rdfs:comment "A unit of measure is a definite magnitude of a quantity, defined and adopted by convention or by law. It is used as a standard for measurement of the same quantity, where any other value of the quantity can be expressed as a simple multiple of the unit. For example, length is a quantity; the metre is a unit of length that represents a definite predetermined length. When we say 10 metre (or 10 m), we actually mean 10 times the definite predetermined length called \"metre\"." .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/VolumetricViableCount
-om2:VolumetricViableCount rdf:type owl:Class ;
-                          rdfs:subClassOf om2:Quantity ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty om2:hasValue ;
-                                            owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                owl:onProperty om2:hasUnit ;
-                                                                owl:allValuesFrom om2:VolumetricViableCountUnit
-                                                              ]
-                                          ] ;
-                          rdfs:label "viable count (volumetric)"@en .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/VolumetricViableCountUnit
-om2:VolumetricViableCountUnit rdf:type owl:Class ;
-                              owl:equivalentClass [ rdf:type owl:Class ;
-                                                    owl:oneOf ( om2:_1000ColonyFormingUnitPerMillilitre
-                                                                om2:colonyFormingUnitPer25Millilitre
-                                                                om2:colonyFormingUnitPerMillilitre
-                                                              )
-                                                  ] ;
-                              rdfs:subClassOf om2:Unit ;
-                              rdfs:label "volumetric viable count unit"@en .
-
-
-###  http://www.purl.org/infection_trans#Antibiotic
-:Antibiotic rdf:type owl:Class ;
-            rdfs:comment "medicine used for treatmnet of a host" .
-
-
-###  http://www.purl.org/infection_trans#Environment
-:Environment rdf:type owl:Class ;
-             rdfs:comment "location of the conducted experiment." .
-
-
-###  http://www.purl.org/infection_trans#Experiment
-:Experiment rdf:type owl:Class ;
-            rdfs:comment "A transmission experiment specifies setup and day of the experiment." .
-
-
-###  http://www.purl.org/infection_trans#Gene
-:Gene rdf:type owl:Class ;
-      rdfs:comment "the minimal contiguous stretch of DNA in a bacterium that contains the expressed and regulatory sequences sufficient to complement the function of a null mutation in trans." .
-
-
-###  http://www.purl.org/infection_trans#Host
-:Host rdf:type owl:Class ;
-      rdfs:comment "a larger organism that harbours a smaller orgamisms." ;
-      rdfs:isDefinedBy "https://en.wikipedia.org/wiki/Host_(biology)" .
-
-
-###  http://www.purl.org/infection_trans#Inoculation
-:Inoculation rdf:type owl:Class ;
-             rdfs:comment "a set of methods of artificially inducing immunity against various infectious diseases." .
-
-
-###  http://www.purl.org/infection_trans#Measurement
-:Measurement rdf:type owl:Class ;
-             rdfs:isDefinedBy "process of associating numbers with physical quantities and phenomena. For example, indicating negative or positive sample, measuring bacteruim count or mass of host." .
-
-
-###  http://www.purl.org/infection_trans#Observation
-:Observation rdf:type owl:Class ;
-             rdfs:comment "is a process of closely  monitoring the host." .
-
-
-###  http://www.purl.org/infection_trans#ObservationType
-:ObservationType rdf:type owl:Class ;
-                 rdfs:comment "type of observation . For example, 'Death' or 'HighFever'" .
-
-
-###  http://www.purl.org/infection_trans#Pathogen
-:Pathogen rdf:type owl:Class ;
-          rdfs:comment "an organism causing disease to its host." ;
-          <http://www.w3.org/2004/02/skos/core#closeMatch> "http://purl.obolibrary.org/obo/IDO_0000528" .
-
-
-###  http://www.purl.org/infection_trans#PathogenResistence
-:PathogenResistence rdf:type owl:Class ;
-                    rdfs:comment "an ability to limit pathogen burden." .
-
-
-###  http://www.purl.org/infection_trans#Sample
-:Sample rdf:type owl:Class ;
-        rdfs:comment "A biological specimen including, for example, blood, tissue, urine, etc. taken from a host." .
-
-
-###  http://www.purl.org/infection_trans#SampleType
-:SampleType rdf:type owl:Class ;
-            rdfs:comment "type of the sample. For example, swab sample or bootsock sample." .
-
-
-###  http://www.purl.org/infection_trans#Treatment
-:Treatment rdf:type owl:Class ;
-           rdfs:comment "a process of giving medication or antibiotic to a host." .
-
-
-#################################################################
-#    Individuals
-#################################################################
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/BodyMass
-om2:BodyMass rdf:type owl:NamedIndividual ;
-             om2:commonlyHasUnit om2:gram ,
-                                 om2:kilogram ,
-                                 om2:tonne .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/_1000ColonyFormingUnitPerMillilitre
-om2:_1000ColonyFormingUnitPerMillilitre rdf:type owl:NamedIndividual .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPer25Millilitre
-om2:colonyFormingUnitPer25Millilitre rdf:type owl:NamedIndividual .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerGram
-om2:colonyFormingUnitPerGram rdf:type owl:NamedIndividual .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerMillilitre
-om2:colonyFormingUnitPerMillilitre rdf:type owl:NamedIndividual .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/gram
-om2:gram rdf:type owl:NamedIndividual ,
-                  om2:Unit ;
-         rdfs:comment "The gram is a unit of mass defined as 1.0e-3 kilogram."@en ;
-         rdfs:label "gram"@en ,
-                    "gram"@nl ,
-                    "克"@zh .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/kilogram
-om2:kilogram rdf:type owl:NamedIndividual ,
-                      om2:Unit ;
-             rdfs:comment "The kilogram is a unit of mass defined as the mass of the international prototype of the kilogram."@en ,
-                          "The tonne is a unit of mass defined as 1000 kilogram."@en ;
-             rdfs:label "kilogram"@en ,
-                        "kilogram"@nl ,
-                        "ton"@nl ,
-                        "tonne"@en ,
-                        "公吨"@zh ,
-                        "公斤"@zh .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/tonne
-om2:tonne rdf:type owl:NamedIndividual .
-
-
-###  http://www.purl.org/infection_trans#Death
-:Death rdf:type owl:NamedIndividual ,
-                :ObservationType .
-
-
-###  http://www.purl.org/infection_trans#EnvironmentalSample
-:EnvironmentalSample rdf:type owl:NamedIndividual ,
-                              :SampleType .
-
-
-###  http://www.purl.org/infection_trans#Swab
-:Swab rdf:type owl:NamedIndividual ,
-               :SampleType .
-
-
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
