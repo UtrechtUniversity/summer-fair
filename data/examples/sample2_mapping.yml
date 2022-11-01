@@ -1,6 +1,6 @@
 
 required: animalnr_col
-merge_spreadsheets_on: animalnr_col #write a column name which repeats in the spreadsheets and that we can merge on.
+merge_spreadsheets_on:  #write a column name which repeats in the spreadsheets and that we can merge on.
 meta_data:
 ontology_schema:
   Experiment:
