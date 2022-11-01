@@ -27,7 +27,45 @@ class Dataset:
         if mappings.update_values:
             self.update_dataset_values(mappings.update_values)
 
+    def get_dataset_reocur(self, reocur_columns: set) -> defaultdict:
+        """
+        Method returns for each reocuring column name
+        list of column headers from the dataset
+
+        For example:
+            reocur_columns = {'weight_d.*'}
+            reocur_ds_columns = {'weight_d0', 'weight_d21'}
+        """
+        reocur_ds_columns = defaultdict(set)
+        for pattern in reocur_columns:
+            values = self.get_recoruring_values(pattern)
+            if values:
+                reocur_ds_columns[pattern] = list(values)
+        return reocur_ds_columns
+
     def update_dataset_values(self, update_columns: list):
+        """
+        Method gets list of dictionaries, that specify
+        for which columns to change the values and
+        new and old values.
+
+        For example:
+        update_columns =[{ 'column_name': swab.*,
+                           'values': {'1': ['+','+?'], '0': ['-','-*?','-*']}
+                            }]
+
+                Old dataframe                    Updated dataframe
+                +----+--------+                  +----+--------+
+                | ID | swab.* |                  | ID | swab.* |
+                +----+--------+                  +----+--------+
+                | 1  | +      |                  | 1  | 1      |
+                +----+--------+                  +----+--------+
+                | 2  | -*?    |       =>         | 2  | 0      |
+                +----+--------+                  +----+--------+
+                | 3  | +?     |                  | 3  | 1      |
+                +----+--------+                  +----+--------+
+
+        """
         for column in update_columns:
             values = column['values']
             column_name = column['column_name']
@@ -35,6 +73,18 @@ class Dataset:
                 self.tidy_dataset.loc[self.tidy_dataset[column_name].isin(old_values), [column_name]] = str(new_value)
 
     def create_new_columns_in_df(self):
+        """
+        Methods creates new column in the dataframe for every
+        reocuring column, where value of the column should be exctratced from the
+        column name.
+        New columns are created so we can easily reshape the dataset
+        For example:
+            key = 'weight_d(.*)'
+            value = ['weight_d0', 'weight_d21']
+
+            We create 2 columns one 'value_weight_d0' with value '0'
+            and the other one 'value_weight_d0' with value '21'
+        """
 
         for key, values in self.reocur_columns_dict.items():
             if '(.*)' in key:
@@ -48,15 +98,16 @@ class Dataset:
 
                 self.reocur_columns_dict[key] = new_columns
 
-    def get_dataset_reocur(self, reocur_columns):
-        reocur_ds_columns = defaultdict(set)
-        for pattern in reocur_columns:
-            values = self.get_recoruring_values(pattern)
-            if values:
-                reocur_ds_columns[pattern] = list(values)
-        return reocur_ds_columns
 
-    def get_recoruring_values(self, column_name_pattern):
+
+    def get_recoruring_values(self, column_name_pattern: str) -> set:
+        """
+        Method take a column patter and matches column headers from the dataset
+        For example:
+            column_name_patterm = 'BS.*_date'
+            values =  {'BS0_date', 'BS1_date'}
+
+        """
         values = set()
         for column in self.columns:
             column_name_new = column_name_pattern.replace(".*", "-?\d*\.{0,1}\d+")
@@ -75,7 +126,10 @@ class Dataset:
         return dataset
 
     def merge_spreadsheets(self, workbook: str, merge_field: str) -> pd.DataFrame:
-        # parse dataset
+        """
+        Method merges spreahsheets based on merge_field
+        specified in the config file
+        """
         df = pd.read_excel(workbook, sheet_name=None)
         worksheets = [*df]
         combined_dataset = df[worksheets[0]]
@@ -84,8 +138,11 @@ class Dataset:
         return combined_dataset
 
     def read_file(self, file: str, merge_field=None):
+        """
+        Method reads the files based on the extension
+        """
         if file.endswith('.csv'):
-            dataset = pd.read_csv(file,delimiter=';')
+            dataset = pd.read_csv(file, sep = None, engine = 'python',encoding='utf-8-sig')
         elif file.endswith('.xlsx') and merge_field:
             dataset = pd.read_excel(file, sheet_name=None)
         elif file.endswith('.xlsx') and not merge_field:
@@ -97,6 +154,11 @@ class Dataset:
         return dataset
 
     def transform_dataset(self, mappings):
+        """
+        Methods transform dataset to a tidy dataset,
+        returns a dataframe, where each row is per one experiment day or
+        experiment day and hour
+        """
         reshaped_combined = pd.DataFrame()
         for ont_class, properties_or_classes in mappings.items():
             if ont_class != 'Experiment':
@@ -151,7 +213,17 @@ class Dataset:
         reshaped_combined.dropna(subset=['experimentDay'], inplace=True)
         return reshaped_combined if not reshaped_combined.empty else self.dataset
 
-    def reocur_columns_to_reshape(self, map_columns):
+    def reocur_columns_to_reshape(self, map_columns:dict) -> dict:
+        """
+        Method returns which columns should be reshaped
+        for a given slice of a mapping (mapping per concept)
+
+        For example:
+         map_columns = {'experimentDay': 'weight_d(.*)', 'hasNumericalValue': 'weight_d.*'}
+
+         Method returns {'experimentDay': ['value_weight_d0', 'value_weight_d21'], 'weight_d.*': ['weight_d0', 'weight_d21']}
+
+        """
         return {(v if k != 'experimentDay' and k != 'experimentHour' else k): sorted(self.reocur_columns_dict[v],key=utils.num_sort) for
                 k, v in map_columns.items() if k not in self.reusable_column}
 
