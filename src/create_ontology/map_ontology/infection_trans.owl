@@ -9,7 +9,6 @@
 @base <http://www.purl.org/infection_trans#> .
 
 <http://www.purl.org/infection_trans#> rdf:type owl:Ontology ;
-                                        owl:imports <http://purl.org/dc/terms> ;
                                         <http://purl.org/dc/terms/bibliographicCitation> "[TO DO] IEEE eScience 2022 paper"^^rdfs:Literal ;
                                         <http://purl.org/dc/terms/contributor> "Egil Fischer"^^rdfs:Literal ,
                                                                                "Martine de Vos"^^rdfs:Literal ,
@@ -17,7 +16,7 @@
                                         <http://purl.org/dc/terms/created> "07-20-2022"^^rdfs:Literal ;
                                         <http://purl.org/dc/terms/creator> "Elena Slavco"^^rdfs:Literal ;
                                         <http://purl.org/dc/terms/description> "The ontology describes the domain of infection transmission experiments. It is applicable to animal and human (hospital) data from both experimental and observational studies."^^rdfs:Literal ;
-                                        <http://purl.org/dc/terms/license> "MIT"^^rdfs:Literal .
+                                        <http://purl.org/dc/terms/license> "http://creativecommons.org/licenses/by/4.0/"^^rdfs:Literal .
 
 #################################################################
 #    Annotation properties
