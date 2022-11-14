@@ -49,9 +49,11 @@ localC <- get.local.transmission(dataC)
 localD <- get.local.transmission(dataD)
 
 #data mapped at WBVR
-localE <- get.local.transmission(dataE) #Cecarelli  -> algorithm cannot interpret these data yet
-localF <- get.local.transmission(dataF) #Van Bunnik -> data set does not work yet because of 2 levels 
+localE <- get.local.transmission(dataE, F) #Cecarelli  -> algorithm cannot interpret these data yet
+localF <- get.local.transmission(dataF, F) #Van Bunnik -> data set does not work yet because of 2 levels 
 
+#remove log file
+file.remove("summerfair.log")
 
 #combine estimates of control group with standard meta-analysis techniques ####
 metaana <- combine.estimates.glm(list(localA,localB,localC,localD),

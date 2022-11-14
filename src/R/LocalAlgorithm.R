@@ -116,8 +116,7 @@ arrangeData.mll<-function(rdata,           #data
                           inoMarker = "I",    #marker used for inoculated animals
                           reference = NULL,
                           ...){ 
-  #start a string to collect messages
-  algorithm.log <- ""
+
   #if no round in the data add
   if(is.null(rdata$round))rdata$round <- 1;
   #get the group mixinglevels 
@@ -149,30 +148,32 @@ arrangeData.mll<-function(rdata,           #data
   group.data <- group.data%>%right_join(cases, by = c("round",all_of(mixinglevels),"times")) 
   #3. number of infectious individual at start interval at each of the levels
   #level 1
-  i <- rdata%>%
+  i1 <- rdata%>%
     group_by(across(c("round",all_of(mixinglevels) ,"times"))) %>% 
-    summarise(i = sum(sir == 2,na.rm = TRUE))
-  group.data <- group.data%>%right_join(i, by = c("round",all_of(mixinglevels),"times"))
-  group.data$i2 <- 0;#default values
-  group.data$i3 <- 0;#default values
+    summarise(i1 = sum(sir == 2,na.rm = TRUE))
+  group.data <- group.data%>%right_join(i1, by = c("round",all_of(mixinglevels),"times"))
+  
+ 
   #here also take into account infectious individuals in other levels
   if(length(mixinglevels) > 1){
     #level 2
     i2 <- rdata%>%
       group_by(across(c("round",all_of(mixinglevels)[-2] ,"times"))) %>% #negative indexing due to descending ordering
-      summarise(sum(sir == 2,na.rm = TRUE))
+      summarise(i2 = sum(sir == 2,na.rm = TRUE))
     group.data <- merge(group.data,data.frame(i2));
-    group.data$i2 <- group.data$i2-group.data$i;
+    group.data$i2 <- group.data$i2-group.data$i1;
     if(length(mixinglevels)>2)
     {
       #level 3
       i3 <- rdata%>%
         group_by(across(c("round",all_of(mixinglevels)[-3] ,"times"))) %>% #negative indexing due to descending ordering
-        summarise(sum(sir == 2,na.rm = TRUE))
+        summarise(i3 = sum(sir == 2,na.rm = TRUE))
       group.data <- merge(group.data,data.frame(i3));
-      group.data$i3 <- group.data$i3-group.data$i2-group.data$i;
-    }
+      group.data$i3 <- group.data$i3-group.data$i2-group.data$i1;
+    }else  {group.data$i3 <- 0;} #default value
   
+  }else { group.data$i2 <- 0;#default values
+    group.data$i3 <- 0;#default values
   }
   #4. number of susceptible individuals at start interval at level 1
   s1 <- rdata%>%
@@ -186,34 +187,39 @@ arrangeData.mll<-function(rdata,           #data
     summarise(r = sum(sir == 3,na.rm = TRUE))
   group.data <- group.data%>%right_join(r, by = c("round",all_of(mixinglevels),"times"))
   #6. total number of individuals in level 1
-  n <- rdata%>%
+  n1 <- rdata%>%
     group_by(across(c("round",all_of(mixinglevels) ,"times"))) %>% 
-    summarise(n = sum(!is.na(sir)))
-  group.data <- group.data%>%right_join(n, by = c("round",all_of(mixinglevels),"times"))
-  group.data$n2 <- 0;#default values
-  group.data$n3 <- 0;#default values
+    summarise(n1 = sum(!is.na(sir)))
+  group.data <- group.data%>%right_join(n1, by = c("round",all_of(mixinglevels),"times"))
+
   #here also take into account infectious individuals in other levels
   if(length(mixinglevels) > 1){
     #level 2
     n2 <- rdata%>%
       group_by(across(c("round",all_of(mixinglevels[-2]) ,"times"))) %>% #negative indexing due to descending ordering
-      summarise(sum(!is.na(sir)))
-    group.data$n2 <- data.frame(n2)[,ncol(n2)]-group.data$n
+      summarise(n2 = sum(!is.na(sir)))
+    group.data <- merge(group.data,data.frame(n2));
+    group.data$n2 <- group.data$n2-group.data$n1
     if(length(mixinglevels)>2)
     {
       #level 3
       n3 <- rdata%>%
         group_by(across(c("round",all_of(mixinglevels[-3]) ,"times"))) %>% #negative indexing due to descending ordering
-        summarise(sum(!is.na(sir)))
-      group.data$n3 <- data.frame(n3)[,ncol(n3)]-group.data$n2-group.data$n
+        summarise(n3 = sum(!is.na(sir)))
+      group.data <- merge(group.data,data.frame(n3));
+      group.data$n3 <- group.data$n3-group.data$n2-group.data$n1
+    }else{
+      group.data$n3 <- 0;#default values
     }
     
+  }else{
+    group.data$n2 <- 0;#default values
+    group.data$n3 <- 0;#default values
   }
   #7. check or determine group co-variates
   if(!is.null(covariates)){
     covariate.data <- group.data;
-    algorithm.log <- paste(algorithm.log, 
-                           "\n For group level summarizing in arranging the data for a glm, the minimum of the group is used.")
+    cat("\n For group level summarizing in arranging the data for a glm, the minimum of the group is used.")
     for(j in covariates){
     covariate <- rdata%>%
         group_by(across(c("round",all_of(mixinglevels) ,"times"))) %>% 
@@ -233,11 +239,11 @@ arrangeData.mll<-function(rdata,           #data
       dt = tail(dt,-1),
       cases = tail(cases,-1),
       s = as.numeric(head(s, -1)),
-      i = as.numeric(head(i, -1)),
+      i1 = as.numeric(head(i1, -1)),
       i2 = as.numeric(head(i2, -1)),
       i3 = as.numeric(head(i3, -1)),
       r = as.numeric(head(r, -1)),
-      n = as.numeric(head(n,-1)),
+      n1 = as.numeric(head(n1,-1)),
       n2 = as.numeric(head(n2,-1)),
       n3 = as.numeric(head(n3,-1))
       )%>%ungroup
@@ -255,8 +261,7 @@ arrangeData.mll<-function(rdata,           #data
     group.data <- within(group.data, 
                          treatment <- relevel(treatment, ref = eval(reference)))
   }
-  return(list(arranged.data  = group.data,
-              algortihm.log  = algorithm.log))
+  return(list(arranged.data  = group.data))
 }
 
 #arrange data for glm is same as for mll####
@@ -435,21 +440,20 @@ analyseTransmission<- function(inputdata,          #input data
                                inoMarker = "I",    #marker used for inoculated animals
                                reference = NULL,
                                ...){
+  
   #create a log data frame
-  algorithm.log <- paste("Analysing transmission using ",method, "at", Sys.time(),"\n");
+  cat("Analysing transmission using ",method, "at", Sys.time(),"\n");
   #arrange data for analysis
-  data.arranged <- arrangeData(data = inputdata,
+  try(data.arranged <- arrangeData(data = inputdata,
                                rule = rule,
                                var.id = var.id,
                                method = method,
                                covariates = covars,
                                remInoCase = remInoCase,     #remove inoculated animals as potential case
                                inoMarker = inoMarker,    #marker used for inoculated animals
-                               ...)
+                               ...))
 
   
-  #get the data arrangement log
-  if(!is.null(data.arranged[[2]])) algorithm.log<- paste(algorithm.log, data.arranged[[2]])
   
   #data
   data.arranged <- data.arranged[[1]]
@@ -462,7 +466,7 @@ analyseTransmission<- function(inputdata,          #input data
   data.arranged <- within(data.arranged, 
                           treatment <- relevel(treatment, ref = eval(reference))) }else print(paste("Control group:  ", eval(reference), "not present"))}
  
-  #do analysis
+  try(#do analysis
   fit <- switch(method,
   glm = run.glm(covars = covars,
               data.arranged = data.arranged, 
@@ -472,7 +476,7 @@ analyseTransmission<- function(inputdata,          #input data
                  preventError = preventError),#deal with number of levels in a maximum likelihood estimation. 
     finalsize = FinalSize,#is not yet implemented as well
     stop("no other methods than glm, maximum likelihood or final size")
-  )
+  ))
 
   #return covariate entries (categorical = values or numeric = range)
   if(length(covars) > 0)
@@ -482,82 +486,46 @@ analyseTransmission<- function(inputdata,          #input data
       if(is.factor(data.arranged[,j])){covar.values <- append(covar.values, levels(data.arranged[,j]))}
     else{covar.values <- append(covar.values, range(data.arranged[,j]))}
   }
+
   #return outcome
   return(list(covariates = list(names = covars,
-                                values = covar.values,
-                                algorithm.log = cat(algorithm.log)),
+                                values = covar.values),
               
               estimation = fit))
 }
 
 
-# perform analysis with default decisions ####
-# analyseTransmission<- function(inputdata,          #input data
-#                                rule = "sinceany",          #rule to determine whether sample is positive or negative
-#                                method ="glm", #estimation method
-#                                preventError = FALSE, #remove those entries with FOI = 0 but cases>1
-#                                ){
-#   #decide settings based on input data
-#   
-#   # determine measure versus result choose for result if present
-#   
-#   # determine the values to set for result or cut off for measure
-#   
-#   # get value of reference group
-#   
-#   #arrange data for analysis
-#   data.arranged <- arrangeData(data = inputdata,
-#                                rule = rule,
-#                                var.id = var.id,
-#                                method = method,
-#                                covariates = covars,
-#                                ...)
-#   #remove those entries without susceptibles (contain no information and cause errors)
-#   data.arranged <- data.arranged%>%filter(s>0)
-#   data.arranged$treatment <- factor(data.arranged$treatment, ordered = FALSE)
-#   data.arranged <- within(data.arranged, treatment <- relevel(treatment, ref = "control"))
-#   #deal with potential error
-#   if(preventError){data.arranged <- data.arranged%>%filter(i>0)}
-#   #do analysis
-#   #TO DO use covariates
-#   fit <- switch(method,
-#                 glm = glm(#cbind(cases, s - cases) ~ treatment,
-#                   as.formula(paste("cbind(cases, s - cases) ~ ", paste(covars, collapse= "+"))),
-#                   family = binomial(link = "cloglog"), 
-#                   offset = log(i/n)*dt,
-#                   data = data.arranged),
-#                 mll =stop("mle: not implemented yet"),#deal with number of levels in a maximum likelihood estimation. 
-#                 finalsize = FinalSize,#is not yet implemented as well
-#                 stop("no other methods than glm or maximum likelihood")
-#   )
-#   
-#   
-#   #return outcome
-#   return(fit)
-# }
-# 
-# 
-# 
-# 
-
-
 
 #run local algorithm for each data set ####
-get.local.transmission <- function(dataset){
+get.local.transmission <- function(dataset,writeLog = TRUE){
+  #start sink to log-file
+  if(writeLog){
+     log.file <- paste0("summerfair.log");
+  zz <- file(log.file, open = "at");
+  sink(zz, type ="message");
+  sink(zz, type ="output");
+  cat("\n-------*summerfair*-----------\n","Start log at: ",  format(Sys.time(),"%Y-%m-%d %H:%M:%S"),"\n")}
    if(length(dataset)==0)stop("Empty data set cannot be analysed")
-                  var.id = ifelse(all(is.na(dataset$sample_measure)), c("sample_result"), c("sample_measure"))
+                  var.id = if(all(is.na(dataset$sample_measure))){c("sample_result")}else{ c("sample_measure","detectionLimit")}
+                  
                   control = ifelse(any(grepl('control',dataset$treatment,ignore.case = T)),"control",
                     ifelse(any(grepl('0',dataset$treatment)),"0",""))
-                  rule = if(!all(is.na(dataset$sample_measure))) {rule.sinceany.cutoff}
+                  rule = if(!all(is.na(dataset$sample_measure))) {
+                    # check if dealing with detection limit data or not
+                    if(all(dataset$detectionLimit==""|is.na(dataset$detectionLimit))){
+                    rule.sinceany.cutoff}else {rule.sinceany.cutoff.detectionlimit}}
                              else{#check if the data consists of 0, 1 and empty spaces
                                  if(any(sapply(c('^0$','^1$',"^$"),
                                                FUN = function(x){any(grepl(x,dataset$sample_result ))} ))){
                                         rule.sinceany.numeric}else{rule.sinceany.recode} 
                              }
+                  print("Used rule:");
+                  print(rule);
+                  #marker for inoculation
                   inomarker = if(any(str_detect(dataset$inoculationStatus,"2"))){"2"}else {"I"}
                   
 
-                  return(analyseTransmission(inputdata = dataset, #data set
+                  analysis <- try(analyseTransmission(inputdata = dataset, #data set
                                              rule = rule, #rule to determine infection status
                                              var.id = var.id,  #variable defining infection status
                                              method = "mll", #estimation method
@@ -568,6 +536,16 @@ get.local.transmission <- function(dataset){
                                              reference = "control", #reference category for multivariable estimation
                                              control = control,
                                              inoMarker = inomarker))    #marker used for inoculated animals)   #value of control treatment
+                
+                  if(writeLog){
+                    #close log file
+                  cat("End log at: ", format(Sys.time(),"%Y-%m-%d %H:%M:%S"),"\n-------*summerfair*-----------\n");
+                  sink(type = "message");
+                  sink(type = "output");
+                  close(zz);}
+                
+                return(analysis);
+                
                   }
 
 
@@ -584,7 +562,7 @@ run.glm<-function(covars,
   
   #filter intervals without infected animals. 
   if(preventError){
-    data.filtered <- data.arranged %>% filter(i  > 0 &!is.na(i  )&!is.na(cases)&!is.na(s)&!is.na(i)&!is.na(r));
+    data.filtered <- data.arranged %>% filter(i1  > 0 &!is.na(i1  )&!is.na(cases)&!is.na(s)&!is.na(i1)&!is.na(r));
   }else data.filtered <- data.arranged
     
   #if covariates only have one unique value it cannot be used in the glm
@@ -612,7 +590,7 @@ run.mll<-function(covars,
   
   #filter intervals without infected animals. 
   if(preventError){
-    data.filtered <- data.arranged %>% filter(i + i2 + i3 > 0 &!is.na(i + i2 + i3 )&!is.na(cases)&!is.na(s)&!is.na(i)&!is.na(r));
+    data.filtered <- data.arranged %>% filter(i1 + i2 + i3 > 0 &!is.na(i1 + i2 + i3 )&!is.na(cases)&!is.na(s)&!is.na(i1)&!is.na(r));
   }else data.filtered <- data.arranged
   
   #if covariates only have one unique value it cannot be used in the glm
@@ -632,12 +610,12 @@ run.mll<-function(covars,
                 },
                 "L2" = {
                   logl = function(beta1,beta2,data){
-                    sum((data$cases*log(exp((beta1*data$i/dataa$n + 
-                                               beta2*dataa$i2/dataa$n2)*dataa$dt)-1)+
-                           data$s*(beta1*data$i1/data$n + beta2*data$i2/data$n2)*data$dt))}
-                  return(mle2(logl, data = data.filtered));}
+                    sum((data$cases*log(1-exp(-(beta1*data$i/data$n + 
+                                               beta2*data$i2/data$n2)*data$dt))-
+                           (data$s-data$cases)*(beta1*data$i1/data$n + beta2*data$i2/data$n2)*data$dt))}
+                  return(mle2(minuslogl = logl, data = data.filtered));}
                 ,
-                "L3" = {
+                "L3" = {stop("incorrect logl")
                   logl = function(beta1,beta2,beta3, data){
                     sum((data$cases*log(exp((beta1*data$i/data$n + 
                                                beta2*data$i2/data$n2+

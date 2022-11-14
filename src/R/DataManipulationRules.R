@@ -46,6 +46,7 @@ rule.sincefirst <- function(timeseries,var.id,...){
 ##rule using any sample in the data and determine status S or I####
 # First positive means individual is positive from that time onwards
 rule.sinceany <- function(timeseries,var.id,...){
+  stop("Deal with NA's")
   new.series <- 2*(timeseries %>% 
                      select(all_of(var.id))%>%
                      cumsum%>%
@@ -164,3 +165,20 @@ rule.sinceany.cutoff<- function(timeseries, var.id,cutoff,... )
   return(rule.sinceany(timeseries, var.id,...))
 }
 
+#if pos / neg is indicated by a cutoff and a detection limit. 
+#Measures with a value of the detection limit are defined positive if above detection limit (">") and negative if below detection limit ("<")
+rule.sinceany.cutoff.detectionlimit <- function(timeseries, var.id, cutoff, ...)
+  {  #determine cutoff
+  num.val <- as.numeric(as.numeric(timeseries[,"sample_measure"])>cutoff);
+  dl <- sapply(timeseries[,"detectionLimit"],grepl,pattern = "<")
+  du <-sapply(timeseries[,"detectionLimit"],grepl,pattern = ">")
+  timeseries[,"detectionLimit"]<- num.val;
+  #replace below detection limit with a 0 if measured
+  timeseries[dl,"detectionLimit"] <- 0;
+  #replace above detection limit with a 1 if measured
+  timeseries[du,"detectionLimit"] <- 1;
+  #select those that  have a value or are above detection limit.
+  timeseries[,"sample_measure"]<- num.val;
+  return(rule.sinceany(timeseries, var.id,...))
+  
+ }
