@@ -26,9 +26,8 @@ lapply(
 
 # source required R scripts  ####
 # scripts should be in subfolder "src/R" 
-source("src/R/DataManipulationRules.R")    #Data manipulation rules are pre- or user defined
+source("src/R/Query.r")                    #Query function
 source("src/R/LocalAlgorithm.R")           #Estimation methods
-source("src/R/Query.r") #Query function
 source("src/R/GlobalAlgorithm.R")
 
 # get data ####
@@ -41,6 +40,10 @@ dataD<- get.data("http://localhost:3030/datasetD")
 dataE<- get.data("http://localhost:3030/datasetE")
 dataF<- get.data("http://localhost:3030/datasetF")
 
+#get locally stored data for speed purposes
+dataE <-readRDS(file = "dataE.RDS")
+dataF <-readRDS(file = "dataF.RDS")
+
 #run local algorithm for each data set ####
 localA <- get.local.transmission(dataA)
 localB <- get.local.transmission(dataB)
@@ -49,8 +52,8 @@ localC <- get.local.transmission(dataC)
 localD <- get.local.transmission(dataD)
 
 #data mapped at WBVR
-localE <- get.local.transmission(dataE, F) #Cecarelli  -> algorithm cannot interpret these data yet
-localF <- get.local.transmission(dataF, F) #Van Bunnik -> data set does not work yet because of 2 levels 
+localE <- get.local.transmission(dataE, F) #Van Bunnik -> data set does not work yet because of 2 levels 
+localF <- get.local.transmission(dataF, F) #Cecarelli  -> algorithm cannot interpret these data yet
 
 #remove log file
 file.remove("summerfair.log")
