@@ -1,0 +1,9 @@
+write_log: TRUE
+over_write_log: TRUE
+rule_script: "src/R/DataInterpretationRules.R"
+rule_name: "sincefirst"
+method: "mll"
+cutoff: "0"
+codesposnegmiss: "c('+','-','NA')"
+covars: "treatment"
+reference: "control"
