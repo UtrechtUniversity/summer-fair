@@ -41,8 +41,8 @@ dataE<- get.data("http://localhost:3030/datasetE")
 dataF<- get.data("http://localhost:3030/datasetF")
 
 #get locally stored data for speed purposes
-dataE <-readRDS(file = "dataE.RDS")
-dataF <-readRDS(file = "dataF.RDS")
+dataE <-as.data.frame(readRDS(file = "dataE.RDS"))
+dataF <-as.data.frame(readRDS(file = "dataF.RDS"))
 
 #run local algorithm for each data set ####
 localA <- get.local.transmission(dataA)
@@ -52,8 +52,8 @@ localC <- get.local.transmission(dataC)
 localD <- get.local.transmission(dataD)
 
 #data mapped at WBVR
-localE <- get.local.transmission(dataE, F) #Van Bunnik -> data set does not work yet because of 2 levels 
-localF <- get.local.transmission(dataF, F) #Cecarelli  -> algorithm cannot interpret these data yet
+localE <- get.local.transmission(dataE) #Van Bunnik 
+localF <- get.local.transmission(dataF) #Cecarelli  -> algorithm cannot interpret these data yet
 
 #remove log file
 file.remove("summerfair.log")

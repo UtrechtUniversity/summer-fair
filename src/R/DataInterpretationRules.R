@@ -105,15 +105,14 @@ rule.asis.cutoff.detectionLimit <-function(timeseries,var.id,cutoff =0,...){
 rule.sincefirst <- function(timeseries,var.id,...){
   if(length(var.id)>1) warning("Only first var.id entry used in rule")
   new.series <-2*(timeseries %>% 
-                    select(all_of(var.id[1]))%>%as.numeric%>%
+                    select(all_of(var.id[1]))%>%
+                    unlist%>%
+                    as.numeric%>%
                     cumsum%>%
                     sign);
   
   return(new.series)
 }
-
-
-
 
 rule.sincefirst.recode <- function(timeseries,
                                    var.id,
@@ -130,14 +129,16 @@ rule.sincefirst.recode <- function(timeseries,
 #recode using a cutoff
 rule.sincefirst.cutoff <-function(timeseries,var.id,cutoff,...){
   timeseries[,var.id]<- timeseries[,var.id[1]]%>%
-    sapply(cutofffunction,co = cutoff) %>% as.numeric(var.id)
+    sapply(cutofffunction,co = cutoff) %>% as.numeric(var.id);
   return(rule.sincefirst(timeseries, var.id,...))
 }
 
 #use a detection limit
-rule.sincefirst.cutoff.detectionLimit <-function(timeseries,var.id,cutoff =0,...){
+rule.sincefirst.cutoff.detectionLimit <-function(timeseries,var.id,cutoff = 0,...){
+  x <- 1+1;
+  
   timeseries[,var.id]<- timeseries[,c(var.id[1],"detectionLimit")]%>%
-    apply(detectionLimitfunction,1,co = cutoff) %>% as.numeric(var.id)
+    apply(FUN = detectionLimitfunction,MARGIN = 1,co = cutoff) %>% as.numeric(var.id);
   
   return(rule.sincefirst(timeseries, var.id,...))
 }
@@ -150,6 +151,7 @@ rule.sincefirst.cutoff.detectionLimit <-function(timeseries,var.id,cutoff =0,...
 rule.sinceany <- function(timeseries,var.id,...){
   new.series <- 2*(timeseries %>% 
                      select(all_of(var.id))%>%
+                     unlist%>%
                      cumsum%>%
                      rowSums(na.rm= T)%>%
                      sign);
@@ -212,11 +214,13 @@ rule.testinfectioustestrecovered <- function(timeseries,var.id,infrec){
 rule.sincefirstinfectioustestrecovered <- function(timeseries,var.id,infrec){
   i <- 2*(timeseries%>%
             select(all_of(var.id[infrec$inf]))%>%
+            unlist%>%
             cumsum%>%
             rowSums%>%
             sign);
   r <- 3*(timeseries%>%
             select(all_of(var.id[infrec$rec]))%>%
+            unlist%>%
             cumsum%>%
             rowSums%>%
             sign);
