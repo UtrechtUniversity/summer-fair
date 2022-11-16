@@ -113,7 +113,10 @@ class Ontology:
 
         if not row.empty:
             for property, column_name in map_properties.items():
-                map_properties[property] = row[column_name] if column_name in row else column_name
+                if isinstance(column_name,dict):
+                    map_properties[property] = column_name.get('automatically_set_to','')
+                else:
+                    map_properties[property] = row[column_name] if column_name in row else ''
 
         # check if all the map_properties are empty and do not create individual
         #        all_empty = all(value == '' for value in map_properties.values())
