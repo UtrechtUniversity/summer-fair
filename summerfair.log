@@ -1,0 +1,71 @@
+
+-------*summerfair*-----------
+ Start log at:  2022-11-15 17:03:27 
+Used rule:	sincefirst 
+Analysing transmission using  mll at di nov 15 17:03:28 2022 
+
+ For group level summarizing in arranging the data for a glm, the minimum of the group is used.Adding missing grouping variables: `round`, `level1`
+Joining, by = c("round", "level1")
+[1] "Control group:   control not present"
+Called from: eval(expr, p)
+Warning messages:
+1: In readLines(file) :
+  incomplete final line found on 'src/R/summerfair_config.yaml'
+2: In file.remove(log.file) :
+  cannot remove file 'summerfair.log', reason 'No such file or directory'
+3: Problem while computing `sample_measure = replace(sample_measure, is.na(as.numeric(sample_measure)), NA)`.
+i NAs introduced by coercion 
+debug at C:/Surfdrive/Projecten/SUMMERFAIR/ProjectShareSUMMERFAIR/Syntax/summer-fair/src/R/LocalAlgorithm.R#526: fit <- mle2(minuslogl = logl)
+[1] 8.463548
+[1] 8.463548
+Warning messages:
+1: In read.dcf(file.path(p, "DESCRIPTION"), c("Package", "Version")) :
+  cannot open compressed file 'C:/R360/RfW/library/config/DESCRIPTION', probable reason 'No such file or directory'
+2: In find.package(if (is.null(package)) loadedNamespaces() else package,  :
+  there is no package called ‘config’
+debug at C:/Surfdrive/Projecten/SUMMERFAIR/ProjectShareSUMMERFAIR/Syntax/summer-fair/src/R/LocalAlgorithm.R#527: return(fit)
+[1] 8.463548
+No documentation for ‘logl’ in specified packages and libraries:
+you could try ‘??logl’
+Warning messages:
+1: In read.dcf(file.path(p, "DESCRIPTION"), c("Package", "Version")) :
+  cannot open compressed file 'C:/R360/RfW/library/config/DESCRIPTION', probable reason 'No such file or directory'
+2: In find.package(if (is.null(package)) loadedNamespaces() else package,  :
+  there is no package called ‘config’
+
+-------*summerfair*-----------
+ Start log at:  2022-11-15 17:04:28 
+Used rule:	sincefirst 
+Analysing transmission using  mll at di nov 15 17:04:28 2022 
+
+ For group level summarizing in arranging the data for a glm, the minimum of the group is used.Adding missing grouping variables: `round`, `level1`
+Joining, by = c("round", "level1")
+[1] "Control group:   control not present"
+Called from: eval(expr, p)
+Warning messages:
+1: In readLines(file) :
+  incomplete final line found on 'src/R/summerfair_config.yaml'
+2: In file.remove(log.file) :
+  cannot remove file 'summerfair.log', reason 'Permission denied'
+3: Problem while computing `sample_measure = replace(sample_measure, is.na(as.numeric(sample_measure)), NA)`.
+i NAs introduced by coercion 
+debug at C:/Surfdrive/Projecten/SUMMERFAIR/ProjectShareSUMMERFAIR/Syntax/summer-fair/src/R/LocalAlgorithm.R#526: fit <- mle2(minuslogl = logl)
+[1] 2
+Used rule:	sincefirst 
+Analysing transmission using  mll at di nov 15 17:05:14 2022 
+
+ For group level summarizing in arranging the data for a glm, the minimum of the group is used.Adding missing grouping variables: `round`, `level1`
+Joining, by = c("round", "level1")
+[1] "Control group:   control not present"
+Called from: eval(expr, p)
+Warning messages:
+1: In readLines(file) :
+  incomplete final line found on 'src/R/summerfair_config.yaml'
+2: Problem while computing `sample_measure = replace(sample_measure, is.na(as.numeric(sample_measure)), NA)`.
+i NAs introduced by coercion 
+debug at C:/Surfdrive/Projecten/SUMMERFAIR/ProjectShareSUMMERFAIR/Syntax/summer-fair/src/R/LocalAlgorithm.R#526: fit <- mle2(minuslogl = logl)
+[1] 8.463548
+function(beta1 = 1.){
+                    -sum((data$cases*log(1-exp(-(beta1*data$i1/data$n1)*data$dt))-
+                            (data$s-data$cases)*(beta1*data$i1/data$n1)*data$dt))}
+<environment: 0x000002217e854630>

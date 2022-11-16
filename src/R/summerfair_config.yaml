@@ -1,4 +1,4 @@
-write_log: TRUE
+write_log: FALSE
 over_write_log: TRUE
 rule_script: "src/R/DataInterpretationRules.R"
 rule_name: "sincefirst"

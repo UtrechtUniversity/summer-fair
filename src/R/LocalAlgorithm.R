@@ -471,7 +471,7 @@ run.glm<-function(covars,
   #Do the analysis
   return(glm(as.formula(paste("cbind(cases, s - cases) ~ ", paste(use.covars, collapse= "+"))),
                   family = binomial(link = "cloglog"), 
-                  offset = log(i1/n1)*dt,
+                  offset = log((i1/n1)*dt),
                   data = data.filtered 
                   ))
  
@@ -501,8 +501,8 @@ run.mll<-function(covars,
                "L1" = {
                   data = data.filtered;
                   logl = function(beta1 = 1.){
-                    -sum((data$cases*log(1-exp(-(beta1*data$i1/data$n1)*data$dt))-
-                            (data$s-data$cases)*(beta1*data$i1/data$n1)*data$dt))}
+                    -sum((data$cases*log(1-exp(-(data$dt*beta1*data$i1/data$n1)))-
+                            (data$s-data$cases)*(data$dt*beta1*data$i1/data$n1)))}
                   },
                 "L2" = {
                   data = data.filtered;
