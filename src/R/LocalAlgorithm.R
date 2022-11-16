@@ -389,7 +389,7 @@ get.local.transmission <- function(dataset,config.file =  "src/R/summerfair_conf
   cat("\n-------*summerfair*-----------\n","Start log at: ",  format(Sys.time(),"%Y-%m-%d %H:%M:%S"),"\n")}
    if(length(dataset)==0)stop("Empty data set cannot be analysed")
      
-  
+  source("src/R/DataQuality.R") #run the data quality report. Location and file hard coded so this cannot be changed by user
   source(config$rule_script)#run the data interpretation rules
   rule.name <- config$rule_name
              
@@ -418,7 +418,10 @@ get.local.transmission <- function(dataset,config.file =  "src/R/summerfair_conf
   
   #marker for inoculation
   inomarker = if(any(str_detect(dataset$inoculationStatus,"2"))){"2"}else {"I"}
-                  
+ 
+  #check data quality
+  quality.report <- report.DataQuality(dataset);
+                   
   #perform analysis based on configuration 
   analysis <- analyseTransmission(inputdata = dataset, #data set
                                              rule = rule, #rule to determine infection status
@@ -438,9 +441,9 @@ get.local.transmission <- function(dataset,config.file =  "src/R/summerfair_conf
                   sink(type = "message");
                   sink(type = "output");
                   close(zz);
-                    closeAllConnections();}
+                  closeAllConnections();}
                 
-                return(analysis);
+                return(list(analysis = analysis,qualityreport = quality.report));
                 
                   }
 
