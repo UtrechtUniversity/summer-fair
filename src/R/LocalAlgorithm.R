@@ -501,8 +501,8 @@ run.mll<-function(covars,
                "L1" = {
                   data = data.filtered;
                   logl = function(beta1 = 1.){
-                    -sum((data$cases*log(1-exp(-(beta1*data$i1/data$n1)*data$dt))-
-                            (data$s-data$cases)*(beta1*data$i1/data$n1)*data$dt))}
+                    -sum((data$cases*log(1-exp(-(data$dt*beta1*data$i1/data$n1)))-
+                            (data$s-data$cases)*(data$dt*beta1*data$i1/data$n1)))}
                   },
                 "L2" = {
                   data = data.filtered;
