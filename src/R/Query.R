@@ -15,7 +15,7 @@ get.data <- function(endpoint){
             Prefix om: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-            SELECT ?round ?ex_day ?ex_hour ?hour_after_inoc  ?inoculationHour ?group ?level1 ?level2 ?level3 ?host_id ?type ?treatment ?inoculationStatus ?sample_measure ?sample_material ?detectionLimit ?sample_result ?sample_type ?pathogen_name ?gene_name  WHERE {
+            SELECT ?round ?ex_day ?ex_hour ?hour_after_inoc  ?inoculationHour ?group ?level1 ?level2 ?level3 ?host_id ?type ?treatment ?inoculationStatus ?sample_measure ?unit_measure ?quantity_function ?sample_material ?detectionLimit ?sample_result ?sample_type ?pathogen_name ?gene_name  WHERE {
               ?experiment a :Experiment;
                           :experimentDay ?ex_day;
                           :hasMeasurement ?measurement.
@@ -41,10 +41,13 @@ get.data <- function(endpoint){
               optional{?env :level3 ?level3;}
               optional{ ?measurement :experimentHour ?ex_hour. }
               optional{ ?measurement
-                           :hasQuantity ?quantity.
+      	                       :hasQuantity ?quantity.
                 ?quantity om:hasValue ?measure.
-                ?measure om:hasNumericalValue ?sample_measure.
+    			
+                ?measure om:hasNumericalValue ?sample_measure;
+						 om:hasUnit  ?unit_measure.
               }
+  optional { ?quantity om:hasAggregateFunction ?quantity_function.}
 			optional{   ?sample :hasType ?sample_type.}
 			optional{   ?sample :material ?sample_material.}
 			optional{   ?sample :detectionLimit ?detectionLimit}
