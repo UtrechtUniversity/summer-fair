@@ -146,6 +146,8 @@ class Dataset:
         Return: pandas DataFrame
         The function reads in a csv file and checks its dimensions
         """
+        print(BLUE+"Reading: "+str(file))
+        print(BLUE+"Merge field: "+str(merge_field))
         if file.endswith('.csv'):
             dataset = pd.read_csv(file, sep=None, engine = 'python',encoding='utf-8-sig')
         elif file.endswith('.xlsx') and merge_field:
@@ -157,7 +159,7 @@ class Dataset:
             exit()
         print(BLUE+"Checking dataset shape ...")
         rows, cols = dataset.shape
-        print("Rows ", rows, "Columns: ", columns, DEFAULT)
+        print("Rows ", rows, "Columns: ", cols, DEFAULT)
         if rows < 1:
             print(RED+'ERROR read dataset: File does not contain data or column names.'+DEFAULT)
             exit()
