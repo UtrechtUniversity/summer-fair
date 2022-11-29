@@ -1,10 +1,15 @@
 import re
+import utils
+import pandas as pd
+from sys import exit
+
 from collections import defaultdict, Counter
 
-import pandas as pd
-
-import utils
-
+#Colors for output
+RED = '\x1b[1;31m' # ERROR
+DEFAULT = '\x1b[0m' # normal output
+YEL = '\x1b[1;33m' # Input request
+BLUE = '\x1b[1;34m' # Logging, useful information to eyeball
 
 class Dataset:
     def __init__(self, file, mappings):
@@ -21,8 +26,6 @@ class Dataset:
         self.reocur_columns = [v for value in self.reocur_columns_dict.values() for v in value]
 
         self.tidy_dataset = self.transform_dataset(mappings.ont_mappings).fillna('')
-
-
 
         if mappings.update_values:
             self.update_dataset_values(mappings.update_values)
@@ -145,16 +148,30 @@ class Dataset:
 
     def read_file(self, file: str, merge_field=None):
         """
-        Method reads the files based on the extension
+        Input: path to a csv file (accepted seperators: ',', ';' or tab)
+        Return: pandas DataFrame
+        The function reads in a csv file and checks its dimensions
         """
+        print(BLUE+"Reading: "+str(file))
+        print(BLUE+"Merge field: "+str(merge_field))
         if file.endswith('.csv'):
-            dataset = pd.read_csv(file, sep = None, engine = 'python',encoding='utf-8-sig')
+            dataset = pd.read_csv(file, sep=None, engine = 'python',encoding='utf-8-sig')
         elif file.endswith('.xlsx') and merge_field:
             dataset = pd.read_excel(file, sheet_name=None)
         elif file.endswith('.xlsx') and not merge_field:
             dataset = pd.read_excel(file)
         else:
-            print('We only support .csv and .xlsx files.')
+            print(RED+'ERROR read dataset: Please provide a comma sparated file or an Excelsheet'+DEFAULT)
+            exit()
+        print(BLUE+"Checking dataset shape ...")
+        rows, cols = dataset.shape
+        print("Rows ", rows, "Columns: ", cols, DEFAULT)
+        if rows < 1:
+            print(RED+'ERROR read dataset: File does not contain data or column names.'+DEFAULT)
+            exit()
+        if cols < 1:
+            print(
+                RED+'ERROR read dataset: File only contains one column. Check if values are separated by comma or semicolon'+DEFAULT)
             exit()
 
         return dataset
