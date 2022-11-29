@@ -8,43 +8,11 @@
 @prefix skos: <https://www.w3.org/2004/02/skos/#> .
 @base <http://www.purl.org/infection_trans#> .
 
-<http://www.purl.org/infection_trans#> rdf:type owl:Ontology ;
-                                        <http://purl.org/dc/terms/bibliographicCitation> "[TO DO] IEEE eScience 2022 paper"^^rdfs:Literal ;
-                                        <http://purl.org/dc/terms/contributor> "Egil Fischer"^^rdfs:Literal ,
-                                                                               "Martine de Vos"^^rdfs:Literal ,
-                                                                               "Miel Hostens"^^rdfs:Literal ;
-                                        <http://purl.org/dc/terms/created> "07-20-2022"^^rdfs:Literal ;
-                                        <http://purl.org/dc/terms/creator> "Elena Slavco"^^rdfs:Literal ;
-                                        <http://purl.org/dc/terms/description> "The ontology describes the domain of infection transmission experiments. It is applicable to animal and human (hospital) data from both experimental and observational studies."^^rdfs:Literal ;
-                                        <http://purl.org/dc/terms/license> "http://creativecommons.org/licenses/by/4.0/"^^rdfs:Literal .
+<http://www.purl.org/infection_trans#> rdf:type owl:Ontology .
 
 #################################################################
 #    Annotation properties
 #################################################################
-
-###  http://purl.org/dc/terms/bibliographicCitation
-<http://purl.org/dc/terms/bibliographicCitation> rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/contributor
-<http://purl.org/dc/terms/contributor> rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/created
-<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/creator
-<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/description
-<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/license
-<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
-
 
 ###  http://www.w3.org/2004/02/skos/core#closeMatch
 <http://www.w3.org/2004/02/skos/core#closeMatch> rdf:type owl:AnnotationProperty .
@@ -188,6 +156,14 @@ om2:hasValue rdf:type owl:ObjectProperty ;
 :takenFrom rdf:type owl:ObjectProperty ;
            rdfs:domain :Measurement ;
            rdfs:range :Environment .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasAggregateFunction
+om2:hasAggregateFunction rdf:type owl:ObjectProperty ;
+                        rdfs:domain om2:Quantity ;
+                        rdfs:range om2:Function ;
+                        rdfs:label "has aggregate function"@en ,
+                                   "集計関数を持つ"@ja .
 
 
 #################################################################
@@ -356,10 +332,7 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/BodyMass
 om2:BodyMass rdf:type owl:Class ;
-             rdfs:subClassOf om2:Quantity ;
-             om2:commonlyHasUnit om2:gram ,
-                                 om2:kilogram ,
-                                 om2:tonne .
+             rdfs:subClassOf om2:Quantity .
 
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/Measure
@@ -383,6 +356,10 @@ om2:SpecificViableCount rdf:type owl:Class ;
                                                             ]
                                         ] .
 
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/Function
+om2:Function rdf:type owl:Class ;
+            rdfs:label "function"@en ,
+                       "関数"@ja .
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/SpecificViableCountUnit
 om2:SpecificViableCountUnit rdf:type owl:Class ;
@@ -500,31 +477,32 @@ om2:VolumetricViableCountUnit rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/BodyMass
+om2:BodyMass rdf:type owl:NamedIndividual ;
+             om2:commonlyHasUnit om2:gram ,
+                                 om2:kilogram ,
+                                 om2:tonne .
 
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/_1000ColonyFormingUnitPerMillilitre
-om2:_1000ColonyFormingUnitPerMillilitre rdf:type owl:NamedIndividual ;
-                                        om2:symbol "1000 CFU/ml" ;
-                                            om2:unofficialAbbreviation "1000 CFU/ml" ;
-                                            rdfs:label "1000 colony forming unit per millilitre"@en .
+om2:_1000ColonyFormingUnitPerMillilitre rdf:type owl:NamedIndividual ,
+                                                 om2:VolumetricViableCountUnit .
 
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPer25Millilitre
-om2:colonyFormingUnitPer25Millilitre rdf:type owl:NamedIndividual ;
-                                    om2:symbol "CFU/ml" ;
-                                        rdfs:label "colony forming unit per 25 millilitre"@en .
+om2:colonyFormingUnitPer25Millilitre rdf:type owl:NamedIndividual ,
+                                              om2:VolumetricViableCountUnit .
 
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerGram
-om2:colonyFormingUnitPerGram rdf:type owl:NamedIndividual ;
-                            om2:symbol "CFU/g" ;
-	                        rdfs:label "colony forming unit per gram"@en .
+om2:colonyFormingUnitPerGram rdf:type owl:NamedIndividual ,
+                                      om2:SpecificViableCountUnit .
 
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerMillilitre
-om2:colonyFormingUnitPerMillilitre rdf:type owl:NamedIndividual ;
-                                    om2:symbol "CFU/ml" ;
-                                        rdfs:label "colony forming unit per millilitre"@en .
+om2:colonyFormingUnitPerMillilitre rdf:type owl:NamedIndividual ,
+                                            om2:VolumetricViableCountUnit .
+
 
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/gram
@@ -549,6 +527,8 @@ om2:kilogram rdf:type owl:NamedIndividual ,
                         "公斤"@zh .
 
 
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/tonne
+om2:tonne rdf:type owl:NamedIndividual .
 
 
 ###  http://www.purl.org/infection_trans#Death
@@ -564,6 +544,18 @@ om2:kilogram rdf:type owl:NamedIndividual ,
 ###  http://www.purl.org/infection_trans#Swab
 :Swab rdf:type owl:NamedIndividual ,
                :SampleType .
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/median
+om2:median rdf:type owl:NamedIndividual ,
+                   om2:Function ;
+          om2:alternativeLabel "50th percentile"@en ;
+          rdfs:label "median"@en .
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/median
+om2:log10 rdf:type owl:NamedIndividual ,
+                   om2:Function ;
+          om2:alternativeLabel "50th percentile"@en ;
+          rdfs:label "median"@en .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

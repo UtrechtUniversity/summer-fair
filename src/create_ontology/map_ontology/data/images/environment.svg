@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="280pt" height="133pt" viewBox="0.00 0.00 280.14 132.80">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 128.8)">
+<title>%0</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-128.8 276.1429,-128.8 276.1429,4 -4,4"/>
+<!-- N0 -->
+<g id="node1" class="node">
+<title>N0</title>
+<g id="a_node1"><a xlink:href="http://example.org/Env10_1" xlink:title=":Env10_1">
+<ellipse fill="none" stroke="#000000" cx="99" cy="-106.8" rx="48.681" ry="18"/>
+<text text-anchor="middle" x="99" y="-102.6" font-family="Times,serif" font-size="14.00" fill="#000000">:Env10_1</text>
+</a>
+</g>
+</g>
+<!-- N1 -->
+<g id="node2" class="node">
+<title>N1</title>
+<g id="a_node2"><a xlink:href="http://example.org/Env10_1" xlink:title="1">
+<polygon fill="#ffff00" stroke="#ffff00" points="54,-36 0,-36 0,0 54,0 54,-36"/>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+</a>
+</g>
+</g>
+<!-- N0&#45;&gt;N1 -->
+<g id="edge3" class="edge">
+<title>N0-&gt;N1</title>
+<g id="a_edge3"><a xlink:href="http://example.org/level2" xlink:title=":level2">
+<path fill="none" stroke="#000000" d="M77.101,-90.5396C70.1591,-84.7681 62.7708,-77.9245 56.899,-70.8 50.5028,-63.0391 44.719,-53.7236 39.9805,-45.0924"/>
+<polygon fill="#000000" stroke="#000000" points="43.0108,-43.3344 35.2694,-36.101 36.8103,-46.5832 43.0108,-43.3344"/>
+</a>
+</g>
+<g id="a_edge3-label"><a xlink:href="http://example.org/level2" xlink:title=":level2">
+<text text-anchor="middle" x="76.0505" y="-58.2" font-family="Times,serif" font-size="14.00" fill="#000000">:level2</text>
+</a>
+</g>
+</g>
+<!-- N2 -->
+<g id="node3" class="node">
+<title>N2</title>
+<g id="a_node3"><a xlink:href="http://example.org/Env10_1" xlink:title="10">
+<polygon fill="#ffff00" stroke="#ffff00" points="126,-36 72,-36 72,0 126,0 126,-36"/>
+<text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">10</text>
+</a>
+</g>
+</g>
+<!-- N0&#45;&gt;N2 -->
+<g id="edge2" class="edge">
+<title>N0-&gt;N2</title>
+<g id="a_edge2"><a xlink:href="http://example.org/level1" xlink:title=":level1">
+<path fill="none" stroke="#000000" d="M99,-88.4006C99,-76.2949 99,-60.2076 99,-46.4674"/>
+<polygon fill="#000000" stroke="#000000" points="102.5001,-46.072 99,-36.072 95.5001,-46.0721 102.5001,-46.072"/>
+</a>
+</g>
+<g id="a_edge2-label"><a xlink:href="http://example.org/level1" xlink:title=":level1">
+<text text-anchor="middle" x="118.0505" y="-58.2" font-family="Times,serif" font-size="14.00" fill="#000000">:level1</text>
+</a>
+</g>
+</g>
+<!-- N3 -->
+<g id="node4" class="node">
+<title>N3</title>
+<g id="a_node4"><a xlink:href="http://example.org/Environment" xlink:title=":Environment">
+<ellipse fill="none" stroke="#000000" cx="208" cy="-18" rx="64.2862" ry="18"/>
+<text text-anchor="middle" x="208" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">:Environment</text>
+</a>
+</g>
+</g>
+<!-- N0&#45;&gt;N3 -->
+<g id="edge1" class="edge">
+<title>N0-&gt;N3</title>
+<g id="a_edge1"><a xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" xlink:title="a">
+<path fill="none" stroke="#000000" d="M119.2466,-90.3055C135.9792,-76.6738 159.956,-57.1404 178.7714,-41.8119"/>
+<polygon fill="#000000" stroke="#000000" points="181.203,-44.3455 186.7452,-35.3158 176.7817,-38.9185 181.203,-44.3455"/>
+</a>
+</g>
+<g id="a_edge1-label"><a xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" xlink:title="a">
+<text text-anchor="middle" x="166.1073" y="-58.2" font-family="Times,serif" font-size="14.00" fill="#000000">a</text>
+</a>
+</g>
+</g>
+</g>
+</svg>

@@ -17,6 +17,7 @@ from utils import empty_data
 class Individual:
     def __init__(self, ont_class, dictionary):
         self.is_a = ont_class
+        self.properties = dictionary
 
         # Dynamically create all the data_properties
         for ont_property, mapping_value in dictionary.items():
@@ -34,6 +35,20 @@ class Ontology:
         self.data_properties = self.get_data_properties()
         self.relations = self.get_object_properties()
         self.ont_individuals = self.get_existing_individuals()
+
+
+    def add_individual_per_row(self, individual):
+        if individual.is_a in self.individuals_per_row:
+            if  isinstance(self.individuals_per_row[individual.is_a],Individual):
+                return {self.individuals_per_row[individual.is_a], individual}
+            if isinstance(self.individuals_per_row[individual.is_a],set):
+                return self.individuals_per_row[individual.is_a].add(individual)
+        else:
+            return individual
+
+
+
+
 
     def get_classes(self):
         return [classes for classes in self.graph.subjects(RDF.type, OWL.Class)]
@@ -98,7 +113,10 @@ class Ontology:
 
         if not row.empty:
             for property, column_name in map_properties.items():
-                map_properties[property] = row[column_name] if column_name in row else column_name
+                if isinstance(column_name,dict):
+                    map_properties[property] = column_name.get('automatically_set_to','')
+                else:
+                    map_properties[property] = row[column_name] if column_name in row else ''
 
         # check if all the map_properties are empty and do not create individual
         #        all_empty = all(value == '' for value in map_properties.values())
@@ -164,6 +182,7 @@ class Ontology:
 
 
         individual = self.create_individual(ont_class, properties, row)
+        self.individuals_per_row[ont_class] = self.add_individual_per_row(individual)
         linked_individual = self.get_linked_class_properties(ont_class, map_properties)
 
         if linked_individual:
@@ -227,7 +246,7 @@ class Ontology:
             print(f'Class {ont_class} has no URI template')
 
     def populate_ontology(self, mappings, row):
-
+        self.individuals_per_row = defaultdict(list)
         for ont_class, properties_or_classes in mappings.ont_mappings.items():
             if not isinstance(properties_or_classes, list):
                 properties_or_classes = [properties_or_classes]  # put it in a list for simplification

@@ -29,8 +29,8 @@ def main(config, filename, worksheet):
     ontology_file = Path('data/populated_ont.ttl')
     print(config,filename)
 
-    mappings = Mappings(config)
     ontology = Ontology(ont_file)
+    mappings = Mappings(config, ontology.data_properties)
     dataset = Dataset(filename, mappings)
 
     for _, row in dataset.tidy_dataset.iterrows():

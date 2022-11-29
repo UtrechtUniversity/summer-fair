@@ -5,7 +5,7 @@ import utils
 
 
 class Mappings:
-    def __init__(self, map_file: str):
+    def __init__(self, map_file: str, ontology_data_prop: dict):
         """
         Attributes:
 
@@ -20,6 +20,8 @@ class Mappings:
                 where the value of 'animal_id' is empty.
             ont_mappings: dict
                 slice of the mapping file, that only includes ontology classes and properties
+            mapping_columns: dict
+                all the columns that should be mapped to the ontology
             reocur_mappings: set
                 set of column names from mapping file, where '.*' is in the name
             update_values: list of dictionaries
@@ -34,8 +36,10 @@ class Mappings:
         self.meta_data = self.get_meta_data()
         self.required_field = self.mappings.get('required', None)
         self.ont_mappings = self.mappings['ontology_schema']
-        self.reocur_mappings = utils.get_reocurring_map_columns(self.ont_mappings)
+        self.mapping_columns = utils.get_map_columns(self.ont_mappings, ontology_data_prop)
+        self.reocur_mappings = {column for column in self.mapping_columns if '.*' in column}
         self.update_values = self.mappings.get('update_values',None)
+
 
 
     def parse_config(self, config: str) -> dict :

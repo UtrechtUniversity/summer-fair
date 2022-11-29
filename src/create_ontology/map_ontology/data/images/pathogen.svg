@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="180pt" height="133pt" viewBox="0.00 0.00 179.66 132.80">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 128.8)">
+<title>%0</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-128.8 175.6595,-128.8 175.6595,4 -4,4"/>
+<!-- N0 -->
+<g id="node1" class="node">
+<title>N0</title>
+<g id="a_node1"><a xlink:href="http://example.org/E.Coli" xlink:title=":E.Coli">
+<ellipse fill="none" stroke="#000000" cx="74" cy="-106.8" rx="38.8405" ry="18"/>
+<text text-anchor="middle" x="74" y="-102.6" font-family="Times,serif" font-size="14.00" fill="#000000">:E.Coli</text>
+</a>
+</g>
+</g>
+<!-- N1 -->
+<g id="node2" class="node">
+<title>N1</title>
+<g id="a_node2"><a xlink:href="http://example.org/E.Coli" xlink:title="E.Coli">
+<polygon fill="#ffff00" stroke="#ffff00" points="54,-36 0,-36 0,0 54,0 54,-36"/>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">E.Coli</text>
+</a>
+</g>
+</g>
+<!-- N0&#45;&gt;N1 -->
+<g id="edge2" class="edge">
+<title>N0-&gt;N1</title>
+<g id="a_edge2"><a xlink:href="http://example.org/name" xlink:title=":name">
+<path fill="none" stroke="#000000" d="M64.7143,-89.256C58.0429,-76.6513 48.9234,-59.4212 41.3231,-45.0616"/>
+<polygon fill="#000000" stroke="#000000" points="44.3605,-43.3183 36.5891,-36.1172 38.1737,-46.5929 44.3605,-43.3183"/>
+</a>
+</g>
+<g id="a_edge2-label"><a xlink:href="http://example.org/name" xlink:title=":name">
+<text text-anchor="middle" x="72.1052" y="-58.2" font-family="Times,serif" font-size="14.00" fill="#000000">:name</text>
+</a>
+</g>
+</g>
+<!-- N2 -->
+<g id="node3" class="node">
+<title>N2</title>
+<g id="a_node3"><a xlink:href="http://example.org/Pathogen" xlink:title=":Pathogen">
+<ellipse fill="none" stroke="#000000" cx="122" cy="-18" rx="49.8194" ry="18"/>
+<text text-anchor="middle" x="122" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">:Pathogen</text>
+</a>
+</g>
+</g>
+<!-- N0&#45;&gt;N2 -->
+<g id="edge1" class="edge">
+<title>N0-&gt;N2</title>
+<g id="a_edge1"><a xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" xlink:title="a">
+<path fill="none" stroke="#000000" d="M83.4833,-89.256C90.3414,-76.5684 99.7328,-59.1943 107.5251,-44.7785"/>
+<polygon fill="#000000" stroke="#000000" points="110.6959,-46.2729 112.3722,-35.8115 104.538,-42.9443 110.6959,-46.2729"/>
+</a>
+</g>
+<g id="a_edge1-label"><a xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" xlink:title="a">
+<text text-anchor="middle" x="105.1073" y="-58.2" font-family="Times,serif" font-size="14.00" fill="#000000">a</text>
+</a>
+</g>
+</g>
+</g>
+</svg>

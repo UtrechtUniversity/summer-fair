@@ -98,7 +98,13 @@ class Dataset:
 
                 self.reocur_columns_dict[key] = new_columns
 
-
+    def get_dataset_reocur(self, reocur_columns):
+        reocur_ds_columns = defaultdict(set)
+        for pattern in reocur_columns:
+            values = self.get_recoruring_values(pattern)
+            if values:
+                reocur_ds_columns[pattern] = list(values)
+        return reocur_ds_columns
 
     def get_recoruring_values(self, column_name_pattern: str) -> set:
         """

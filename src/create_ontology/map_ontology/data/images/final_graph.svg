@@ -1,0 +1,471 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="893pt" height="399pt" viewBox="0.00 0.00 892.80 399.20">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 395.2)">
+<title>%0</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-395.2 888.8024,-395.2 888.8024,4 -4,4"/>
+<!-- N11 -->
+<g id="node1" class="node">
+<title>N11</title>
+<polygon fill="#ffff00" stroke="#ffff00" points="474.6595,-124.8 420.6595,-124.8 420.6595,-88.8 474.6595,-88.8 474.6595,-124.8"/>
+<text text-anchor="middle" x="447.6595" y="-102.6" font-family="Times,serif" font-size="14.00" fill="#000000">I</text>
+</g>
+<!-- N10 -->
+<g id="node2" class="node">
+<title>N10</title>
+<polygon fill="#ffff00" stroke="#ffff00" points="572.6595,-124.8 518.6595,-124.8 518.6595,-88.8 572.6595,-88.8 572.6595,-124.8"/>
+<text text-anchor="middle" x="545.6595" y="-102.6" font-family="Times,serif" font-size="14.00" fill="#000000">F</text>
+</g>
+<!-- N19 -->
+<g id="node3" class="node">
+<title>N19</title>
+<g id="a_node3"><a xlink:href="http://example.org/Measurement" xlink:title=":Measurement">
+<ellipse fill="none" stroke="#000000" cx="68.6595" cy="-195.6" rx="66.0492" ry="18"/>
+<text text-anchor="middle" x="68.6595" y="-191.4" font-family="Times,serif" font-size="14.00" fill="#000000">:Measurement</text>
+</a>
+</g>
+</g>
+<!-- N18 -->
+<g id="node4" class="node">
+<title>N18</title>
+<g id="a_node4"><a xlink:href="http://example.org/Measurement" xlink:title="12:00">
+<polygon fill="#ffff00" stroke="#ffff00" points="206.6595,-213.6 152.6595,-213.6 152.6595,-177.6 206.6595,-177.6 206.6595,-213.6"/>
+<text text-anchor="middle" x="179.6595" y="-191.4" font-family="Times,serif" font-size="14.00" fill="#000000">12:00</text>
+</a>
+</g>
+</g>
+<!-- N21 -->
+<g id="node5" class="node">
+<title>N21</title>
+<g id="a_node5"><a xlink:href="http://example.org/Pathogen" xlink:title=":Pathogen">
+<ellipse fill="none" stroke="#000000" cx="49.6595" cy="-18" rx="49.8194" ry="18"/>
+<text text-anchor="middle" x="49.6595" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">:Pathogen</text>
+</a>
+</g>
+</g>
+<!-- N14 -->
+<g id="node6" class="node">
+<title>N14</title>
+<g id="a_node6"><a xlink:href="http://example.org/Event_UU_3" xlink:title=":Event_UU_3">
+<ellipse fill="none" stroke="#000000" cx="238.6595" cy="-373.2" rx="64.8506" ry="18"/>
+<text text-anchor="middle" x="238.6595" y="-369" font-family="Times,serif" font-size="14.00" fill="#000000">:Event_UU_3</text>
+</a>
+</g>
+</g>
+<!-- N15 -->
+<g id="node8" class="node">
+<title>N15</title>
+<g id="a_node8"><a xlink:href="http://example.org/E.Coli" xlink:title="3">
+<polygon fill="#ffff00" stroke="#ffff00" points="152.6595,-302.4 98.6595,-302.4 98.6595,-266.4 152.6595,-266.4 152.6595,-302.4"/>
+<text text-anchor="middle" x="125.6595" y="-280.2" font-family="Times,serif" font-size="14.00" fill="#000000">3</text>
+</a>
+</g>
+</g>
+<!-- N14&#45;&gt;N15 -->
+<g id="edge9" class="edge">
+<title>N14-&gt;N15</title>
+<g id="a_edge9"><a xlink:href="http://example.org/experimentDay" xlink:title=":experimentDay">
+<path fill="none" stroke="#000000" d="M187.0611,-362.334C171.7281,-356.9473 155.9737,-348.9677 144.4715,-337.2 137.8491,-330.4248 133.5429,-321.1662 130.7491,-312.293"/>
+<polygon fill="#000000" stroke="#000000" points="134.1256,-311.3707 128.1944,-302.5916 127.3564,-313.1533 134.1256,-311.3707"/>
+</a>
+</g>
+<g id="a_edge9-label"><a xlink:href="http://example.org/experimentDay" xlink:title=":experimentDay">
+<text text-anchor="middle" x="189.7535" y="-324.6" font-family="Times,serif" font-size="14.00" fill="#000000">:experimentDay</text>
+</a>
+</g>
+</g>
+<!-- N17 -->
+<g id="node10" class="node">
+<title>N17</title>
+<g id="a_node10"><a xlink:href="http://example.org/M_1" xlink:title=":M_1">
+<ellipse fill="none" stroke="#000000" cx="238.6595" cy="-284.4" rx="31.9224" ry="18"/>
+<text text-anchor="middle" x="238.6595" y="-280.2" font-family="Times,serif" font-size="14.00" fill="#000000">:M_1</text>
+</a>
+</g>
+</g>
+<!-- N14&#45;&gt;N17 -->
+<g id="edge7" class="edge">
+<title>N14-&gt;N17</title>
+<g id="a_edge7"><a xlink:href="http://example.org/hasMeasurement" xlink:title=":hasMeasurement">
+<path fill="none" stroke="#000000" d="M238.6595,-354.8006C238.6595,-342.6949 238.6595,-326.6076 238.6595,-312.8674"/>
+<polygon fill="#000000" stroke="#000000" points="242.1596,-312.472 238.6595,-302.472 235.1596,-312.4721 242.1596,-312.472"/>
+</a>
+</g>
+<g id="a_edge7-label"><a xlink:href="http://example.org/hasMeasurement" xlink:title=":hasMeasurement">
+<text text-anchor="middle" x="288.0291" y="-324.6" font-family="Times,serif" font-size="14.00" fill="#000000">:hasMeasurement</text>
+</a>
+</g>
+</g>
+<!-- N16 -->
+<g id="node12" class="node">
+<title>N16</title>
+<g id="a_node12"><a xlink:href="http://example.org/Experiment" xlink:title=":Experiment">
+<ellipse fill="none" stroke="#000000" cx="360.6595" cy="-284.4" rx="58.5463" ry="18"/>
+<text text-anchor="middle" x="360.6595" y="-280.2" font-family="Times,serif" font-size="14.00" fill="#000000">:Experiment</text>
+</a>
+</g>
+</g>
+<!-- N14&#45;&gt;N16 -->
+<g id="edge8" class="edge">
+<title>N14-&gt;N16</title>
+<g id="a_edge8"><a xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" xlink:title="a">
+<path fill="none" stroke="#000000" d="M291.9836,-362.9032C308.5594,-357.5293 325.8294,-349.4134 338.6595,-337.2 345.7145,-330.4841 350.5929,-321.1634 353.927,-312.2198"/>
+<polygon fill="#000000" stroke="#000000" points="357.3419,-313.0328 357.0687,-302.4415 350.6775,-310.8915 357.3419,-313.0328"/>
+</a>
+</g>
+<g id="a_edge8-label"><a xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" xlink:title="a">
+<text text-anchor="middle" x="352.7668" y="-324.6" font-family="Times,serif" font-size="14.00" fill="#000000">a</text>
+</a>
+</g>
+</g>
+<!-- N3 -->
+<g id="node7" class="node">
+<title>N3</title>
+<g id="a_node7"><a xlink:href="http://example.org/E.Coli" xlink:title=":E.Coli">
+<ellipse fill="none" stroke="#000000" cx="96.6595" cy="-106.8" rx="38.8405" ry="18"/>
+<text text-anchor="middle" x="96.6595" y="-102.6" font-family="Times,serif" font-size="14.00" fill="#000000">:E.Coli</text>
+</a>
+</g>
+</g>
+<!-- N3&#45;&gt;N21 -->
+<g id="edge1" class="edge">
+<title>N3-&gt;N21</title>
+<g id="a_edge1"><a xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" xlink:title="a">
+<path fill="none" stroke="#000000" d="M87.3738,-89.256C80.6585,-76.5684 71.4627,-59.1943 63.8328,-44.7785"/>
+<polygon fill="#000000" stroke="#000000" points="66.8582,-43.0126 59.0867,-35.8115 60.6713,-46.2872 66.8582,-43.0126"/>
+</a>
+</g>
+<g id="a_edge1-label"><a xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" xlink:title="a">
+<text text-anchor="middle" x="80.7668" y="-58.2" font-family="Times,serif" font-size="14.00" fill="#000000">a</text>
+</a>
+</g>
+</g>
+<!-- N20 -->
+<g id="node17" class="node">
+<title>N20</title>
+<g id="a_node17"><a xlink:href="http://example.org/Host" xlink:title="E.Coli">
+<polygon fill="#ffff00" stroke="#ffff00" points="171.6595,-36 117.6595,-36 117.6595,0 171.6595,0 171.6595,-36"/>
+<text text-anchor="middle" x="144.6595" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">E.Coli</text>
+</a>
+</g>
+</g>
+<!-- N3&#45;&gt;N20 -->
+<g id="edge2" class="edge">
+<title>N3-&gt;N20</title>
+<g id="a_edge2"><a xlink:href="http://example.org/name" xlink:title=":name">
+<path fill="none" stroke="#000000" d="M106.1427,-89.256C112.956,-76.6513 122.2696,-59.4212 130.0316,-45.0616"/>
+<polygon fill="#000000" stroke="#000000" points="133.1901,-46.5786 134.8664,-36.1172 127.0322,-43.25 133.1901,-46.5786"/>
+</a>
+</g>
+<g id="a_edge2-label"><a xlink:href="http://example.org/name" xlink:title=":name">
+<text text-anchor="middle" x="142.7647" y="-58.2" font-family="Times,serif" font-size="14.00" fill="#000000">:name</text>
+</a>
+</g>
+</g>
+<!-- N12 -->
+<g id="node9" class="node">
+<title>N12</title>
+<g id="a_node9"><a xlink:href="http://example.org/E.Coli" xlink:title="12345">
+<polygon fill="#ffff00" stroke="#ffff00" points="644.6595,-124.8 590.6595,-124.8 590.6595,-88.8 644.6595,-88.8 644.6595,-124.8"/>
+<text text-anchor="middle" x="617.6595" y="-102.6" font-family="Times,serif" font-size="14.00" fill="#000000">12345</text>
+</a>
+</g>
+</g>
+<!-- N17&#45;&gt;N19 -->
+<g id="edge3" class="edge">
+<title>N17-&gt;N19</title>
+<g id="a_edge3"><a xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" xlink:title="a">
+<path fill="none" stroke="#000000" d="M213.3804,-273.0102C198.4363,-266.1407 179.2148,-257.0672 162.4449,-248.4 143.5372,-238.6279 122.888,-227.0988 105.7902,-217.3108"/>
+<polygon fill="#000000" stroke="#000000" points="107.1036,-214.0284 96.6905,-212.0743 103.6122,-220.0956 107.1036,-214.0284"/>
+</a>
+</g>
+<g id="a_edge3-label"><a xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" xlink:title="a">
+<text text-anchor="middle" x="165.7668" y="-235.8" font-family="Times,serif" font-size="14.00" fill="#000000">a</text>
+</a>
+</g>
+</g>
+<!-- N17&#45;&gt;N18 -->
+<g id="edge4" class="edge">
+<title>N17-&gt;N18</title>
+<g id="a_edge4"><a xlink:href="http://example.org/experimentHour" xlink:title=":experimentHour">
+<path fill="none" stroke="#000000" d="M210.5843,-275.3505C197.9684,-269.7213 184.3047,-261.0818 177.0255,-248.4 172.8491,-241.1241 171.991,-232.3126 172.6139,-223.9897"/>
+<polygon fill="#000000" stroke="#000000" points="176.1114,-224.2546 174.0567,-213.861 169.1813,-223.2674 176.1114,-224.2546"/>
+</a>
+</g>
+<g id="a_edge4-label"><a xlink:href="http://example.org/experimentHour" xlink:title=":experimentHour">
+<text text-anchor="middle" x="224.4765" y="-235.8" font-family="Times,serif" font-size="14.00" fill="#000000">:experimentHour</text>
+</a>
+</g>
+</g>
+<!-- N0 -->
+<g id="node18" class="node">
+<title>N0</title>
+<g id="a_node18"><a xlink:href="http://example.org/Sample1-" xlink:title=":Sample1-">
+<ellipse fill="none" stroke="#000000" cx="287.6595" cy="-195.6" rx="50.9599" ry="18"/>
+<text text-anchor="middle" x="287.6595" y="-191.4" font-family="Times,serif" font-size="14.00" fill="#000000">:Sample1-</text>
+</a>
+</g>
+</g>
+<!-- N17&#45;&gt;N0 -->
+<g id="edge6" class="edge">
+<title>N17-&gt;N0</title>
+<g id="a_edge6"><a xlink:href="http://example.org/hasSample" xlink:title=":hasSample">
+<path fill="none" stroke="#000000" d="M258.4659,-269.779C265.1932,-263.8541 272.1432,-256.4948 276.6595,-248.4 280.8295,-240.9258 283.4241,-232.0576 285.0365,-223.7437"/>
+<polygon fill="#000000" stroke="#000000" points="288.5271,-224.0738 286.5985,-213.656 281.6095,-223.0027 288.5271,-224.0738"/>
+</a>
+</g>
+<g id="a_edge6-label"><a xlink:href="http://example.org/hasSample" xlink:title=":hasSample">
+<text text-anchor="middle" x="314.9309" y="-235.8" font-family="Times,serif" font-size="14.00" fill="#000000">:hasSample</text>
+</a>
+</g>
+</g>
+<!-- N9 -->
+<g id="node22" class="node">
+<title>N9</title>
+<g id="a_node22"><a xlink:href="http://example.org/Host_1234" xlink:title=":Host_1234">
+<ellipse fill="none" stroke="#000000" cx="594.6595" cy="-195.6" rx="56.2034" ry="18"/>
+<text text-anchor="middle" x="594.6595" y="-191.4" font-family="Times,serif" font-size="14.00" fill="#000000">:Host_1234</text>
+</a>
+</g>
+</g>
+<!-- N17&#45;&gt;N9 -->
+<g id="edge5" class="edge">
+<title>N17-&gt;N9</title>
+<g id="a_edge5"><a xlink:href="http://example.org/hasHost" xlink:title=":hasHost">
+<path fill="none" stroke="#000000" d="M265.9799,-274.7537C274.4777,-271.8992 283.912,-268.8777 292.6595,-266.4 377.0794,-242.4885 476.3707,-220.3354 537.4085,-207.388"/>
+<polygon fill="#000000" stroke="#000000" points="538.1764,-210.8031 547.2376,-205.3125 536.7302,-203.9541 538.1764,-210.8031"/>
+</a>
+</g>
+<g id="a_edge5-label"><a xlink:href="http://example.org/hasHost" xlink:title=":hasHost">
+<text text-anchor="middle" x="448.1553" y="-235.8" font-family="Times,serif" font-size="14.00" fill="#000000">:hasHost</text>
+</a>
+</g>
+</g>
+<!-- N5 -->
+<g id="node11" class="node">
+<title>N5</title>
+<g id="a_node11"><a xlink:href="http://example.org/Env10_1" xlink:title=":Env10_1">
+<ellipse fill="none" stroke="#000000" cx="711.6595" cy="-106.8" rx="48.681" ry="18"/>
+<text text-anchor="middle" x="711.6595" y="-102.6" font-family="Times,serif" font-size="14.00" fill="#000000">:Env10_1</text>
+</a>
+</g>
+</g>
+<!-- N6 -->
+<g id="node14" class="node">
+<title>N6</title>
+<g id="a_node14"><a xlink:href="http://example.org/Swab" xlink:title="1">
+<polygon fill="#ffff00" stroke="#ffff00" points="666.6595,-36 612.6595,-36 612.6595,0 666.6595,0 666.6595,-36"/>
+<text text-anchor="middle" x="639.6595" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+</a>
+</g>
+</g>
+<!-- N5&#45;&gt;N6 -->
+<g id="edge17" class="edge">
+<title>N5-&gt;N6</title>
+<g id="a_edge17"><a xlink:href="http://example.org/level2" xlink:title=":level2">
+<path fill="none" stroke="#000000" d="M689.7604,-90.5396C682.8186,-84.7681 675.4302,-77.9245 669.5585,-70.8 663.1622,-63.0391 657.3785,-53.7236 652.6399,-45.0924"/>
+<polygon fill="#000000" stroke="#000000" points="655.6702,-43.3344 647.9288,-36.101 649.4698,-46.5832 655.6702,-43.3344"/>
+</a>
+</g>
+<g id="a_edge17-label"><a xlink:href="http://example.org/level2" xlink:title=":level2">
+<text text-anchor="middle" x="687.71" y="-58.2" font-family="Times,serif" font-size="14.00" fill="#000000">:level2</text>
+</a>
+</g>
+</g>
+<!-- N7 -->
+<g id="node16" class="node">
+<title>N7</title>
+<g id="a_node16"><a xlink:href="http://example.org/Host" xlink:title="10">
+<polygon fill="#ffff00" stroke="#ffff00" points="738.6595,-36 684.6595,-36 684.6595,0 738.6595,0 738.6595,-36"/>
+<text text-anchor="middle" x="711.6595" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">10</text>
+</a>
+</g>
+</g>
+<!-- N5&#45;&gt;N7 -->
+<g id="edge16" class="edge">
+<title>N5-&gt;N7</title>
+<g id="a_edge16"><a xlink:href="http://example.org/level1" xlink:title=":level1">
+<path fill="none" stroke="#000000" d="M711.6595,-88.4006C711.6595,-76.2949 711.6595,-60.2076 711.6595,-46.4674"/>
+<polygon fill="#000000" stroke="#000000" points="715.1596,-46.072 711.6595,-36.072 708.1596,-46.0721 715.1596,-46.072"/>
+</a>
+</g>
+<g id="a_edge16-label"><a xlink:href="http://example.org/level1" xlink:title=":level1">
+<text text-anchor="middle" x="730.71" y="-58.2" font-family="Times,serif" font-size="14.00" fill="#000000">:level1</text>
+</a>
+</g>
+</g>
+<!-- N8 -->
+<g id="node19" class="node">
+<title>N8</title>
+<g id="a_node19"><a xlink:href="http://example.org/Environment" xlink:title=":Environment">
+<ellipse fill="none" stroke="#000000" cx="820.6595" cy="-18" rx="64.2862" ry="18"/>
+<text text-anchor="middle" x="820.6595" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">:Environment</text>
+</a>
+</g>
+</g>
+<!-- N5&#45;&gt;N8 -->
+<g id="edge15" class="edge">
+<title>N5-&gt;N8</title>
+<g id="a_edge15"><a xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" xlink:title="a">
+<path fill="none" stroke="#000000" d="M731.9061,-90.3055C748.6387,-76.6738 772.6155,-57.1404 791.4309,-41.8119"/>
+<polygon fill="#000000" stroke="#000000" points="793.8624,-44.3455 799.4047,-35.3158 789.4411,-38.9185 793.8624,-44.3455"/>
+</a>
+</g>
+<g id="a_edge15-label"><a xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" xlink:title="a">
+<text text-anchor="middle" x="778.7668" y="-58.2" font-family="Times,serif" font-size="14.00" fill="#000000">a</text>
+</a>
+</g>
+</g>
+<!-- N2 -->
+<g id="node13" class="node">
+<title>N2</title>
+<g id="a_node13"><a xlink:href="http://example.org/Swab" xlink:title=":Swab">
+<ellipse fill="none" stroke="#000000" cx="191.6595" cy="-106.8" rx="35.3509" ry="18"/>
+<text text-anchor="middle" x="191.6595" y="-102.6" font-family="Times,serif" font-size="14.00" fill="#000000">:Swab</text>
+</a>
+</g>
+</g>
+<!-- N13 -->
+<g id="node15" class="node">
+<title>N13</title>
+<g id="a_node15"><a xlink:href="http://example.org/Host" xlink:title=":Host">
+<ellipse fill="none" stroke="#000000" cx="810.6595" cy="-106.8" rx="31.9185" ry="18"/>
+<text text-anchor="middle" x="810.6595" y="-102.6" font-family="Times,serif" font-size="14.00" fill="#000000">:Host</text>
+</a>
+</g>
+</g>
+<!-- N0&#45;&gt;N3 -->
+<g id="edge19" class="edge">
+<title>N0-&gt;N3</title>
+<g id="a_edge19"><a xlink:href="http://example.org/hasPathogen" xlink:title=":hasPathogen">
+<path fill="none" stroke="#000000" d="M246.1893,-185.1031C236.2002,-182.6104 225.5553,-179.9837 215.6595,-177.6 181.2174,-169.3035 167.8885,-178.6314 138.0073,-159.6 127.5563,-152.9438 118.649,-142.697 111.8079,-132.9953"/>
+<polygon fill="#000000" stroke="#000000" points="114.5434,-130.7853 106.1213,-124.3574 108.6967,-134.6345 114.5434,-130.7853"/>
+</a>
+</g>
+<g id="a_edge19-label"><a xlink:href="http://example.org/hasPathogen" xlink:title=":hasPathogen">
+<text text-anchor="middle" x="175.9856" y="-147" font-family="Times,serif" font-size="14.00" fill="#000000">:hasPathogen</text>
+</a>
+</g>
+</g>
+<!-- N0&#45;&gt;N2 -->
+<g id="edge20" class="edge">
+<title>N0-&gt;N2</title>
+<g id="a_edge20"><a xlink:href="http://example.org/hasType" xlink:title=":hasType">
+<path fill="none" stroke="#000000" d="M260.1657,-180.271C250.8372,-174.4233 240.6764,-167.2958 232.3425,-159.6 223.7092,-151.6278 215.5238,-141.6723 208.7893,-132.5615"/>
+<polygon fill="#000000" stroke="#000000" points="211.4659,-130.2867 202.8098,-124.1774 205.7668,-134.3512 211.4659,-130.2867"/>
+</a>
+</g>
+<g id="a_edge20-label"><a xlink:href="http://example.org/hasType" xlink:title=":hasType">
+<text text-anchor="middle" x="257.318" y="-147" font-family="Times,serif" font-size="14.00" fill="#000000">:hasType</text>
+</a>
+</g>
+</g>
+<!-- N4 -->
+<g id="node20" class="node">
+<title>N4</title>
+<g id="a_node20"><a xlink:href="http://example.org/Sample" xlink:title=":Sample">
+<ellipse fill="none" stroke="#000000" cx="287.6595" cy="-106.8" rx="42.8732" ry="18"/>
+<text text-anchor="middle" x="287.6595" y="-102.6" font-family="Times,serif" font-size="14.00" fill="#000000">:Sample</text>
+</a>
+</g>
+</g>
+<!-- N0&#45;&gt;N4 -->
+<g id="edge18" class="edge">
+<title>N0-&gt;N4</title>
+<g id="a_edge18"><a xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" xlink:title="a">
+<path fill="none" stroke="#000000" d="M287.6595,-177.2006C287.6595,-165.0949 287.6595,-149.0076 287.6595,-135.2674"/>
+<polygon fill="#000000" stroke="#000000" points="291.1596,-134.872 287.6595,-124.872 284.1596,-134.8721 291.1596,-134.872"/>
+</a>
+</g>
+<g id="a_edge18-label"><a xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" xlink:title="a">
+<text text-anchor="middle" x="290.7668" y="-147" font-family="Times,serif" font-size="14.00" fill="#000000">a</text>
+</a>
+</g>
+</g>
+<!-- N1 -->
+<g id="node21" class="node">
+<title>N1</title>
+<g id="a_node21"><a xlink:href="http://example.org/Sample" xlink:title="-">
+<polygon fill="#ffff00" stroke="#ffff00" points="402.6595,-124.8 348.6595,-124.8 348.6595,-88.8 402.6595,-88.8 402.6595,-124.8"/>
+<text text-anchor="middle" x="375.6595" y="-102.6" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+</a>
+</g>
+</g>
+<!-- N0&#45;&gt;N1 -->
+<g id="edge21" class="edge">
+<title>N0-&gt;N1</title>
+<g id="a_edge21"><a xlink:href="http://example.org/result" xlink:title=":result">
+<path fill="none" stroke="#000000" d="M304.6267,-178.4785C317.5562,-165.4314 335.5703,-147.2536 350.2219,-132.4688"/>
+<polygon fill="#000000" stroke="#000000" points="352.9795,-134.6584 357.5325,-125.0917 348.0074,-129.7311 352.9795,-134.6584"/>
+</a>
+</g>
+<g id="a_edge21-label"><a xlink:href="http://example.org/result" xlink:title=":result">
+<text text-anchor="middle" x="356.1553" y="-147" font-family="Times,serif" font-size="14.00" fill="#000000">:result</text>
+</a>
+</g>
+</g>
+<!-- N9&#45;&gt;N11 -->
+<g id="edge12" class="edge">
+<title>N9-&gt;N11</title>
+<g id="a_edge12"><a xlink:href="http://example.org/inoculationStatus" xlink:title=":inoculationStatus">
+<path fill="none" stroke="#000000" d="M544.2743,-187.5567C511.3513,-181.3023 472.35,-171.6669 460.5543,-159.6 454.154,-153.0526 450.753,-143.8831 448.9972,-135.0199"/>
+<polygon fill="#000000" stroke="#000000" points="452.4397,-134.3615 447.6105,-124.9313 445.5049,-135.3148 452.4397,-134.3615"/>
+</a>
+</g>
+<g id="a_edge12-label"><a xlink:href="http://example.org/inoculationStatus" xlink:title=":inoculationStatus">
+<text text-anchor="middle" x="510.2121" y="-147" font-family="Times,serif" font-size="14.00" fill="#000000">:inoculationStatus</text>
+</a>
+</g>
+</g>
+<!-- N9&#45;&gt;N10 -->
+<g id="edge14" class="edge">
+<title>N9-&gt;N10</title>
+<g id="a_edge14"><a xlink:href="http://example.org/sex" xlink:title=":sex">
+<path fill="none" stroke="#000000" d="M584.7436,-177.63C577.8158,-165.0751 568.4418,-148.0872 560.6108,-133.8955"/>
+<polygon fill="#000000" stroke="#000000" points="563.6245,-132.1126 555.7288,-125.0481 557.4957,-135.4945 563.6245,-132.1126"/>
+</a>
+</g>
+<g id="a_edge14-label"><a xlink:href="http://example.org/sex" xlink:title=":sex">
+<text text-anchor="middle" x="584.9344" y="-147" font-family="Times,serif" font-size="14.00" fill="#000000">:sex</text>
+</a>
+</g>
+</g>
+<!-- N9&#45;&gt;N12 -->
+<g id="edge11" class="edge">
+<title>N9-&gt;N12</title>
+<g id="a_edge11"><a xlink:href="http://example.org/id" xlink:title=":id">
+<path fill="none" stroke="#000000" d="M599.3139,-177.63C602.4728,-165.4338 606.7152,-149.0543 610.3247,-135.1187"/>
+<polygon fill="#000000" stroke="#000000" points="613.8138,-135.6062 612.933,-125.0481 607.0374,-133.851 613.8138,-135.6062"/>
+</a>
+</g>
+<g id="a_edge11-label"><a xlink:href="http://example.org/id" xlink:title=":id">
+<text text-anchor="middle" x="615.0501" y="-147" font-family="Times,serif" font-size="14.00" fill="#000000">:id</text>
+</a>
+</g>
+</g>
+<!-- N9&#45;&gt;N5 -->
+<g id="edge13" class="edge">
+<title>N9-&gt;N5</title>
+<g id="a_edge13"><a xlink:href="http://example.org/locatedIn" xlink:title=":locatedIn">
+<path fill="none" stroke="#000000" d="M616.6663,-178.8974C635.1674,-164.8555 661.7765,-144.6599 682.1284,-129.2133"/>
+<polygon fill="#000000" stroke="#000000" points="684.297,-131.9613 690.1466,-123.1277 680.0651,-126.3854 684.297,-131.9613"/>
+</a>
+</g>
+<g id="a_edge13-label"><a xlink:href="http://example.org/locatedIn" xlink:title=":locatedIn">
+<text text-anchor="middle" x="690.6476" y="-147" font-family="Times,serif" font-size="14.00" fill="#000000">:locatedIn</text>
+</a>
+</g>
+</g>
+<!-- N9&#45;&gt;N13 -->
+<g id="edge10" class="edge">
+<title>N9-&gt;N13</title>
+<g id="a_edge10"><a xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" xlink:title="a">
+<path fill="none" stroke="#000000" d="M641.5986,-185.5794C666.2696,-179.5263 696.6943,-170.8018 722.6595,-159.6 743.3642,-150.6676 765.1054,-137.6621 781.7976,-126.7941"/>
+<polygon fill="#000000" stroke="#000000" points="784.1125,-129.4587 790.513,-121.0157 780.2443,-123.6245 784.1125,-129.4587"/>
+</a>
+</g>
+<g id="a_edge10-label"><a xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" xlink:title="a">
+<text text-anchor="middle" x="757.7668" y="-147" font-family="Times,serif" font-size="14.00" fill="#000000">a</text>
+</a>
+</g>
+</g>
+</g>
+</svg>

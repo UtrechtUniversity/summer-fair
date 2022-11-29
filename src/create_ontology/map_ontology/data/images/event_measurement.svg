@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="485pt" height="222pt" viewBox="0.00 0.00 485.38 221.60">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 217.6)">
+<title>%0</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-217.6 481.3758,-217.6 481.3758,4 -4,4"/>
+<!-- N4 -->
+<g id="node1" class="node">
+<title>N4</title>
+<g id="a_node1"><a xlink:href="http://example.org/Measurement" xlink:title=":Measurement">
+<ellipse fill="none" stroke="#000000" cx="66.2742" cy="-18" rx="66.0492" ry="18"/>
+<text text-anchor="middle" x="66.2742" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">:Measurement</text>
+</a>
+</g>
+</g>
+<!-- N3 -->
+<g id="node2" class="node">
+<title>N3</title>
+<g id="a_node2"><a xlink:href="http://example.org/Measurement" xlink:title="12:00">
+<polygon fill="#ffff00" stroke="#ffff00" points="204.2742,-36 150.2742,-36 150.2742,0 204.2742,0 204.2742,-36"/>
+<text text-anchor="middle" x="177.2742" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">12:00</text>
+</a>
+</g>
+</g>
+<!-- N1 -->
+<g id="node3" class="node">
+<title>N1</title>
+<g id="a_node3"><a xlink:href="http://example.org/Sample1-" xlink:title=":Sample1-">
+<ellipse fill="none" stroke="#000000" cx="296.2742" cy="-18" rx="50.9599" ry="18"/>
+<text text-anchor="middle" x="296.2742" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">:Sample1-</text>
+</a>
+</g>
+</g>
+<!-- N5 -->
+<g id="node4" class="node">
+<title>N5</title>
+<g id="a_node4"><a xlink:href="http://example.org/Event_UU_3" xlink:title=":Event_UU_3">
+<ellipse fill="none" stroke="#000000" cx="236.2742" cy="-195.6" rx="64.8506" ry="18"/>
+<text text-anchor="middle" x="236.2742" y="-191.4" font-family="Times,serif" font-size="14.00" fill="#000000">:Event_UU_3</text>
+</a>
+</g>
+</g>
+<!-- N0 -->
+<g id="node6" class="node">
+<title>N0</title>
+<g id="a_node6"><a xlink:href="http://example.org/M_1" xlink:title=":M_1">
+<ellipse fill="none" stroke="#000000" cx="236.2742" cy="-106.8" rx="31.9224" ry="18"/>
+<text text-anchor="middle" x="236.2742" y="-102.6" font-family="Times,serif" font-size="14.00" fill="#000000">:M_1</text>
+</a>
+</g>
+</g>
+<!-- N5&#45;&gt;N0 -->
+<g id="edge1" class="edge">
+<title>N5-&gt;N0</title>
+<g id="a_edge1"><a xlink:href="http://example.org/hasMeasurement" xlink:title=":hasMeasurement">
+<path fill="none" stroke="#000000" d="M236.2742,-177.2006C236.2742,-165.0949 236.2742,-149.0076 236.2742,-135.2674"/>
+<polygon fill="#000000" stroke="#000000" points="239.7743,-134.872 236.2742,-124.872 232.7743,-134.8721 239.7743,-134.872"/>
+</a>
+</g>
+<g id="a_edge1-label"><a xlink:href="http://example.org/hasMeasurement" xlink:title=":hasMeasurement">
+<text text-anchor="middle" x="285.6438" y="-147" font-family="Times,serif" font-size="14.00" fill="#000000">:hasMeasurement</text>
+</a>
+</g>
+</g>
+<!-- N2 -->
+<g id="node5" class="node">
+<title>N2</title>
+<g id="a_node5"><a xlink:href="http://example.org/Host_1234" xlink:title=":Host_1234">
+<ellipse fill="none" stroke="#000000" cx="421.2742" cy="-18" rx="56.2034" ry="18"/>
+<text text-anchor="middle" x="421.2742" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">:Host_1234</text>
+</a>
+</g>
+</g>
+<!-- N0&#45;&gt;N4 -->
+<g id="edge2" class="edge">
+<title>N0-&gt;N4</title>
+<g id="a_edge2"><a xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" xlink:title="a">
+<path fill="none" stroke="#000000" d="M212.1032,-94.9956C198.0283,-88.0608 179.9746,-79.0608 164.0596,-70.8 144.3737,-60.5818 122.6489,-48.8933 104.6863,-39.1155"/>
+<polygon fill="#000000" stroke="#000000" points="106.1215,-35.9115 95.6667,-34.1945 102.7688,-42.0564 106.1215,-35.9115"/>
+</a>
+</g>
+<g id="a_edge2-label"><a xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" xlink:title="a">
+<text text-anchor="middle" x="167.3815" y="-58.2" font-family="Times,serif" font-size="14.00" fill="#000000">a</text>
+</a>
+</g>
+</g>
+<!-- N0&#45;&gt;N3 -->
+<g id="edge3" class="edge">
+<title>N0-&gt;N3</title>
+<g id="a_edge3"><a xlink:href="http://example.org/experimentHour" xlink:title=":experimentHour">
+<path fill="none" stroke="#000000" d="M209.5087,-96.9368C197.9002,-91.1874 185.4301,-82.6819 178.6402,-70.8 174.4816,-63.5227 173.1186,-54.7108 173.0849,-46.388"/>
+<polygon fill="#000000" stroke="#000000" points="176.5874,-46.437 173.6429,-36.2595 169.598,-46.0518 176.5874,-46.437"/>
+</a>
+</g>
+<g id="a_edge3-label"><a xlink:href="http://example.org/experimentHour" xlink:title=":experimentHour">
+<text text-anchor="middle" x="227.0912" y="-58.2" font-family="Times,serif" font-size="14.00" fill="#000000">:experimentHour</text>
+</a>
+</g>
+</g>
+<!-- N0&#45;&gt;N1 -->
+<g id="edge5" class="edge">
+<title>N0-&gt;N1</title>
+<g id="a_edge5"><a xlink:href="http://example.org/hasSample" xlink:title=":hasSample">
+<path fill="none" stroke="#000000" d="M254.8816,-92.0263C261.6323,-85.9815 268.9096,-78.5811 274.2742,-70.8 279.541,-63.1608 283.894,-54.0641 287.2985,-45.5916"/>
+<polygon fill="#000000" stroke="#000000" points="290.6394,-46.6497 290.8574,-36.0571 284.0814,-44.2017 290.6394,-46.6497"/>
+</a>
+</g>
+<g id="a_edge5-label"><a xlink:href="http://example.org/hasSample" xlink:title=":hasSample">
+<text text-anchor="middle" x="316.5456" y="-58.2" font-family="Times,serif" font-size="14.00" fill="#000000">:hasSample</text>
+</a>
+</g>
+</g>
+<!-- N0&#45;&gt;N2 -->
+<g id="edge4" class="edge">
+<title>N0-&gt;N2</title>
+<g id="a_edge4"><a xlink:href="http://example.org/hasHost" xlink:title=":hasHost">
+<path fill="none" stroke="#000000" d="M266.7686,-100.6148C291.0911,-94.9401 325.5546,-85.2087 353.2742,-70.8 368.1441,-63.0706 383.033,-51.9831 395.0718,-41.962"/>
+<polygon fill="#000000" stroke="#000000" points="397.5939,-44.4103 402.9156,-35.249 393.0423,-39.092 397.5939,-44.4103"/>
+</a>
+</g>
+<g id="a_edge4-label"><a xlink:href="http://example.org/hasHost" xlink:title=":hasHost">
+<text text-anchor="middle" x="403.77" y="-58.2" font-family="Times,serif" font-size="14.00" fill="#000000">:hasHost</text>
+</a>
+</g>
+</g>
+</g>
+</svg>

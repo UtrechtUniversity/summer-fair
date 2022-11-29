@@ -43,7 +43,8 @@ def get_reocur_columns(mapping: dict) -> dict:
 
     return columns
 
-def get_reocurring_map_columns(mappings: dict) -> set:
+
+def get_map_columns(mappings: dict, ontology_data_prop: dict) -> set:
     """
     Function gets ontology mappings and
     returns set of all the reocurring properties (where '.*' is in the column name)
@@ -62,16 +63,16 @@ def get_reocurring_map_columns(mappings: dict) -> set:
     for k, v in mappings.items():
         if isinstance(v, list):
             for value in v:
-                reocur_props.update(get_reocurring_map_columns({k: value}))
+                reocur_props.update(get_map_columns({k: value},ontology_data_prop))
         else:
             for props, values in v.items():
                 if isinstance(values, dict):
-                    reocur_props.update(get_reocurring_map_columns({props: values}))
-                if isinstance(props, str) and props[0].islower() and '.*' in values:
+                    reocur_props.update(get_map_columns({props: values},ontology_data_prop))
+                if isinstance(props, str) and props in ontology_data_prop and isinstance(values, str):
                     reocur_props.add(values)
                 if isinstance(values, list):
                     for value in values:
-                        reocur_props.update(get_reocurring_map_columns({k: {props: value}}))
+                        reocur_props.update(get_map_columns({k: {props: value}},ontology_data_prop))
     return reocur_props
 
 
