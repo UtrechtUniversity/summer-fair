@@ -29,13 +29,13 @@ ontology_schema:
         hasHost: Host
         Sample:
           hasType: 'Swab'
-
           result:
         SpecificViableCount:
           hasPhenomenon: Sample
         Measure:
           hasNumericalValue: d.*_count_ESBL
+          hasUnit: 'colonyFormingUnitPerMillilitre'
         Pathogen:
-          name: 'E.Coli'
+          name: {'automatically_set_to': 'E.Coli'}
 
 
