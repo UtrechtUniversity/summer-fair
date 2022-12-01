@@ -57,7 +57,7 @@ We can save that stream to disk:
 
 ```py
 with open("trans.owl", 'wb') as fileobj:
-     ...:     fileobj.write(stream)
+    fileobj.write(stream)
 ```
 
 
