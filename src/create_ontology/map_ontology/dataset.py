@@ -15,10 +15,12 @@ class Dataset:
     def __init__(self, file, mappings):
         self.dataset = self.update_dataset(file, mappings).fillna('')
 
+        self.column_pattern_values = defaultdict()
         self.columns = self.dataset.columns.values.tolist()
         self.reocur_columns_dict = self.get_dataset_reocur(mappings.reocur_mappings)
         self.multiple_columns = list(self.get_multiple_columns(mappings.ont_mappings))
         self.reusable_column = [column for column, count in Counter(self.multiple_columns).items() if count > 1]
+
 
         if self.reocur_columns_dict:
             self.create_new_columns_in_df()
@@ -104,9 +106,9 @@ class Dataset:
     def get_dataset_reocur(self, reocur_columns):
         reocur_ds_columns = defaultdict(set)
         for pattern in reocur_columns:
-            values = self.get_recoruring_values(pattern)
-            if values:
-                reocur_ds_columns[pattern] = list(values)
+            column_headers = self.get_recoruring_values(pattern)
+            if column_headers:
+                reocur_ds_columns[pattern] = list(column_headers)
         return reocur_ds_columns
 
     def get_recoruring_values(self, column_name_pattern: str) -> set:
@@ -117,12 +119,19 @@ class Dataset:
             values =  {'BS0_date', 'BS1_date'}
 
         """
+        column_headers = set()
         values = set()
         for column in self.columns:
-            column_name_new = column_name_pattern.replace(".*", "-?\d*\.{0,1}\d+")
-            if re.match(rf'{column_name_new}$', column):
-                values.add(column)
-        return values
+
+            column_name_new = column_name_pattern.replace(".*", "(-?\d*\.{0,1}\d+)")
+            matching = re.match(rf'{column_name_new}$', column)
+            if matching:
+                column_headers.add(column)
+                values.add(matching[1])
+
+        self.column_pattern_values[column_name_pattern] = values
+
+        return column_headers
 
     def update_dataset(self, file, mappings):
         # Check if the merged field is specified in config
@@ -196,7 +205,10 @@ class Dataset:
                         reshape_columns = self.reocur_columns_to_reshape(map_columns)
                         unique_columns = list(set(self.columns).difference(self.reocur_columns).difference(set(self.multiple_columns)))
                         uniq_reshaped = unique_columns + [v for value in reshape_columns.values() for v in value]
-                        new_df = self.dataset[uniq_reshaped]
+
+
+
+
                     elif not map_columns and (len(properties_or_classes) > 1 or 'experimentDay' in property_or_class):
                         reshape_columns = {k: v for k, v in self.columns_to_reshape(property_or_class).items() if
                                            k not in self.reusable_column}
@@ -222,9 +234,13 @@ class Dataset:
 
 
                     if not reshaped_combined.empty:
+                        # check for already created columns
+
+
+                        already_created  = set(reshaped_combined.columns).intersection(set(reshaped.columns))
                         # fix experiment hour
                         reshaped_combined = reshaped_combined.merge(reshaped,
-                                                                    on=unique_columns + experiment_time  + self.reusable_column,
+                                                                    on= list(already_created) + self.reusable_column,
                                                                     how="outer")
                     else:
                         reshaped_combined = reshaped
@@ -247,8 +263,18 @@ class Dataset:
          Method returns {'experimentDay': ['value_weight_d0', 'value_weight_d21'], 'weight_d.*': ['weight_d0', 'weight_d21']}
 
         """
-        return {(v if k != 'experimentDay' and k != 'experimentHour' else k): sorted(self.reocur_columns_dict[v],key=utils.num_sort) for
+        reshaped = {(v if k != 'experimentDay' and k != 'experimentHour' else k): self.reocur_columns_dict[v] for
                 k, v in map_columns.items() if k not in self.reusable_column}
+
+        # check if the values has the same lenght, otherwise create an empty columns for missing column headers
+        if len(set([len(v) for v in list(reshaped.values())])) != 1:
+            reshaped = self.create_missing_columns(map_columns, reshaped)
+
+
+        reshaped = {k:sorted(v,key=utils.num_sort) for k,v in reshaped.items()}
+
+
+        return reshaped
 
     def get_multiple_columns(self, mappings):
         update_columns= []
@@ -297,3 +323,48 @@ class Dataset:
     def get_day_time(self, property_or_class):
         return [property for property in property_or_class.keys() if
                 property == 'experimentDay' or property == 'experimentHour']
+
+    def create_missing_columns(self,map_columns,reshape_columns):
+
+        max_columns = sorted(reshape_columns, key=lambda k: len(reshape_columns[k]), reverse=True)[0]
+
+        for property in reshape_columns.keys():
+
+
+            if property!=max_columns:
+                if max_columns not in self.column_pattern_values:
+                    max_set = self.column_pattern_values[map_columns[max_columns]]
+
+                else:
+                    max_set = self.column_pattern_values[max_columns]
+
+
+                column_differences = max_set.difference(self.column_pattern_values[property])
+                if column_differences:
+                    for diff in column_differences:
+                        new_column_header = property.replace('.*',diff)
+                        self.dataset[new_column_header] = ''
+
+                        reshape_columns[property].append(new_column_header)
+
+
+        return reshape_columns
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
