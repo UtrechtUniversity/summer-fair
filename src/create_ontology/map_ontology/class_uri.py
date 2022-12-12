@@ -7,10 +7,11 @@ Gene = ['name']
 BodyMass = ['BodyMass', 'index']
 Measure = ['Measure','hasNumericalValue']
 Measurement = ['M', 'index']
+Movement = ['Move','index']
 SpecificViableCount = ['Quantity', 'index']
 Inoculation =['Inoculation','index']
 VolumetricViableCount = ['Dose','index']
 Antibiotic = ['Antibiotic','name']
 PathogenResistence = ['Resistence','index']
 
-linked_classes = {'Measurement': ['Experiment'],'Inoculation':['Experiment']}
+linked_classes = {'Measurement': ['Experiment'],'Inoculation':['Experiment'], 'Movement':['Experiment']}
