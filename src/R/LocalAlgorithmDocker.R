@@ -20,4 +20,4 @@ print(config.file)
 localA <- get.local.transmission(dataA,config.file)
 
 print(localA)
-saveRDS(localA, 'algorithmOutput123456.rds')
+saveRDS(localA, 'algorithmOutput.rds')
