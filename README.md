@@ -18,7 +18,7 @@ The ontology is registered in [BioPortal](https://bioportal.bioontology.org/onto
 In the [HTML documentation](https://htmlpreview.github.io/?https://github.com/UtrechtUniversity/summer-fair/blob/master/docs/index.html) you can find the definition of the concepts in Infection Transmission Ontology ontology.
 See [here](../blob/master/docs/ontology/schema.png) for a graphic representation of the ontology schema.
 
-The ontology has been published in a scientific paper at IEEE eScience 2022
+The ontology has been published in a scientific paper at [IEEE eScience 2022](https://ieeexplore.ieee.org/document/9973670)
 
 ## WIKI 
 In the [wiki pages](https://github.com/UtrechtUniversity/summer-fair/wiki) you can find:

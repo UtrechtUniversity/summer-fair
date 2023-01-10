@@ -45,37 +45,51 @@ outlier_count <- function(data) {
 
 missing_times <- function(data){
   ## TODO: what makes sense to have here
-  dataHost_days <- data %>% filter(!is.na(sample_measure) | !is.na(sample_result))  %>%  group_by(host_id) %>% summarise(ex_day = list(sort(as.numeric(ex_day))))
-  days <- unique(sort(as.numeric(data$ex_day)))
+  # per host, get a list of all times with a result
+  # 0 = susceptible, 1= latent, 2 = infectious : is this correct?
+  # so the inoculated animals are 1 at time 1??    
+  data$ex_day = as.numeric(data$ex_day)
   
-  dataHost_days$differences <-  0
-  dataHost_days$count <- 0
-  for(i in 1:nrow(dataHost_days)) {
-    
-    row <- dataHost_days[i,]
-    row_days <-as.numeric(unlist(row$ex_day))
-    
-    diffs <- setdiff(as.vector(days), as.vector(row_days))
-    dataHost_days$differences[i] <- list(diffs)
-    dataHost_days$count[i] <- length(diffs)
-  }
+  # list hosts that are inoculated: latent at start experiment?
+  inoculatedHosts <- subset(data,
+                            ex_day == 1 & inoculationStatus == 1,
+                            select = host_id)
+  # split dataframe base on host ID
+  inoculated <- subset(data,
+                       host_id %in% inoculatedHosts$host_id)
+  susceptible <- subset(data,
+                        !(host_id %in% inoculatedHosts$host_id))
+  # idea 1: do not group per host, just use all the sampling days.
+  days_I <- inoculated %>%
+    # remove rows without result:
+    filter(!is.na(sample_measure) | !is.na(sample_result)) %>%
+    select(ex_day) %>%
+    # make day range of 4 days
+    mutate(range = cut(ex_day, 
+                       breaks = seq(min(ex_day), max(ex_day), by=4), 
+                       include.lowest=TRUE)) %>%
+    # count number of results per day range
+    group_by(range) %>%
+    summarise(number_of_results = n())
+  days_S <- susceptible %>%
+    # remove rows without result:
+    filter(!is.na(sample_measure) | !is.na(sample_result)) %>%
+    select(ex_day) %>%
+    # make day range of 4 days
+    mutate(range = cut(ex_day, 
+                       breaks = seq(min(ex_day), max(ex_day), by=4), 
+                       include.lowest=TRUE)) %>%
+    # count number of results per day range
+    group_by(range) %>%
+    summarise(number_of_results = n())
   
-  
-  splited<-split(seq(1,length(days)), rep(1:ceiling(length(seq(1,length(days)))/4), each=4)[1:length(seq(1,length(days)))])
-  
-  
-  for(i in 1:length(splited)){
-    
-    counts <- length(which(dataHost_days$count %in% unlist(splited[i])))
-    print(splited[i])
-    print(counts)
-    
+  return(list(days_I,days_S))
 
     
-    }
+  }
+
   
  
-}
 
 
 report.DataQuality <-function(data){
@@ -97,6 +111,8 @@ report.DataQuality <-function(data){
   data.quality$UnitOfMeasurement <- unique(data$unit_measure)
   data.quality$QuantityFunction <- unique(data$quantity_function)
   data.quality$outliers.sample.measure <- outlier_count(data)
+  data.quality$MissingSamplesInoculated <- missing_times(data)[1]
+  data.quality$MissingSamplesSusceptible <- missing_times(data)[2]
    
   return(data.quality)
 }

@@ -4,7 +4,7 @@
 
 #source the query function
 source("Query.R")
-source("DataManipulationRules.R")    #Data manipulation rules are pre- or user defined
+source("DataInterpretationRules.R")    #Data manipulation rules are pre- or user defined
 source("LocalAlgorithm.R")
 source("GlobalAlgorithm.R")#Estimation methods
 library(jsonlite)
