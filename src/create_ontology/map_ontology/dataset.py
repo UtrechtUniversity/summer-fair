@@ -12,12 +12,30 @@ YEL = '\x1b[1;33m' # Input request
 BLUE = '\x1b[1;34m' # Logging, useful information to eyeball
 
 class Dataset:
-    def __init__(self, file, mappings):
-        self.dataset = self.update_dataset(file, mappings).fillna('')
-
+    def __init__(self, filename, mappings):
+        data = self.readData(filename)
+        #If config indicates that tabs of Excel needs to be merged
+        merge = mappings.mappings.get('merge_spreadsheets_on', '')
+        worksheets = [*data]
+        if merge and len(worksheets) > 1:
+            print("merge")
+            data = self.merge_spreadsheets(data, merge)
+        
+        if data.empty:
+            print(RED+'Dataset is empty'+DEFAULT)
+            exit(1)
+        if len(data.columns) < len(mappings.mapping_columns):
+            print(RED+'Missing columns'+DEFAULT)
+            print("Expected are enough columns to map to")
+            print(mappings.mapping_columns)
+            exit(1)
+        if not mappings.required_field in data.columns:
+            print(RED+'Required column "'+mappings.required_field+'" not found'+DEFAULT)
+            exit(1)
+        self.dataset = data.fillna('')
         self.column_pattern_values = defaultdict()
         self.columns = self.dataset.columns.values.tolist()
-        self.reocur_columns_dict = self.get_dataset_reocur(mappings.reocur_mappings)
+        self.reocur_columns_dict = self.get_series_columns(mappings.reocur_mappings)
         self.multiple_columns = list(self.get_multiple_columns(mappings.ont_mappings))
         self.reusable_column = [column for column, count in Counter(self.multiple_columns).items() if count > 1]
 
@@ -32,21 +50,43 @@ class Dataset:
         if mappings.update_values:
             self.update_dataset_values(mappings.update_values)
 
-    def get_dataset_reocur(self, reocur_columns: set) -> defaultdict:
+    def readData(self, filename):
+        data = []
+        if filename.endswith('.xlsx'):
+            try:
+                data = pd.read_excel(filename, sheet_name=None)
+            except Exception as e:
+                print(RED+"Reading Excel data failed"+DEFAULT)
+                print(str(e))
+        else:
+            try:
+                data = pd.read_csv(filename, sep=None, engine = 'python',encoding='utf-8-sig')
+            except Exception as e:
+                print(RED+"Reading tabular data failed"+DEFAULT)
+                print(str(e))
+        return data
+
+    def get_series_columns(self, series_patterns: set) -> defaultdict:
         """
-        Method returns for each reocuring column name
-        list of column headers from the dataset
+        The spreadsheet data can contain (time) series data. 
+        They are encoded by column names like 'weight_d0', 'weight_d21' (weight at day 0, ...).
+        The mapping indicates which series data can be mapped to the ontolgy by providing patterns like 'weight_d.*'
+        This function extracts all relevant column names per pattern as indicated by the mapping. 
 
         For example:
-            reocur_columns = {'weight_d.*'}
-            reocur_ds_columns = {'weight_d0', 'weight_d21'}
+            series_patterns = {'weight_d.*'}
+            series_columns = {'weight_d0', 'weight_d21'}
         """
-        reocur_ds_columns = defaultdict(set)
-        for pattern in reocur_columns:
-            values = self.get_recoruring_values(pattern)
+        series_columns = defaultdict(set)
+        for pattern in series_patterns:
+            values = set()
+            regExp = pattern.replace(".*", "-?\d*\.{0,1}\d+")
+            for col in self.dataset.columns:
+                if re.match(rf'{regExp}$', col):
+                    values.add(col)
             if values:
-                reocur_ds_columns[pattern] = list(values)
-        return reocur_ds_columns
+                series_columns[pattern] = list(values)
+        return series_columns
 
     def update_dataset_values(self, update_columns: list):
         """
@@ -103,87 +143,16 @@ class Dataset:
 
                 self.reocur_columns_dict[key] = new_columns
 
-    def get_dataset_reocur(self, reocur_columns):
-        reocur_ds_columns = defaultdict(set)
-        for pattern in reocur_columns:
-            column_headers = self.get_recoruring_values(pattern)
-            if column_headers:
-                reocur_ds_columns[pattern] = list(column_headers)
-        return reocur_ds_columns
-
-    def get_recoruring_values(self, column_name_pattern: str) -> set:
-        """
-        Method take a column patter and matches column headers from the dataset
-        For example:
-            column_name_patterm = 'BS.*_date'
-            values =  {'BS0_date', 'BS1_date'}
-
-        """
-        column_headers = set()
-        values = set()
-        for column in self.columns:
-
-            column_name_new = column_name_pattern.replace(".*", "(-?\d*\.{0,1}\d+)")
-            matching = re.match(rf'{column_name_new}$', column)
-            if matching:
-                column_headers.add(column)
-                values.add(matching[1])
-
-        self.column_pattern_values[column_name_pattern] = values
-
-        return column_headers
-
-    def update_dataset(self, file, mappings):
-        # Check if the merged field is specified in config
-        # If yes, merge the spreadsheet based on merged field
-        merge_field = mappings.mappings.get('merge_spreadsheets_on', '')
-        dataset = self.read_file(file, merge_field)
-        if merge_field:
-            dataset = self.merge_spreadsheets(file, merge_field)
-
-        return dataset
-
-    def merge_spreadsheets(self, workbook: str, merge_field: str) -> pd.DataFrame:
+    def merge_spreadsheets(self, workbook: pd.DataFrame, merge_field: str) -> pd.DataFrame:
         """
         Method merges spreahsheets based on merge_field
         specified in the config file
         """
-        df = pd.read_excel(workbook, sheet_name=None)
-        worksheets = [*df]
-        combined_dataset = df[worksheets[0]]
+        worksheets = [*workbook]
+        combined_dataset = workbook[worksheets[0]]
         for index in range(1, len(worksheets)):
-            combined_dataset = combined_dataset.merge(df[worksheets[index]], on=merge_field, how="outer")
+            combined_dataset = combined_dataset.merge(workbook[worksheets[index]], on=merge_field, how="outer")
         return combined_dataset
-
-    def read_file(self, file: str, merge_field=None):
-        """
-        Input: path to a csv file (accepted seperators: ',', ';' or tab)
-        Return: pandas DataFrame
-        The function reads in a csv file and checks its dimensions
-        """
-        print(BLUE+"Reading: "+str(file))
-        print(BLUE+"Merge field: "+str(merge_field))
-        if file.endswith('.csv'):
-            dataset = pd.read_csv(file, sep=None, engine = 'python',encoding='utf-8-sig')
-        elif file.endswith('.xlsx') and merge_field:
-            dataset = pd.read_excel(file, sheet_name=None)
-        elif file.endswith('.xlsx') and not merge_field:
-            dataset = pd.read_excel(file)
-        else:
-            print(RED+'ERROR read dataset: Please provide a comma sparated file or an Excelsheet'+DEFAULT)
-            exit()
-        print(BLUE+"Checking dataset shape ...")
-        rows, cols = dataset.shape
-        print("Rows ", rows, "Columns: ", cols, DEFAULT)
-        if rows < 1:
-            print(RED+'ERROR read dataset: File does not contain data or column names.'+DEFAULT)
-            exit()
-        if cols < 1:
-            print(
-                RED+'ERROR read dataset: File only contains one column. Check if values are separated by comma or semicolon'+DEFAULT)
-            exit()
-
-        return dataset
 
     def transform_dataset(self, mappings):
         """
@@ -349,22 +318,3 @@ class Dataset:
 
 
         return reshape_columns
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
