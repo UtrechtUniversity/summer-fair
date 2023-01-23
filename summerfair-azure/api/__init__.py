@@ -1,15 +1,11 @@
 import logging
+import os
 import uuid
 import zipfile
-import os
-import azure.functions as func
-from fastapi import FastAPI, Request, Depends
-from fastapi.responses import FileResponse
-
 from pathlib import Path
 
+import azure.functions as func
 from azure.identity import DefaultAzureCredential
-from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.containerinstance import ContainerInstanceManagementClient
 from azure.mgmt.containerinstance.models import (ContainerGroup,
                                                  Container,
@@ -17,15 +13,20 @@ from azure.mgmt.containerinstance.models import (ContainerGroup,
                                                  ResourceRequests,
                                                  ResourceRequirements,
                                                  OperatingSystemTypes, ImageRegistryCredential,
+                                                 ContainerGroupRestartPolicy,
                                                  VolumeMount, Volume, AzureFileVolume)
+from azure.mgmt.resource import ResourceManagementClient
+from fastapi import FastAPI, Request, Depends
+from fastapi.responses import FileResponse
 
 # Main API application
 
 app = FastAPI()
 
-SUBSCRIPTION_ID= os.environ.get('SUBSCRIPTION_ID')
-REGISTRY_TOKEN= os.environ.get('REGISTRY_TOKEN')
-FILESHARE_KEY= os.environ.get('FILESHARE_KEY')
+SUBSCRIPTION_ID = os.environ.get('SUBSCRIPTION_ID')
+REGISTRY_TOKEN = os.environ.get('REGISTRY_TOKEN')
+FILESHARE_KEY = os.environ.get('FILESHARE_KEY')
+
 
 async def get_form_data(request: Request):
     form = await request.form()
@@ -41,25 +42,24 @@ def start_job(files: (bytes, bytes, str) = Depends(get_form_data)):
 
     job_id = str(uuid.uuid4())
 
+    logging.info(f"Job ID: {job_id}")
+
     try:
         # Zip both files into an archive (in-memory, using a BytesIO buffer)
 
-        with zipfile.ZipFile(str(Path('input') / job_id )+'.zip', "w") as archive:
+        with zipfile.ZipFile(str(Path('/data') / 'input' / job_id) + '.zip', "w") as archive:
             # Data file in archive is suffixed with.csv or .xlsx depending on input file
 
-            archive.writestr(f"data{data_filename_extension}", data)
+            archive.writestr(f"dataset{data_filename_extension}", data)
             archive.writestr("mapping.yml", mapping)
 
         start_container(job_id)
 
-    except:
+        # logging.info(f"Job ID: {job_id}")
+
+    except Exception as e:
+        logging.error(f"{e}")
         raise
-
-
-
-
-
-
 
     return {
         "job_id": job_id
@@ -75,8 +75,8 @@ def get_job_status(job_id: str):
 
 @app.get("/jobs/{job_id}/result")
 def return_result(job_id: str):
+    return FileResponse(str(Path('/data') / 'output' / job_id) + '.rds', filename=f'{job_id}.rds')
 
-    return FileResponse(str(Path('output') / job_id) + '.rds', filename='post.json')
 
 def start_container(job_id):
     # Start container
@@ -117,22 +117,23 @@ def start_container(job_id):
             EnvironmentVariable(name="ADMIN_PASSWORD", value="admin")
         ],
         volume_mounts=[VolumeMount(name='datafileshare', mount_path='/data')],
-        command=['ls', '/data/']
+        command=['/docker-entrypoint/docker-entrypoint.sh', f'{job_id}.zip']
     )
     logging.info(container)
     group = ContainerGroup(
         location=resource_group.location,
         containers=[container],
+        restart_policy=ContainerGroupRestartPolicy.NEVER,
         os_type=OperatingSystemTypes.linux,
         image_registry_credentials=[
             ImageRegistryCredential(
                 server="pipelinesummerfair.azurecr.io",
                 username="pipelineSummerfair",
-                password= REGISTRY_TOKEN
+                password=REGISTRY_TOKEN
             )
-
         ],
 
+        tags={'job_id': job_id},
         volumes=[Volume(name='datafileshare', azure_file=AzureFileVolume(share_name='fileshare-summerfair',
                                                                          storage_account_name='summerfair9d8d',
                                                                          storage_account_key=FILESHARE_KEY))]
@@ -149,7 +150,9 @@ def start_container(job_id):
 def main(req: func.HttpRequest, context: func.Context) -> func.HttpResponse:
     """Each request is redirected to the ASGI handler."""
 
-
     logging.info(f'Request: {req}')
     logging.info(f'Context: {context}')
-    return func.AsgiMiddleware(app).handle(req, context)
+    try:
+        return func.AsgiMiddleware(app).handle(req, context)
+    except Exception as e:
+        logging.error(f"{e}")
