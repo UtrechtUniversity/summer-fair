@@ -4,6 +4,8 @@ from collections import defaultdict
 import pandas as pd
 import typing
 
+import requests
+
 
 def empty_data(mapping_rows: list, row: pd.Series) -> bool:
     """
@@ -84,3 +86,12 @@ def num_sort(test_string: str) -> int:
         testing_string = 'value_weight_d21' -> 21
     """
     return list(map(int, re.findall(r'-?\d+', test_string)))[0]
+
+def upload_to_triplestore(ontology_file,port):
+
+    data = open(ontology_file).read()
+    headers = {'Content-Type': 'text/turtle;charset=utf-8', 'Authorization': 'admin:admin'}
+    r = requests.post(f'http://localhost:{port}/mydataset/data?default', data=data.encode('utf-8'),
+                      headers=headers)
+    info_message = 'Ontology uploaded to triplestore' if r.status_code == 200 else 'Check the triplestore logs'
+    print(info_message)
