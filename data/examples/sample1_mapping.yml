@@ -2,18 +2,18 @@ required: chicken_id
 meta_data:
 ontology_schema:
   Experiment:
-    experimentID: 'ChickenData'
+    experimentID: 'UU'
     experimentDay:
       - sample.*_day
   Environment:
     groupNumber:
-    hospital:
-    house: house
-    pen: pen
-    ward:
+    level3:
+    level2: house
+    level1: pen
   Host:
     id: chicken_id
-    inoculationType: type
+    inoculationStatus: type
+    treatmet:
     sex: sex
     locatedIn: Environment
   Measurement:
