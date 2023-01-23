@@ -4,3 +4,7 @@
 
 azure-functions
 fastapi
+python-multipart
+azure-identity==1.7.1
+azure-mgmt-containerinstance==10.0.0
+azure-mgmt-resource==20.0.0
