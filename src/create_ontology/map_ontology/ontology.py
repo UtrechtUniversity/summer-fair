@@ -1,5 +1,6 @@
 import itertools
 import re
+import urllib
 import uuid
 from collections import defaultdict
 
@@ -10,7 +11,6 @@ from rdflib import URIRef, Literal
 from rdflib.namespace import RDF, RDFS
 
 import class_uri
-import urllib
 from utils import empty_data
 
 
@@ -36,19 +36,14 @@ class Ontology:
         self.relations = self.get_object_properties()
         self.ont_individuals = self.get_existing_individuals()
 
-
     def add_individual_per_row(self, individual):
         if individual.is_a in self.individuals_per_row:
-            if  isinstance(self.individuals_per_row[individual.is_a],Individual):
+            if isinstance(self.individuals_per_row[individual.is_a], Individual):
                 return {self.individuals_per_row[individual.is_a], individual}
-            if isinstance(self.individuals_per_row[individual.is_a],set):
+            if isinstance(self.individuals_per_row[individual.is_a], set):
                 return self.individuals_per_row[individual.is_a].add(individual)
         else:
             return individual
-
-
-
-
 
     def get_classes(self):
         return [classes for classes in self.graph.subjects(RDF.type, OWL.Class)]
@@ -113,8 +108,8 @@ class Ontology:
 
         if not row.empty:
             for property, column_name in map_properties.items():
-                if isinstance(column_name,dict):
-                    map_properties[property] = column_name.get('automatically_set_to','')
+                if isinstance(column_name, dict):
+                    map_properties[property] = column_name.get('automatically_set_to', '')
                 else:
                     map_properties[property] = row[column_name] if column_name in row else ''
 
@@ -132,21 +127,6 @@ class Ontology:
         if self.get_superclasses(ont_class):
             for super_class in self.get_superclasses(self.class_names[ont_class]):
                 self.graph.add(individual, RDF.type, self.class_names[super_class])
-
-    @staticmethod
-    def get_property_value(map_property, row, reoccur_value):
-        if '(.*)' in map_property:
-            return reoccur_value
-        elif '.*' in map_property:
-            map_property = map_property.replace('.*', reoccur_value)
-            if map_property in row:
-                return row[map_property]
-            else:
-                return ''
-        elif map_property in row:
-            return row[map_property]
-        else:
-            return map_property
 
     def split_properties(self, ont_class, map_properties):
         relations = {ont_property: map_properties[ont_property] for ont_property in map_properties.keys() if
@@ -180,7 +160,6 @@ class Ontology:
 
         relations, properties = self.split_properties(ont_class, map_properties)
 
-
         individual = self.create_individual(ont_class, properties, row)
         self.individuals_per_row[ont_class] = self.add_individual_per_row(individual)
         linked_individual = self.get_linked_class_properties(ont_class, map_properties)
@@ -209,7 +188,7 @@ class Ontology:
                     individual2 = self.individuals_per_row[individual2]
                 if individual2 in all_dependant_classes:
                     individual2 = all_dependant_classes[individual2]
-           #     print(individual,individual2,relation)
+                #     print(individual,individual2,relation)
                 self.create_relation(individual, individual2, relation)
 
         return individual
@@ -260,20 +239,21 @@ class Ontology:
                         mapped_properties = self.get_mapped_columns(dependant_classes)
                         if (not empty_data(mapped_properties, row) and mapped_properties) or not mapped_properties:
                             self.create_reoccur_individual(ont_class, properties, row,
-                                                       dependant_classes)
+                                                           dependant_classes)
                     else:
-                        if (not empty_data(self.get_mapped_columns(properties), row) and self.get_mapped_columns(properties)) or not self.get_mapped_columns(properties) :
-                            relations, map_properties = self.split_properties(ont_class, properties)
-                            individual = self.create_individual(ont_class, map_properties, row)
-                            self.individuals_per_row[ont_class] = individual
 
-                            linked_individual = self.get_linked_class_properties(ont_class, properties)
+                        relations, map_properties = self.split_properties(ont_class, properties)
+                        individual = self.create_individual(ont_class, map_properties, row)
+                        self.individuals_per_row[ont_class] = individual
 
-                            if linked_individual:
-                                self.create_relation(individual, self.individuals_per_row[list(linked_individual.keys())[0]])
+                        linked_individual = self.get_linked_class_properties(ont_class, properties)
 
-                            for relation, individual2 in relations.items():
-                                self.create_relation(individual, self.individuals_per_row[individual2])
+                        if linked_individual:
+                            self.create_relation(individual,
+                                                 self.individuals_per_row[list(linked_individual.keys())[0]])
+
+                        for relation, individual2 in relations.items():
+                            self.create_relation(individual, self.individuals_per_row[individual2])
 
     def get_mapped_columns(self, mapping_slice: dict):
         mapping_row = []
