@@ -173,6 +173,12 @@ om2:hasValue rdf:type owl:ObjectProperty ;
            rdfs:range :Environment .
 
 
+###  http://www.purl.org/infection_trans#testedBy
+:testedBy rdf:type owl:ObjectProperty ;
+          rdfs:domain :Sample ;
+          rdfs:range :DiagnosticTest .
+
+
 #################################################################
 #    Data properties
 #################################################################
@@ -278,6 +284,7 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
 :name rdf:type owl:DatatypeProperty ;
       rdfs:domain :Antibiotic ,
                   :Gene ,
+                  :ObservationType ,
                   :Pathogen .
 
 
@@ -316,6 +323,11 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
 ###  http://www.purl.org/infection_trans#studyDesign
 :studyDesign rdf:type owl:DatatypeProperty ;
              rdfs:domain :Experiment .
+
+
+###  http://www.purl.org/infection_trans#testName
+:testName rdf:type owl:DatatypeProperty ;
+          rdfs:domain :DiagnosticTest .
 
 
 ###  http://www.purl.org/infection_trans#treatment
@@ -413,6 +425,10 @@ om2:VolumetricViableCountUnit rdf:type owl:Class ;
 ###  http://www.purl.org/infection_trans#Antibiotic
 :Antibiotic rdf:type owl:Class ;
             rdfs:comment "medicine used for treatmnet of a host" .
+
+
+###  http://www.purl.org/infection_trans#DiagnosticTest
+:DiagnosticTest rdf:type owl:Class .
 
 
 ###  http://www.purl.org/infection_trans#Environment
