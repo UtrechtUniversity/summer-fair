@@ -1,9 +1,10 @@
 write_log: FALSE
 over_write_log: TRUE
 rule_script: "src/R/DataInterpretationRules.R"
-rule_name: "sincefirst."
+rule_name: "sincefirst"
 method: "mll"
 cutoff: "0"
-codesposnegmiss: 
+codesposnegmiss: "c(+,-,NA)"
+newcodes: "c(1,0,NA)" 
 covars: "treatment"
 reference: "control"

@@ -428,7 +428,7 @@ get.local.transmission <- function(dataset,config.file =  "src/R/summerfair_conf
                                              var.id = var.id,  #variable defining infection status
                                              method = config$method, #estimation method
                                              cutoff = config$cutoff, #cutoff value for infection status
-                                             codesposnegmiss = config$cutoff, #values determining infection status pos, neg of missing
+                                             codesposnegmiss = config$codesposnegmiss, #values determining infection status pos, neg of missing
                                              preventError = TRUE, #TRUE = remove entries with > 1 case but FOI = 0
                                              covars = config$covars, #co variants
                                              reference = config$reference, #reference category for multivariable estimation
@@ -451,7 +451,7 @@ get.local.transmission <- function(dataset,config.file =  "src/R/summerfair_conf
 
 
 ##################ESTIMATION PROCEDURES ##########################################
-###################################
+##################################################################################
 # run.glm is a function equal to glm but will filter time points that cannot be used. 
 # run.glm cannot deal with multiple levels. If multiple levels are present the run.mml method should be used
 
@@ -480,7 +480,7 @@ run.glm<-function(covars,
  
 }
 
-########################################################
+##################################################################################
 #run.mll is a function equal to that will filter time points that cannot be used, and produces a number of estimates for within- and between level transmission
 
 run.mll<-function(covars,
@@ -492,19 +492,31 @@ run.mll<-function(covars,
     data.filtered <- data.arranged %>% filter(i1 + i2 + i3 > 0 &!is.na(i1 + i2 + i3 )&!is.na(cases)&!is.na(s)&!is.na(i1)&!is.na(r));
   }else data.filtered <- data.arranged
   
-  #if covariates only have one unique value it cannot be used in the glm
-  use.covars <- covars[data.filtered[,covars]%>%unique%>%length>1]
-  if(length(use.covars)==0){use.covars <- "1"}
+  # #if covariates only have one unique value it cannot be used in the glm
+  # deprecated 
+  # use.covars <- covars[data.filtered[,covars]%>%unique%>%length>1]
+  # if(length(use.covars)==0){use.covars <- "1"}
+  
   #determine number of levels
   levels = "L1" ;
   if(sum(data.filtered$i2)>0)levels = "L2";
   if(sum(data.filtered$i3)>0)levels = "L3";
-  #Do the analysis - to-do implement covariates
+  #Do the analysis
+  #loop over covariates
+  # for(cv in covars){
+  # #covariate is numeric - to do
+  # 
+  # #covariate is categorical
+  #   if(is.string(data.filtered[,cv])){
+  #     uniquevalues <- data.filtered[,cv]%>%unique
+  #   }
+  # }
+  
   logl <- switch(levels,
                "L1" = {
                   data = data.filtered;
                   logl = function(beta1 = 1.){
-                    -sum((data$cases*log(1-exp(-(data$dt*beta1*data$i1/data$n1)))-
+                      -sum((data$cases*log(1-exp(-(data$dt*beta1*data$i1/data$n1)))-
                             (data$s-data$cases)*(data$dt*beta1*data$i1/data$n1)))}
                   },
                 "L2" = {
@@ -516,7 +528,7 @@ run.mll<-function(covars,
                 ,
                 "L3" = {
                   data = data.filtered;
-                  logl = function(beta1=1,beta2=.1,beta3=0.01, data){
+                  logl = function(beta1=1,beta2=.1,beta3=0.01){
                     -sum((data$cases*log(1-exp((beta1*data$i1/data$n1 + 
                                                beta2*data$i2/data$n2+
                                                beta3*data$i3/data$n3)*data$dt))+

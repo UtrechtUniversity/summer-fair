@@ -53,7 +53,7 @@ localD <- get.local.transmission(dataD)
 
 #data mapped at WBVR
 localE <- get.local.transmission(dataE) #Van Bunnik 
-localF <- get.local.transmission(dataF) #Cecarelli  -> algorithm cannot interpret these data yet
+localF <- get.local.transmission(dataF) #Cecarelli  -> algorithm cannot interpret these data yet, because the estimation procedure cannot use covariates
 
 #remove log file
 file.remove("summerfair.log")
