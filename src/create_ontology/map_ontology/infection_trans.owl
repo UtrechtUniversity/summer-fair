@@ -428,7 +428,8 @@ om2:VolumetricViableCountUnit rdf:type owl:Class ;
 
 
 ###  http://www.purl.org/infection_trans#DiagnosticTest
-:DiagnosticTest rdf:type owl:Class .
+:DiagnosticTest rdf:type owl:Class ;
+                rdfs:comment "any medical test performed to confirm, or determine the presence of disease in an individual suspected of having the disease" .
 
 
 ###  http://www.purl.org/infection_trans#Environment
@@ -464,6 +465,7 @@ om2:VolumetricViableCountUnit rdf:type owl:Class ;
 
 ###  http://www.purl.org/infection_trans#Movement
 :Movement rdf:type owl:Class ;
+          rdfs:comment "class that is used to specify if host has changed the environment during the experiment" ;
           rdfs:label "Movement" .
 
 
