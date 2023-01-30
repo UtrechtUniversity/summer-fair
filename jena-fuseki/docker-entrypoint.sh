@@ -76,8 +76,16 @@ curl -s 'http://localhost:3030/$/datasets'\
 
 unzip -d /tmp/data /data/input/$1
 
+FILE=/tmp/data/summerfair_config.yaml
+if [ -f "$FILE" ]; then
+    echo "Use uploaded file."
+else
+    echo "Use default file stored in src/R/"
+    FILE=src/R/summerfair_config.yaml
+fi
+
 python3 main.py --config /tmp/data/mapping.yml --filename /tmp/data/dataset.*
-Rscript src/R/LocalAlgorithmDocker.R  src/R/summerfair_config.yaml
+Rscript src/R/LocalAlgorithmDocker.R  $FILE
 
 cp algorithmOutput.rds /data/output/"${1%.*}".rds
 

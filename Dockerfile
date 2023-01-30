@@ -13,7 +13,7 @@ RUN install2.r --error \
     meta \
     metafor
 
-COPY docker-entrypoint /jena-fuseki
+COPY jena-fuseki /jena-fuseki
 
 COPY --from=stain/jena-fuseki:4.0.0 /jena-fuseki /jena-fuseki
 
@@ -23,7 +23,7 @@ COPY src/create_ontology/map_ontology .
 COPY src/R/ src/R/
 
 RUN pip3 install -r requirements.txt
-ENTRYPOINT ["/jena-fuseki/docker-entrypoint.sh"]
+ENTRYPOINT ["/bin/sh","/jena-fuseki/docker-entrypoint.sh"]
 
 
 
