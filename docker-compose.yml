@@ -29,9 +29,9 @@ services:
       - ADMIN_PASSWORD=admin
       - FUSEKI_DATASET_1=mydataset
     ports:
-      - "3032:3030"
+      - "3030:3030"
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://host.docker.internal:3032/mydataset" ]
+      test: [ "CMD", "curl", "-f", "http://host.docker.internal:3030/mydataset" ]
       interval: 30s
       timeout: 10s
       retries: 2
