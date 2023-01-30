@@ -25,6 +25,10 @@ This section provides details for each class and property defined by .
          </a>
       </li>
       <li>
+         <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/Function"
+            title="http://www.ontology-of-units-of-measure.org/resource/om-2/Function">function</a>
+      </li>
+      <li>
          <a href="#http://www.purl.org/infection_trans#Gene" title="http://www.purl.org/infection_trans#Gene">
             <span>gene</span>
          </a>
@@ -49,6 +53,9 @@ This section provides details for each class and property defined by .
          <a href="#http://www.purl.org/infection_trans#Measurement" title="http://www.purl.org/infection_trans#Measurement">
             <span>measurement</span>
          </a>
+      </li>
+      <li>
+         <a href="#http://www.purl.org/infection_trans#Movement" title="http://www.purl.org/infection_trans#Movement">Movement</a>
       </li>
       <li>
          <a href="#http://www.purl.org/infection_trans#Observation" title="http://www.purl.org/infection_trans#Observation">
@@ -227,6 +234,30 @@ This section provides details for each class and property defined by .
          </dd>
       </dl>
    </div>
+   <div class="entity" id="http://www.ontology-of-units-of-measure.org/resource/om-2/Function">
+      <h3>function<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.ontology-of-units-of-measure.org/resource/om-2/Function</p>
+      <dl class="description">
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/hasAggregateFunction"
+               title="http://www.ontology-of-units-of-measure.org/resource/om-2/hasAggregateFunction">has aggregate function</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/log10"
+               title="http://www.ontology-of-units-of-measure.org/resource/om-2/log10">log10</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/median"
+               title="http://www.ontology-of-units-of-measure.org/resource/om-2/median">median</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
    <div class="entity" id="http://www.purl.org/infection_trans#Gene">
       <h3>gene<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -262,7 +293,7 @@ This section provides details for each class and property defined by .
       </div>
       <dl class="definedBy">
          <dt>Is defined by</dt>
-         <dd>https://raw.githubusercontent.com/UtrechtUniversity/summer-fair/fair-ontology/src/create_ontology/map_ontology/infection_trans.owl</dd>
+         <dd>https://raw.githubusercontent.com/UtrechtUniversity/summer-fair/master/src/create_ontology/map_ontology/infection_trans.owl</dd>
       </dl>
       <dl class="description">
          <dt>is in domain of</dt>
@@ -324,7 +355,7 @@ This section provides details for each class and property defined by .
          <strong>IRI:</strong> http://www.ontology-of-units-of-measure.org/resource/om-2/Measure</p>
       <dl class="definedBy">
          <dt>Is defined by</dt>
-         <dd>https://raw.githubusercontent.com/UtrechtUniversity/summer-fair/fair-ontology/src/create_ontology/map_ontology/infection_trans.owl</dd>
+         <dd>https://raw.githubusercontent.com/UtrechtUniversity/summer-fair/master/src/create_ontology/map_ontology/infection_trans.owl</dd>
       </dl>
       <dl class="description">
          <dt>is in domain of</dt>
@@ -352,7 +383,7 @@ This section provides details for each class and property defined by .
          <strong>IRI:</strong> http://www.purl.org/infection_trans#Measurement</p>
       <dl class="definedBy">
          <dt>Is defined by</dt>
-         <dd>https://raw.githubusercontent.com/UtrechtUniversity/summer-fair/fair-ontology/src/create_ontology/map_ontology/infection_trans.owl</dd>
+         <dd>https://raw.githubusercontent.com/UtrechtUniversity/summer-fair/master/src/create_ontology/map_ontology/infection_trans.owl</dd>
       </dl>
       <dl class="description">
          <dt>is in domain of</dt>
@@ -371,6 +402,27 @@ This section provides details for each class and property defined by .
          <dd>
             <a href="#http://www.purl.org/infection_trans#hasMeasurement"
                title="http://www.purl.org/infection_trans#hasMeasurement">has measurement</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.purl.org/infection_trans#Movement">
+      <h3>Movement<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.purl.org/infection_trans#Movement</p>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#http://www.purl.org/infection_trans#involves" title="http://www.purl.org/infection_trans#involves">involves</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.purl.org/infection_trans#locatedIn" title="http://www.purl.org/infection_trans#locatedIn">located in</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#http://www.purl.org/infection_trans#hasEvent" title="http://www.purl.org/infection_trans#hasEvent">has event</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -410,6 +462,11 @@ This section provides details for each class and property defined by .
          <span class="markdown">type of observation . For example, 'Death' or 'HighFever'</span>
       </div>
       <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#http://www.purl.org/infection_trans#name" title="http://www.purl.org/infection_trans#name">name</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
          <dt>is in range of</dt>
          <dd>
             <a href="#http://www.purl.org/infection_trans#hasType" title="http://www.purl.org/infection_trans#hasType">has type</a>
@@ -485,7 +542,7 @@ This section provides details for each class and property defined by .
          <strong>IRI:</strong> http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity</p>
       <dl class="definedBy">
          <dt>Is defined by</dt>
-         <dd>https://raw.githubusercontent.com/UtrechtUniversity/summer-fair/fair-ontology/src/create_ontology/map_ontology/infection_trans.owl</dd>
+         <dd>https://raw.githubusercontent.com/UtrechtUniversity/summer-fair/master/src/create_ontology/map_ontology/infection_trans.owl</dd>
       </dl>
       <dl class="description">
          <dt>has sub-classes</dt>
@@ -500,7 +557,9 @@ This section provides details for each class and property defined by .
          </dd>
          <dt>is in domain of</dt>
          <dd>
-            <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/hasPhenomenon"
+            <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/hasAggregateFunction"
+               title="http://www.ontology-of-units-of-measure.org/resource/om-2/hasAggregateFunction">has aggregate function</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/hasPhenomenon"
                title="http://www.ontology-of-units-of-measure.org/resource/om-2/hasPhenomenon">has phenomenon</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
                title="http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue">has value</a>
@@ -533,7 +592,8 @@ This section provides details for each class and property defined by .
             <sup class="type-op" title="object property">op</sup>, <a href="#http://www.purl.org/infection_trans#material" title="http://www.purl.org/infection_trans#material">material</a>
             <sup class="type-dp" title="data property">dp</sup>, <a href="#http://www.purl.org/infection_trans#result" title="http://www.purl.org/infection_trans#result">result</a>
             <sup class="type-dp" title="data property">dp</sup>, <a href="#http://www.purl.org/infection_trans#resultDate" title="http://www.purl.org/infection_trans#resultDate">result date</a>
-            <sup class="type-dp" title="data property">dp</sup>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#http://www.purl.org/infection_trans#testedBy" title="http://www.purl.org/infection_trans#testedBy">tested by</a>
+            <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
@@ -562,7 +622,8 @@ This section provides details for each class and property defined by .
          </dd>
          <dt>has members</dt>
          <dd>
-            <a href="#http://www.purl.org/infection_trans#EnvironmentalSample"
+            <a href="#http://www.purl.org/infection_trans#AirFilter" title="http://www.purl.org/infection_trans#AirFilter">air filter</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#http://www.purl.org/infection_trans#EnvironmentalSample"
                title="http://www.purl.org/infection_trans#EnvironmentalSample">environmental sample</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#http://www.purl.org/infection_trans#Swab" title="http://www.purl.org/infection_trans#Swab">swab</a>
             <sup class="type-ni" title="named individual">ni</sup>
@@ -606,6 +667,12 @@ This section provides details for each class and property defined by .
             <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"
                title="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit">unit</a>
             <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerGram"
+               title="http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerGram">colony forming unit per gram</a>
+            <sup class="type-ni" title="named individual">ni</sup>
          </dd>
       </dl>
    </div>
@@ -706,13 +773,23 @@ This section provides details for each class and property defined by .
          <dt>is equivalent to</dt>
          <dd>{ <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/_1000ColonyFormingUnitPerMillilitre"
                title="http://www.ontology-of-units-of-measure.org/resource/om-2/_1000ColonyFormingUnitPerMillilitre">1000 colony forming unit per millilitre</a> , <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPer25Millilitre"
-               title="http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPer25Millilitre">colony forming unit per 25 millilitre</a> , <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerMillilitre"
+               title="http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPer25Millilitre">colony forming unit per25 millilitre</a> , <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerMillilitre"
                title="http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerMillilitre">colony forming unit per millilitre</a> }</dd>
          <dt>has super-classes</dt>
          <dd>
             <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"
                title="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit">unit</a>
             <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/_1000ColonyFormingUnitPerMillilitre"
+               title="http://www.ontology-of-units-of-measure.org/resource/om-2/_1000ColonyFormingUnitPerMillilitre">1000 colony forming unit per millilitre</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerMillilitre"
+               title="http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerMillilitre">colony forming unit per millilitre</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPer25Millilitre"
+               title="http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPer25Millilitre">colony forming unit per25 millilitre</a>
+            <sup class="type-ni" title="named individual">ni</sup>
          </dd>
       </dl>
    </div>
@@ -729,6 +806,10 @@ This section provides details for each class and property defined by .
             title="http://www.ontology-of-units-of-measure.org/resource/om-2/commonlyHasUnit">
             <span>commonly has unit</span>
          </a>
+      </li>
+      <li>
+         <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/hasAggregateFunction"
+            title="http://www.ontology-of-units-of-measure.org/resource/om-2/hasAggregateFunction">has aggregate function</a>
       </li>
       <li>
          <a href="#http://www.purl.org/infection_trans#hasDose" title="http://www.purl.org/infection_trans#hasDose">
@@ -831,6 +912,11 @@ This section provides details for each class and property defined by .
             <span>taken from</span>
          </a>
       </li>
+      <li>
+         <a href="#http://www.purl.org/infection_trans#testedBy" title="http://www.purl.org/infection_trans#testedBy">
+            <span>tested by</span>
+         </a>
+      </li>
    </ul>
    <div class="entity" id="http://www.purl.org/infection_trans#against">
       <h3>against<sup class="type-op" title="object property">op</sup>
@@ -868,6 +954,30 @@ This section provides details for each class and property defined by .
             <dd>
                <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"
                   title="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit">unit</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://www.ontology-of-units-of-measure.org/resource/om-2/hasAggregateFunction">
+      <h3>has aggregate function<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.ontology-of-units-of-measure.org/resource/om-2/hasAggregateFunction</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity"
+                  title="http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity">quantity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/Function"
+                  title="http://www.ontology-of-units-of-measure.org/resource/om-2/Function">function</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -920,6 +1030,10 @@ This section provides details for each class and property defined by .
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
+            <dd>
+               <a href="#http://www.purl.org/infection_trans#Movement" title="http://www.purl.org/infection_trans#Movement">Movement</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
             <dd>
                <a href="#http://www.purl.org/infection_trans#Observation" title="http://www.purl.org/infection_trans#Observation">observation</a>
                <sup class="type-c" title="class">c</sup>
@@ -1288,6 +1402,10 @@ This section provides details for each class and property defined by .
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
+               <a href="#http://www.purl.org/infection_trans#Movement" title="http://www.purl.org/infection_trans#Movement">Movement</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
                <a href="#http://www.purl.org/infection_trans#Observation" title="http://www.purl.org/infection_trans#Observation">observation</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
@@ -1317,6 +1435,10 @@ This section provides details for each class and property defined by .
                <a href="#http://www.purl.org/infection_trans#Host" title="http://www.purl.org/infection_trans#Host">host</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
+            <dd>
+               <a href="#http://www.purl.org/infection_trans#Movement" title="http://www.purl.org/infection_trans#Movement">Movement</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
             <dt>has range</dt>
             <dd>
                <a href="#http://www.purl.org/infection_trans#Environment" title="http://www.purl.org/infection_trans#Environment">environment</a>
@@ -1342,6 +1464,30 @@ This section provides details for each class and property defined by .
             <dt>has range</dt>
             <dd>
                <a href="#http://www.purl.org/infection_trans#Environment" title="http://www.purl.org/infection_trans#Environment">environment</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://www.purl.org/infection_trans#testedBy">
+      <h3>tested by<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.purl.org/infection_trans#testedBy</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://www.purl.org/infection_trans#Sample" title="http://www.purl.org/infection_trans#Sample">sample</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.purl.org/infection_trans#DiagnosticTest"
+                  target="_blank"
+                  title="http://www.purl.org/infection_trans#DiagnosticTest">diagnostic test</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -1485,6 +1631,11 @@ This section provides details for each class and property defined by .
       <li>
          <a href="#http://www.purl.org/infection_trans#studyDesign" title="http://www.purl.org/infection_trans#studyDesign">
             <span>study design</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://www.purl.org/infection_trans#testName" title="http://www.purl.org/infection_trans#testName">
+            <span>test name</span>
          </a>
       </li>
       <li>
@@ -1844,6 +1995,11 @@ This section provides details for each class and property defined by .
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
+               <a href="#http://www.purl.org/infection_trans#ObservationType"
+                  title="http://www.purl.org/infection_trans#ObservationType">observation type</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
                <a href="#http://www.purl.org/infection_trans#Pathogen" title="http://www.purl.org/infection_trans#Pathogen">pathogen</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
@@ -1980,6 +2136,25 @@ This section provides details for each class and property defined by .
          </dl>
       </div>
    </div>
+   <div class="entity" id="http://www.purl.org/infection_trans#testName">
+      <h3>test name<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.purl.org/infection_trans#testName</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="http://www.purl.org/infection_trans#DiagnosticTest"
+                  target="_blank"
+                  title="http://www.purl.org/infection_trans#DiagnosticTest">diagnostic test</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
    <div class="entity" id="http://www.purl.org/infection_trans#treatment">
       <h3>treatment<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
@@ -2036,7 +2211,14 @@ This section provides details for each class and property defined by .
    <ul class="hlist">
       <li>
          <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/_1000ColonyFormingUnitPerMillilitre"
-            title="http://www.ontology-of-units-of-measure.org/resource/om-2/_1000ColonyFormingUnitPerMillilitre">1000 colony forming unit per millilitre</a>
+            title="http://www.ontology-of-units-of-measure.org/resource/om-2/_1000ColonyFormingUnitPerMillilitre">
+            <span>1000 colony forming unit per millilitre</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://www.purl.org/infection_trans#AirFilter" title="http://www.purl.org/infection_trans#AirFilter">
+            <span>air filter</span>
+         </a>
       </li>
       <li>
          <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/BodyMass"
@@ -2045,16 +2227,22 @@ This section provides details for each class and property defined by .
          </a>
       </li>
       <li>
-         <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPer25Millilitre"
-            title="http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPer25Millilitre">colony forming unit per 25 millilitre</a>
-      </li>
-      <li>
          <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerGram"
-            title="http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerGram">colony forming unit per gram</a>
+            title="http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerGram">
+            <span>colony forming unit per gram</span>
+         </a>
       </li>
       <li>
          <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerMillilitre"
-            title="http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerMillilitre">colony forming unit per millilitre</a>
+            title="http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerMillilitre">
+            <span>colony forming unit per millilitre</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPer25Millilitre"
+            title="http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPer25Millilitre">
+            <span>colony forming unit per25 millilitre</span>
+         </a>
       </li>
       <li>
          <a href="#http://www.purl.org/infection_trans#Death" title="http://www.purl.org/infection_trans#Death">
@@ -2076,6 +2264,14 @@ This section provides details for each class and property defined by .
             title="http://www.ontology-of-units-of-measure.org/resource/om-2/kilogram">kilogram</a>
       </li>
       <li>
+         <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/log10"
+            title="http://www.ontology-of-units-of-measure.org/resource/om-2/log10">log10</a>
+      </li>
+      <li>
+         <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/median"
+            title="http://www.ontology-of-units-of-measure.org/resource/om-2/median">median</a>
+      </li>
+      <li>
          <a href="#http://www.purl.org/infection_trans#Swab" title="http://www.purl.org/infection_trans#Swab">
             <span>swab</span>
          </a>
@@ -2088,6 +2284,29 @@ This section provides details for each class and property defined by .
       </h3>
       <p>
          <strong>IRI:</strong> http://www.ontology-of-units-of-measure.org/resource/om-2/_1000ColonyFormingUnitPerMillilitre</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/VolumetricViableCountUnit"
+               title="http://www.ontology-of-units-of-measure.org/resource/om-2/VolumetricViableCountUnit">volumetric viable count unit</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.purl.org/infection_trans#AirFilter">
+      <h3>air filter<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.purl.org/infection_trans#AirFilter</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#http://www.purl.org/infection_trans#SampleType" title="http://www.purl.org/infection_trans#SampleType">sample type</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
    </div>
    <div class="entity" id="http://www.ontology-of-units-of-measure.org/resource/om-2/BodyMass">
       <h3>body mass<sup class="type-ni" title="named individual">ni</sup>
@@ -2126,14 +2345,6 @@ This section provides details for each class and property defined by .
          </dd>
       </dl>
    </div>
-   <div class="entity" id="http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPer25Millilitre">
-      <h3>colony forming unit per 25 millilitre<sup class="type-ni" title="named individual">ni</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPer25Millilitre</p>
-   </div>
    <div class="entity" id="http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerGram">
       <h3>colony forming unit per gram<sup class="type-ni" title="named individual">ni</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
@@ -2141,6 +2352,14 @@ This section provides details for each class and property defined by .
       </h3>
       <p>
          <strong>IRI:</strong> http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerGram</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/SpecificViableCountUnit"
+               title="http://www.ontology-of-units-of-measure.org/resource/om-2/SpecificViableCountUnit">specific viable count unit</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
    </div>
    <div class="entity" id="http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerMillilitre">
       <h3>colony forming unit per millilitre<sup class="type-ni" title="named individual">ni</sup>
@@ -2149,6 +2368,30 @@ This section provides details for each class and property defined by .
       </h3>
       <p>
          <strong>IRI:</strong> http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPerMillilitre</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/VolumetricViableCountUnit"
+               title="http://www.ontology-of-units-of-measure.org/resource/om-2/VolumetricViableCountUnit">volumetric viable count unit</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPer25Millilitre">
+      <h3>colony forming unit per25 millilitre<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.ontology-of-units-of-measure.org/resource/om-2/colonyFormingUnitPer25Millilitre</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/VolumetricViableCountUnit"
+               title="http://www.ontology-of-units-of-measure.org/resource/om-2/VolumetricViableCountUnit">volumetric viable count unit</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
    </div>
    <div class="entity" id="http://www.purl.org/infection_trans#Death">
       <h3>death<sup class="type-ni" title="named individual">ni</sup>
@@ -2215,6 +2458,38 @@ This section provides details for each class and property defined by .
          <dd>
             <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"
                title="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit">unit</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.ontology-of-units-of-measure.org/resource/om-2/log10">
+      <h3>log10<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.ontology-of-units-of-measure.org/resource/om-2/log10</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/Function"
+               title="http://www.ontology-of-units-of-measure.org/resource/om-2/Function">function</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.ontology-of-units-of-measure.org/resource/om-2/median">
+      <h3>median<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.ontology-of-units-of-measure.org/resource/om-2/median</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#http://www.ontology-of-units-of-measure.org/resource/om-2/Function"
+               title="http://www.ontology-of-units-of-measure.org/resource/om-2/Function">function</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
