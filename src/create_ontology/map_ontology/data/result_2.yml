@@ -1,7 +1,7 @@
 required: animalnr
 ontology_schema:
   Experiment:
-    experimentID: '1'
+    experimentID:  {'automatically_set_to': 'dataA'}
     repetition: round
     experimentDay:
       - weight_d(.*)
