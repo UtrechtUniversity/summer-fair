@@ -60,7 +60,7 @@ om2:hasValue rdf:type owl:ObjectProperty ;
 
 ###  http://www.purl.org/infection_trans#against
 :against rdf:type owl:ObjectProperty ;
-         rdfs:domain :PathogenResistence ;
+         rdfs:domain :PathogenResistance ;
          rdfs:range :Antibiotic .
 
 
@@ -121,7 +121,7 @@ om2:hasValue rdf:type owl:ObjectProperty ;
 ###  http://www.purl.org/infection_trans#hasResistance
 :hasResistance rdf:type owl:ObjectProperty ;
                rdfs:domain :Pathogen ;
-               rdfs:range :PathogenResistence .
+               rdfs:range :PathogenResistance .
 
 
 ###  http://www.purl.org/infection_trans#hasSample
@@ -295,7 +295,7 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
 
 ###  http://www.purl.org/infection_trans#result
 :result rdf:type owl:DatatypeProperty ;
-        rdfs:domain :PathogenResistence ,
+        rdfs:domain :PathogenResistance ,
                     :Sample .
 
 
@@ -485,8 +485,8 @@ om2:VolumetricViableCountUnit rdf:type owl:Class ;
           <http://www.w3.org/2004/02/skos/core#closeMatch> "http://purl.obolibrary.org/obo/IDO_0000528" .
 
 
-###  http://www.purl.org/infection_trans#PathogenResistence
-:PathogenResistence rdf:type owl:Class ;
+###  http://www.purl.org/infection_trans#PathogenResistance
+:PathogenResistance rdf:type owl:Class ;
                     rdfs:comment "an ability to limit pathogen burden." .
 
 

@@ -11,11 +11,12 @@ SpecificViableCount = ['Quantity', 'index']
 Inoculation =['Inoculation','index']
 VolumetricViableCount = ['Dose','index']
 Antibiotic = ['Antibiotic','name']
-PathogenResistence = ['Resistence','index']
+PathogenResistance = ['Resistance','index']
 DiagnosticTest = ['testName']
 Treatment = ['Treatment', 'index']
 Observation =  ['Observation', 'index']
 ObservationType = ['name']
 Movement = ['Movement','index']
+
 
 linked_classes = {'Measurement': ['Experiment'],'Inoculation':['Experiment'], 'Treatment':['Experiment'], 'Observation':['Experiment'], 'Movement':['Expirement']}
