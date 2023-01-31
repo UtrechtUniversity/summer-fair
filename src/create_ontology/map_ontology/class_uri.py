@@ -16,5 +16,6 @@ DiagnosticTest = ['testName']
 Treatment = ['Treatment', 'index']
 Observation =  ['Observation', 'index']
 ObservationType = ['name']
+Movement = ['Movement','index']
 
-linked_classes = {'Measurement': ['Experiment'],'Inoculation':['Experiment'], 'Treatment':['Experiment'], 'Observation':['Experiment']}
+linked_classes = {'Measurement': ['Experiment'],'Inoculation':['Experiment'], 'Treatment':['Experiment'], 'Observation':['Experiment'], 'Movement':['Expirement']}
