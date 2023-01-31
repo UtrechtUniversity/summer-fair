@@ -3,7 +3,7 @@ merge_spreadsheets_on: #write a column name which repeats in the spreadsheets an
 meta_data:
 ontology_schema:
   Experiment:
-    experimentID: {'automatically_set_to':'A'}
+    experimentID: {'automatically_set_to':'B'}
     experimentDay:
       - BS.*_date
       - weight_d(.*)
@@ -19,7 +19,7 @@ ontology_schema:
     id: animalnr_col
     treatment: treatment
     inoculationStatus: I, S1, S2
-    type: 'broiler'
+    type: {'automatically_set_to':'broiler'}
     locatedIn: Environment
   Measurement:
       - experimentDay: weight_d(.*)
@@ -39,7 +39,7 @@ ontology_schema:
           hasType: 'EnvironmentalSample'
         Pathogen:
           family:
-          name: BS.*_value
+          name: BS.*_pathogen
           strain:
         Gene:
           name:
@@ -52,11 +52,11 @@ ontology_schema:
         hasHost: Host
         Sample:
           hasType: 'Swab'
-          hasResult: swab.*
+          result: swab.*
           resultDate:
         Pathogen:
           family:
-          name: swab.*_value
+          name: swab.*_pathogen
           strain:
         Gene:
           name:
