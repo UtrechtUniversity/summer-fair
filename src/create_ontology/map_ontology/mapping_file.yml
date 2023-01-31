@@ -20,8 +20,15 @@ ontology_schema:
     id:
     treatment:
     type:
-    innoculationStatus:
+    inoculationStatus:
     locatedIn: Environment
+  Movement:
+    experimentDay:
+    Environment:
+      groupNumber:
+      level1:
+      level2:
+    involves:
   Measurement:
       - experimentDay:
         hasQuantity: #BodyMass, SpecificViableCount, VolumetricViableCount or ViableCountUnit
@@ -51,6 +58,8 @@ ontology_schema:
           result:
         Antibiotic:
           name:
+        DiagnosticTest:
+          testName:
       - experimentDay:
         hasQuantity: #BodyMass, SpecificViableCount, VolumetricViableCount or ViableCountUnit
         hasHost: #Host, Environment or Sample
@@ -85,10 +94,10 @@ ontology_schema:
     Measure:
       hasNumericalValue:
     includes: #Antobiotic or Pathogen
-  CircumstantialEvent:
+  Observation:
     experimentaDay:
     experimentHour:
-    CircumstantialEvent: Death
+    ObservationType: Death
 
 
 
