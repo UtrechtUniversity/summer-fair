@@ -2,7 +2,7 @@ required: chicken_id
 meta_data:
 ontology_schema:
   Experiment:
-    experimentID: 'UU'
+    experimentID: {'automatically_set_to':'UU'}
     experimentDay:
       - sample.*_day
   Environment:
@@ -26,7 +26,7 @@ ontology_schema:
           resultDate:
         Pathogen:
           family:
-          name: 'E.Coli'
+          name: {'automatically_set_to':'E.Coli'}
           strain:
 
 
