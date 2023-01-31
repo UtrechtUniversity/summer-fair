@@ -16,10 +16,16 @@ class Dataset:
         data = self.readData(filename)
         #If config indicates that tabs of Excel needs to be merged
         merge = mappings.mappings.get('merge_spreadsheets_on', '')
+
         worksheets = [*data]
-        if merge and len(worksheets) > 1:
+        if merge:
+
             print("merge")
-            data = self.merge_spreadsheets(data, merge)
+            if len(worksheets) > 1:
+                data = self.merge_spreadsheets(data, merge)
+        else:
+            if isinstance(data,dict):
+                data = data[worksheets[0]]
 
         if data.empty:
             print(RED+'Dataset is empty'+DEFAULT)
@@ -29,23 +35,22 @@ class Dataset:
             print("Expected are enough columns to map to")
             print(mappings.mapping_columns)
             exit(1)
-        if not mappings.required_field in data.columns:
-            print(RED+'Required column "'+mappings.required_field+'" not found'+DEFAULT)
-            exit(1)
+
         self.dataset = data.fillna('')
         self.column_pattern_values = defaultdict()
         self.columns = self.dataset.columns.values.tolist()
-        self.reocur_columns_dict = self.get_series_columns(mappings.reocur_mappings)
+        self.series_dict = self.get_series_columns(mappings.reocur_mappings)
         self.multiple_columns = list(self.get_multiple_columns(mappings.ont_mappings))
         self.reusable_column = [column for column, count in Counter(self.multiple_columns).items() if count > 1]
 
 
-        if self.reocur_columns_dict:
+        if self.series_dict:
             self.create_new_columns_in_df()
+            #series_dict.update(self.__create_new_columns_in_df(series_dict))
 
-        self.reocur_columns = [v for value in self.reocur_columns_dict.values() for v in value]
+        self.series_columns = [v for value in self.series_dict.values() for v in value]
 
-        self.tidy_dataset = self.transform_dataset(mappings.ont_mappings).fillna('')
+       # self.tidy_dataset = self.transform_dataset(mappings.ont_mappings).fillna('')
 
         if mappings.update_values:
             self.update_dataset_values(mappings.update_values)
@@ -79,14 +84,25 @@ class Dataset:
         """
         series_columns = defaultdict(set)
         for pattern in series_patterns:
+            column_headers = set()
             values = set()
-            regExp = pattern.replace(".*", "-?\d*\.{0,1}\d+")
-            for col in self.dataset.columns:
-                if re.match(rf'{regExp}$', col):
-                    values.add(col)
+            for column in self.columns:
+
+                regEx = pattern.replace(".*", "(-?\d*\.{0,1}\d+)")
+                matching = re.match(rf'{regEx}$', column)
+                if matching:
+                    column_headers.add(column)
+                    values.add(matching[1])
+
+            self.column_pattern_values[pattern] = values
+
             if values:
-                series_columns[pattern] = list(values)
+                series_columns[pattern] = list(column_headers)
+            else:
+                print(f'Mapped column {pattern} is not found in dataset. Please check the mapping file.')
         return series_columns
+
+
 
     def update_dataset_values(self, update_columns: list):
         """
@@ -131,7 +147,7 @@ class Dataset:
             and the other one 'value_weight_d0' with value '21'
         """
 
-        for key, values in self.reocur_columns_dict.items():
+        for key, values in self.series_dict.items():
             if '(.*)' in key:
                 new_columns = []
                 for column in values:
@@ -141,7 +157,7 @@ class Dataset:
 
                     self.dataset[new_column_name] = extracted_value
 
-                self.reocur_columns_dict[key] = new_columns
+                self.series_dict[key] = new_columns
 
     def merge_spreadsheets(self, workbook: pd.DataFrame, merge_field: str) -> pd.DataFrame:
         """
@@ -171,7 +187,7 @@ class Dataset:
                     map_columns = utils.get_reocur_columns(property_or_class)
                     if map_columns:
                         # substitute the .* with columns, change column names
-                        reshape_columns = self.__reocur_columns_to_reshape(map_columns, series_dict)
+                        reshape_columns = self.__reocur_columns_to_reshape(map_columns, self.series_dict)
                         self.multiple_columns = []
                         unique_columns = list(
                             set(self.columns).difference(self.series_columns).difference(set(self.multiple_columns)))
@@ -181,13 +197,16 @@ class Dataset:
 
 
                     elif not map_columns and (len(properties_or_classes) > 1 or 'experimentDay' in property_or_class):
+
                         reshape_columns = {k: v for k, v in self.__columns_to_reshape(property_or_class).items() if
-                                           k not in self.reusable_column}
+                                           v not in self.reusable_column}
                         unique_columns = list(set(self.columns).difference(self.multiple_columns))
-                        uniq_reshaped = unique_columns + [v for value in reshape_columns.values() for v in
-                                                          value] + self.reusable_column
+                        uniq_reshaped =  list(set(unique_columns + [v for value in reshape_columns.values() for v in
+                                                          value] + self.reusable_column))
+
 
                     else:
+
                         continue
 
                     new_df = self.dataset[uniq_reshaped]
@@ -196,7 +215,7 @@ class Dataset:
                     ## We might not have expeimentDay series.
                     ## But in case we have, it should be related to an experimentDay
                     ## In this case we rename the columns that is mapped to experiment to 'experimentDay'
-                    if reshape_columns.keys() == series_dict.keys():
+                    if reshape_columns.keys() == self.series_dict.keys():
                         reshaped = reshaped.rename(columns={property_or_class['experimentDay']: 'experimentDay'})
 
                     reshaped['experimentDay'] = reshaped['experimentDay'].apply(
@@ -218,7 +237,7 @@ class Dataset:
                         already_created = set(reshaped_combined.columns).intersection(set(reshaped.columns))
                         # fix experiment hour
                         reshaped_combined = reshaped_combined.merge(reshaped,
-                                                                    on=list(already_created) + self.reusable_column,
+                                                                    on=list(already_created),
                                                                     how="outer")
                     else:
                         reshaped_combined = reshaped
@@ -230,6 +249,7 @@ class Dataset:
             reshaped_combined.dropna(subset=['experimentDay'], inplace=True)
             return reshaped_combined
         else:
+
             return self.dataset
 
     def __reocur_columns_to_reshape(self, map_columns: dict, series_dict) -> dict:
@@ -317,12 +337,16 @@ class Dataset:
                 else:
                     max_set = self.column_pattern_values[max_columns]
 
-
-                column_differences = max_set.difference(self.column_pattern_values[property])
+                if property not in self.column_pattern_values:
+                    column_differences = max_set.difference(self.column_pattern_values[map_columns[property]])
+                else:
+                    column_differences = max_set.difference(self.column_pattern_values[property])
                 if column_differences:
                     for diff in column_differences:
                         new_column_header = property.replace('.*', diff)
                         self.dataset[new_column_header] = ''
+
+
 
                         reshape_columns[property].append(new_column_header)
 
