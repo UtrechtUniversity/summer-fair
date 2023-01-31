@@ -32,13 +32,14 @@ async def get_form_data(request: Request):
     form = await request.form()
     data = form['data'].read()
     mapping = form['mapping'].read()
+    config = form['config'].read()
     data_filename_extension = Path(form["data"].filename).suffix
-    return await data, await mapping, data_filename_extension
+    return await data, await mapping, await config,  data_filename_extension
 
 
 @app.post("/jobs")
-def start_job(files: (bytes, bytes, str) = Depends(get_form_data)):
-    data, mapping, data_filename_extension = files
+def start_job(files: (bytes, bytes, bytes, str) = Depends(get_form_data)):
+    data, mapping, config,  data_filename_extension = files
 
     job_id = str(uuid.uuid4())
 
@@ -52,6 +53,7 @@ def start_job(files: (bytes, bytes, str) = Depends(get_form_data)):
 
             archive.writestr(f"dataset{data_filename_extension}", data)
             archive.writestr("mapping.yml", mapping)
+            archive.writestr("summerfair_config.yaml", config)
 
         start_container(job_id)
 
@@ -91,7 +93,7 @@ def start_container(job_id):
     # Instead, instead of assigning the Reader role to the resource group in the Function app, assign Contributor. For more specific roles, we need access to the AD
     # Also see: https://learn.microsoft.com/en-us/samples/azure-samples/functions-storage-managed-identity/using-managed-identity-between-azure-functions-and-azure-storage/
 
-    container_resource_requests = ResourceRequests(memory_in_gb=4, cpu=1.0)
+    container_resource_requests = ResourceRequests(memory_in_gb=8, cpu=1.0)
     logging.info(container_resource_requests)
     container_resource_requirements = ResourceRequirements(requests=container_resource_requests)
     logging.info(container_resource_requirements)
@@ -117,7 +119,7 @@ def start_container(job_id):
             EnvironmentVariable(name="ADMIN_PASSWORD", value="admin")
         ],
         volume_mounts=[VolumeMount(name='datafileshare', mount_path='/data')],
-        command=['/docker-entrypoint/docker-entrypoint.sh', f'{job_id}.zip']
+        command=['/jena-fuseki/docker-entrypoint.sh', f'{job_id}.zip']
     )
     logging.info(container)
     group = ContainerGroup(
