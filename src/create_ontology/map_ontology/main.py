@@ -35,7 +35,9 @@ def main(config, filename, worksheet):
     mappings = Mappings(config, ontology.data_properties)
     dataset = Dataset(filename, mappings)
 
-    for _, row in dataset.tidy_dataset.iterrows():
+    tidy_dataset = dataset.transform_dataset(mappings.ont_mappings).fillna('')
+
+    for _, row in tidy_dataset.iterrows():
         # check for the required field
         # if it doesn't exit then run it for each row
         if mappings.required_field is None or row[mappings.required_field]:
@@ -44,7 +46,8 @@ def main(config, filename, worksheet):
     ontology.save_ontology(ontology_file)
     print('Populated ontology is created.' if ontology_file.is_file() else "Ontology file is not created.")
 
-    ## Upload Data to the triplestore
+
+    # Upload Data to the triplestore
     try:
         port = '3030'
         upload_to_triplestore(ontology_file, port)
