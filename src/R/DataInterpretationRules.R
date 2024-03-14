@@ -22,25 +22,58 @@
 #                  Creation date: 30-9-2021              
 ##############################################################
 library(magrittr)
+library(docstring)
 
 ##generic of a rule ####
 rule.generic <-function(timeseries,var.id,...){
+  #' @title generic rule
+  #' @description
+    #' Generic structure of a rule 
+  #' @param timeseries vector or data.frame containing values of one host 
+  #' @param var.id variables used to determine host infection state
+  #' @return Vector with host infection state  Coding is Susceptible = 0
+    #'                   Latent = 1
+    #'                   Infectious = 2
+    #'                   Recovered = 3   
   print("generic rule returns first column");
   return(timeseries[,var.id[1]])
 }
 
-## generic function of dealing with recoding, fixed cutoff values and individual cutoff values
+# Function for dealing with recoding ####
 recodefunction <- function(input,codesposnegmiss,newcodes){
+  #' @title Recoding function
+  #' @description
+    #' Recodes test outcomes into other new codes
+  #' @param input data
+  #' @param codesposnegmiss vector containing code names in current data set for postives, negative and missing data.
+  #' @param newcodes new codes for positive, negative and missing.
+  #' @return recoded data
   ifelse(str_detect(pattern = paste0("[",codesposnegmiss[1],"]"),string = input),newcodes[1],
          ifelse(str_detect(pattern=paste0("[",codesposnegmiss[2],"]"),string = input),newcodes[2],
                 ifelse(str_detect(pattern=paste0("[",codesposnegmiss[3],"]"),string = input),newcodes[3],NA)))}
 
+# Function for dealing with recoding based on cutoff values ####
 cutofffunction <- function(input,co){
+  #' @title Recoding by cutoff
+  #' @description
+  #' Recodes test outcomes simply based on cut-off
+  #' @param input data
+  #' @param co cut-off value (always positive if > co) 
+  #' @return recoded data
   as.numeric(input)> co
   
 }
 
+#Function for dealing with detection limit
 detectionLimitfunction <- function(input,co = 0,dir =">"){
+  #' @title Recoding by a detection limit
+  #' @description
+  #' Recodes test outcomes  based on cut-off
+  #' @param input data
+  #' @param co cut-off value 
+  #' @param dir direction of comparison (i.e. ">", ">=", "<"or "<=")
+  #' @return recoded data
+  
   #if the sample measurement has a value 
   num.val <- as.numeric(input["sample_measure"]);
   #no individual detection  limit for this particular sample
@@ -63,16 +96,34 @@ detectionLimitfunction <- function(input,co = 0,dir =">"){
 
 
 ##rule using first sampletype in the data and determine status S or I####
-#Positive means individual is positive from that time onwards, return data 'asis'
+#Positive means individual is infectious, return data 'asis'
 rule.asis.numeric <-function(timeseries,var.id,...){
+  #' @title rule asis
+  #' @description
+    #'  rule return data as it is but change 1's to code for infectious (=2)
+  #' @inheritParams rule.generic
+  #' @inherit rule.generic return
     return(as.numeric(2*(timeseries[,var.id[1]]%>%sign)))
 }
 
 #recode 
-rule.asis.recoded <-function(timeseries,var.id,
+
+rule.asis.recoded <-function(timeseries,
+                             var.id,
                              codesposnegmiss,
                              newcodes=c(1,0,0), ...)
 {
+  #' @title rule asis but recoded
+  #' @description
+    #' Uses functions for recoding and returns data with positive = infectious (code =2)
+  #' @param timeseries 
+  #' @param var.id 
+  #' @param codesposnegmiss 
+  #' @param newcodes 
+  #' @param ... 
+  #'
+  #' @inherit rule.generic return
+  
   if(length(codesposnegmiss)>3){ 
     stop("too many recodings for this rule!")}
   
@@ -82,7 +133,19 @@ rule.asis.recoded <-function(timeseries,var.id,
 }
 
 #recode using a cutoff
+
 rule.asis.cutoff <-function(timeseries,var.id,cutoff,...){
+  #' @title Rule asis with cut-off
+  #'  #' @description
+  #' Uses functions for recoding with a cut-off and returns data with positive = infectious (code =2)
+  #' @param timeseries 
+  #' @param var.id 
+  #' @param cutoff 
+  #' @param ... 
+  #'
+  #' @inherit rule.generic return
+  
+
   timeseries[,var.id]<- timeseries[,var.id[1]]%>%
         sapply(cutofffunction,co = cutoff) %>% as.numeric(var.id)
   return(rule.asis(timeseries, var.id,...))
@@ -90,6 +153,16 @@ rule.asis.cutoff <-function(timeseries,var.id,cutoff,...){
 
 #use a detection limit
 rule.asis.cutoff.detectionLimit <-function(timeseries,var.id,cutoff =0,...){
+  #' @title Rule asis with cut-off by a detection limit
+  #'  #' @description
+  #' Uses functions for recoding with a cut-off by a detection limit and returns data with positive = infectious (code =2)
+  #' @param timeseries 
+  #' @param var.id 
+  #' @param cutoff 
+  #' @param ... 
+  #'
+  #' @inherit rule.generic return
+  
   timeseries[,var.id]<- timeseries[,c(var.id[1],"detectionLimit")]%>%
         apply(detectionLimitfunction,1,co = cutoff) %>% as.numeric(var.id)
   

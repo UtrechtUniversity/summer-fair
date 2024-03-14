@@ -26,22 +26,21 @@ lapply(
 
 # source required R scripts  ####
 # scripts should be in subfolder "src/R" 
-source("src/R/DataManipulationRules.R")    #Data manipulation rules are pre- or user defined
-source("src/R/LocalAlgorithm.R")           #Estimation methods
-source("src/R/Query.r") #Query function
-source("src/R/GlobalAlgorithm.R")
+source("./src/R/DataInterpretationRules.R")    #Data manipulation rules are pre- or user defined
+source("./src/R/LocalAlgorithm.R")           #Estimation methods
+#source("./src/R/Query.r") #Query function
+source("./src/R/GlobalAlgorithm.R")
 
-# get data ####
-dataA<- get.data("http://localhost:3030/datasetA")
-dataB<- get.data("http://localhost:3030/datasetB")
-datapigs2018<- get.data("http://localhost:3030/pigs2018data")
-datapigs2020<- get.data("http://localhost:3030/pigs2020data")
+# get presaved data ####
+dataE<- readRDS("./data/dataE.RDS")
+dataF<- readRDS("./data/dataF.RDS")
+
 #run local algorithm for each data set ####
 #run analysis over data set A
 
-localA <- analyseTransmission(inputdata = dataA,           #data set
+localE <- analyseTransmission(inputdata = dataE,           #data set
                               rule = rule.sinceany.cutoff, #rule to determine infection status
-                              var.id = c("sample_measure"),#variable defining infection status
+                              var.id = c("sample_result"),#variable defining infection status
                               method = "glm",              #estimation method
                               cutoff = 0,                  #cutoff value for infection status
                               preventError = TRUE,         #TRUE = remove entries with > 1 case but FOI = 0
@@ -49,9 +48,9 @@ localA <- analyseTransmission(inputdata = dataA,           #data set
                               reference = "control",       #reference category for multivariable estimation
                               control = "0")               #value of control treatment
 #run analysis over data set B
-localB<- analyseTransmission(inputdata = dataB,            #data set
+localF<- analyseTransmission(inputdata = dataF,            #data set
                              rule = rule.sinceany.recode,  #rule to determine infection status
-                             var.id = c("sample_result"),  #variable defining infection status
+                             var.id = c("sample_measure"),  #variable defining infection status
                              method = "glm",               #estimation method
                              codesposnegmiss = c("+","-","NA"), #values determining infection status pos, neg of missing
                              preventError = TRUE,          #TRUE = remove entries with > 1 case but FOI = 0
