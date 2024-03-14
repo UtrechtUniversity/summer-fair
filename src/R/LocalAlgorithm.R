@@ -5,6 +5,7 @@
 #  - Functions to arrange the data for use in the estimation procedures    #
 #  - Wrapper functions to do the analyses that call on data arrange and 
 #    estimation functions                                 
+#  - Wrapper functions to do the analyses that call on data arrange and estimation functions                                 #
 #  - Estimation functions
 #
 #                  Author:Egil A.J. Fischer                                #
