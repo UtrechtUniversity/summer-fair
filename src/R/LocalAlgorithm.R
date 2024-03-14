@@ -1,16 +1,19 @@
-##########################################################
-#                                                        #
-#  Local algorithm estimation of transmission parameters #
-#                                                        #
-#                                                        #
-#                  Author:Egil A.J. Fischer              #
-#                  Contact: e.a.j.fischer@uu.nl          #
-#                  Creation date: 21-9-2021              #
-##########################################################
+############################################################################
+#                                                                          #
+#  Local algorithm estimation of transmission parameters                   #
+#  This script contains functions in three groups:                         #
+#  - Functions to arrange the data for use in the estimation procedures    #
+#  - Wrapper functions to do the analyses that call on data arrange and 
+#    estimation functions                                 
+#  - Estimation functions
+#
+#                  Author:Egil A.J. Fischer                                #
+#                  Contact: e.a.j.fischer@uu.nl                            #
+#                  Creation date: 21-9-2021                                #
+############################################################################
 
 ## install and load packages ####
-## First specify the packages of interest
-packages = c("SPARQL",
+packages =c(#"SPARQL",
              "ggplot2",
              "tidyverse",
              "rlog",
@@ -18,7 +21,8 @@ packages = c("SPARQL",
             # "rstan",     #not yet used
             #"shinystan", #not yet used
             #"rstanarm",  #not yet used
-             "bbmle")
+             "bbmle",
+            "docstring")# the packages of interest
 
 ## Now load or install&load all
 package.check <- lapply(
@@ -30,17 +34,34 @@ package.check <- lapply(
     }
   }
 )
+
 #silence this warning because it has no use in this code
 options(dplyr.summarise.inform = FALSE) 
 
-### function apply a rule to the data to determine status of a sample ####
-# status of a sample is determined by the own value and all other values of that chicken 
-# status of a sample can be determined by one value or multiple inputs
+
+###########################################################################
+#   Functions to arrange the data                                         #
+###########################################################################
+
+# function apply a rule to the data to determine status of a host####
 applyRule <- function(data,
                       rule,
                       var.id, 
                       ...){
-  #set new data set arranged by times
+  #'@title Apply a data interpretation rule
+  #'@description status of a sample is determined by the own value and all other values of that chicken. status of a sample can be determined by one value or multiple inputs
+  #' @param data data set or data sets of a host
+  #' @param rule a function defined either by the user or selected from DataInterpretationRules.R
+  #' @param var.id vector with variable names to be used to determine status of host
+  #' @return data frame containing the same variables as data and an additional variable "sir" indicating state of host (0 = susceptible, 1= latent, 2 = infectious, 3 = recovered)
+  
+
+  #check data consistency with required variable names
+  if(!all(c("host_id","times") %in% names(data))) {
+    stop("Not all required column names (host_id,times) are present.")
+  }
+  
+  #set new data arranged by times
   dataRuled <- data%>%arrange(times);
   sir<- NULL;#0 indicates susceptible individual
   for(cid in unique(dataRuled$host_id)){
@@ -54,11 +75,19 @@ applyRule <- function(data,
   return(dataRuled)
 }
 
-##create a numeric time ####
+#create a numeric time from a set of time variables####
 setTimes<- function(input,                 #data set
                     resolution = "day",   #return time at this resolution allowed is second, minute, hour, day, week, month, year
                     decimals = 1,
                     ...){
+  #' @title Set times to a specific resolution and number of decimals
+  #' @description Change a numeric value in input variables into the required time resolution (second, minute, hour, day, week, month, year). Data should thus contain at least one of the following variables c("ex_sec","ex_min","ex_hour","ex_day","ex_week","ex_year")
+  #' @param input times
+  #' @param resolution string define the resolution (second, minute, hour, day, week, month, year)
+  #' @param decimals  number of decimals to round the time to
+  #' @return vector of times
+  
+  
   timevars <- c("ex_sec","ex_min","ex_hour","ex_day","ex_week","ex_year");
   #timevarsininput<-timevars[timevars%in%names(input)]
   times <-  NA;
@@ -78,7 +107,7 @@ setTimes<- function(input,                 #data set
   return((times/ multiplicationfactor[paste0("ex_",resolution)])%>%round(decimals))
 } 
  
-##arrange input for analysis####
+##generic function to arrange input for analysis. Based on methods it will call another function####
 arrangeData <- function(data, 
                         rule,
                         var.id,
@@ -89,6 +118,21 @@ arrangeData <- function(data,
                         inoMarker = "I",    #marker used for inoculated animals
                         Echo = FALSE,  #print analysis type
                         ...){
+  #' @title Arrange data for estimation
+  #' @description
+    #' This method calls on other method to arrange the input in such a way that it can be used in estimation procedures. 
+  #' @param data input data
+  #' @param rule rule function to define infection status of host
+  #' @param var.id vector of variable names to use for define infection status
+  #' @param method estimation method ("glm","mll","finalsize" )
+  #' @param covariates covariates in estimation procedure
+  #' @param control value in variable treatment defining the control group
+  #' @param remInoCase if TRUE remove inoculated hosts that are not excreting as potential cases
+  #' @param inoMarker value defining inoculated hosts
+  #' @param Echo print analysis type before start of estimation procedure
+  #' @return Dataframe that can be used for estimation procedures
+  
+  
   #remove variables with all NA
   data <- data %>%  select(
       where(
@@ -117,14 +161,21 @@ arrangeData <- function(data,
          (applyRule(data,rule,var.id,...),covariates,remInoCase))
 }
 
-##arrange data for specific analysis ####
-### For maximum likelihood  models ####
+
+### Arrange data for maximum likelihood  models ####
 arrangeData.mll<-function(rdata,           #data
                           covariates = NULL, #covariate column names
                           remInoCase = TRUE,  #remove inoculated animals as potential case
                           inoMarker = "I",    #marker used for inoculated animals
                           reference = NULL,
                           ...){ 
+  #'@title Arrange data for MLL estimation
+  #'@description  function to arrange data such that it can be used in teh MLL estimation procedure. 
+  #'@param rdata data arranged for this specific estimation method
+  #'@param covariates variable names of covariates
+  #'@param inoMarker value defining inoculated hosts
+  #'@param reference value in treatment that is used as reference in estimation procedures (can be different than control)
+  #'@return Dataframe that can be used for estimation procedures
 
   #if no round in the data add
   if(is.null(rdata$round))rdata$round <- 1;
@@ -283,7 +334,15 @@ arrangeData.finalsize<-function(rdata,           #data
                           inoMarker = "I",    #marker used for inoculated animals
                           ...
 ){ 
-  stop("NOT FINISHED ~ to do  in 2023")
+  #'@title Arrange data for Final Size estimation
+  #'@description  function to arrange data such that it can be used in Final Size estimation procedure. 
+    #' !Not yet implememented! This function will throw an error!
+  #'@param rdata data arranged for this specific estimation method
+  #'@param covariates variable names of covariates
+  #'@param inoMarker value defining inoculated hosts
+  #'@param reference value in treatment that is used as reference in estimation procedures (can be different than control)
+  #'@return Dataframe that can be used for estimation procedures
+  stop("NOT FINISHED ~ to do  in 2024")
   #for a finals approach requires
   #1. Get the initial susceptibles
   #rdata %>% 
@@ -311,7 +370,9 @@ arrangeData.finalsize<-function(rdata,           #data
   return(group.data)
 }
 
-
+###########################################################################
+#   Wrapper functions to arrange the data and do the estimation           #
+###########################################################################
 
 # perform analysis ####
 analyseTransmission<- function(inputdata,          #input data
@@ -323,7 +384,19 @@ analyseTransmission<- function(inputdata,          #input data
                                remInoCase = TRUE,     #remove inoculated animals as potential case
                                inoMarker = "I",    #marker used for inoculated animals
                                reference = NULL,
-                               ...){
+                               ...){~
+  #'@title Arrange data and perform analyses
+  #'@description  This function is a wrapper around the arrangement of data and conducting the analyses. It calls on function arrangeData and run."method"
+  #'@param inputdata a dataset that is organized according to the Infectious Transmission ontology
+  #'@param rule function to define infection status of host
+  #' @param var.id vector of variable names to use for define infection status
+  #' @param method estimation method ("glm","mll","finalsize" )
+  #' @param preventError True passed to function run.<<method>> 
+  #' @param covars covariates in estimation procedure. Default = "1" i.e. only intercept
+  #' @param remInoCase if TRUE remove inoculated hosts that are not excreting as potential cases
+  #' @param inoMarker value defining inoculated hosts
+  #'@param reference value in treatment that is used as reference in estimation procedures (can be different than control)
+  #' @return output of estimation procedure
   
   #create a log data frame
   cat("Analysing transmission using ",method, "at", format(Sys.time(), "%a %b %d %X %Y"),"\n");
@@ -374,6 +447,12 @@ analyseTransmission<- function(inputdata,          #input data
 
 #run local algorithm for each data set ####
 get.local.transmission <- function(dataset,config.file =  "src/R/summerfair_config.yaml"){
+  #'@title Arrange data and perform analyses based on a configuration file 
+  #'@description  This function is a wrapper around the arrangement of data and conducting the analyses. It calls on function arrangeData and run."method" based on a configuration file.
+  #'@param dataset a dataset that is organized according to the Infectious Transmission ontology
+  #'@param config.file location of configuration file
+  #' @return output of estimation procedure
+  
   #read configuration file and perform analysis given the configuration
   config <-read_yaml(file = config.file);
   
@@ -450,14 +529,22 @@ get.local.transmission <- function(dataset,config.file =  "src/R/summerfair_conf
 
 
 
-##################ESTIMATION PROCEDURES ##########################################
-##################################################################################
+###########################################################################
+#   Functions to perform the estimation                                   #
+###########################################################################
+
+
 # run.glm is a function equal to glm but will filter time points that cannot be used. 
 # run.glm cannot deal with multiple levels. If multiple levels are present the run.mml method should be used
-
 run.glm<-function(covars,
                   data.arranged,
                   preventError = TRUE){
+  #' @title Estimation using a generalized linear model
+  #' @description Estimate the transmission coefficient using a generalized linear model.It cannot deal with transmission at different levels (e.g. within- and between-pen)
+  #' @param covars Covariates
+  #' @param data.arranged Data set properly arranged for the use of a glm
+  #' @param preventError default TRUE. Filter for instances without susceptibles or infectious hosts.
+  #' @return returns output of glm
   
   #filter intervals without infected animals. 
   if(preventError){
@@ -481,26 +568,29 @@ run.glm<-function(covars,
 }
 
 ##################################################################################
-#run.mll is a function equal to that will filter time points that cannot be used, and produces a number of estimates for within- and between level transmission
-
+#run.mll is a function equal to that will filter time points that cannot be used, 
+#and produces a number of estimates for within- and between level transmission
 run.mll<-function(covars,
                   data.arranged,
                   preventError = TRUE){
+  #' @title Estimation via maximum likelihood
+  #' @description Estimate the transmission coefficient using a maximum likelihood method.It can deal with transmission at different levels (e.g. within- and between-pen)
+  #' @param covars Covariates -!NOt yet properly implemented!
+  #' @param data.arranged Data set properly arranged for the use of a glm
+  #' @param preventError default TRUE. Filter for instances without susceptibles or infectious hosts.
+  #' @return Outcomes of maximum likelihood estimation
   
   #filter intervals without infected animals. 
   if(preventError){
     data.filtered <- data.arranged %>% filter(i1 + i2 + i3 > 0 &!is.na(i1 + i2 + i3 )&!is.na(cases)&!is.na(s)&!is.na(i1)&!is.na(r));
   }else data.filtered <- data.arranged
   
-  # #if covariates only have one unique value it cannot be used in the glm
-  # deprecated 
-  # use.covars <- covars[data.filtered[,covars]%>%unique%>%length>1]
-  # if(length(use.covars)==0){use.covars <- "1"}
   
   #determine number of levels
   levels = "L1" ;
   if(sum(data.filtered$i2)>0)levels = "L2";
   if(sum(data.filtered$i3)>0)levels = "L3";
+  
   #Do the analysis
   #loop over covariates
   # for(cv in covars){
