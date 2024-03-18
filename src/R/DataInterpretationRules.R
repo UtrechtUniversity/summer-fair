@@ -97,17 +97,16 @@ detectionLimitfunction <- function(input,co = 0,dir =">"){
 
 ##rule using first sampletype in the data and determine status S or I####
 #Positive means individual is infectious, return data 'asis'
-rule.asis.numeric <-function(timeseries,var.id,...){
-  #' @title rule asis
+
+rule.asis <-function(timeseries,var.id,...){
+  #' @title rule asis 
   #' @description
-    #'  rule return data as it is but change 1's to code for infectious (=2)
-  #' @inheritParams rule.generic
-  #' @inherit rule.generic return
+  #'  rule return data as it is but change 1's to code for infectious (=2)
+  #' @inherit rule.generic param return 
     return(as.numeric(2*(timeseries[,var.id[1]]%>%sign)))
 }
 
 #recode 
-
 rule.asis.recoded <-function(timeseries,
                              var.id,
                              codesposnegmiss,
@@ -133,7 +132,6 @@ rule.asis.recoded <-function(timeseries,
 }
 
 #recode using a cutoff
-
 rule.asis.cutoff <-function(timeseries,var.id,cutoff,...){
   #' @title Rule asis with cut-off
   #'  #' @description
@@ -152,7 +150,7 @@ rule.asis.cutoff <-function(timeseries,var.id,cutoff,...){
 }
 
 #use a detection limit
-rule.asis.cutoff.detectionLimit <-function(timeseries,var.id,cutoff =0,...){
+rule.asis.detectionLimit <-function(timeseries,var.id,cutoff =0,...){
   #' @title Rule asis with cut-off by a detection limit
   #'  #' @description
   #' Uses functions for recoding with a cut-off by a detection limit and returns data with positive = infectious (code =2)
@@ -164,7 +162,7 @@ rule.asis.cutoff.detectionLimit <-function(timeseries,var.id,cutoff =0,...){
   #' @inherit rule.generic return
   
   timeseries[,var.id]<- timeseries[,c(var.id[1],"detectionLimit")]%>%
-        apply(detectionLimitfunction,1,co = cutoff) %>% as.numeric(var.id)
+        apply(FUN = detectionLimitfunction,1,co = cutoff) %>% as.numeric(var.id)
   
   return(2*(timeseries[,var.id[1]]%>%sign))
 }
@@ -175,8 +173,18 @@ rule.asis.cutoff.detectionLimit <-function(timeseries,var.id,cutoff =0,...){
 
 ##rule using first sampletype in the data and determine status S or I####
 # First positive means individual is positive from that time onwards
+
 rule.sincefirst <- function(timeseries,var.id,...){
-  if(length(var.id)>1) warning("Only first var.id entry used in rule")
+  #' @title Rule since first positive
+  #' @description
+  #' All samples of a host are considered positive after the first positive sample
+  #' 
+  #' @param timeseries 
+  #' @param var.id 
+  #' @param ... 
+  #' @inherit rule.generic param, return, examples, references
+  #' @return
+    if(length(var.id)>1) warning("Only first var.id entry used in rule")
   new.series <-2*(timeseries %>% 
                     select(all_of(var.id[1]))%>%
                     unlist%>%
@@ -191,6 +199,15 @@ rule.sincefirst.recode <- function(timeseries,
                                    var.id,
                                    codesposnegmiss,
                                    newcodes=c(1,0,0),...){
+  #' @title Rule since first positive use recoding
+  #' @description
+  #' All samples of a host are considered positive after the first positive sample
+  #' 
+  #' @param timeseries 
+  #' @param var.id 
+  #' @param ... 
+  #' @inherit rule.generic param, return, examples, references
+  #' @return
   if(length(var.id)>1) warning("Only first var.id entry used in rule")
   #recode data
   timeseries[,var.id]<- timeseries[,var.id[1]]%>%
@@ -201,16 +218,32 @@ rule.sincefirst.recode <- function(timeseries,
 
 #recode using a cutoff
 rule.sincefirst.cutoff <-function(timeseries,var.id,cutoff,...){
+  #' @title Rule since first positive use cutoff
+  #' @description
+  #' All samples of a host are considered positive after the first positive sample
+  #' 
+  #' @param timeseries 
+  #' @param var.id 
+  #' @param cutoff 
+  #' @param ... 
+  #' @inherit rule.generic param, return, examples, references
+  #' @return
   timeseries[,var.id]<- timeseries[,var.id[1]]%>%
     sapply(cutofffunction,co = cutoff) %>% as.numeric(var.id);
   return(rule.sincefirst(timeseries, var.id,...))
 }
 
 #use a detection limit
-rule.sincefirst.cutoff.detectionLimit <-function(timeseries,var.id,cutoff = 0,...){
-  x <- 1+1;
-  
-  timeseries[,var.id]<- timeseries[,c(var.id[1],"detectionLimit")]%>%
+rule.sincefirst.detectionLimit <-function(timeseries,var.id,cutoff = 0,...){
+  #' @title Rule since first positive using cutof and detection limit
+  #' @description
+  #' All samples of a host are considered positive after the first positive sample
+  #' 
+  #' @param timeseries 
+  #' @param var.id 
+  #' @param ... 
+  #' @inherit rule.generic param, return, examples, references
+  #' @returntimeseries[,var.id]<- timeseries[,c(var.id[1],"detectionLimit")]%>%
     apply(FUN = detectionLimitfunction,MARGIN = 1,co = cutoff) %>% as.numeric(var.id);
   
   return(rule.sincefirst(timeseries, var.id,...))
@@ -222,6 +255,16 @@ rule.sincefirst.cutoff.detectionLimit <-function(timeseries,var.id,cutoff = 0,..
 ##rule using any sample in the data and determine status S or I####
 # First positive means individual is positive from that time onwards
 rule.sinceany <- function(timeseries,var.id,...){
+  #' @title Rule since first positive of any sample. 
+  #' @description
+  #' All samples of a host are considered positive after the first positive sample from multiple assays per time point
+  #' 
+  #' @param timeseries 
+  #' @param var.id 
+  #' @param ... 
+  #' @inherit rule.generic param, return, examples, references
+  #' @return
+  
   new.series <- 2*(timeseries %>% 
                      select(all_of(var.id))%>%
                      unlist%>%
@@ -232,10 +275,21 @@ rule.sinceany <- function(timeseries,var.id,...){
   return(new.series)
 }
 
+#recode
 rule.sinceany.recode <- function(timeseries,
                                    var.id,
                                    codesposnegmiss,
                                    newcodes=c(1,0,0),...){
+  #' @title Rule since first positive of any sample using recoding
+  #' @description
+  #' All samples of a host are considered positive after the first positive sample from multiple assays per time point
+  #' 
+  #' @param timeseries 
+  #' @param var.id 
+  #' @param ... 
+  #' @inherit rule.generic param, return, examples, references
+  #' @return
+  
   if(length(var.id)>1) warning("Only first var.id entry used in rule")
   #recode data
   timeseries[,var.id]<- timeseries[,var.id[1]]%>%
@@ -246,13 +300,31 @@ rule.sinceany.recode <- function(timeseries,
 
 #recode using a cutoff
 rule.sinceany.cutoff <-function(timeseries,var.id,cutoff,...){
+  #' @title Rule since first positive of any sample using cutoff
+  #' @description
+  #' All samples of a host are considered positive after the first positive sample from multiple assays per time point
+  #' 
+  #' @param timeseries 
+  #' @param var.id 
+  #' @param ... 
+  #' @inherit rule.generic param, return, examples, references
+  #' @return
   timeseries[,var.id]<- timeseries[,var.id[1]]%>%
     sapply(cutofffunction,co = cutoff) %>% as.numeric(var.id)
   return(rule.sinceany(timeseries, var.id,...))
 }
 
 #use a detection limit
-rule.sinceany.cutoff.detectionLimit <-function(timeseries,var.id,cutoff =0,...){
+rule.sinceany.detectionLimit <-function(timeseries,var.id,cutoff =0,...){
+  #' @title Rule since first positive of any sample using d=cutoff and detection limit
+  #' @description
+  #' All samples of a host are considered positive after the first positive sample from multiple assays per time point
+  #' 
+  #' @param timeseries 
+  #' @param var.id 
+  #' @param ... 
+  #' @inherit rule.generic param, return, examples, references
+  #' @return
   timeseries[,var.id]<- timeseries[,c(var.id[1],"detectionLimit")]%>%
     apply(detectionLimitfunction,1,co = cutoff) %>% as.numeric(var.id)
   
@@ -260,8 +332,16 @@ rule.sinceany.cutoff.detectionLimit <-function(timeseries,var.id,cutoff =0,...){
 }
 
 ##rule using all sample (all should be positive) in the data and determine status S or I####
-# Animals can switch between susceptible and infectious and back
 rule.all <- function(timeseries,var.id,...){
+  #' @title Rule for multiple samples and all need to be positive
+  #' @description
+  #' All samples of a host are considered infectious if all assays per time point are positive
+  #' 
+  #' @param timeseries 
+  #' @param var.id 
+  #' @param ... 
+  #' @inherit rule.generic param, return, examples, references
+  #' @return
   new.series <- 2*(timeseries%>%
                      select(all_of(var.id))%>%
                      rowMins() );
@@ -271,6 +351,16 @@ rule.all <- function(timeseries,var.id,...){
 ##rule using some samples to determine status  I and other for R####
 # Animals can switch between susceptible, infectious, recovered and back
 rule.testinfectioustestrecovered <- function(timeseries,var.id,infrec){
+  #' @title Rule for multiple samples in which one determines infection and one recovery
+  #' @description
+  #' A host is considered infectious if the variables indicating infectiousness are positive and recovered if the variable indicating recovery is positive
+  #' 
+  #' @param timeseries 
+  #' @param var.id 
+  #' @param infrec data.frame containing names of variables that indicate infectiousness (infrec$inf) or recovery (infrec$rec)
+  #' @param ... 
+  #' @inherit rule.generic param, return, examples, references
+  #' @return
   i <- 2*(timeseries%>%
             select(all_of(var.id[infrec$inf]))%>%
             rowSums%>%
@@ -283,8 +373,18 @@ rule.testinfectioustestrecovered <- function(timeseries,var.id,infrec){
   return(new.series)
 }
 
-
+#
 rule.sincefirstinfectioustestrecovered <- function(timeseries,var.id,infrec){
+  #' @title Rule for multiple samples in which one determines infection and one recovery
+  #' @description
+  #' A host is considered infectious from the first time a variable indicating infectiousness are positive and recovered from the first time a variable indicating recovery is positive
+  #' 
+  #' @param timeseries 
+  #' @param var.id 
+  #' @param infrec data.frame containing names of variables that indicate infectiousness (infrec$inf) or recovery (infrec$rec)
+  #' @param ... 
+  #' @inherit rule.generic param, return, examples, references
+  #' @return
   i <- 2*(timeseries%>%
             select(all_of(var.id[infrec$inf]))%>%
             unlist%>%
@@ -305,7 +405,19 @@ rule.sincefirstinfectioustestrecovered <- function(timeseries,var.id,infrec){
 ##rule uses any sample which requires to be positive for at least n consecutive time moments
 #If only the last sample is positive it will  be considered positive
 rule.consecutive <- function(timeseries,var.id,n)
-{ new.series <- timeseries%>%
+{ 
+  #' @title Rule with minimum number of positive samples
+  #' @description
+  #' A host is considered infectious if it has had n days consecutive positive samples.
+  #' 
+  #' @param timeseries 
+  #' @param var.id 
+  #' @param n number of days a host needs to have positive samples
+  #' @param ... 
+  #' @inherit rule.generic param, return, examples, references
+  #' @return
+  
+  new.series <- timeseries%>%
                 select(all_of(var.id))%>%
                 rowSums()%>%
                 sign();
@@ -319,6 +431,16 @@ rule.consecutive <- function(timeseries,var.id,n)
 ##rule using any sample in the data and determine status S or I####
 # Animals can switch between susceptible and infectious and back
 rule.any <- function(timeseries,var.id,...){
+  #' @title Rule any of multiple samples
+  #' @description
+  #' A host is considered infectious if any of multiple samples is positive.
+  #' 
+  #' @param timeseries 
+  #' @param var.id 
+  #' @param ... 
+  #' @inherit rule.generic param, return, examples, references
+  #' @return
+  
   new.series <- 2*as.numeric(timeseries%>%
                      select(all_of(var.id))%>%
                      rowSums%>%
@@ -333,6 +455,17 @@ rule.sinceany.recode<- function(timeseries,
                                 newcodes=c(1,0,0),
                                 ... )
 {
+  #' @title Rule since any of multiple samples with recoding
+  #' @description
+  #' A host is considered infectious since first of any of multiple samples is positive.
+  #' 
+  #' @param timeseries 
+  #' @param var.id 
+  #' @param codesposnegmiss
+  #' @param newcodes
+  #' @param ... 
+  #' @inherit rule.generic param, return, examples, references
+  #' @return
   if(length(codesposnegmiss)>3){ 
      stop("too many recodings for this rule!")}
   recodefunction <- function(input){
@@ -351,6 +484,16 @@ rule.sinceany.recode<- function(timeseries,
 ##If pos / neg is indicated by a cutoff
 rule.sinceany.cutoff<- function(timeseries, var.id,cutoff,... )
 {
+  #' @title Rule since any of multiple samples with cutoff
+  #' @description
+  #' A host is considered infectious since first of any of multiple samples is positive.
+  #' 
+  #' @param timeseries 
+  #' @param var.id 
+  #' @param cutoff
+  #' @param ... 
+  #' @inherit rule.generic param, return, examples, references
+  #' @return
   recodefunction <- function(input){
         as.numeric(input)> cutoff
     
@@ -364,8 +507,19 @@ rule.sinceany.cutoff<- function(timeseries, var.id,cutoff,... )
 
 #if pos / neg is indicated by a cutoff and a detection limit. 
 #Measures with a value of the detection limit are defined positive if above detection limit (">") and negative if below detection limit ("<")
-rule.sinceany.cutoff.detectionlimit <- function(timeseries, var.id, cutoff, ...)
-  {  #determine cutoff
+rule.sinceany.detectionLimit <- function(timeseries, var.id,  ...)
+  {  
+  #' @title Rule since any of multiple samples with detection limit
+  #' @description
+  #' A host is considered infectious since first of any of multiple samples is positive based on detection limit for that variable
+  #' 
+  #' @param timeseries 
+  #' @param var.id 
+ 
+  #' @param ... 
+  #' @inherit rule.generic param, return, examples, references
+  #' @return
+  #determine cutoff
   num.val <- as.numeric(as.numeric(timeseries[,"sample_measure"])>cutoff);
   dl <- sapply(timeseries[,"detectionLimit"],grepl,pattern = "<")
   du <-sapply(timeseries[,"detectionLimit"],grepl,pattern = ">")
