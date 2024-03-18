@@ -14,7 +14,7 @@ This folder contains files to estimate transmission parameters from observations
 - TutorialAlgorithms.R: File to be used in tutorials for the methods. 
 
 ##Data interpretation rules
-File [DataInterpretationRules.R](src/R/DataInterpretationRules.R) contains a number of "rule" to determine the status of a host. Tha status of a host is coded: 
+File [DataInterpretationRules.R](/src/R/DataInterpretationRules.R) contains a number of "rule" to determine the status of a host. Tha status of a host is coded: 
 * Susceptible = 0
 * Latent = 1
 * Infectious = 2
